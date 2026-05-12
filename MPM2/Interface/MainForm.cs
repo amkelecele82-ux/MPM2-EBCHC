@@ -21,7 +21,8 @@ namespace MPM2
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.MainMenuStrip = menuStrip1;
-            //tmpanel.BringToFront();
+            DashboardForm1 d = new DashboardForm1();
+            formSetup(d);
         }
         public void formSetup(Form myForm)
         {

@@ -34,6 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -75,9 +76,9 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(53)))));
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(-248, 785);
+            this.panel3.Location = new System.Drawing.Point(0, 781);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(2004, 31);
+            this.panel3.Size = new System.Drawing.Size(1507, 38);
             this.panel3.TabIndex = 12;
             // 
             // label4
@@ -116,27 +117,37 @@
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(12, 99);
+            this.panel2.Location = new System.Drawing.Point(-1, 72);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(240, 680);
+            this.panel2.Size = new System.Drawing.Size(240, 713);
             this.panel2.TabIndex = 13;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(7, 0);
+            this.panel1.Location = new System.Drawing.Point(-2, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(234, 90);
+            this.panel1.Size = new System.Drawing.Size(243, 91);
             this.panel1.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(35, 49);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 16);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Guest1";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(92, 37);
+            this.label5.Location = new System.Drawing.Point(13, 17);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 16);
+            this.label5.Size = new System.Drawing.Size(85, 16);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Clinical";
+            this.label5.Text = "Logged in as";
             // 
             // button10
             // 
@@ -278,63 +289,73 @@
             // 
             // tmpanel
             // 
-            this.tmpanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tmpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(216)))));
             this.tmpanel.Controls.Add(this.repbutton);
             this.tmpanel.Controls.Add(this.printbutton);
             this.tmpanel.Controls.Add(this.nabutton);
             this.tmpanel.Controls.Add(this.fpbutton);
             this.tmpanel.Controls.Add(this.npbutton);
-            this.tmpanel.Location = new System.Drawing.Point(12, 2);
+            this.tmpanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tmpanel.Location = new System.Drawing.Point(0, 0);
             this.tmpanel.Name = "tmpanel";
-            this.tmpanel.Size = new System.Drawing.Size(1280, 82);
+            this.tmpanel.Size = new System.Drawing.Size(1507, 74);
             this.tmpanel.TabIndex = 14;
             // 
             // repbutton
             // 
-            this.repbutton.Location = new System.Drawing.Point(519, 44);
+            this.repbutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.repbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(27)))), ((int)(((byte)(14)))));
+            this.repbutton.Location = new System.Drawing.Point(549, 12);
             this.repbutton.Name = "repbutton";
-            this.repbutton.Size = new System.Drawing.Size(89, 27);
+            this.repbutton.Size = new System.Drawing.Size(133, 45);
             this.repbutton.TabIndex = 5;
-            this.repbutton.Text = "Report";
+            this.repbutton.Text = "📊 Report";
             this.repbutton.UseVisualStyleBackColor = true;
             // 
             // printbutton
             // 
-            this.printbutton.Location = new System.Drawing.Point(408, 45);
+            this.printbutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.printbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(27)))), ((int)(((byte)(14)))));
+            this.printbutton.Location = new System.Drawing.Point(410, 12);
             this.printbutton.Name = "printbutton";
-            this.printbutton.Size = new System.Drawing.Size(86, 27);
+            this.printbutton.Size = new System.Drawing.Size(133, 45);
             this.printbutton.TabIndex = 4;
-            this.printbutton.Text = "Print";
+            this.printbutton.Text = "🖨 Print";
             this.printbutton.UseVisualStyleBackColor = true;
             // 
             // nabutton
             // 
-            this.nabutton.Location = new System.Drawing.Point(254, 45);
+            this.nabutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.nabutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(27)))), ((int)(((byte)(14)))));
+            this.nabutton.Location = new System.Drawing.Point(271, 12);
             this.nabutton.Name = "nabutton";
-            this.nabutton.Size = new System.Drawing.Size(130, 27);
+            this.nabutton.Size = new System.Drawing.Size(133, 45);
             this.nabutton.TabIndex = 3;
-            this.nabutton.Text = "New appointment";
+            this.nabutton.Text = "🗓New appointment";
             this.nabutton.UseVisualStyleBackColor = true;
             // 
             // fpbutton
             // 
-            this.fpbutton.Location = new System.Drawing.Point(131, 46);
+            this.fpbutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.fpbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(27)))), ((int)(((byte)(14)))));
+            this.fpbutton.Location = new System.Drawing.Point(132, 12);
             this.fpbutton.Name = "fpbutton";
-            this.fpbutton.Size = new System.Drawing.Size(100, 27);
+            this.fpbutton.Size = new System.Drawing.Size(133, 45);
             this.fpbutton.TabIndex = 2;
-            this.fpbutton.Text = "Find patient";
+            this.fpbutton.Text = "🔍 Find patient";
             this.fpbutton.UseVisualStyleBackColor = true;
             // 
             // npbutton
             // 
-            this.npbutton.Location = new System.Drawing.Point(19, 47);
+            this.npbutton.BackColor = System.Drawing.Color.Transparent;
+            this.npbutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.npbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(27)))), ((int)(((byte)(14)))));
+            this.npbutton.Location = new System.Drawing.Point(13, 12);
             this.npbutton.Name = "npbutton";
-            this.npbutton.Size = new System.Drawing.Size(100, 27);
+            this.npbutton.Size = new System.Drawing.Size(113, 45);
             this.npbutton.TabIndex = 1;
-            this.npbutton.Text = "New patient";
-            this.npbutton.UseVisualStyleBackColor = true;
+            this.npbutton.Text = "👤 New patient";
+            this.npbutton.UseVisualStyleBackColor = false;
             // 
             // DashboardForm1
             // 
@@ -386,5 +407,6 @@
         private System.Windows.Forms.Button nabutton;
         private System.Windows.Forms.Button fpbutton;
         private System.Windows.Forms.Button npbutton;
+        private System.Windows.Forms.Label label7;
     }
 }
