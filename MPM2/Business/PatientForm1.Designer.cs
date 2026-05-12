@@ -80,6 +80,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PatientForm1";
             this.Text = "PatientForm1";
             this.panel3.ResumeLayout(false);

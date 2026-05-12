@@ -20,7 +20,7 @@ namespace MPM2
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            this.MainMenuStrip = menuStrip1;
+            //this.MainMenuStrip = menuStrip1;
             //tmpanel.BringToFront();
         }
         public void formSetup(Form myForm)
@@ -50,7 +50,7 @@ namespace MPM2
 
         private void tmpanel_Paint(object sender, PaintEventArgs e)
         {
-
+            Console.WriteLine("test");
         }
     }
 }
