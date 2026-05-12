@@ -87,6 +87,9 @@
     <EmbeddedResource Include="Business\PatientForm1.resx">
       <DependentUpon>PatientForm1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interface\LoginForm1.resx">
+      <DependentUpon>LoginForm1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interface\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
