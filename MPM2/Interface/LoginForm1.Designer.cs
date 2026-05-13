@@ -48,7 +48,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(134, 94);
+            this.label1.Location = new System.Drawing.Point(878, 320);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 16);
             this.label1.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             // TBUsername
             // 
-            this.TBUsername.Location = new System.Drawing.Point(251, 88);
+            this.TBUsername.Location = new System.Drawing.Point(995, 314);
             this.TBUsername.Name = "TBUsername";
             this.TBUsername.Size = new System.Drawing.Size(121, 22);
             this.TBUsername.TabIndex = 3;
@@ -70,7 +70,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(137, 196);
+            this.label2.Location = new System.Drawing.Point(881, 422);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 16);
             this.label2.TabIndex = 4;
@@ -79,7 +79,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(137, 290);
+            this.label3.Location = new System.Drawing.Point(881, 516);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 16);
             this.label3.TabIndex = 5;
@@ -87,7 +87,7 @@
             // 
             // loginbutton
             // 
-            this.loginbutton.Location = new System.Drawing.Point(251, 444);
+            this.loginbutton.Location = new System.Drawing.Point(864, 670);
             this.loginbutton.Name = "loginbutton";
             this.loginbutton.Size = new System.Drawing.Size(96, 35);
             this.loginbutton.TabIndex = 6;
@@ -97,7 +97,7 @@
             // 
             // exitbutton
             // 
-            this.exitbutton.Location = new System.Drawing.Point(435, 444);
+            this.exitbutton.Location = new System.Drawing.Point(1048, 670);
             this.exitbutton.Name = "exitbutton";
             this.exitbutton.Size = new System.Drawing.Size(96, 35);
             this.exitbutton.TabIndex = 7;
@@ -106,7 +106,7 @@
             // 
             // TBPassword
             // 
-            this.TBPassword.Location = new System.Drawing.Point(251, 190);
+            this.TBPassword.Location = new System.Drawing.Point(995, 416);
             this.TBPassword.Name = "TBPassword";
             this.TBPassword.Size = new System.Drawing.Size(121, 22);
             this.TBPassword.TabIndex = 8;
@@ -114,7 +114,7 @@
             // CBRole
             // 
             this.CBRole.FormattingEnabled = true;
-            this.CBRole.Location = new System.Drawing.Point(251, 287);
+            this.CBRole.Location = new System.Drawing.Point(995, 513);
             this.CBRole.Name = "CBRole";
             this.CBRole.Size = new System.Drawing.Size(121, 24);
             this.CBRole.TabIndex = 9;

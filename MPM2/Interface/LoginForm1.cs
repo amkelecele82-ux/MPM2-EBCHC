@@ -40,7 +40,10 @@ namespace MPM2.Interface
                         {
                             this.ActiveMdiChild.Close();
                         }
-                        DashboardForm1 d = new DashboardForm1();
+                        string userName = row["Username"].ToString();
+                        string fullName = row["FullName"].ToString();
+                        string role = "Doctor";
+                        DashboardForm1 d = new DashboardForm1(userName, fullName, role);
                         d.MdiParent = this.MdiParent;
                         d.WindowState = FormWindowState.Maximized;
                         d.FormBorderStyle = FormBorderStyle.None;
@@ -49,7 +52,8 @@ namespace MPM2.Interface
                     }
                     
                 }
-                
+                //MessageBox.Show("Please fill in details");
+
             }
             else if (CBRole.SelectedIndex == 1)
             {
@@ -59,10 +63,22 @@ namespace MPM2.Interface
                     if (row["Username"].ToString().Equals(TBUsername.Text) && row["Password"].ToString().Equals(TBPassword.Text))
                     {
                         MessageBox.Show("Hello " + row["FullName"].ToString());
-
+                        if (this.ActiveMdiChild != null)
+                        {
+                            this.ActiveMdiChild.Close();
+                        }
+                        string userName = row["Username"].ToString();
+                        string fullName = row["FullName"].ToString();
+                        string role = "Nurse";
+                        DashboardForm1 d = new DashboardForm1(userName, fullName, role);
+                        d.MdiParent = this.MdiParent;
+                        d.WindowState = FormWindowState.Maximized;
+                        d.FormBorderStyle = FormBorderStyle.None;
+                        d.Show();
                         break;
                     }
                 }
+                //MessageBox.Show("Please fill in details");
 
             }
             else if (CBRole.SelectedIndex == 2)
@@ -75,6 +91,7 @@ namespace MPM2.Interface
                         break;
                     }
                 }
+                //MessageBox.Show("Please fill in details");
             }
             else
             {
