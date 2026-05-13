@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,12 +54,10 @@
             this.nabutton = new System.Windows.Forms.Button();
             this.fpbutton = new System.Windows.Forms.Button();
             this.npbutton = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
@@ -87,6 +87,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1507, 32);
             this.panel3.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(245, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(189, 16);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "East Boom CHC KZN Province";
             // 
             // label4
             // 
@@ -121,6 +131,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(240, 864);
             this.panel2.TabIndex = 13;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.Control;
+            this.label8.Location = new System.Drawing.Point(11, 92);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(40, 16);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "MAIN";
             // 
             // panel1
             // 
@@ -392,16 +412,6 @@
             this.npbutton.Text = "👤New patient";
             this.npbutton.UseVisualStyleBackColor = false;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(11, 92);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(40, 16);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "MAIN";
-            // 
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -422,25 +432,6 @@
             this.panel5.Size = new System.Drawing.Size(219, 182);
             this.panel5.TabIndex = 16;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 83);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Dashboard";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(245, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(189, 16);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "East Boom CHC KZN Province";
-            // 
             // panel9
             // 
             this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -450,6 +441,15 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(219, 10);
             this.panel9.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(51, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Patients Today";
             // 
             // panel10
             // 
@@ -465,7 +465,7 @@
             // 
             this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel11.BackColor = System.Drawing.Color.Navy;
             this.panel11.Location = new System.Drawing.Point(0, 1);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(219, 10);
@@ -474,11 +474,11 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(72, 83);
+            this.label12.Location = new System.Drawing.Point(63, 39);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 16);
+            this.label12.Size = new System.Drawing.Size(89, 16);
             this.label12.TabIndex = 1;
-            this.label12.Text = "Dashboard";
+            this.label12.Text = "Appointments";
             // 
             // panel6
             // 
@@ -494,7 +494,7 @@
             // 
             this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel7.Location = new System.Drawing.Point(0, 1);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(219, 10);
@@ -503,11 +503,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(72, 83);
+            this.label9.Location = new System.Drawing.Point(67, 39);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 16);
+            this.label9.Size = new System.Drawing.Size(87, 16);
             this.label9.TabIndex = 1;
-            this.label9.Text = "Dashboard";
+            this.label9.Text = "Urgent cases";
             // 
             // panel8
             // 
@@ -523,7 +523,7 @@
             // 
             this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.panel12.Location = new System.Drawing.Point(0, 1);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(219, 10);
@@ -532,11 +532,11 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(72, 83);
+            this.label10.Location = new System.Drawing.Point(49, 40);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 16);
+            this.label10.Size = new System.Drawing.Size(125, 16);
             this.label10.TabIndex = 1;
-            this.label10.Text = "Dashboard";
+            this.label10.Text = "Registered Patients";
             // 
             // DashboardForm1
             // 

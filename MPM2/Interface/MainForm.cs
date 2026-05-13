@@ -1,4 +1,5 @@
 ﻿using MPM2.Business;
+using MPM2.Interface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,8 +22,9 @@ namespace MPM2
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.MainMenuStrip = menuStrip1;
-            DashboardForm1 d = new DashboardForm1();
-            formSetup(d);
+            //DashboardForm1 d = new DashboardForm1();
+            LoginForm1 l = new LoginForm1();
+            formSetup(l);
         }
         public void formSetup(Form myForm)
         {
