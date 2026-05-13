@@ -31,6 +31,7 @@ namespace MPM2
                 this.ActiveMdiChild.Close();
             }
             //ChildForm childForm = new ChildForm(myForm);
+            //change has been done
             myForm.MdiParent = this;
             myForm.WindowState = FormWindowState.Maximized;
             myForm.FormBorderStyle = FormBorderStyle.None;
