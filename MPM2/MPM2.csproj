@@ -64,6 +64,12 @@
     <Compile Include="Business\PatientForm1.Designer.cs">
       <DependentUpon>PatientForm1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\RegPatientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\RegPatientForm.Designer.cs">
+      <DependentUpon>RegPatientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\PatientForm1.resx">
       <DependentUpon>PatientForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\RegPatientForm.resx">
+      <DependentUpon>RegPatientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\LoginForm1.resx">
       <DependentUpon>LoginForm1.cs</DependentUpon>

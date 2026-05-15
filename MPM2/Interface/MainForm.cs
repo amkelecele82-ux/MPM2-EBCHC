@@ -56,5 +56,17 @@ namespace MPM2
         {
             Console.WriteLine("test");
         }
+
+        private void viewAllToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PatientForm1 p = new PatientForm1();
+            formSetup(p);
+        }
+
+        private void registerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegPatientForm r = new RegPatientForm();
+            formSetup(r);
+        }
     }
 }

@@ -70,7 +70,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lblRegPatient = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -81,6 +81,8 @@
             this.panel16 = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
+            this.dataSet11 = new MPM2.Database.DataSet1();
+            this.patientTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.PatientTableAdapter();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -94,6 +96,7 @@
             this.panel14.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -594,7 +597,7 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.White;
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel8.Controls.Add(this.label18);
+            this.panel8.Controls.Add(this.lblRegPatient);
             this.panel8.Controls.Add(this.panel12);
             this.panel8.Controls.Add(this.label10);
             this.panel8.Location = new System.Drawing.Point(1372, 197);
@@ -602,15 +605,15 @@
             this.panel8.Size = new System.Drawing.Size(219, 182);
             this.panel8.TabIndex = 17;
             // 
-            // label18
+            // lblRegPatient
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(32, 70);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(171, 91);
-            this.label18.TabIndex = 5;
-            this.label18.Text = "231";
+            this.lblRegPatient.AutoSize = true;
+            this.lblRegPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegPatient.Location = new System.Drawing.Point(32, 70);
+            this.lblRegPatient.Name = "lblRegPatient";
+            this.lblRegPatient.Size = new System.Drawing.Size(171, 91);
+            this.lblRegPatient.TabIndex = 5;
+            this.lblRegPatient.Text = "231";
             // 
             // panel12
             // 
@@ -721,6 +724,15 @@
             this.label19.TabIndex = 2;
             this.label19.Text = "Notifications";
             // 
+            // dataSet11
+            // 
+            this.dataSet11.DataSetName = "DataSet1";
+            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // patientTableAdapter1
+            // 
+            this.patientTableAdapter1.ClearBeforeFill = true;
+            // 
             // DashboardForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -762,6 +774,7 @@
             this.panel15.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -815,10 +828,12 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblRegPatient;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button12;
+        private Database.DataSet1 dataSet11;
+        private Database.DataSet1TableAdapters.PatientTableAdapter patientTableAdapter1;
     }
 }

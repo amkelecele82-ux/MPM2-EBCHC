@@ -21,11 +21,13 @@ namespace MPM2.Business
             this.userName = userName;
             this.fullName = fullName;
             this.role = role;
+            patientTableAdapter1.Fill(dataSet11.Patient);
         }
 
         private void DashboardForm1_Load(object sender, EventArgs e)
         {
             fullNameLabel.Text = fullName;
+            lblRegPatient.Text = dataSet11.Patient.Count.ToString();
 
         }
     }

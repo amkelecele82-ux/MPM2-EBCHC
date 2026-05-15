@@ -28,71 +28,233 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.components = new System.ComponentModel.Container();
+            this.TPatient = new System.Windows.Forms.TabControl();
+            this.ViewPatient = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3.SuspendLayout();
+            this.TBPName = new System.Windows.Forms.TextBox();
+            this.dgvPatient = new System.Windows.Forms.DataGridView();
+            this.patientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alternativePhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new MPM2.Database.DataSet1();
+            this.TNewPatient = new System.Windows.Forms.TabPage();
+            this.patientTableAdapter = new MPM2.Database.DataSet1TableAdapters.PatientTableAdapter();
+            this.TPatient.SuspendLayout();
+            this.ViewPatient.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPatient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // TPatient
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1133, 89);
-            this.panel1.TabIndex = 1;
+            this.TPatient.Controls.Add(this.ViewPatient);
+            this.TPatient.Controls.Add(this.TNewPatient);
+            this.TPatient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TPatient.Location = new System.Drawing.Point(0, 0);
+            this.TPatient.Name = "TPatient";
+            this.TPatient.SelectedIndex = 0;
+            this.TPatient.Size = new System.Drawing.Size(1785, 768);
+            this.TPatient.TabIndex = 0;
             // 
-            // panel2
+            // ViewPatient
             // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 89);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(231, 508);
-            this.panel2.TabIndex = 3;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(231, 89);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(902, 508);
-            this.panel3.TabIndex = 4;
+            this.ViewPatient.Controls.Add(this.label1);
+            this.ViewPatient.Controls.Add(this.TBPName);
+            this.ViewPatient.Controls.Add(this.dgvPatient);
+            this.ViewPatient.Location = new System.Drawing.Point(4, 25);
+            this.ViewPatient.Name = "ViewPatient";
+            this.ViewPatient.Padding = new System.Windows.Forms.Padding(3);
+            this.ViewPatient.Size = new System.Drawing.Size(1777, 739);
+            this.ViewPatient.TabIndex = 0;
+            this.ViewPatient.Text = "View";
+            this.ViewPatient.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(427, 246);
+            this.label1.Location = new System.Drawing.Point(746, 77);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Patient";
+            this.label1.Size = new System.Drawing.Size(88, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Patient name:";
+            // 
+            // TBPName
+            // 
+            this.TBPName.Location = new System.Drawing.Point(840, 74);
+            this.TBPName.Name = "TBPName";
+            this.TBPName.Size = new System.Drawing.Size(229, 22);
+            this.TBPName.TabIndex = 1;
+            this.TBPName.TextChanged += new System.EventHandler(this.TBPName_TextChanged);
+            // 
+            // dgvPatient
+            // 
+            this.dgvPatient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPatient.AutoGenerateColumns = false;
+            this.dgvPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPatient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.patientIDDataGridViewTextBoxColumn,
+            this.fullNameDataGridViewTextBoxColumn,
+            this.dateOfBirthDataGridViewTextBoxColumn,
+            this.usernameDataGridViewTextBoxColumn,
+            this.passwordDataGridViewTextBoxColumn,
+            this.phoneNumberDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.emailAddressDataGridViewTextBoxColumn,
+            this.alternativePhoneNumberDataGridViewTextBoxColumn});
+            this.dgvPatient.DataSource = this.patientBindingSource;
+            this.dgvPatient.Location = new System.Drawing.Point(257, 128);
+            this.dgvPatient.Name = "dgvPatient";
+            this.dgvPatient.RowHeadersWidth = 51;
+            this.dgvPatient.RowTemplate.Height = 24;
+            this.dgvPatient.Size = new System.Drawing.Size(1429, 696);
+            this.dgvPatient.TabIndex = 0;
+            // 
+            // patientIDDataGridViewTextBoxColumn
+            // 
+            this.patientIDDataGridViewTextBoxColumn.DataPropertyName = "PatientID";
+            this.patientIDDataGridViewTextBoxColumn.HeaderText = "PatientID";
+            this.patientIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.patientIDDataGridViewTextBoxColumn.Name = "patientIDDataGridViewTextBoxColumn";
+            this.patientIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.patientIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            this.fullNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dateOfBirthDataGridViewTextBoxColumn
+            // 
+            this.dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
+            this.dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
+            this.dateOfBirthDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
+            this.dateOfBirthDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            this.usernameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            this.usernameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            this.phoneNumberDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // emailAddressDataGridViewTextBoxColumn
+            // 
+            this.emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
+            this.emailAddressDataGridViewTextBoxColumn.HeaderText = "EmailAddress";
+            this.emailAddressDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
+            this.emailAddressDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // alternativePhoneNumberDataGridViewTextBoxColumn
+            // 
+            this.alternativePhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "AlternativePhoneNumber";
+            this.alternativePhoneNumberDataGridViewTextBoxColumn.HeaderText = "AlternativePhoneNumber";
+            this.alternativePhoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.alternativePhoneNumberDataGridViewTextBoxColumn.Name = "alternativePhoneNumberDataGridViewTextBoxColumn";
+            this.alternativePhoneNumberDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // patientBindingSource
+            // 
+            this.patientBindingSource.DataMember = "Patient";
+            this.patientBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // TNewPatient
+            // 
+            this.TNewPatient.Location = new System.Drawing.Point(4, 25);
+            this.TNewPatient.Name = "TNewPatient";
+            this.TNewPatient.Padding = new System.Windows.Forms.Padding(3);
+            this.TNewPatient.Size = new System.Drawing.Size(1777, 739);
+            this.TNewPatient.TabIndex = 1;
+            this.TNewPatient.Text = "New";
+            this.TNewPatient.UseVisualStyleBackColor = true;
+            // 
+            // patientTableAdapter
+            // 
+            this.patientTableAdapter.ClearBeforeFill = true;
             // 
             // PatientForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1133, 597);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1785, 768);
+            this.Controls.Add(this.TPatient);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PatientForm1";
             this.Text = "PatientForm1";
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.Load += new System.EventHandler(this.PatientForm1_Load);
+            this.TPatient.ResumeLayout(false);
+            this.ViewPatient.ResumeLayout(false);
+            this.ViewPatient.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPatient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+
+        private System.Windows.Forms.TabControl TPatient;
+        private System.Windows.Forms.TabPage ViewPatient;
+        private System.Windows.Forms.TabPage TNewPatient;
+        private System.Windows.Forms.DataGridView dgvPatient;
+        private Database.DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource patientBindingSource;
+        private Database.DataSet1TableAdapters.PatientTableAdapter patientTableAdapter;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TBPName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailAddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn alternativePhoneNumberDataGridViewTextBoxColumn;
     }
 }

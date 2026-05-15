@@ -16,5 +16,17 @@ namespace MPM2.Business
         {
             InitializeComponent();
         }
+
+        private void PatientForm1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dataSet1.Patient' table. You can move, or remove it, as needed.
+            this.patientTableAdapter.Fill(this.dataSet1.Patient);
+
+        }
+
+        private void TBPName_TextChanged(object sender, EventArgs e)
+        {
+            patientTableAdapter.FillByPatientName(dataSet1.Patient, TBPName.Text);
+        }
     }
 }
