@@ -14,6 +14,10 @@ namespace MPM2
 {
     public partial class MainForm : Form
     {
+        //These are added so that we can pass the user information from the login form to other forms
+        public string CurrentUserName { get; set; }
+        public string CurrentFullName { get; set; }
+        public string CurrentRole { get; set; }
         public MainForm()
         {
             InitializeComponent();
@@ -67,6 +71,35 @@ namespace MPM2
         {
             RegPatientForm r = new RegPatientForm();
             formSetup(r);
+        }
+
+        private void viewAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppointmentForm1 a =    new AppointmentForm1();
+            formSetup(a);
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DashboardForm1 d = new DashboardForm1(CurrentUserName, CurrentFullName, CurrentRole);
+            formSetup(d);
+        }
+
+        private void appointmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppointmentForm1 a = new AppointmentForm1();
+            formSetup(a);
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoginForm1 loginForm1 = new LoginForm1();
+            formSetup(loginForm1);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

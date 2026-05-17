@@ -83,6 +83,8 @@
             this.label19 = new System.Windows.Forms.Label();
             this.dataSet11 = new MPM2.Database.DataSet1();
             this.patientTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.PatientTableAdapter();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -733,11 +735,35 @@
             // 
             this.patientTableAdapter1.ClearBeforeFill = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(53)))));
+            this.label7.Location = new System.Drawing.Point(301, 415);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(158, 20);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "TODAY\'S QUEUE";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(53)))));
+            this.label18.Location = new System.Drawing.Point(880, 415);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(219, 20);
+            this.label18.TabIndex = 22;
+            this.label18.Text = "ALERT and REMINDERS";
+            // 
             // DashboardForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1630, 936);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.panel15);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel8);
@@ -776,6 +802,7 @@
             this.panel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -835,5 +862,7 @@
         private System.Windows.Forms.Button button12;
         private Database.DataSet1 dataSet11;
         private Database.DataSet1TableAdapters.PatientTableAdapter patientTableAdapter1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label18;
     }
 }

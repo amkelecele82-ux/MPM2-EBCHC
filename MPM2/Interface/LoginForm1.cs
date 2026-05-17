@@ -1,4 +1,5 @@
 ﻿using MPM2.Business;
+using MPM2.Interface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MPM2.Interface
 {
@@ -48,6 +50,12 @@ namespace MPM2.Interface
                         d.WindowState = FormWindowState.Maximized;
                         d.FormBorderStyle = FormBorderStyle.None;
                         d.Show();
+                        if (this.MdiParent is MainForm mf)
+                        {
+                            mf.CurrentUserName = userName;
+                            mf.CurrentFullName = fullName;
+                            mf.CurrentRole = role;
+                        }
                         break;
                     }
                     
@@ -97,6 +105,11 @@ namespace MPM2.Interface
             {
                 MessageBox.Show("Please select a role");
             }
+        }
+
+        private void LoginForm1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

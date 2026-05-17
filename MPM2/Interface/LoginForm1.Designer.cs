@@ -152,6 +152,7 @@
             this.Controls.Add(this.label1);
             this.Name = "LoginForm1";
             this.Text = "LoginForm1";
+            this.Load += new System.EventHandler(this.LoginForm1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
