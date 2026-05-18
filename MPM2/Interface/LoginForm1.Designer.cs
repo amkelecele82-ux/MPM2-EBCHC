@@ -42,6 +42,7 @@
             this.patientTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.PatientTableAdapter();
             this.nurseTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.NurseTableAdapter();
             this.dataSet11 = new MPM2.Database.DataSet1();
+            this.WebButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,12 +137,23 @@
             this.dataSet11.DataSetName = "DataSet1";
             this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // WebButton
+            // 
+            this.WebButton.Location = new System.Drawing.Point(1372, 13);
+            this.WebButton.Name = "WebButton";
+            this.WebButton.Size = new System.Drawing.Size(75, 23);
+            this.WebButton.TabIndex = 10;
+            this.WebButton.Text = "Website";
+            this.WebButton.UseVisualStyleBackColor = true;
+            this.WebButton.Click += new System.EventHandler(this.WebButton_Click);
+            // 
             // LoginForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(233)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(1507, 936);
+            this.Controls.Add(this.WebButton);
             this.Controls.Add(this.CBRole);
             this.Controls.Add(this.TBPassword);
             this.Controls.Add(this.exitbutton);
@@ -174,5 +186,6 @@
         private Database.DataSet1TableAdapters.PatientTableAdapter patientTableAdapter1;
         private Database.DataSet1TableAdapters.NurseTableAdapter nurseTableAdapter1;
         private Database.DataSet1 dataSet11;
+        private System.Windows.Forms.Button WebButton;
     }
 }

@@ -19,9 +19,8 @@ namespace MPM2.Business
 
         private void AppointmentForm1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataSet1.Appointment' table. You can move, or remove it, as needed.
-            this.appointmentTableAdapter.Fill(this.dataSet1.Appointment);
-
+            // TODO: This line of code loads data into the 'dataSet1.AppointmentView' table. You can move, or remove it, as needed.
+            this.appointmentViewTableAdapter.Fill(this.dataSet1.AppointmentView);
         }
     }
 }
