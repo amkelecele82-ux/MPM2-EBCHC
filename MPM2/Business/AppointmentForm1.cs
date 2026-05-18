@@ -22,5 +22,10 @@ namespace MPM2.Business
             // TODO: This line of code loads data into the 'dataSet1.AppointmentView' table. You can move, or remove it, as needed.
             this.appointmentViewTableAdapter.Fill(this.dataSet1.AppointmentView);
         }
+        public void SetTab(int index)
+        {
+            TCAppointments.SelectedIndex = index;
+        }
+
     }
 }

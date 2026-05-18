@@ -28,5 +28,10 @@ namespace MPM2.Business
         {
             patientTableAdapter.FillByPatientName(dataSet1.Patient, TBPName.Text);
         }
+
+        private void TBPName_TextChanged_1(object sender, EventArgs e)
+        {
+            patientTableAdapter.FillByPatientName(dataSet1.Patient, TBPName.Text);
+        }
     }
 }

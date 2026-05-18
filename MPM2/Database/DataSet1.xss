@@ -14,7 +14,7 @@
     <Shape ID="DesignTable:Prescription" ZOrder="6" X="1622" Y="70" Height="296" Width="253" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="237" />
     <Shape ID="DesignTable:Treatment" ZOrder="5" X="1945" Y="70" Height="319" Width="241" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="260" />
     <Shape ID="DesignTable:TreatmentInformation" ZOrder="4" X="2256" Y="70" Height="273" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="214" />
-    <Shape ID="DesignTable:AppointmentView" ZOrder="1" X="594" Y="509" Height="204" Width="248" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="145" />
+    <Shape ID="DesignTable:AppointmentView" ZOrder="1" X="594" Y="509" Height="227" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="145" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

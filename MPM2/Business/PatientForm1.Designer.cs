@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.TPatient = new System.Windows.Forms.TabControl();
-            this.ViewPatient = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TBPName = new System.Windows.Forms.TextBox();
+            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new MPM2.Database.DataSet1();
+            this.patientTableAdapter = new MPM2.Database.DataSet1TableAdapters.PatientTableAdapter();
             this.dgvPatient = new System.Windows.Forms.DataGridView();
             this.patientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,57 +42,26 @@
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alternativePhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new MPM2.Database.DataSet1();
-            this.TNewPatient = new System.Windows.Forms.TabPage();
-            this.patientTableAdapter = new MPM2.Database.DataSet1TableAdapters.PatientTableAdapter();
-            this.TPatient.SuspendLayout();
-            this.ViewPatient.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPatient)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TBPName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPatient)).BeginInit();
             this.SuspendLayout();
             // 
-            // TPatient
+            // patientBindingSource
             // 
-            this.TPatient.Controls.Add(this.ViewPatient);
-            this.TPatient.Controls.Add(this.TNewPatient);
-            this.TPatient.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TPatient.Location = new System.Drawing.Point(0, 0);
-            this.TPatient.Name = "TPatient";
-            this.TPatient.SelectedIndex = 0;
-            this.TPatient.Size = new System.Drawing.Size(1785, 768);
-            this.TPatient.TabIndex = 0;
+            this.patientBindingSource.DataMember = "Patient";
+            this.patientBindingSource.DataSource = this.dataSet1;
             // 
-            // ViewPatient
+            // dataSet1
             // 
-            this.ViewPatient.Controls.Add(this.label1);
-            this.ViewPatient.Controls.Add(this.TBPName);
-            this.ViewPatient.Controls.Add(this.dgvPatient);
-            this.ViewPatient.Location = new System.Drawing.Point(4, 25);
-            this.ViewPatient.Name = "ViewPatient";
-            this.ViewPatient.Padding = new System.Windows.Forms.Padding(3);
-            this.ViewPatient.Size = new System.Drawing.Size(1777, 739);
-            this.ViewPatient.TabIndex = 0;
-            this.ViewPatient.Text = "View";
-            this.ViewPatient.UseVisualStyleBackColor = true;
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label1
+            // patientTableAdapter
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(746, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Patient name:";
-            // 
-            // TBPName
-            // 
-            this.TBPName.Location = new System.Drawing.Point(840, 74);
-            this.TBPName.Name = "TBPName";
-            this.TBPName.Size = new System.Drawing.Size(229, 22);
-            this.TBPName.TabIndex = 1;
-            this.TBPName.TextChanged += new System.EventHandler(this.TBPName_TextChanged);
+            this.patientTableAdapter.ClearBeforeFill = true;
             // 
             // dgvPatient
             // 
@@ -112,12 +80,12 @@
             this.emailAddressDataGridViewTextBoxColumn,
             this.alternativePhoneNumberDataGridViewTextBoxColumn});
             this.dgvPatient.DataSource = this.patientBindingSource;
-            this.dgvPatient.Location = new System.Drawing.Point(257, 128);
+            this.dgvPatient.Location = new System.Drawing.Point(82, 125);
             this.dgvPatient.Name = "dgvPatient";
             this.dgvPatient.RowHeadersWidth = 51;
             this.dgvPatient.RowTemplate.Height = 24;
             this.dgvPatient.Size = new System.Drawing.Size(1429, 696);
-            this.dgvPatient.TabIndex = 0;
+            this.dgvPatient.TabIndex = 1;
             // 
             // patientIDDataGridViewTextBoxColumn
             // 
@@ -192,61 +160,48 @@
             this.alternativePhoneNumberDataGridViewTextBoxColumn.Name = "alternativePhoneNumberDataGridViewTextBoxColumn";
             this.alternativePhoneNumberDataGridViewTextBoxColumn.Width = 125;
             // 
-            // patientBindingSource
+            // label1
             // 
-            this.patientBindingSource.DataMember = "Patient";
-            this.patientBindingSource.DataSource = this.dataSet1;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(499, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Patient name:";
             // 
-            // dataSet1
+            // TBPName
             // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // TNewPatient
-            // 
-            this.TNewPatient.Location = new System.Drawing.Point(4, 25);
-            this.TNewPatient.Name = "TNewPatient";
-            this.TNewPatient.Padding = new System.Windows.Forms.Padding(3);
-            this.TNewPatient.Size = new System.Drawing.Size(1777, 739);
-            this.TNewPatient.TabIndex = 1;
-            this.TNewPatient.Text = "New";
-            this.TNewPatient.UseVisualStyleBackColor = true;
-            // 
-            // patientTableAdapter
-            // 
-            this.patientTableAdapter.ClearBeforeFill = true;
+            this.TBPName.Location = new System.Drawing.Point(593, 14);
+            this.TBPName.Name = "TBPName";
+            this.TBPName.Size = new System.Drawing.Size(229, 22);
+            this.TBPName.TabIndex = 3;
+            this.TBPName.TextChanged += new System.EventHandler(this.TBPName_TextChanged_1);
             // 
             // PatientForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1785, 768);
-            this.Controls.Add(this.TPatient);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TBPName);
+            this.Controls.Add(this.dgvPatient);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PatientForm1";
             this.Text = "PatientForm1";
             this.Load += new System.EventHandler(this.PatientForm1_Load);
-            this.TPatient.ResumeLayout(false);
-            this.ViewPatient.ResumeLayout(false);
-            this.ViewPatient.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPatient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPatient)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl TPatient;
-        private System.Windows.Forms.TabPage ViewPatient;
-        private System.Windows.Forms.TabPage TNewPatient;
-        private System.Windows.Forms.DataGridView dgvPatient;
         private Database.DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource patientBindingSource;
         private Database.DataSet1TableAdapters.PatientTableAdapter patientTableAdapter;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TBPName;
+        private System.Windows.Forms.DataGridView dgvPatient;
         private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
@@ -256,5 +211,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailAddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn alternativePhoneNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TBPName;
     }
 }
