@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,8 +33,8 @@ namespace MPM2
         }
         public void formSetup(Form myForm)
         {
-            if (this.ActiveMdiChild != null) 
-            { 
+            if (this.ActiveMdiChild != null)
+            {
                 this.ActiveMdiChild.Close();
             }
             //ChildForm childForm = new ChildForm(myForm);
@@ -75,7 +76,7 @@ namespace MPM2
 
         private void viewAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AppointmentForm1 a =    new AppointmentForm1();
+            AppointmentForm1 a = new AppointmentForm1();
             formSetup(a);
         }
 
@@ -100,6 +101,29 @@ namespace MPM2
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void viewHelpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string googleSitesUrl = "https://sites.google.com/view/eastboomchcmanual";
+
+            try
+            {
+                // 2. This command opens the link in the computer's default web browser
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = googleSitesUrl,
+                    UseShellExecute = true
+                };
+                Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                // 3. This catches errors, like if the computer doesn't have a web browser installed
+                MessageBox.Show("Could not open the help manual. Please check your internet connection.",
+                                "Help Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
     }
 }
