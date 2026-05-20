@@ -133,5 +133,19 @@ namespace MPM2
             AccountSettingsForm a = new AccountSettingsForm(CurrentUserName, CurrentFullName);
             formSetup(a);
         }
+
+        private void prescriptionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrescriptionForm p = new PrescriptionForm();    
+            formSetup(p);   
+
+        }
+
+        private void generatePrescriptionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegPrescriptionForm r = new RegPrescriptionForm();  
+            formSetup(r);   
+
+        }
     }
 }

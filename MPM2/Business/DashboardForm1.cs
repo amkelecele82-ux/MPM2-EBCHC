@@ -157,5 +157,14 @@ namespace MPM2.Business
             a.SetTab(1);
             a.Show();
         }
+
+        private void DashPresbutton_Click(object sender, EventArgs e)
+        {
+            PrescriptionForm pf = new PrescriptionForm();   
+            pf.MdiParent = this.MdiParent;  
+            pf.WindowState = FormWindowState.Maximized;
+            pf.FormBorderStyle = FormBorderStyle.None;
+            pf.Show();
+        }
     }
 }
