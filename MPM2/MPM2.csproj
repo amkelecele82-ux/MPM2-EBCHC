@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\AccountSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\AccountSettingsForm.Designer.cs">
+      <DependentUpon>AccountSettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\AppointmentForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Business\AccountSettingsForm.resx">
+      <DependentUpon>AccountSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Business\AppointmentForm1.resx">
       <DependentUpon>AppointmentForm1.cs</DependentUpon>
     </EmbeddedResource>

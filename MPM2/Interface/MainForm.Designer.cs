@@ -44,6 +44,9 @@
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,6 +91,7 @@
             this.accountSettingsToolStripMenuItem.Name = "accountSettingsToolStripMenuItem";
             this.accountSettingsToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.accountSettingsToolStripMenuItem.Text = "Account Settings";
+            this.accountSettingsToolStripMenuItem.Click += new System.EventHandler(this.accountSettingsToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
@@ -128,6 +132,9 @@
             // 
             // appointmentToolStripMenuItem
             // 
+            this.appointmentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewAllToolStripMenuItem,
+            this.bookToolStripMenuItem});
             this.appointmentToolStripMenuItem.Name = "appointmentToolStripMenuItem";
             this.appointmentToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
             this.appointmentToolStripMenuItem.Text = "Appointment";
@@ -135,6 +142,8 @@
             // 
             // cToolStripMenuItem
             // 
+            this.cToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.prescriptionToolStripMenuItem});
             this.cToolStripMenuItem.Name = "cToolStripMenuItem";
             this.cToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.cToolStripMenuItem.Text = "Clinical";
@@ -170,9 +179,27 @@
             // viewHelpToolStripMenuItem
             // 
             this.viewHelpToolStripMenuItem.Name = "viewHelpToolStripMenuItem";
-            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.viewHelpToolStripMenuItem.Text = "View Help";
             this.viewHelpToolStripMenuItem.Click += new System.EventHandler(this.viewHelpToolStripMenuItem_Click);
+            // 
+            // prescriptionToolStripMenuItem
+            // 
+            this.prescriptionToolStripMenuItem.Name = "prescriptionToolStripMenuItem";
+            this.prescriptionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.prescriptionToolStripMenuItem.Text = "Prescription";
+            // 
+            // viewAllToolStripMenuItem
+            // 
+            this.viewAllToolStripMenuItem.Name = "viewAllToolStripMenuItem";
+            this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.viewAllToolStripMenuItem.Text = "View All";
+            // 
+            // bookToolStripMenuItem
+            // 
+            this.bookToolStripMenuItem.Name = "bookToolStripMenuItem";
+            this.bookToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bookToolStripMenuItem.Text = "Book";
             // 
             // MainForm
             // 
@@ -211,6 +238,9 @@
         private System.Windows.Forms.ToolStripMenuItem viewHelpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewReportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bookToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem prescriptionToolStripMenuItem;
     }
 }
 

@@ -58,10 +58,11 @@
             this.Dashlabel = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblPatientToday = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
@@ -84,6 +85,12 @@
             this.appointmentViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet11 = new MPM2.Database.DataSet1();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.lblMissedMed = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.lblCancelledAppointment = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.lblMissedAppointment = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
@@ -91,7 +98,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.appointmentViewTableAdapter = new MPM2.Database.DataSet1TableAdapters.AppointmentViewTableAdapter();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.medicationAdministrationTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.MedicationAdministrationTableAdapter();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -108,7 +115,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -476,7 +482,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.label15);
+            this.panel5.Controls.Add(this.lblPatientToday);
             this.panel5.Controls.Add(this.panel9);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Location = new System.Drawing.Point(303, 197);
@@ -484,15 +490,17 @@
             this.panel5.Size = new System.Drawing.Size(219, 182);
             this.panel5.TabIndex = 16;
             // 
-            // label15
+            // lblPatientToday
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(40, 70);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(127, 91);
-            this.label15.TabIndex = 4;
-            this.label15.Text = "50";
+            this.lblPatientToday.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPatientToday.AutoSize = true;
+            this.lblPatientToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatientToday.Location = new System.Drawing.Point(40, 70);
+            this.lblPatientToday.Name = "lblPatientToday";
+            this.lblPatientToday.Size = new System.Drawing.Size(127, 91);
+            this.lblPatientToday.TabIndex = 4;
+            this.lblPatientToday.Text = "00";
             // 
             // panel9
             // 
@@ -517,6 +525,7 @@
             // 
             this.panel10.BackColor = System.Drawing.Color.White;
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Controls.Add(this.label22);
             this.panel10.Controls.Add(this.label16);
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Controls.Add(this.label12);
@@ -525,11 +534,20 @@
             this.panel10.Size = new System.Drawing.Size(219, 182);
             this.panel10.TabIndex = 17;
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(67, 155);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(73, 16);
+            this.label22.TabIndex = 6;
+            this.label22.Text = "Completed";
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(41, 73);
+            this.label16.Location = new System.Drawing.Point(43, 58);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(127, 91);
             this.label16.TabIndex = 5;
@@ -570,11 +588,11 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(68, 73);
+            this.label17.Location = new System.Drawing.Point(73, 73);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(83, 91);
+            this.label17.Size = new System.Drawing.Size(66, 91);
             this.label17.TabIndex = 5;
-            this.label17.Text = "3";
+            this.label17.Text = "-";
             // 
             // panel7
             // 
@@ -613,9 +631,9 @@
             this.lblRegPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegPatient.Location = new System.Drawing.Point(32, 70);
             this.lblRegPatient.Name = "lblRegPatient";
-            this.lblRegPatient.Size = new System.Drawing.Size(171, 91);
+            this.lblRegPatient.Size = new System.Drawing.Size(127, 91);
             this.lblRegPatient.TabIndex = 5;
-            this.lblRegPatient.Text = "231";
+            this.lblRegPatient.Text = "00";
             // 
             // panel12
             // 
@@ -741,12 +759,77 @@
             // 
             this.panel15.BackColor = System.Drawing.Color.White;
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel15.Controls.Add(this.lblMissedMed);
+            this.panel15.Controls.Add(this.label24);
+            this.panel15.Controls.Add(this.lblCancelledAppointment);
+            this.panel15.Controls.Add(this.label21);
+            this.panel15.Controls.Add(this.lblMissedAppointment);
+            this.panel15.Controls.Add(this.label14);
             this.panel15.Controls.Add(this.panel16);
-            this.panel15.Controls.Add(this.dataGridView1);
             this.panel15.Location = new System.Drawing.Point(1084, 447);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(468, 439);
             this.panel15.TabIndex = 20;
+            // 
+            // lblMissedMed
+            // 
+            this.lblMissedMed.AutoSize = true;
+            this.lblMissedMed.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMissedMed.Location = new System.Drawing.Point(17, 320);
+            this.lblMissedMed.Name = "lblMissedMed";
+            this.lblMissedMed.Size = new System.Drawing.Size(96, 69);
+            this.lblMissedMed.TabIndex = 14;
+            this.lblMissedMed.Text = "10";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(131, 343);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(303, 25);
+            this.label24.TabIndex = 13;
+            this.label24.Text = "Missed Medication Administration";
+            // 
+            // lblCancelledAppointment
+            // 
+            this.lblCancelledAppointment.AutoSize = true;
+            this.lblCancelledAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCancelledAppointment.Location = new System.Drawing.Point(17, 207);
+            this.lblCancelledAppointment.Name = "lblCancelledAppointment";
+            this.lblCancelledAppointment.Size = new System.Drawing.Size(96, 69);
+            this.lblCancelledAppointment.TabIndex = 12;
+            this.lblCancelledAppointment.Text = "10";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(160, 230);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(225, 25);
+            this.label21.TabIndex = 11;
+            this.label21.Text = "Cancelled Appointments";
+            // 
+            // lblMissedAppointment
+            // 
+            this.lblMissedAppointment.AutoSize = true;
+            this.lblMissedAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMissedAppointment.Location = new System.Drawing.Point(17, 97);
+            this.lblMissedAppointment.Name = "lblMissedAppointment";
+            this.lblMissedAppointment.Size = new System.Drawing.Size(96, 69);
+            this.lblMissedAppointment.TabIndex = 10;
+            this.lblMissedAppointment.Text = "10";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(170, 120);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(200, 25);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "Missed Appointments";
             // 
             // panel16
             // 
@@ -813,15 +896,9 @@
             // 
             this.appointmentViewTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridView1
+            // medicationAdministrationTableAdapter1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-10, 38);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(490, 400);
-            this.dataGridView1.TabIndex = 7;
+            this.medicationAdministrationTableAdapter1.ClearBeforeFill = true;
             // 
             // DashboardForm1
             // 
@@ -868,9 +945,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -921,7 +998,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label Dashlabel;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblPatientToday;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lblRegPatient;
@@ -939,6 +1016,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn patientNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lblMissedAppointment;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblCancelledAppointment;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label lblMissedMed;
+        private System.Windows.Forms.Label label24;
+        private Database.DataSet1TableAdapters.MedicationAdministrationTableAdapter medicationAdministrationTableAdapter1;
     }
 }

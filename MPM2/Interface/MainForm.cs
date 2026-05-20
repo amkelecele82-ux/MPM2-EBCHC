@@ -19,6 +19,8 @@ namespace MPM2
         public string CurrentUserName { get; set; }
         public string CurrentFullName { get; set; }
         public string CurrentRole { get; set; }
+        public string CurrentPassword { get; set; }
+
         public MainForm()
         {
             InitializeComponent();
@@ -124,6 +126,12 @@ namespace MPM2
                                 "Help Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+
+        private void accountSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AccountSettingsForm a = new AccountSettingsForm(CurrentUserName, CurrentFullName);
+            formSetup(a);
         }
     }
 }
