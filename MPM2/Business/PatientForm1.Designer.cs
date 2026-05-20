@@ -80,11 +80,12 @@
             this.emailAddressDataGridViewTextBoxColumn,
             this.alternativePhoneNumberDataGridViewTextBoxColumn});
             this.dgvPatient.DataSource = this.patientBindingSource;
-            this.dgvPatient.Location = new System.Drawing.Point(82, 125);
+            this.dgvPatient.Location = new System.Drawing.Point(62, 102);
+            this.dgvPatient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvPatient.Name = "dgvPatient";
             this.dgvPatient.RowHeadersWidth = 51;
             this.dgvPatient.RowTemplate.Height = 24;
-            this.dgvPatient.Size = new System.Drawing.Size(1429, 696);
+            this.dgvPatient.Size = new System.Drawing.Size(1172, 566);
             this.dgvPatient.TabIndex = 1;
             // 
             // patientIDDataGridViewTextBoxColumn
@@ -163,29 +164,32 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(499, 17);
+            this.label1.Location = new System.Drawing.Point(374, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 16);
+            this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Patient name:";
             // 
             // TBPName
             // 
-            this.TBPName.Location = new System.Drawing.Point(593, 14);
+            this.TBPName.Location = new System.Drawing.Point(445, 11);
+            this.TBPName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBPName.Name = "TBPName";
-            this.TBPName.Size = new System.Drawing.Size(229, 22);
+            this.TBPName.Size = new System.Drawing.Size(173, 20);
             this.TBPName.TabIndex = 3;
             this.TBPName.TextChanged += new System.EventHandler(this.TBPName_TextChanged_1);
             // 
             // PatientForm1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1785, 768);
+            this.ClientSize = new System.Drawing.Size(1339, 624);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TBPName);
             this.Controls.Add(this.dgvPatient);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "PatientForm1";
             this.Text = "PatientForm1";
             this.Load += new System.EventHandler(this.PatientForm1_Load);

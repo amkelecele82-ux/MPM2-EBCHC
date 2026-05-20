@@ -79,9 +79,6 @@
             this.button11 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvWidgetAppointment = new System.Windows.Forms.DataGridView();
-            this.patientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appointmentStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appointmentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appointmentViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet11 = new MPM2.Database.DataSet1();
             this.panel15 = new System.Windows.Forms.Panel();
@@ -99,6 +96,14 @@
             this.label18 = new System.Windows.Forms.Label();
             this.appointmentViewTableAdapter = new MPM2.Database.DataSet1TableAdapters.AppointmentViewTableAdapter();
             this.medicationAdministrationTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.MedicationAdministrationTableAdapter();
+            this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appointmentTableAdapter = new MPM2.Database.DataSet1TableAdapters.AppointmentTableAdapter();
+            this.patientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nurseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -115,6 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -124,7 +130,7 @@
             this.panel3.Controls.Add(this.Dashlabel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 734);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1222, 26);
             this.panel3.TabIndex = 12;
@@ -172,7 +178,7 @@
             this.panel2.Controls.Add(this.DashApbutton);
             this.panel2.Controls.Add(this.DashPatientbutton);
             this.panel2.Location = new System.Drawing.Point(-1, 58);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(180, 702);
             this.panel2.TabIndex = 13;
@@ -195,7 +201,7 @@
             this.panel1.Controls.Add(this.fullNameLabel);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Location = new System.Drawing.Point(-2, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(183, 78);
             this.panel1.TabIndex = 12;
@@ -232,7 +238,7 @@
             this.DashSettingbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashSettingbutton.ForeColor = System.Drawing.SystemColors.Control;
             this.DashSettingbutton.Location = new System.Drawing.Point(-2, 604);
-            this.DashSettingbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DashSettingbutton.Margin = new System.Windows.Forms.Padding(2);
             this.DashSettingbutton.Name = "DashSettingbutton";
             this.DashSettingbutton.Size = new System.Drawing.Size(181, 46);
             this.DashSettingbutton.TabIndex = 11;
@@ -248,7 +254,7 @@
             this.DashRepbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashRepbutton.ForeColor = System.Drawing.SystemColors.Control;
             this.DashRepbutton.Location = new System.Drawing.Point(0, 559);
-            this.DashRepbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DashRepbutton.Margin = new System.Windows.Forms.Padding(2);
             this.DashRepbutton.Name = "DashRepbutton";
             this.DashRepbutton.Size = new System.Drawing.Size(181, 46);
             this.DashRepbutton.TabIndex = 10;
@@ -275,7 +281,7 @@
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.SystemColors.Control;
             this.button8.Location = new System.Drawing.Point(-1, 472);
-            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button8.Margin = new System.Windows.Forms.Padding(2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(181, 46);
             this.button8.TabIndex = 8;
@@ -291,7 +297,7 @@
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.Control;
             this.button7.Location = new System.Drawing.Point(-1, 427);
-            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(181, 46);
             this.button7.TabIndex = 7;
@@ -307,7 +313,7 @@
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.Control;
             this.button6.Location = new System.Drawing.Point(-1, 384);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(181, 46);
             this.button6.TabIndex = 6;
@@ -323,7 +329,7 @@
             this.DashPresbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashPresbutton.ForeColor = System.Drawing.SystemColors.Control;
             this.DashPresbutton.Location = new System.Drawing.Point(-1, 340);
-            this.DashPresbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DashPresbutton.Margin = new System.Windows.Forms.Padding(2);
             this.DashPresbutton.Name = "DashPresbutton";
             this.DashPresbutton.Size = new System.Drawing.Size(181, 46);
             this.DashPresbutton.TabIndex = 5;
@@ -351,7 +357,7 @@
             this.DashConbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashConbutton.ForeColor = System.Drawing.SystemColors.Control;
             this.DashConbutton.Location = new System.Drawing.Point(-1, 228);
-            this.DashConbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DashConbutton.Margin = new System.Windows.Forms.Padding(2);
             this.DashConbutton.Name = "DashConbutton";
             this.DashConbutton.Size = new System.Drawing.Size(181, 46);
             this.DashConbutton.TabIndex = 3;
@@ -367,7 +373,7 @@
             this.DashApbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashApbutton.ForeColor = System.Drawing.SystemColors.Control;
             this.DashApbutton.Location = new System.Drawing.Point(-1, 184);
-            this.DashApbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DashApbutton.Margin = new System.Windows.Forms.Padding(2);
             this.DashApbutton.Name = "DashApbutton";
             this.DashApbutton.Size = new System.Drawing.Size(181, 46);
             this.DashApbutton.TabIndex = 2;
@@ -384,7 +390,7 @@
             this.DashPatientbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashPatientbutton.ForeColor = System.Drawing.SystemColors.Control;
             this.DashPatientbutton.Location = new System.Drawing.Point(-1, 140);
-            this.DashPatientbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DashPatientbutton.Margin = new System.Windows.Forms.Padding(2);
             this.DashPatientbutton.Name = "DashPatientbutton";
             this.DashPatientbutton.Size = new System.Drawing.Size(181, 46);
             this.DashPatientbutton.TabIndex = 1;
@@ -402,7 +408,7 @@
             this.tmpanel.Controls.Add(this.npbutton);
             this.tmpanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.tmpanel.Location = new System.Drawing.Point(0, 0);
-            this.tmpanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tmpanel.Margin = new System.Windows.Forms.Padding(2);
             this.tmpanel.Name = "tmpanel";
             this.tmpanel.Size = new System.Drawing.Size(1222, 60);
             this.tmpanel.TabIndex = 14;
@@ -412,7 +418,7 @@
             this.repbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.repbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(27)))), ((int)(((byte)(14)))));
             this.repbutton.Location = new System.Drawing.Point(412, 10);
-            this.repbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.repbutton.Margin = new System.Windows.Forms.Padding(2);
             this.repbutton.Name = "repbutton";
             this.repbutton.Size = new System.Drawing.Size(100, 37);
             this.repbutton.TabIndex = 5;
@@ -424,7 +430,7 @@
             this.printbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.printbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(27)))), ((int)(((byte)(14)))));
             this.printbutton.Location = new System.Drawing.Point(308, 10);
-            this.printbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.printbutton.Margin = new System.Windows.Forms.Padding(2);
             this.printbutton.Name = "printbutton";
             this.printbutton.Size = new System.Drawing.Size(100, 37);
             this.printbutton.TabIndex = 4;
@@ -436,7 +442,7 @@
             this.nabutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nabutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(27)))), ((int)(((byte)(14)))));
             this.nabutton.Location = new System.Drawing.Point(203, 10);
-            this.nabutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nabutton.Margin = new System.Windows.Forms.Padding(2);
             this.nabutton.Name = "nabutton";
             this.nabutton.Size = new System.Drawing.Size(100, 37);
             this.nabutton.TabIndex = 3;
@@ -449,7 +455,7 @@
             this.fpbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fpbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(27)))), ((int)(((byte)(14)))));
             this.fpbutton.Location = new System.Drawing.Point(99, 10);
-            this.fpbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fpbutton.Margin = new System.Windows.Forms.Padding(2);
             this.fpbutton.Name = "fpbutton";
             this.fpbutton.Size = new System.Drawing.Size(100, 37);
             this.fpbutton.TabIndex = 2;
@@ -463,7 +469,7 @@
             this.npbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.npbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(27)))), ((int)(((byte)(14)))));
             this.npbutton.Location = new System.Drawing.Point(10, 10);
-            this.npbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.npbutton.Margin = new System.Windows.Forms.Padding(2);
             this.npbutton.Name = "npbutton";
             this.npbutton.Size = new System.Drawing.Size(85, 37);
             this.npbutton.TabIndex = 1;
@@ -480,7 +486,7 @@
             this.panel4.Controls.Add(this.Dashlabel);
             this.panel4.Controls.Add(this.label13);
             this.panel4.Location = new System.Drawing.Point(178, 60);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1054, 76);
             this.panel4.TabIndex = 15;
@@ -515,7 +521,7 @@
             this.panel5.Controls.Add(this.panel9);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Location = new System.Drawing.Point(227, 160);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(165, 148);
             this.panel5.TabIndex = 16;
@@ -532,6 +538,7 @@
             this.lblPatientToday.Size = new System.Drawing.Size(104, 73);
             this.lblPatientToday.TabIndex = 4;
             this.lblPatientToday.Text = "00";
+            this.lblPatientToday.Click += new System.EventHandler(this.lblPatientToday_Click);
             // 
             // panel9
             // 
@@ -539,7 +546,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.panel9.Location = new System.Drawing.Point(0, -8);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(163, 17);
             this.panel9.TabIndex = 3;
@@ -563,7 +570,7 @@
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Controls.Add(this.label12);
             this.panel10.Location = new System.Drawing.Point(497, 160);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(165, 148);
             this.panel10.TabIndex = 17;
@@ -595,7 +602,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(135)))), ((int)(((byte)(38)))));
             this.panel11.Location = new System.Drawing.Point(0, -9);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(163, 18);
             this.panel11.TabIndex = 3;
@@ -618,7 +625,7 @@
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.label9);
             this.panel6.Location = new System.Drawing.Point(772, 160);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(165, 148);
             this.panel6.TabIndex = 17;
@@ -640,7 +647,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(83)))), ((int)(((byte)(85)))));
             this.panel7.Location = new System.Drawing.Point(0, -9);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(163, 18);
             this.panel7.TabIndex = 3;
@@ -663,7 +670,7 @@
             this.panel8.Controls.Add(this.panel12);
             this.panel8.Controls.Add(this.label10);
             this.panel8.Location = new System.Drawing.Point(1029, 160);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(165, 148);
             this.panel8.TabIndex = 17;
@@ -685,7 +692,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(92)))), ((int)(((byte)(146)))));
             this.panel12.Location = new System.Drawing.Point(0, -8);
-            this.panel12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel12.Margin = new System.Windows.Forms.Padding(2);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(163, 17);
             this.panel12.TabIndex = 3;
@@ -706,10 +713,10 @@
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel13.Controls.Add(this.panel14);
             this.panel13.Controls.Add(this.dgvWidgetAppointment);
-            this.panel13.Location = new System.Drawing.Point(228, 363);
-            this.panel13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel13.Location = new System.Drawing.Point(187, 361);
+            this.panel13.Margin = new System.Windows.Forms.Padding(2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(454, 357);
+            this.panel13.Size = new System.Drawing.Size(622, 357);
             this.panel13.TabIndex = 18;
             // 
             // panel14
@@ -720,9 +727,9 @@
             this.panel14.Controls.Add(this.button11);
             this.panel14.Controls.Add(this.label11);
             this.panel14.Location = new System.Drawing.Point(-10, -12);
-            this.panel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel14.Margin = new System.Windows.Forms.Padding(2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(472, 53);
+            this.panel14.Size = new System.Drawing.Size(640, 53);
             this.panel14.TabIndex = 6;
             // 
             // button11
@@ -731,7 +738,7 @@
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.SystemColors.Control;
             this.button11.Location = new System.Drawing.Point(382, 19);
-            this.button11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button11.Margin = new System.Windows.Forms.Padding(2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(70, 28);
             this.button11.TabIndex = 3;
@@ -758,43 +765,22 @@
             this.dgvWidgetAppointment.AutoGenerateColumns = false;
             this.dgvWidgetAppointment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvWidgetAppointment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.patientNameDataGridViewTextBoxColumn,
+            this.patientIDDataGridViewTextBoxColumn,
+            this.nurseIDDataGridViewTextBoxColumn,
             this.appointmentStatusDataGridViewTextBoxColumn,
-            this.appointmentDateDataGridViewTextBoxColumn});
-            this.dgvWidgetAppointment.DataSource = this.appointmentViewBindingSource;
+            this.appointmentDateDataGridViewTextBoxColumn,
+            this.startTimeDataGridViewTextBoxColumn,
+            this.endTimeDataGridViewTextBoxColumn});
+            this.dgvWidgetAppointment.DataSource = this.appointmentBindingSource;
             this.dgvWidgetAppointment.Location = new System.Drawing.Point(-2, 40);
-            this.dgvWidgetAppointment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvWidgetAppointment.Margin = new System.Windows.Forms.Padding(2);
             this.dgvWidgetAppointment.Name = "dgvWidgetAppointment";
             this.dgvWidgetAppointment.RowHeadersWidth = 51;
             this.dgvWidgetAppointment.RowTemplate.Height = 24;
             this.dgvWidgetAppointment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvWidgetAppointment.Size = new System.Drawing.Size(454, 316);
+            this.dgvWidgetAppointment.Size = new System.Drawing.Size(605, 316);
             this.dgvWidgetAppointment.TabIndex = 8;
             this.dgvWidgetAppointment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWidgetAppointment_CellContentClick);
-            // 
-            // patientNameDataGridViewTextBoxColumn
-            // 
-            this.patientNameDataGridViewTextBoxColumn.DataPropertyName = "PatientName";
-            this.patientNameDataGridViewTextBoxColumn.HeaderText = "PatientName";
-            this.patientNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.patientNameDataGridViewTextBoxColumn.Name = "patientNameDataGridViewTextBoxColumn";
-            this.patientNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // appointmentStatusDataGridViewTextBoxColumn
-            // 
-            this.appointmentStatusDataGridViewTextBoxColumn.DataPropertyName = "Appointment_Status";
-            this.appointmentStatusDataGridViewTextBoxColumn.HeaderText = "Appointment_Status";
-            this.appointmentStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.appointmentStatusDataGridViewTextBoxColumn.Name = "appointmentStatusDataGridViewTextBoxColumn";
-            this.appointmentStatusDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // appointmentDateDataGridViewTextBoxColumn
-            // 
-            this.appointmentDateDataGridViewTextBoxColumn.DataPropertyName = "Appointment_Date";
-            this.appointmentDateDataGridViewTextBoxColumn.HeaderText = "Appointment_Date";
-            this.appointmentDateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.appointmentDateDataGridViewTextBoxColumn.Name = "appointmentDateDataGridViewTextBoxColumn";
-            this.appointmentDateDataGridViewTextBoxColumn.Width = 140;
             // 
             // appointmentViewBindingSource
             // 
@@ -818,7 +804,7 @@
             this.panel15.Controls.Add(this.label14);
             this.panel15.Controls.Add(this.panel16);
             this.panel15.Location = new System.Drawing.Point(813, 363);
-            this.panel15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel15.Margin = new System.Windows.Forms.Padding(2);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(352, 357);
             this.panel15.TabIndex = 20;
@@ -897,7 +883,7 @@
             this.panel16.Controls.Add(this.button12);
             this.panel16.Controls.Add(this.label19);
             this.panel16.Location = new System.Drawing.Point(-10, -12);
-            this.panel16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel16.Margin = new System.Windows.Forms.Padding(2);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(370, 53);
             this.panel16.TabIndex = 6;
@@ -908,7 +894,7 @@
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.SystemColors.Control;
             this.button12.Location = new System.Drawing.Point(277, 20);
-            this.button12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button12.Margin = new System.Windows.Forms.Padding(2);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(73, 28);
             this.button12.TabIndex = 4;
@@ -963,6 +949,55 @@
             // 
             this.medicationAdministrationTableAdapter1.ClearBeforeFill = true;
             // 
+            // appointmentBindingSource
+            // 
+            this.appointmentBindingSource.DataMember = "Appointment";
+            this.appointmentBindingSource.DataSource = this.dataSet11;
+            // 
+            // appointmentTableAdapter
+            // 
+            this.appointmentTableAdapter.ClearBeforeFill = true;
+            // 
+            // patientIDDataGridViewTextBoxColumn
+            // 
+            this.patientIDDataGridViewTextBoxColumn.DataPropertyName = "Patient_ID";
+            this.patientIDDataGridViewTextBoxColumn.HeaderText = "Patient_ID";
+            this.patientIDDataGridViewTextBoxColumn.Name = "patientIDDataGridViewTextBoxColumn";
+            this.patientIDDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // nurseIDDataGridViewTextBoxColumn
+            // 
+            this.nurseIDDataGridViewTextBoxColumn.DataPropertyName = "Nurse_ID";
+            this.nurseIDDataGridViewTextBoxColumn.HeaderText = "Nurse_ID";
+            this.nurseIDDataGridViewTextBoxColumn.Name = "nurseIDDataGridViewTextBoxColumn";
+            this.nurseIDDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // appointmentStatusDataGridViewTextBoxColumn
+            // 
+            this.appointmentStatusDataGridViewTextBoxColumn.DataPropertyName = "Appointment_Status";
+            this.appointmentStatusDataGridViewTextBoxColumn.HeaderText = "Appointment_Status";
+            this.appointmentStatusDataGridViewTextBoxColumn.Name = "appointmentStatusDataGridViewTextBoxColumn";
+            // 
+            // appointmentDateDataGridViewTextBoxColumn
+            // 
+            this.appointmentDateDataGridViewTextBoxColumn.DataPropertyName = "Appointment_Date";
+            this.appointmentDateDataGridViewTextBoxColumn.HeaderText = "Appointment_Date";
+            this.appointmentDateDataGridViewTextBoxColumn.Name = "appointmentDateDataGridViewTextBoxColumn";
+            // 
+            // startTimeDataGridViewTextBoxColumn
+            // 
+            this.startTimeDataGridViewTextBoxColumn.DataPropertyName = "StartTime";
+            this.startTimeDataGridViewTextBoxColumn.HeaderText = "StartTime";
+            this.startTimeDataGridViewTextBoxColumn.Name = "startTimeDataGridViewTextBoxColumn";
+            this.startTimeDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // endTimeDataGridViewTextBoxColumn
+            // 
+            this.endTimeDataGridViewTextBoxColumn.DataPropertyName = "EndTime";
+            this.endTimeDataGridViewTextBoxColumn.HeaderText = "EndTime";
+            this.endTimeDataGridViewTextBoxColumn.Name = "endTimeDataGridViewTextBoxColumn";
+            this.endTimeDataGridViewTextBoxColumn.Width = 80;
+            // 
             // DashboardForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -981,7 +1016,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DashboardForm1";
             this.Text = "DashboardForm1";
             this.Load += new System.EventHandler(this.DashboardForm1_Load);
@@ -1012,6 +1047,7 @@
             this.panel15.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1077,9 +1113,6 @@
         private System.Windows.Forms.BindingSource appointmentViewBindingSource;
         private Database.DataSet1TableAdapters.AppointmentViewTableAdapter appointmentViewTableAdapter;
         private System.Windows.Forms.DataGridView dgvWidgetAppointment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn appointmentStatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn appointmentDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lblMissedAppointment;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblCancelledAppointment;
@@ -1088,5 +1121,13 @@
         private System.Windows.Forms.Label lblMissedMed;
         private System.Windows.Forms.Label label24;
         private Database.DataSet1TableAdapters.MedicationAdministrationTableAdapter medicationAdministrationTableAdapter1;
+        private System.Windows.Forms.BindingSource appointmentBindingSource;
+        private Database.DataSet1TableAdapters.AppointmentTableAdapter appointmentTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nurseIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn appointmentStatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn appointmentDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endTimeDataGridViewTextBoxColumn;
     }
 }

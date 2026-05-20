@@ -60,17 +60,19 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(342, 508);
+            this.label3.Location = new System.Drawing.Point(256, 413);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 16);
+            this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Role:";
             // 
             // loginbutton
             // 
-            this.loginbutton.Location = new System.Drawing.Point(345, 662);
+            this.loginbutton.Location = new System.Drawing.Point(259, 538);
+            this.loginbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.loginbutton.Name = "loginbutton";
-            this.loginbutton.Size = new System.Drawing.Size(96, 35);
+            this.loginbutton.Size = new System.Drawing.Size(72, 28);
             this.loginbutton.TabIndex = 6;
             this.loginbutton.Text = "Login";
             this.loginbutton.UseVisualStyleBackColor = true;
@@ -78,9 +80,10 @@
             // 
             // exitbutton
             // 
-            this.exitbutton.Location = new System.Drawing.Point(519, 662);
+            this.exitbutton.Location = new System.Drawing.Point(389, 538);
+            this.exitbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.exitbutton.Name = "exitbutton";
-            this.exitbutton.Size = new System.Drawing.Size(96, 35);
+            this.exitbutton.Size = new System.Drawing.Size(72, 28);
             this.exitbutton.TabIndex = 7;
             this.exitbutton.Text = "Exit";
             this.exitbutton.UseVisualStyleBackColor = true;
@@ -88,9 +91,10 @@
             // CBRole
             // 
             this.CBRole.FormattingEnabled = true;
-            this.CBRole.Location = new System.Drawing.Point(441, 505);
+            this.CBRole.Location = new System.Drawing.Point(331, 410);
+            this.CBRole.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CBRole.Name = "CBRole";
-            this.CBRole.Size = new System.Drawing.Size(175, 24);
+            this.CBRole.Size = new System.Drawing.Size(132, 21);
             this.CBRole.TabIndex = 9;
             // 
             // doctorTableAdapter1
@@ -114,9 +118,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(53)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(902, 0);
+            this.panel1.Location = new System.Drawing.Point(676, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 936);
+            this.panel1.Size = new System.Drawing.Size(750, 760);
             this.panel1.TabIndex = 11;
             // 
             // label4
@@ -126,9 +131,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(53)))));
-            this.label4.Location = new System.Drawing.Point(330, 90);
+            this.label4.Location = new System.Drawing.Point(248, 73);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(307, 69);
+            this.label4.Size = new System.Drawing.Size(249, 55);
             this.label4.TabIndex = 13;
             this.label4.Text = "CLINICAL";
             // 
@@ -136,18 +142,21 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(336, 183);
+            this.label5.Location = new System.Drawing.Point(252, 149);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(291, 29);
+            this.label5.Size = new System.Drawing.Size(230, 24);
             this.label5.TabIndex = 14;
             this.label5.Text = "MANAGEMENT SYSTEM";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.TBUsername);
-            this.groupBox1.Location = new System.Drawing.Point(346, 284);
+            this.groupBox1.Location = new System.Drawing.Point(260, 231);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(275, 54);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(206, 44);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Username";
@@ -157,17 +166,20 @@
             this.TBUsername.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TBUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TBUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBUsername.Location = new System.Drawing.Point(9, 20);
+            this.TBUsername.Location = new System.Drawing.Point(7, 16);
+            this.TBUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBUsername.Name = "TBUsername";
-            this.TBUsername.Size = new System.Drawing.Size(261, 20);
+            this.TBUsername.Size = new System.Drawing.Size(196, 16);
             this.TBUsername.TabIndex = 4;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.TBPassword);
-            this.groupBox2.Location = new System.Drawing.Point(346, 397);
+            this.groupBox2.Location = new System.Drawing.Point(260, 323);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(275, 54);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(206, 44);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Password";
@@ -177,27 +189,29 @@
             this.TBPassword.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TBPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TBPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBPassword.Location = new System.Drawing.Point(6, 21);
+            this.TBPassword.Location = new System.Drawing.Point(4, 17);
+            this.TBPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBPassword.Name = "TBPassword";
             this.TBPassword.PasswordChar = '*';
-            this.TBPassword.Size = new System.Drawing.Size(263, 20);
+            this.TBPassword.Size = new System.Drawing.Size(197, 16);
             this.TBPassword.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(372, 864);
+            this.label1.Location = new System.Drawing.Point(279, 702);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 16);
+            this.label1.Size = new System.Drawing.Size(157, 13);
             this.label1.TabIndex = 17;
             this.label1.Text = "Developed By Synergy Seekers";
             // 
             // LoginForm1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1902, 936);
+            this.ClientSize = new System.Drawing.Size(1426, 760);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -208,6 +222,7 @@
             this.Controls.Add(this.exitbutton);
             this.Controls.Add(this.loginbutton);
             this.Controls.Add(this.label3);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "LoginForm1";
             this.Text = "LoginForm1";
             this.Load += new System.EventHandler(this.LoginForm1_Load);

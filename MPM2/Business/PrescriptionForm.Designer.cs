@@ -32,13 +32,9 @@
             this.lblPrescriptionName = new System.Windows.Forms.Label();
             this.txtPrscrName = new System.Windows.Forms.TextBox();
             this.prescriptiondataGridView1 = new System.Windows.Forms.DataGridView();
-            this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new MPM2.Database.DataSet1();
-            this.prescriptionTableAdapter = new MPM2.Database.DataSet1TableAdapters.PrescriptionTableAdapter();
             this.lblPatientNamePresc = new System.Windows.Forms.Label();
-            this.dataSet11 = new MPM2.Database.DataSet1();
-            this.prescriptionBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.prescriptionBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.lblDoctorNamePresc = new System.Windows.Forms.Label();
+            this.lblDateIssuedPrescr = new System.Windows.Forms.Label();
             this.instructionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prescriptionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.doctorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,20 +44,27 @@
             this.frequencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.durationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateIssuedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblDoctorNamePresc = new System.Windows.Forms.Label();
-            this.lblDateIssuedPrescr = new System.Windows.Forms.Label();
+            this.prescriptionBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet11 = new MPM2.Database.DataSet1();
+            this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new MPM2.Database.DataSet1();
+            this.prescriptionTableAdapter = new MPM2.Database.DataSet1TableAdapters.PrescriptionTableAdapter();
+            this.prescriptionBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptiondataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource2)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblPrescriptionName
             // 
             this.lblPrescriptionName.AutoSize = true;
-            this.lblPrescriptionName.Location = new System.Drawing.Point(337, 62);
+            this.lblPrescriptionName.Location = new System.Drawing.Point(293, 69);
             this.lblPrescriptionName.Name = "lblPrescriptionName";
             this.lblPrescriptionName.Size = new System.Drawing.Size(133, 13);
             this.lblPrescriptionName.TabIndex = 0;
@@ -69,7 +72,7 @@
             // 
             // txtPrscrName
             // 
-            this.txtPrscrName.Location = new System.Drawing.Point(496, 62);
+            this.txtPrscrName.Location = new System.Drawing.Point(461, 66);
             this.txtPrscrName.Name = "txtPrscrName";
             this.txtPrscrName.Size = new System.Drawing.Size(247, 20);
             this.txtPrscrName.TabIndex = 1;
@@ -94,20 +97,7 @@
             this.prescriptiondataGridView1.Name = "prescriptiondataGridView1";
             this.prescriptiondataGridView1.Size = new System.Drawing.Size(942, 253);
             this.prescriptiondataGridView1.TabIndex = 2;
-            // 
-            // prescriptionBindingSource
-            // 
-            this.prescriptionBindingSource.DataMember = "Prescription";
-            this.prescriptionBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // prescriptionTableAdapter
-            // 
-            this.prescriptionTableAdapter.ClearBeforeFill = true;
+            this.prescriptiondataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prescriptiondataGridView1_CellContentClick);
             // 
             // lblPatientNamePresc
             // 
@@ -119,20 +109,25 @@
             this.lblPatientNamePresc.Text = "PatientName  :";
             this.lblPatientNamePresc.Click += new System.EventHandler(this.lblPatientNamePresc_Click);
             // 
-            // dataSet11
+            // lblDoctorNamePresc
             // 
-            this.dataSet11.DataSetName = "DataSet1";
-            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.lblDoctorNamePresc.AutoSize = true;
+            this.lblDoctorNamePresc.Location = new System.Drawing.Point(98, 430);
+            this.lblDoctorNamePresc.Name = "lblDoctorNamePresc";
+            this.lblDoctorNamePresc.Size = new System.Drawing.Size(73, 13);
+            this.lblDoctorNamePresc.TabIndex = 4;
+            this.lblDoctorNamePresc.Text = "Doctor Name:";
+            this.lblDoctorNamePresc.Click += new System.EventHandler(this.lblDoctorNamePresc_Click);
             // 
-            // prescriptionBindingSource1
+            // lblDateIssuedPrescr
             // 
-            this.prescriptionBindingSource1.DataMember = "Prescription";
-            this.prescriptionBindingSource1.DataSource = this.dataSet11;
-            // 
-            // prescriptionBindingSource2
-            // 
-            this.prescriptionBindingSource2.DataMember = "Prescription";
-            this.prescriptionBindingSource2.DataSource = this.dataSet11;
+            this.lblDateIssuedPrescr.AutoSize = true;
+            this.lblDateIssuedPrescr.Location = new System.Drawing.Point(98, 464);
+            this.lblDateIssuedPrescr.Name = "lblDateIssuedPrescr";
+            this.lblDateIssuedPrescr.Size = new System.Drawing.Size(70, 13);
+            this.lblDateIssuedPrescr.TabIndex = 5;
+            this.lblDateIssuedPrescr.Text = "Date Issued :";
+            this.lblDateIssuedPrescr.Click += new System.EventHandler(this.lblDateIssuedPrescr_Click);
             // 
             // instructionDataGridViewTextBoxColumn
             // 
@@ -188,31 +183,63 @@
             this.dateIssuedDataGridViewTextBoxColumn.HeaderText = "DateIssued";
             this.dateIssuedDataGridViewTextBoxColumn.Name = "dateIssuedDataGridViewTextBoxColumn";
             // 
-            // lblDoctorNamePresc
+            // prescriptionBindingSource2
             // 
-            this.lblDoctorNamePresc.AutoSize = true;
-            this.lblDoctorNamePresc.Location = new System.Drawing.Point(353, 401);
-            this.lblDoctorNamePresc.Name = "lblDoctorNamePresc";
-            this.lblDoctorNamePresc.Size = new System.Drawing.Size(73, 13);
-            this.lblDoctorNamePresc.TabIndex = 4;
-            this.lblDoctorNamePresc.Text = "Doctor Name:";
-            this.lblDoctorNamePresc.Click += new System.EventHandler(this.lblDoctorNamePresc_Click);
+            this.prescriptionBindingSource2.DataMember = "Prescription";
+            this.prescriptionBindingSource2.DataSource = this.dataSet11;
             // 
-            // lblDateIssuedPrescr
+            // dataSet11
             // 
-            this.lblDateIssuedPrescr.AutoSize = true;
-            this.lblDateIssuedPrescr.Location = new System.Drawing.Point(616, 401);
-            this.lblDateIssuedPrescr.Name = "lblDateIssuedPrescr";
-            this.lblDateIssuedPrescr.Size = new System.Drawing.Size(70, 13);
-            this.lblDateIssuedPrescr.TabIndex = 5;
-            this.lblDateIssuedPrescr.Text = "Date Issued :";
-            this.lblDateIssuedPrescr.Click += new System.EventHandler(this.lblDateIssuedPrescr_Click);
+            this.dataSet11.DataSetName = "DataSet1";
+            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // prescriptionBindingSource
+            // 
+            this.prescriptionBindingSource.DataMember = "Prescription";
+            this.prescriptionBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // prescriptionTableAdapter
+            // 
+            this.prescriptionTableAdapter.ClearBeforeFill = true;
+            // 
+            // prescriptionBindingSource1
+            // 
+            this.prescriptionBindingSource1.DataMember = "Prescription";
+            this.prescriptionBindingSource1.DataSource = this.dataSet11;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(1, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1118, 43);
+            this.panel1.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.LemonChiffon;
+            this.label1.Location = new System.Drawing.Point(437, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(236, 26);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Prescription Information";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // PrescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Snow;
             this.ClientSize = new System.Drawing.Size(1117, 615);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblDateIssuedPrescr);
             this.Controls.Add(this.lblDoctorNamePresc);
             this.Controls.Add(this.lblPatientNamePresc);
@@ -223,11 +250,13 @@
             this.Text = "PrescriptionForm";
             this.Load += new System.EventHandler(this.PrescriptionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.prescriptiondataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,5 +285,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateIssuedDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lblDoctorNamePresc;
         private System.Windows.Forms.Label lblDateIssuedPrescr;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
     }
 }

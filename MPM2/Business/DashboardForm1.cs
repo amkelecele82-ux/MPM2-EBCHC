@@ -30,6 +30,8 @@ namespace MPM2.Business
 
         private void DashboardForm1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSet11.Appointment' table. You can move, or remove it, as needed.
+            this.appointmentTableAdapter.Fill(this.dataSet11.Appointment);
             // TODO: This line of code loads data into the 'dataSet11.AppointmentView' table. You can move, or remove it, as needed.
             this.appointmentViewTableAdapter.FillByNameFilterByTodaysDate(this.dataSet11.AppointmentView, userName);
             medicationAdministrationTableAdapter1.Fill(dataSet11.MedicationAdministration);
@@ -165,6 +167,11 @@ namespace MPM2.Business
             pf.WindowState = FormWindowState.Maximized;
             pf.FormBorderStyle = FormBorderStyle.None;
             pf.Show();
+        }
+
+        private void lblPatientToday_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

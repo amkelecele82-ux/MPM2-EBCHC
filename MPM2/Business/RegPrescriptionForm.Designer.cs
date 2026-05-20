@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -51,9 +52,14 @@
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new MPM2.Database.DataSet1();
+            this.prescriptionTableAdapter = new MPM2.Database.DataSet1TableAdapters.PrescriptionTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -75,7 +81,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.ForeColor = System.Drawing.Color.Yellow;
+            this.groupBox1.ForeColor = System.Drawing.Color.Cornsilk;
             this.groupBox1.Location = new System.Drawing.Point(100, 75);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(619, 142);
@@ -134,6 +140,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(153, 37);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(76, 20);
             this.textBox1.TabIndex = 3;
             // 
@@ -141,6 +148,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(153, 68);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(76, 20);
             this.textBox2.TabIndex = 4;
             // 
@@ -181,7 +189,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(54, 126);
+            this.label8.Location = new System.Drawing.Point(50, 126);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 13);
             this.label8.TabIndex = 3;
@@ -234,10 +242,10 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.textBox9);
-            this.groupBox3.ForeColor = System.Drawing.Color.Yellow;
+            this.groupBox3.ForeColor = System.Drawing.Color.Beige;
             this.groupBox3.Location = new System.Drawing.Point(100, 448);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(607, 123);
+            this.groupBox3.Size = new System.Drawing.Size(607, 152);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Instructions";
@@ -245,21 +253,22 @@
             // textBox9
             // 
             this.textBox9.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox9.Location = new System.Drawing.Point(28, 20);
+            this.textBox9.Location = new System.Drawing.Point(6, 19);
             this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(506, 73);
+            this.textBox9.Size = new System.Drawing.Size(595, 127);
             this.textBox9.TabIndex = 0;
             // 
             // button1
             // 
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(907, 520);
+            this.button1.Location = new System.Drawing.Point(908, 530);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 41);
+            this.button1.Size = new System.Drawing.Size(114, 31);
             this.button1.TabIndex = 4;
             this.button1.Text = "Save Prescription";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -269,6 +278,20 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "Prescription";
+            this.bindingSource1.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // prescriptionTableAdapter
+            // 
+            this.prescriptionTableAdapter.ClearBeforeFill = true;
             // 
             // RegPrescriptionForm
             // 
@@ -284,12 +307,15 @@
             this.Controls.Add(this.label1);
             this.Name = "RegPrescriptionForm";
             this.Text = "RegPrescriptionForm";
+            this.Load += new System.EventHandler(this.RegPrescriptionForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,5 +346,8 @@
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private Database.DataSet1 dataSet1;
+        private Database.DataSet1TableAdapters.PrescriptionTableAdapter prescriptionTableAdapter;
     }
 }
