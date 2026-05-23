@@ -43,19 +43,21 @@ namespace MPM2.Interface
                         {
                             this.ActiveMdiChild.Close();
                         }
-                        string userName = row["Username"].ToString();
-                        string fullName = row["FullName"].ToString();
+                        //string userName = row["Username"].ToString();
+                        //string fullName = row["FullName"].ToString();
                         string role = "Doctor";
-                        DashboardForm1 d = new DashboardForm1(userName, fullName, role);
+                        DataRow dataRow = row;
+                        DashboardForm1 d = new DashboardForm1(role, dataRow);
                         d.MdiParent = this.MdiParent;
                         d.WindowState = FormWindowState.Maximized;
                         d.FormBorderStyle = FormBorderStyle.None;
                         d.Show();
                         if (this.MdiParent is MainForm mf)
                         {
-                            mf.CurrentUserName = userName;
-                            mf.CurrentFullName = fullName;
+                            //mf.CurrentUserName = userName;
+                            //mf.CurrentFullName = fullName;
                             mf.CurrentRole = role;
+                            mf.CurrentDataRow = row;
                         }
                         break;
                     }
@@ -76,10 +78,10 @@ namespace MPM2.Interface
                         {
                             this.ActiveMdiChild.Close();
                         }
-                        string userName = row["Username"].ToString();
-                        string fullName = row["FullName"].ToString();
+                        //string userName = row["Username"].ToString();
+                        //string fullName = row["FullName"].ToString();
                         string role = "Nurse";
-                        DashboardForm1 d = new DashboardForm1(userName, fullName, role);
+                        DashboardForm1 d = new DashboardForm1(role,row);
                         d.MdiParent = this.MdiParent;
                         d.WindowState = FormWindowState.Maximized;
                         d.FormBorderStyle = FormBorderStyle.None;

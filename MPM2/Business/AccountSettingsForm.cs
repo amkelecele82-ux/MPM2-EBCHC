@@ -14,11 +14,26 @@ namespace MPM2.Business
     {
         string userName;
         string fullName;
-        public AccountSettingsForm(string userName, string fullName)
+        string role;
+        int pk;
+        public AccountSettingsForm(string role,DataRow dataRow)
         {
             InitializeComponent();
-            this.userName = userName;
-            this.fullName = fullName;
+            this.userName = dataRow["Username"].ToString();
+            this.fullName = dataRow["FullName"].ToString();
+            this.role = role;
+            if (role == "Patient")
+            {
+                pk = Convert.ToInt32(dataRow["PatientID"]);
+            }
+            if (role == "Doctor")
+            {
+                pk = Convert.ToInt32(dataRow["DoctorID"]);
+            }
+            if (role == "Nurse")
+            {
+                pk = Convert.ToInt32(dataRow["NurseID"]);
+            }
         }
 
         private void AccountSettingsForm_Load(object sender, EventArgs e)

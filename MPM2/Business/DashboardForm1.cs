@@ -19,11 +19,12 @@ namespace MPM2.Business
         string userName;
         string fullName;
         string role;
-        public DashboardForm1(string userName, string fullName, string role)
+        public DashboardForm1(string role,DataRow datarow)
         {
             InitializeComponent();
-            this.userName = userName;
-            this.fullName = fullName;
+            this.userName = datarow["Username"].ToString();
+            //this.fullName = fullName;
+            this.fullName = datarow["FullName"].ToString();
             this.role = role;
             patientTableAdapter1.Fill(dataSet11.Patient);
         }

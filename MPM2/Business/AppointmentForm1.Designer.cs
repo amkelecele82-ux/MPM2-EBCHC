@@ -34,6 +34,8 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.appointmentViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new MPM2.Database.DataSet1();
             this.TPBA = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -43,20 +45,22 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataSet1 = new MPM2.Database.DataSet1();
-            this.appointmentViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentViewTableAdapter = new MPM2.Database.DataSet1TableAdapters.AppointmentViewTableAdapter();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.doctorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NurseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appointmentStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appointmentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TCAppointments.SuspendLayout();
             this.TPVA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentViewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.TPBA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentViewBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // TCAppointments
@@ -72,6 +76,8 @@
             // 
             // TPVA
             // 
+            this.TPVA.Controls.Add(this.dateTimePicker2);
+            this.TPVA.Controls.Add(this.label5);
             this.TPVA.Controls.Add(this.textBox3);
             this.TPVA.Controls.Add(this.label4);
             this.TPVA.Controls.Add(this.dataGridView2);
@@ -106,8 +112,10 @@
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.doctorNameDataGridViewTextBoxColumn,
             this.patientNameDataGridViewTextBoxColumn,
+            this.NurseName,
             this.appointmentStatusDataGridViewTextBoxColumn,
-            this.appointmentDateDataGridViewTextBoxColumn});
+            this.StartTime,
+            this.EndTime});
             this.dataGridView2.DataSource = this.appointmentViewBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(68, 125);
             this.dataGridView2.Name = "dataGridView2";
@@ -115,6 +123,16 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(1045, 469);
             this.dataGridView2.TabIndex = 0;
+            // 
+            // appointmentViewBindingSource
+            // 
+            this.appointmentViewBindingSource.DataMember = "AppointmentView";
+            this.appointmentViewBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // TPBA
             // 
@@ -201,19 +219,25 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Doctor Name:";
             // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // appointmentViewBindingSource
-            // 
-            this.appointmentViewBindingSource.DataMember = "AppointmentView";
-            this.appointmentViewBindingSource.DataSource = this.dataSet1;
-            // 
             // appointmentViewTableAdapter
             // 
             this.appointmentViewTableAdapter.ClearBeforeFill = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(482, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 16);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Date";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(578, 39);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker2.TabIndex = 4;
             // 
             // doctorNameDataGridViewTextBoxColumn
             // 
@@ -231,6 +255,14 @@
             this.patientNameDataGridViewTextBoxColumn.Name = "patientNameDataGridViewTextBoxColumn";
             this.patientNameDataGridViewTextBoxColumn.Width = 125;
             // 
+            // NurseName
+            // 
+            this.NurseName.DataPropertyName = "NurseName";
+            this.NurseName.HeaderText = "NurseName";
+            this.NurseName.MinimumWidth = 6;
+            this.NurseName.Name = "NurseName";
+            this.NurseName.Width = 125;
+            // 
             // appointmentStatusDataGridViewTextBoxColumn
             // 
             this.appointmentStatusDataGridViewTextBoxColumn.DataPropertyName = "Appointment_Status";
@@ -239,13 +271,21 @@
             this.appointmentStatusDataGridViewTextBoxColumn.Name = "appointmentStatusDataGridViewTextBoxColumn";
             this.appointmentStatusDataGridViewTextBoxColumn.Width = 125;
             // 
-            // appointmentDateDataGridViewTextBoxColumn
+            // StartTime
             // 
-            this.appointmentDateDataGridViewTextBoxColumn.DataPropertyName = "Appointment_Date";
-            this.appointmentDateDataGridViewTextBoxColumn.HeaderText = "Appointment_Date";
-            this.appointmentDateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.appointmentDateDataGridViewTextBoxColumn.Name = "appointmentDateDataGridViewTextBoxColumn";
-            this.appointmentDateDataGridViewTextBoxColumn.Width = 125;
+            this.StartTime.DataPropertyName = "StartTime";
+            this.StartTime.HeaderText = "StartTime";
+            this.StartTime.MinimumWidth = 6;
+            this.StartTime.Name = "StartTime";
+            this.StartTime.Width = 125;
+            // 
+            // EndTime
+            // 
+            this.EndTime.DataPropertyName = "EndTime";
+            this.EndTime.HeaderText = "EndTime";
+            this.EndTime.MinimumWidth = 6;
+            this.EndTime.Name = "EndTime";
+            this.EndTime.Width = 125;
             // 
             // AppointmentForm1
             // 
@@ -260,11 +300,11 @@
             this.TPVA.ResumeLayout(false);
             this.TPVA.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentViewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.TPBA.ResumeLayout(false);
             this.TPBA.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentViewBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -288,9 +328,14 @@
         private Database.DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource appointmentViewBindingSource;
         private Database.DataSet1TableAdapters.AppointmentViewTableAdapter appointmentViewTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn appointmentDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn doctorNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn patientNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NurseName;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentStatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn appointmentDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndTime;
     }
 }

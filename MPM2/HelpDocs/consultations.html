@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clinical Consultations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-brand">
+            <h2>Help Center</h2>
+            <div class="hospital-icon">
+                <svg width="55" height="55" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#ffffff" stroke-width="5" />
+                    <rect x="42" y="25" width="16" height="50" fill="#ffffff" rx="2" />
+                    <rect x="25" y="42" width="50" height="16" fill="#ffffff" rx="2" />
+                </svg>
+            </div>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Welcome & Overview</a></li>
+            <li><a href="dashboard.html">Using the Dashboard</a></li>
+            <li><a href="patients.html">Patient Management</a></li>
+            <li><a href="consultations.html">Clinical Consultations</a></li>
+            <li><a href="location.html">Clinic Location & Info</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h1>Clinical Consultations & Folders</h1>
+        <p>The Patient Folder view is designed for clinical staff to record vitals, notes, and prescriptions during a visit.</p>
+
+        <h2>Recording Vitals</h2>
+        <p>Under the "Vitals & notes" tab, enter the patient's readings for today. The system will automatically flag abnormal readings:</p>
+        <ul>
+            <li>If a Blood Pressure reading is too high (e.g., 165/105), it will turn red to alert the attending doctor.</li>
+            <li>BMI is calculated automatically when you input Height and Weight.</li>
+        </ul>
+
+        <h2>Clinical Notes & Prescriptions</h2>
+        <p>Use the text boxes to document the patient's presenting complaint and your final diagnosis. From here you can:</p>
+        <ul>
+            <li>Set a <strong>Follow-up date</strong> or create a referral to another department.</li>
+            <li>Click <strong>"Add prescription"</strong> to assign medication. You will need to specify the medication name, dosage, and frequency.</li>
+        </ul>
+
+        <div class="tip-box">
+            Always click <strong>"Save & close consultation"</strong> when the visit is over. This clears the patient from the "Waiting" queue on the main dashboard.
+        </div>
+    </main>
+
+    <button class="chat-toggle" onclick="toggleChat()" title="Open Help Desk">💬</button>
+
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+            <div class="header-info">
+                <div class="chat-avatar">🤖</div>
+                <div class="header-text">
+                    <h4>Help Desk</h4>
+                    <span class="status"><span class="status-dot"></span> Online</span>
+                </div>
+            </div>
+            <button class="close-btn" onclick="toggleChat()">✖</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="bot-message">Hello! Welcome to the East Boom CHC Help Desk. How can I assist you today?</div>
+        </div>
+
+        <div class="chat-chips">
+            <button class="chip" onclick="sendQuickReply('How do I register a patient?')">Register Patient</button>
+            <button class="chip" onclick="sendQuickReply('What do the queue colors mean?')">Queue Colors</button>
+            <button class="chip" onclick="sendQuickReply('Where are you located?')">Clinic Location</button>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="userInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()" title="Send">➤</button>
+        </div>
+    </div>
+
+    <script src="knowledgebase.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html>

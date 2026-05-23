@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +17,11 @@ namespace MPM2
     public partial class MainForm : Form
     {
         //These are added so that we can pass the user information from the login form to other forms
-        public string CurrentUserName { get; set; }
-        public string CurrentFullName { get; set; }
+        //public string CurrentUserName { get; set; }
+        //public string CurrentFullName { get; set; }
         public string CurrentRole { get; set; }
-        public string CurrentPassword { get; set; }
+        //public string CurrentPassword { get; set; }
+        public DataRow CurrentDataRow { get; set; }
 
         public MainForm()
         {
@@ -84,14 +86,13 @@ namespace MPM2
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DashboardForm1 d = new DashboardForm1(CurrentUserName, CurrentFullName, CurrentRole);
+            DashboardForm1 d = new DashboardForm1(CurrentRole, CurrentDataRow);
             formSetup(d);
         }
 
         private void appointmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AppointmentForm1 a = new AppointmentForm1();
-            formSetup(a);
+
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,30 +108,54 @@ namespace MPM2
 
         private void viewHelpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string googleSitesUrl = "https://sites.google.com/view/eastboomchcmanual";
+            //string googleSitesUrl = "https://sites.google.com/view/eastboomchcmanual";
 
-            try
+            //try
+            //{
+            //    // 2. This command opens the link in the computer's default web browser
+            //    ProcessStartInfo psi = new ProcessStartInfo
+            //    {
+            //        FileName = googleSitesUrl,
+            //        UseShellExecute = true
+            //    };
+            //    Process.Start(psi);
+            //}
+            //catch (Exception ex)
+            //{
+            //    // 3. This catches errors, like if the computer doesn't have a web browser installed
+            //    MessageBox.Show("Could not open the help manual. Please check your internet connection.",
+            //                    "Help Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            //}
+
+            string helpFilePath = Path.Combine(Application.StartupPath,"HelpDocs","index.html");
+            if(File.Exists(helpFilePath))
             {
-                // 2. This command opens the link in the computer's default web browser
-                ProcessStartInfo psi = new ProcessStartInfo
+                try
                 {
-                    FileName = googleSitesUrl,
-                    UseShellExecute = true
-                };
-                Process.Start(psi);
+                    ProcessStartInfo psi = new ProcessStartInfo
+                    {
+                        FileName = helpFilePath,
+                        UseShellExecute = true
+                    };
+                    Process.Start(psi);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Could not open the help manual. Please check your file association settings.",
+                                    "Help Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                // 3. This catches errors, like if the computer doesn't have a web browser installed
-                MessageBox.Show("Could not open the help manual. Please check your internet connection.",
+                MessageBox.Show("Help manual not found. Please ensure the help files are in the correct location.",
                                 "Help Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
 
         private void accountSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AccountSettingsForm a = new AccountSettingsForm(CurrentUserName, CurrentFullName);
+            AccountSettingsForm a = new AccountSettingsForm(CurrentRole,CurrentDataRow);
             formSetup(a);
         }
 
@@ -146,6 +171,19 @@ namespace MPM2
             RegPrescriptionForm r = new RegPrescriptionForm();  
             formSetup(r);   
 
+        }
+
+        private void viewAllToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            AppointmentForm1 a = new AppointmentForm1();
+            formSetup(a);
+        }
+
+        private void bookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppointmentForm1 a = new AppointmentForm1();
+            a.SetTab(1);
+            formSetup(a);
         }
     }
 }
