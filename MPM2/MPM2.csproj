@@ -88,6 +88,9 @@
     <Compile Include="Business\RegPrescriptionForm.Designer.cs">
       <DependentUpon>RegPrescriptionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database\DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Database\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

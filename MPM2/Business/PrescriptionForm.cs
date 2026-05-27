@@ -19,8 +19,10 @@ namespace MPM2.Business
 
         private void PrescriptionForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSet11.Prescriptionn_' table. You can move, or remove it, as needed.
+            this.prescriptionn_TableAdapter.Fill(this.dataSet11.Prescriptionn_);
             // TODO: This line of code loads data into the 'dataSet11.Prescription' table. You can move, or remove it, as needed.
-            this.prescriptionTableAdapter.Fill(this.dataSet11.Prescription);
+            //this.prescriptionTableAdapter.Fill(this.dataSet11.Prescription);
             // TODO: This line of code loads data into the 'dataSet11.Prescription' table. You can move, or remove it, as needed.
            // this.prescriptionTableAdapter.Fill(this.dataSet11.Prescription);
             // TODO: This line of code loads data into the 'dataSet1.Prescription' table. You can move, or remove it, as needed.
@@ -55,6 +57,15 @@ namespace MPM2.Business
 
         private void prescriptiondataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void prescriptiondataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+           txtDoctorName .Text = prescriptiondataGridView1.CurrentRow.Cells[1].Value.ToString();    
+           txtDateIssued.Text=prescriptiondataGridView1.CurrentRow.Cells[7].Value.ToString();
+           txtMedicName.Text=prescriptiondataGridView1.CurrentRow.Cells[4].Value.ToString();
+            txtInstruction.Text=prescriptiondataGridView1.CurrentRow.Cells[8].Value.ToString();
 
         }
     }
