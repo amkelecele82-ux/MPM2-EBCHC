@@ -102,6 +102,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Interface\Login2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\Login2.Designer.cs">
+      <DependentUpon>Login2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\RegPrescriptionForm.resx">
       <DependentUpon>RegPrescriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\Login2.resx">
+      <DependentUpon>Login2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\LoginForm1.resx">
       <DependentUpon>LoginForm1.cs</DependentUpon>
