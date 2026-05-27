@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.txtDuration = new System.Windows.Forms.TextBox();
             this.txtFrequency = new System.Windows.Forms.TextBox();
             this.txtDosage = new System.Windows.Forms.TextBox();
@@ -55,7 +56,6 @@
             this.dataSet1 = new MPM2.Database.DataSet1();
             this.prescriptionn_TableAdapter = new MPM2.Database.DataSet1TableAdapters.Prescriptionn_TableAdapter();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnSaveUpdate = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -162,6 +162,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Details";
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(153, 160);
+            this.maskedTextBox1.Mask = "00/00/0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBox1.TabIndex = 9;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            // 
             // txtDuration
             // 
             this.txtDuration.Location = new System.Drawing.Point(153, 126);
@@ -258,10 +267,11 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(932, 284);
+            this.button1.Location = new System.Drawing.Point(848, 258);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 31);
+            this.button1.Size = new System.Drawing.Size(189, 31);
             this.button1.TabIndex = 4;
             this.button1.Text = "Create  Prescription";
             this.button1.UseVisualStyleBackColor = true;
@@ -269,7 +279,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(932, 324);
+            this.button2.Location = new System.Drawing.Point(848, 319);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(114, 31);
             this.button2.TabIndex = 5;
@@ -300,15 +310,6 @@
             this.btnUpdate.Text = "Update Prescription";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(153, 160);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 9;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
             // 
             // groupBox4
             // 
