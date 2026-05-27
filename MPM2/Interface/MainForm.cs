@@ -30,6 +30,7 @@ namespace MPM2
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            disableMenuItems();
             this.MainMenuStrip = menuStrip1;
             //DashboardForm1 d = new DashboardForm1();
             LoginForm1 l = new LoginForm1();
@@ -47,6 +48,22 @@ namespace MPM2
             myForm.WindowState = FormWindowState.Maximized;
             myForm.FormBorderStyle = FormBorderStyle.None;
             myForm.Show();
+        }
+        private void disableMenuItems()
+        {
+            patientToolStripMenuItem.Visible = false;
+            appointmentToolStripMenuItem.Visible = false;
+            cToolStripMenuItem.Visible = false;
+            reportsToolStripMenuItem.Visible = false;
+            adminToolStripMenuItem.Visible = false;
+        }
+        public void enableMenuItems()
+        {
+            patientToolStripMenuItem.Visible = true;
+            appointmentToolStripMenuItem.Visible = true;
+            cToolStripMenuItem.Visible = true;
+            reportsToolStripMenuItem.Visible = true;
+            adminToolStripMenuItem.Visible = true;
         }
 
         private void npbutton_Click(object sender, EventArgs e)

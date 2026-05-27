@@ -64,6 +64,12 @@
     <Compile Include="Business\DashboardForm1.Designer.cs">
       <DependentUpon>DashboardForm1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\PatientAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\PatientAppointment.Designer.cs">
+      <DependentUpon>PatientAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\PatientForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\DashboardForm1.resx">
       <DependentUpon>DashboardForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\PatientAppointment.resx">
+      <DependentUpon>PatientAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\PatientForm1.resx">
       <DependentUpon>PatientForm1.cs</DependentUpon>

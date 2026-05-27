@@ -31,6 +31,7 @@ namespace MPM2.Interface
 
         private void loginbutton_Click(object sender, EventArgs e)
         {
+            Boolean accessed = false;
             if (CBRole.SelectedIndex == 0)
             {
 
@@ -43,8 +44,6 @@ namespace MPM2.Interface
                         {
                             this.ActiveMdiChild.Close();
                         }
-                        //string userName = row["Username"].ToString();
-                        //string fullName = row["FullName"].ToString();
                         string role = "Doctor";
                         DataRow dataRow = row;
                         DashboardForm1 d = new DashboardForm1(role, dataRow);
@@ -54,16 +53,19 @@ namespace MPM2.Interface
                         d.Show();
                         if (this.MdiParent is MainForm mf)
                         {
-                            //mf.CurrentUserName = userName;
-                            //mf.CurrentFullName = fullName;
                             mf.CurrentRole = role;
                             mf.CurrentDataRow = row;
+                            mf.enableMenuItems();
                         }
+                        accessed = true;
                         break;
                     }
 
                 }
-                //MessageBox.Show("Please fill in details");
+                if (!accessed)
+                {
+                    MessageBox.Show("Incorrect login details");
+                }
 
             }
             else if (CBRole.SelectedIndex == 1)
@@ -78,18 +80,27 @@ namespace MPM2.Interface
                         {
                             this.ActiveMdiChild.Close();
                         }
-                        //string userName = row["Username"].ToString();
-                        //string fullName = row["FullName"].ToString();
+                        
                         string role = "Nurse";
                         DashboardForm1 d = new DashboardForm1(role,row);
                         d.MdiParent = this.MdiParent;
                         d.WindowState = FormWindowState.Maximized;
                         d.FormBorderStyle = FormBorderStyle.None;
+                        if (this.MdiParent is MainForm mf)
+                        {
+                            mf.CurrentRole = role;
+                            mf.CurrentDataRow = row;
+                            mf.enableMenuItems();
+                        }
                         d.Show();
+                        accessed = true;
                         break;
                     }
                 }
-                //MessageBox.Show("Please fill in details");
+                if (!accessed)
+                {
+                    MessageBox.Show("Incorrect login details");
+                }
 
             }
             else if (CBRole.SelectedIndex == 2)
@@ -99,10 +110,19 @@ namespace MPM2.Interface
                     if (row["Username"].ToString().Equals(TBUsername.Text) && row["Password"].ToString().Equals(TBPassword.Text))
                     {
                         MessageBox.Show("Hello " + row["FullName"].ToString());
+                        accessed = true;
+                        PatientAppointment pa = new PatientAppointment();
+                        pa.MdiParent = this.MdiParent;
+                        pa.WindowState = FormWindowState.Maximized;
+                        pa.FormBorderStyle = FormBorderStyle.None;
+                        pa.Show();
                         break;
                     }
                 }
-                //MessageBox.Show("Please fill in details");
+                if (!accessed)
+                {
+                    MessageBox.Show("Incorrect login details");
+                }
             }
             else
             {
