@@ -39,7 +39,6 @@
             this.NurseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.doctorIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientIDDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nurseIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,14 +46,15 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startTimeDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endTimeDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.liteAppointmentBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
+            this.appointmentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new MPM2.Database.DataSet1();
             this.BookTabPage = new System.Windows.Forms.TabPage();
             this.txtAppointmentStatus = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtDoctorIDBook = new System.Windows.Forms.TextBox();
+            this.txtNurseID = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPatientName = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -66,8 +66,16 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.liteAppointmentdataGridView3 = new System.Windows.Forms.DataGridView();
-            this.liteAppointmentBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
+            this.AppointmentdataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doctorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nurse_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentStatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patientDataGridView = new System.Windows.Forms.DataGridView();
             this.patientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,13 +87,13 @@
             this.txtSearchPatientName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.AppointProgressTabPage = new System.Windows.Forms.TabPage();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.patientIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AppointmentStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnUpdateStatus = new System.Windows.Forms.Button();
+            this.appProgressDataGridView = new System.Windows.Forms.DataGridView();
+            this.appProgressBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.liteAppointmentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.liteAppointmentBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.liteAppointmentBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.liteAppointmentBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
@@ -94,39 +102,42 @@
             this.patientTableAdapter = new MPM2.Database.DataSet1TableAdapters.PatientTableAdapter();
             this.liteAppointmentBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.liteAppointmentBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
-            this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentTableAdapter = new MPM2.Database.DataSet1TableAdapters.AppointmentTableAdapter();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doctorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nurseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appointmentStatusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.liteAppointmentBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
+            this.appProgressBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Appointment_Status = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.TCAppointments.SuspendLayout();
             this.ViewAllTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.BookTabPage.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentdataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AppointmentdataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             this.AppointProgressTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appProgressDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appProgressBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appProgressBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // TCAppointments
@@ -202,16 +213,14 @@
             this.NurseName,
             this.StartTime,
             this.EndTime,
-            this.dataGridViewTextBoxColumn4,
             this.doctorIDDataGridViewTextBoxColumn1,
             this.patientIDDataGridViewTextBoxColumn3,
             this.nurseIDDataGridViewTextBoxColumn1,
             this.appointmentStatusDataGridViewTextBoxColumn,
             this.dataGridViewTextBoxColumn5,
             this.startTimeDataGridViewTextBoxColumn2,
-            this.endTimeDataGridViewTextBoxColumn2,
-            this.patientNameDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.liteAppointmentBindingSource7;
+            this.endTimeDataGridViewTextBoxColumn2});
+            this.dataGridView2.DataSource = this.appointmentBindingSource1;
             this.dataGridView2.Location = new System.Drawing.Point(51, 102);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
@@ -243,13 +252,6 @@
             this.EndTime.MinimumWidth = 6;
             this.EndTime.Name = "EndTime";
             this.EndTime.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "AppointmentID";
-            this.dataGridViewTextBoxColumn4.HeaderText = "AppointmentID";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // doctorIDDataGridViewTextBoxColumn1
             // 
@@ -293,16 +295,10 @@
             this.endTimeDataGridViewTextBoxColumn2.HeaderText = "EndTime";
             this.endTimeDataGridViewTextBoxColumn2.Name = "endTimeDataGridViewTextBoxColumn2";
             // 
-            // patientNameDataGridViewTextBoxColumn
+            // appointmentBindingSource1
             // 
-            this.patientNameDataGridViewTextBoxColumn.DataPropertyName = "PatientName";
-            this.patientNameDataGridViewTextBoxColumn.HeaderText = "PatientName";
-            this.patientNameDataGridViewTextBoxColumn.Name = "patientNameDataGridViewTextBoxColumn";
-            // 
-            // liteAppointmentBindingSource7
-            // 
-            this.liteAppointmentBindingSource7.DataMember = "LiteAppointment";
-            this.liteAppointmentBindingSource7.DataSource = this.dataSet1;
+            this.appointmentBindingSource1.DataMember = "Appointment";
+            this.appointmentBindingSource1.DataSource = this.dataSet1;
             // 
             // dataSet1
             // 
@@ -347,7 +343,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.txtDoctorIDBook);
+            this.groupBox3.Controls.Add(this.txtNurseID);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.txtPatientName);
             this.groupBox3.Controls.Add(this.dateTimePicker1);
@@ -367,17 +365,35 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Book Appointment";
             // 
-            // textBox1
+            // label10
             // 
-            this.textBox1.Location = new System.Drawing.Point(95, 116);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 31;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(22, 134);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(59, 13);
+            this.label10.TabIndex = 33;
+            this.label10.Text = "Doctor ID :";
+            // 
+            // txtDoctorIDBook
+            // 
+            this.txtDoctorIDBook.Location = new System.Drawing.Point(95, 131);
+            this.txtDoctorIDBook.Name = "txtDoctorIDBook";
+            this.txtDoctorIDBook.ReadOnly = true;
+            this.txtDoctorIDBook.Size = new System.Drawing.Size(100, 20);
+            this.txtDoctorIDBook.TabIndex = 32;
+            this.txtDoctorIDBook.TextChanged += new System.EventHandler(this.txtDoctorIDBook_TextChanged);
+            // 
+            // txtNurseID
+            // 
+            this.txtNurseID.Location = new System.Drawing.Point(95, 98);
+            this.txtNurseID.Name = "txtNurseID";
+            this.txtNurseID.Size = new System.Drawing.Size(100, 20);
+            this.txtNurseID.TabIndex = 31;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(23, 124);
+            this.label9.Location = new System.Drawing.Point(22, 101);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(55, 13);
             this.label9.TabIndex = 30;
@@ -472,10 +488,11 @@
             this.button1.TabIndex = 19;
             this.button1.Text = "Book";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.liteAppointmentdataGridView3);
+            this.groupBox1.Controls.Add(this.AppointmentdataGridView3);
             this.groupBox1.Location = new System.Drawing.Point(675, 32);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
@@ -485,32 +502,83 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "My Appointments";
             // 
-            // liteAppointmentdataGridView3
+            // AppointmentdataGridView3
             // 
-            this.liteAppointmentdataGridView3.AutoGenerateColumns = false;
-            this.liteAppointmentdataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.liteAppointmentdataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AppointmentdataGridView3.AutoGenerateColumns = false;
+            this.AppointmentdataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AppointmentdataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.patientIDDataGridViewTextBoxColumn1,
             this.doctorIDDataGridViewTextBoxColumn,
-            this.nurseIDDataGridViewTextBoxColumn,
+            this.Nurse_ID,
             this.appointmentStatusDataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn3,
             this.startTimeDataGridViewTextBoxColumn,
             this.endTimeDataGridViewTextBoxColumn});
-            this.liteAppointmentdataGridView3.DataSource = this.appointmentBindingSource;
-            this.liteAppointmentdataGridView3.Location = new System.Drawing.Point(4, 33);
-            this.liteAppointmentdataGridView3.Margin = new System.Windows.Forms.Padding(2);
-            this.liteAppointmentdataGridView3.Name = "liteAppointmentdataGridView3";
-            this.liteAppointmentdataGridView3.RowHeadersWidth = 51;
-            this.liteAppointmentdataGridView3.RowTemplate.Height = 24;
-            this.liteAppointmentdataGridView3.Size = new System.Drawing.Size(852, 314);
-            this.liteAppointmentdataGridView3.TabIndex = 24;
+            this.AppointmentdataGridView3.DataSource = this.appointmentBindingSource;
+            this.AppointmentdataGridView3.Location = new System.Drawing.Point(4, 33);
+            this.AppointmentdataGridView3.Margin = new System.Windows.Forms.Padding(2);
+            this.AppointmentdataGridView3.Name = "AppointmentdataGridView3";
+            this.AppointmentdataGridView3.RowHeadersWidth = 51;
+            this.AppointmentdataGridView3.RowTemplate.Height = 24;
+            this.AppointmentdataGridView3.Size = new System.Drawing.Size(852, 314);
+            this.AppointmentdataGridView3.TabIndex = 24;
+            this.AppointmentdataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.liteAppointmentdataGridView3_CellContentClick);
+            this.AppointmentdataGridView3.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.liteAppointmentdataGridView3_RowHeaderMouseDoubleClick);
             // 
-            // liteAppointmentBindingSource6
+            // dataGridViewTextBoxColumn1
             // 
-            this.liteAppointmentBindingSource6.DataMember = "LiteAppointment";
-            this.liteAppointmentBindingSource6.DataSource = this.dataSet1;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Appointment_ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Appointment_ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // patientIDDataGridViewTextBoxColumn1
+            // 
+            this.patientIDDataGridViewTextBoxColumn1.DataPropertyName = "Patient_ID";
+            this.patientIDDataGridViewTextBoxColumn1.HeaderText = "Patient_ID";
+            this.patientIDDataGridViewTextBoxColumn1.Name = "patientIDDataGridViewTextBoxColumn1";
+            // 
+            // doctorIDDataGridViewTextBoxColumn
+            // 
+            this.doctorIDDataGridViewTextBoxColumn.DataPropertyName = "Doctor_ID";
+            this.doctorIDDataGridViewTextBoxColumn.HeaderText = "Doctor_ID";
+            this.doctorIDDataGridViewTextBoxColumn.Name = "doctorIDDataGridViewTextBoxColumn";
+            // 
+            // Nurse_ID
+            // 
+            this.Nurse_ID.DataPropertyName = "Nurse_ID";
+            this.Nurse_ID.HeaderText = "Nurse_ID";
+            this.Nurse_ID.Name = "Nurse_ID";
+            // 
+            // appointmentStatusDataGridViewTextBoxColumn1
+            // 
+            this.appointmentStatusDataGridViewTextBoxColumn1.DataPropertyName = "Appointment_Status";
+            this.appointmentStatusDataGridViewTextBoxColumn1.HeaderText = "Appointment_Status";
+            this.appointmentStatusDataGridViewTextBoxColumn1.Name = "appointmentStatusDataGridViewTextBoxColumn1";
+            this.appointmentStatusDataGridViewTextBoxColumn1.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Appointment_Date";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Appointment_Date";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // startTimeDataGridViewTextBoxColumn
+            // 
+            this.startTimeDataGridViewTextBoxColumn.DataPropertyName = "StartTime";
+            this.startTimeDataGridViewTextBoxColumn.HeaderText = "StartTime";
+            this.startTimeDataGridViewTextBoxColumn.Name = "startTimeDataGridViewTextBoxColumn";
+            // 
+            // endTimeDataGridViewTextBoxColumn
+            // 
+            this.endTimeDataGridViewTextBoxColumn.DataPropertyName = "EndTime";
+            this.endTimeDataGridViewTextBoxColumn.HeaderText = "EndTime";
+            this.endTimeDataGridViewTextBoxColumn.Name = "endTimeDataGridViewTextBoxColumn";
+            // 
+            // appointmentBindingSource
+            // 
+            this.appointmentBindingSource.DataMember = "Appointment";
+            this.appointmentBindingSource.DataSource = this.dataSet1;
             // 
             // patientDataGridView
             // 
@@ -596,67 +664,78 @@
             // 
             // AppointProgressTabPage
             // 
-            this.AppointProgressTabPage.Controls.Add(this.dataGridView3);
+            this.AppointProgressTabPage.Controls.Add(this.groupBox2);
+            this.AppointProgressTabPage.Controls.Add(this.appProgressDataGridView);
             this.AppointProgressTabPage.Location = new System.Drawing.Point(4, 22);
             this.AppointProgressTabPage.Name = "AppointProgressTabPage";
             this.AppointProgressTabPage.Size = new System.Drawing.Size(1617, 813);
             this.AppointProgressTabPage.TabIndex = 2;
             this.AppointProgressTabPage.Text = "Appointment Progress";
             this.AppointProgressTabPage.UseVisualStyleBackColor = true;
+            this.AppointProgressTabPage.Click += new System.EventHandler(this.AppointProgressTabPage_Click);
             // 
-            // dataGridView3
+            // groupBox2
             // 
-            this.dataGridView3.AutoGenerateColumns = false;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.btnUpdateStatus);
+            this.groupBox2.Location = new System.Drawing.Point(34, 59);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(230, 213);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Update Appointment Details";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(77, 110);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Save Changes";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnUpdateStatus
+            // 
+            this.btnUpdateStatus.Location = new System.Drawing.Point(40, 60);
+            this.btnUpdateStatus.Name = "btnUpdateStatus";
+            this.btnUpdateStatus.Size = new System.Drawing.Size(151, 23);
+            this.btnUpdateStatus.TabIndex = 1;
+            this.btnUpdateStatus.Text = "Update Appointment Status";
+            this.btnUpdateStatus.UseVisualStyleBackColor = true;
+            this.btnUpdateStatus.Click += new System.EventHandler(this.btnUpdateStatus_Click);
+            // 
+            // appProgressDataGridView
+            // 
+            this.appProgressDataGridView.AutoGenerateColumns = false;
+            this.appProgressDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.appProgressDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn4,
             this.patientIDDataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn2,
             this.startTimeDataGridViewTextBoxColumn1,
             this.endTimeDataGridViewTextBoxColumn1,
-            this.AppointmentStatus});
-            this.dataGridView3.DataSource = this.liteAppointmentBindingSource1;
-            this.dataGridView3.Location = new System.Drawing.Point(248, 61);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(751, 150);
-            this.dataGridView3.TabIndex = 0;
+            this.Appointment_Status});
+            this.appProgressDataGridView.DataSource = this.appProgressBindingSource1;
+            this.appProgressDataGridView.Location = new System.Drawing.Point(327, 59);
+            this.appProgressDataGridView.Name = "appProgressDataGridView";
+            this.appProgressDataGridView.Size = new System.Drawing.Size(751, 150);
+            this.appProgressDataGridView.TabIndex = 0;
             // 
-            // patientIDDataGridViewTextBoxColumn2
+            // appProgressBindingSource
             // 
-            this.patientIDDataGridViewTextBoxColumn2.DataPropertyName = "Patient_ID";
-            this.patientIDDataGridViewTextBoxColumn2.HeaderText = "Patient_ID";
-            this.patientIDDataGridViewTextBoxColumn2.Name = "patientIDDataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Appointment_Date";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Appointment_Date";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // startTimeDataGridViewTextBoxColumn1
-            // 
-            this.startTimeDataGridViewTextBoxColumn1.DataPropertyName = "StartTime";
-            this.startTimeDataGridViewTextBoxColumn1.HeaderText = "StartTime";
-            this.startTimeDataGridViewTextBoxColumn1.Name = "startTimeDataGridViewTextBoxColumn1";
-            // 
-            // endTimeDataGridViewTextBoxColumn1
-            // 
-            this.endTimeDataGridViewTextBoxColumn1.DataPropertyName = "EndTime";
-            this.endTimeDataGridViewTextBoxColumn1.HeaderText = "EndTime";
-            this.endTimeDataGridViewTextBoxColumn1.Name = "endTimeDataGridViewTextBoxColumn1";
-            // 
-            // AppointmentStatus
-            // 
-            this.AppointmentStatus.HeaderText = "Status";
-            this.AppointmentStatus.Items.AddRange(new object[] {
-            "In-Progress",
-            "Completed",
-            "Cancelled"});
-            this.AppointmentStatus.Name = "AppointmentStatus";
+            this.appProgressBindingSource.DataMember = "appProgress";
+            this.appProgressBindingSource.DataSource = this.dataSet1;
             // 
             // liteAppointmentBindingSource1
             // 
             this.liteAppointmentBindingSource1.DataMember = "LiteAppointment";
             this.liteAppointmentBindingSource1.DataSource = this.dataSet1;
+            // 
+            // liteAppointmentBindingSource6
+            // 
+            this.liteAppointmentBindingSource6.DataMember = "LiteAppointment";
+            this.liteAppointmentBindingSource6.DataSource = this.dataSet1;
             // 
             // appointmentViewBindingSource
             // 
@@ -696,62 +775,59 @@
             this.liteAppointmentBindingSource4.DataMember = "LiteAppointment";
             this.liteAppointmentBindingSource4.DataSource = this.dataSet1;
             // 
-            // appointmentBindingSource
-            // 
-            this.appointmentBindingSource.DataMember = "Appointment";
-            this.appointmentBindingSource.DataSource = this.dataSet1;
-            // 
             // appointmentTableAdapter
             // 
             this.appointmentTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // liteAppointmentBindingSource7
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Appointment_ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Appointment_ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.liteAppointmentBindingSource7.DataMember = "LiteAppointment";
+            this.liteAppointmentBindingSource7.DataSource = this.dataSet1;
             // 
-            // patientIDDataGridViewTextBoxColumn1
+            // appProgressBindingSource1
             // 
-            this.patientIDDataGridViewTextBoxColumn1.DataPropertyName = "Patient_ID";
-            this.patientIDDataGridViewTextBoxColumn1.HeaderText = "Patient_ID";
-            this.patientIDDataGridViewTextBoxColumn1.Name = "patientIDDataGridViewTextBoxColumn1";
+            this.appProgressBindingSource1.DataMember = "appProgress";
+            this.appProgressBindingSource1.DataSource = this.dataSet1;
             // 
-            // doctorIDDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn4
             // 
-            this.doctorIDDataGridViewTextBoxColumn.DataPropertyName = "Doctor_ID";
-            this.doctorIDDataGridViewTextBoxColumn.HeaderText = "Doctor_ID";
-            this.doctorIDDataGridViewTextBoxColumn.Name = "doctorIDDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "AppointmentID";
+            this.dataGridViewTextBoxColumn4.HeaderText = "AppointmentID";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // nurseIDDataGridViewTextBoxColumn
+            // patientIDDataGridViewTextBoxColumn2
             // 
-            this.nurseIDDataGridViewTextBoxColumn.DataPropertyName = "Nurse_ID";
-            this.nurseIDDataGridViewTextBoxColumn.HeaderText = "Nurse_ID";
-            this.nurseIDDataGridViewTextBoxColumn.Name = "nurseIDDataGridViewTextBoxColumn";
+            this.patientIDDataGridViewTextBoxColumn2.DataPropertyName = "Patient_ID";
+            this.patientIDDataGridViewTextBoxColumn2.HeaderText = "Patient_ID";
+            this.patientIDDataGridViewTextBoxColumn2.Name = "patientIDDataGridViewTextBoxColumn2";
             // 
-            // appointmentStatusDataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn2
             // 
-            this.appointmentStatusDataGridViewTextBoxColumn1.DataPropertyName = "Appointment_Status";
-            this.appointmentStatusDataGridViewTextBoxColumn1.HeaderText = "Appointment_Status";
-            this.appointmentStatusDataGridViewTextBoxColumn1.Name = "appointmentStatusDataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Appointment_Date";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Appointment_Date";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // dataGridViewTextBoxColumn3
+            // startTimeDataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Appointment_Date";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Appointment_Date";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.startTimeDataGridViewTextBoxColumn1.DataPropertyName = "StartTime";
+            this.startTimeDataGridViewTextBoxColumn1.HeaderText = "StartTime";
+            this.startTimeDataGridViewTextBoxColumn1.Name = "startTimeDataGridViewTextBoxColumn1";
             // 
-            // startTimeDataGridViewTextBoxColumn
+            // endTimeDataGridViewTextBoxColumn1
             // 
-            this.startTimeDataGridViewTextBoxColumn.DataPropertyName = "StartTime";
-            this.startTimeDataGridViewTextBoxColumn.HeaderText = "StartTime";
-            this.startTimeDataGridViewTextBoxColumn.Name = "startTimeDataGridViewTextBoxColumn";
+            this.endTimeDataGridViewTextBoxColumn1.DataPropertyName = "EndTime";
+            this.endTimeDataGridViewTextBoxColumn1.HeaderText = "EndTime";
+            this.endTimeDataGridViewTextBoxColumn1.Name = "endTimeDataGridViewTextBoxColumn1";
             // 
-            // endTimeDataGridViewTextBoxColumn
+            // Appointment_Status
             // 
-            this.endTimeDataGridViewTextBoxColumn.DataPropertyName = "EndTime";
-            this.endTimeDataGridViewTextBoxColumn.HeaderText = "EndTime";
-            this.endTimeDataGridViewTextBoxColumn.Name = "endTimeDataGridViewTextBoxColumn";
+            this.Appointment_Status.DataPropertyName = "Appointment_Status";
+            this.Appointment_Status.HeaderText = "Status";
+            this.Appointment_Status.Items.AddRange(new object[] {
+            "Scheduled",
+            "Completed",
+            "Cancelled"});
+            this.Appointment_Status.Name = "Appointment_Status";
             // 
             // AppointmentForm1
             // 
@@ -767,28 +843,32 @@
             this.ViewAllTabPage.ResumeLayout(false);
             this.ViewAllTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.BookTabPage.ResumeLayout(false);
             this.BookTabPage.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentdataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AppointmentdataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             this.AppointProgressTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.appProgressDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appProgressBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appProgressBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -813,7 +893,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StartTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn EndTime;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView liteAppointmentdataGridView3;
+        private System.Windows.Forms.DataGridView AppointmentdataGridView3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
@@ -835,14 +915,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox txtPatientName;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView appProgressDataGridView;
         private System.Windows.Forms.BindingSource liteAppointmentBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn startTimeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn endTimeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn AppointmentStatus;
         private System.Windows.Forms.TextBox txtAppointmentStatus;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.BindingSource liteAppointmentBindingSource3;
@@ -850,10 +925,10 @@
         private System.Windows.Forms.BindingSource liteAppointmentBindingSource5;
         private System.Windows.Forms.BindingSource liteAppointmentBindingSource4;
         private System.Windows.Forms.BindingSource liteAppointmentBindingSource6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtNurseID;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.BindingSource appointmentBindingSource;
+        private Database.DataSet1TableAdapters.AppointmentTableAdapter appointmentTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn doctorIDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn nurseIDDataGridViewTextBoxColumn1;
@@ -861,17 +936,29 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn startTimeDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn endTimeDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource liteAppointmentBindingSource7;
-        private System.Windows.Forms.BindingSource appointmentBindingSource;
-        private Database.DataSet1TableAdapters.AppointmentTableAdapter appointmentTableAdapter;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn doctorIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nurseIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nurse_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentStatusDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn startTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn endTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtDoctorIDBook;
+        private System.Windows.Forms.BindingSource appProgressBindingSource;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnUpdateStatus;
+        private System.Windows.Forms.BindingSource appointmentBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startTimeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endTimeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Appointment_Status;
+        private System.Windows.Forms.BindingSource appProgressBindingSource1;
     }
 }
