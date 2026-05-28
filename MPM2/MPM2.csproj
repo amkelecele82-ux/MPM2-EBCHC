@@ -120,6 +120,9 @@
     <Compile Include="Interface\LoginForm1.Designer.cs">
       <DependentUpon>LoginForm1.cs</DependentUpon>
     </Compile>
+    <Compile Include="loadForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Business\AccountSettingsForm.resx">
@@ -223,6 +226,10 @@
     <Content Include="HelpDocs\style.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="icons\calendar.png" />
+    <EmbeddedResource Include="icons\heart-rate-monitor %282%29.png" />
+    <EmbeddedResource Include="icons\settings.png" />
+    <EmbeddedResource Include="icons\stethoscope.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
