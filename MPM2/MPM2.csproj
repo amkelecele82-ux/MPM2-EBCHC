@@ -125,6 +125,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RoundedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RoundedTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <EmbeddedResource Include="Business\AccountSettingsForm.resx">
       <DependentUpon>AccountSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +179,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RoleCard.resx">
+      <DependentUpon>RoleCard.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Database\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -226,10 +241,18 @@
     <Content Include="HelpDocs\style.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="icons\calendar.png" />
-    <EmbeddedResource Include="icons\heart-rate-monitor %282%29.png" />
-    <EmbeddedResource Include="icons\settings.png" />
-    <EmbeddedResource Include="icons\stethoscope.png" />
+    <Content Include="icons\calendar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\monitor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\settings.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\stethoscope.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

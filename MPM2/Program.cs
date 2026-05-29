@@ -17,7 +17,7 @@ namespace MPM2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm1());
+            Application.Run(new Login2());
         }
     }
 }
