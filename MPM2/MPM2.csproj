@@ -88,6 +88,12 @@
     <Compile Include="Business\RegPatientForm.Designer.cs">
       <DependentUpon>RegPatientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\RegPatientForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\RegPatientForm2.Designer.cs">
+      <DependentUpon>RegPatientForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\RegPrescriptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\RegPatientForm.resx">
       <DependentUpon>RegPatientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\RegPatientForm2.resx">
+      <DependentUpon>RegPatientForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\RegPrescriptionForm.resx">
       <DependentUpon>RegPrescriptionForm.cs</DependentUpon>

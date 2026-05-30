@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.roleNurse = new RoleCard();
             this.roundedPanel = new RoundedPanel();
+            this.roleNurse = new RoleCard();
             this.roleAdmin = new RoleCard();
             this.rolePatient = new RoleCard();
             this.roleDoctor = new RoleCard();
@@ -58,21 +58,6 @@
             this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
             // 
-            // roleNurse
-            // 
-            this.roleNurse.BackColor = System.Drawing.Color.White;
-            this.roleNurse.CornerRadius = 10;
-            this.roleNurse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roleNurse.Icon = null;
-            this.roleNurse.Location = new System.Drawing.Point(365, 155);
-            this.roleNurse.Name = "roleNurse";
-            this.roleNurse.Padding = new System.Windows.Forms.Padding(10);
-            this.roleNurse.Selected = false;
-            this.roleNurse.Size = new System.Drawing.Size(210, 58);
-            this.roleNurse.SubTitle = "Vitals & triage";
-            this.roleNurse.TabIndex = 20;
-            this.roleNurse.Title = "Nurse / sister";
-            // 
             // roundedPanel
             // 
             this.roundedPanel.BackColor = System.Drawing.Color.White;
@@ -94,11 +79,26 @@
             this.roundedPanel.Controls.Add(this.pnlHeader);
             this.roundedPanel.Controls.Add(this.label2);
             this.roundedPanel.CornerRadius = 8;
-            this.roundedPanel.Location = new System.Drawing.Point(291, 63);
+            this.roundedPanel.Location = new System.Drawing.Point(414, 44);
             this.roundedPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.roundedPanel.Name = "roundedPanel";
             this.roundedPanel.Size = new System.Drawing.Size(778, 659);
             this.roundedPanel.TabIndex = 18;
+            // 
+            // roleNurse
+            // 
+            this.roleNurse.BackColor = System.Drawing.Color.White;
+            this.roleNurse.CornerRadius = 10;
+            this.roleNurse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roleNurse.Icon = null;
+            this.roleNurse.Location = new System.Drawing.Point(365, 155);
+            this.roleNurse.Name = "roleNurse";
+            this.roleNurse.Padding = new System.Windows.Forms.Padding(10);
+            this.roleNurse.Selected = false;
+            this.roleNurse.Size = new System.Drawing.Size(210, 58);
+            this.roleNurse.SubTitle = "Vitals & triage";
+            this.roleNurse.TabIndex = 20;
+            this.roleNurse.Title = "Nurse / sister";
             // 
             // roleAdmin
             // 
@@ -236,6 +236,7 @@
             this.ButtonSignIn.TabIndex = 15;
             this.ButtonSignIn.Text = "Sign in to system";
             this.ButtonSignIn.UseVisualStyleBackColor = false;
+            this.ButtonSignIn.Click += new System.EventHandler(this.ButtonSignIn_Click);
             // 
             // textboxPassword
             // 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPM2.Business;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -71,6 +72,13 @@ namespace MPM2.Interface
                 g.DrawImage(img, 0, 0, width, height);
             }
             return resized;
+        }
+
+        private void ButtonSignIn_Click(object sender, EventArgs e)
+        {
+            RegPatientForm2 reg = new RegPatientForm2();
+            reg.Show();
+            this.Hide();
         }
     }
 }
