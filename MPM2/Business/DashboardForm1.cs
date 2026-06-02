@@ -27,6 +27,10 @@ namespace MPM2.Business
             this.fullName = datarow["FullName"].ToString();
             this.role = role;
             patientTableAdapter1.Fill(dataSet11.Patient);
+
+            if (role.Equals("Nurse")) {
+                DashPresbutton.Text = "Administration";
+            }
         }
 
         private void DashboardForm1_Load(object sender, EventArgs e)
@@ -45,6 +49,7 @@ namespace MPM2.Business
             int patientToday = 0;
             int missedToday = 0;
             int cancelledToday = 0;
+            int appointmentcount = 0;
 
             DateTime today = DateTime.Today;
 
@@ -65,14 +70,37 @@ namespace MPM2.Business
                     if (status == "Cancelled")
                         cancelledToday++;
                 }
+                if (this.MdiParent is MainForm mf)
+                {
+                    if (role.Equals("Doctor"))
+                    {
+                        if (mf.CurrentDataRow["DoctorID"].ToString() == appointment["Doctor_ID"].ToString())
+                        {
+                            appointmentcount++;
+                        }
+                    }
+                    else if (role.Equals("Nurse"))
+                    {
+                        if (mf.CurrentDataRow["NurseID"].ToString() == appointment["Nurse_ID"].ToString())
+                        {
+                            appointmentcount++;
+                        }
+                    }
+                }
             }
             string zero = "";
+            string zero2 = "";
             if (patientToday >= 0 && patientToday < 10) {
                 zero = "0";
+            }
+            if (appointmentcount >= 0 && appointmentcount < 10)
+            {
+                zero2 = "0";
             }
             lblPatientToday.Text = zero + patientToday.ToString();
             lblMissedAppointment.Text = missedToday.ToString();
             lblCancelledAppointment.Text = cancelledToday.ToString();
+            lblAppointmentCount.Text = zero2 + appointmentcount.ToString();
 
             int missedMed = 0;
             foreach (DataRow ma in dataSet11.MedicationAdministration.Rows)
@@ -163,11 +191,21 @@ namespace MPM2.Business
 
         private void DashPresbutton_Click(object sender, EventArgs e)
         {
-            PrescriptionForm pf = new PrescriptionForm();   
-            pf.MdiParent = this.MdiParent;  
+            if (role.Equals("Doctor")) {
+            PrescriptionForm pf = new PrescriptionForm();
+            pf.MdiParent = this.MdiParent;
             pf.WindowState = FormWindowState.Maximized;
             pf.FormBorderStyle = FormBorderStyle.None;
             pf.Show();
+            }
+            else if (role.Equals("Nurse"))
+                {
+                    MedicationAdministrationForm maf = new MedicationAdministrationForm();
+                    maf.MdiParent = this.MdiParent;
+                    maf.WindowState = FormWindowState.Maximized;
+                    maf.FormBorderStyle = FormBorderStyle.None;
+                    maf.Show();
+            }
         }
 
         private void lblPatientToday_Click(object sender, EventArgs e)

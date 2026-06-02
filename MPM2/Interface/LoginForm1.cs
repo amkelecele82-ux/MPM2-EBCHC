@@ -46,17 +46,18 @@ namespace MPM2.Interface
                         }
                         string role = "Doctor";
                         DataRow dataRow = row;
-                        DashboardForm1 d = new DashboardForm1(role, dataRow);
-                        d.MdiParent = this.MdiParent;
-                        d.WindowState = FormWindowState.Maximized;
-                        d.FormBorderStyle = FormBorderStyle.None;
-                        d.Show();
                         if (this.MdiParent is MainForm mf)
                         {
                             mf.CurrentRole = role;
                             mf.CurrentDataRow = row;
                             mf.enableMenuItems();
                         }
+                        DashboardForm1 d = new DashboardForm1(role, dataRow);
+                        d.MdiParent = this.MdiParent;
+                        d.WindowState = FormWindowState.Maximized;
+                        d.FormBorderStyle = FormBorderStyle.None;
+                        d.Show();
+
                         accessed = true;
                         break;
                     }
@@ -115,6 +116,12 @@ namespace MPM2.Interface
                         pa.MdiParent = this.MdiParent;
                         pa.WindowState = FormWindowState.Maximized;
                         pa.FormBorderStyle = FormBorderStyle.None;
+                        if (this.MdiParent is MainForm mf)
+                        {
+                            mf.CurrentRole = "Patient";
+                            mf.CurrentDataRow = row;
+                            mf.enableMenuItems();
+                        }
                         pa.Show();
                         break;
                     }

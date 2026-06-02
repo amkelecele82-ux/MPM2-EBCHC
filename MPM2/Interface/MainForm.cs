@@ -56,14 +56,28 @@ namespace MPM2
             cToolStripMenuItem.Visible = false;
             reportsToolStripMenuItem.Visible = false;
             adminToolStripMenuItem.Visible = false;
+            homeToolStripMenuItem.Visible = false;
+            accountSettingsToolStripMenuItem.Visible = false;
         }
         public void enableMenuItems()
         {
-            patientToolStripMenuItem.Visible = true;
-            appointmentToolStripMenuItem.Visible = true;
-            cToolStripMenuItem.Visible = true;
-            reportsToolStripMenuItem.Visible = true;
-            adminToolStripMenuItem.Visible = true;
+            if (CurrentRole != null && CurrentRole.Equals("Patient"))
+            {
+                accountSettingsToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                accountSettingsToolStripMenuItem.Visible = true;
+                homeToolStripMenuItem.Visible = true;
+                patientToolStripMenuItem.Visible = true;
+                appointmentToolStripMenuItem.Visible = true;
+                reportsToolStripMenuItem.Visible = true;
+                adminToolStripMenuItem.Visible = true;
+                if (CurrentRole != null && CurrentRole.Equals("Doctor"))
+                {
+                    cToolStripMenuItem.Visible = true;
+                }
+            }
         }
 
         private void npbutton_Click(object sender, EventArgs e)
@@ -115,6 +129,7 @@ namespace MPM2
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoginForm1 loginForm1 = new LoginForm1();
+            disableMenuItems();
             formSetup(loginForm1);
         }
 
@@ -201,6 +216,12 @@ namespace MPM2
             AppointmentForm1 a = new AppointmentForm1();
             a.SetTab(1);
             formSetup(a);
+        }
+
+        private void recordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TreatmentForm t = new TreatmentForm();
+            formSetup(t);
         }
     }
 }

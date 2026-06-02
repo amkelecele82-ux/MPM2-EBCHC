@@ -40,7 +40,6 @@
             this.DashSettingbutton = new System.Windows.Forms.Button();
             this.DashRepbutton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.DashPresbutton = new System.Windows.Forms.Button();
@@ -63,7 +62,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblAppointmentCount = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -79,6 +78,11 @@
             this.button11 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvWidgetAppointment = new System.Windows.Forms.DataGridView();
+            this.PatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NurseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appointmentViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet11 = new MPM2.Database.DataSet1();
             this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -98,11 +102,7 @@
             this.appointmentViewTableAdapter = new MPM2.Database.DataSet1TableAdapters.AppointmentViewTableAdapter();
             this.medicationAdministrationTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.MedicationAdministrationTableAdapter();
             this.appointmentTableAdapter = new MPM2.Database.DataSet1TableAdapters.AppointmentTableAdapter();
-            this.PatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NurseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appointmentStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button8 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -264,22 +264,6 @@
             this.label2.Size = new System.Drawing.Size(50, 16);
             this.label2.TabIndex = 9;
             this.label2.Text = "ADMIN";
-            // 
-            // button8
-            // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.Control;
-            this.button8.Location = new System.Drawing.Point(-1, 581);
-            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(241, 57);
-            this.button8.TabIndex = 8;
-            this.button8.Text = "Referrals";
-            this.button8.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
@@ -554,7 +538,7 @@
             this.panel10.BackColor = System.Drawing.Color.White;
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel10.Controls.Add(this.label22);
-            this.panel10.Controls.Add(this.label16);
+            this.panel10.Controls.Add(this.lblAppointmentCount);
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Controls.Add(this.label12);
             this.panel10.Location = new System.Drawing.Point(663, 197);
@@ -566,21 +550,21 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(67, 155);
+            this.label22.Location = new System.Drawing.Point(69, 154);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(73, 16);
             this.label22.TabIndex = 6;
             this.label22.Text = "Completed";
             // 
-            // label16
+            // lblAppointmentCount
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(43, 58);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(127, 91);
-            this.label16.TabIndex = 5;
-            this.label16.Text = "50";
+            this.lblAppointmentCount.AutoSize = true;
+            this.lblAppointmentCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppointmentCount.Location = new System.Drawing.Point(43, 58);
+            this.lblAppointmentCount.Name = "lblAppointmentCount";
+            this.lblAppointmentCount.Size = new System.Drawing.Size(83, 91);
+            this.lblAppointmentCount.TabIndex = 5;
+            this.lblAppointmentCount.Text = "0";
             // 
             // panel11
             // 
@@ -758,6 +742,46 @@
             this.dgvWidgetAppointment.TabIndex = 8;
             this.dgvWidgetAppointment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWidgetAppointment_CellContentClick);
             // 
+            // PatientName
+            // 
+            this.PatientName.DataPropertyName = "PatientName";
+            this.PatientName.HeaderText = "PatientName";
+            this.PatientName.MinimumWidth = 6;
+            this.PatientName.Name = "PatientName";
+            this.PatientName.Width = 125;
+            // 
+            // NurseName
+            // 
+            this.NurseName.DataPropertyName = "NurseName";
+            this.NurseName.HeaderText = "NurseName";
+            this.NurseName.MinimumWidth = 6;
+            this.NurseName.Name = "NurseName";
+            this.NurseName.Width = 125;
+            // 
+            // appointmentStatusDataGridViewTextBoxColumn
+            // 
+            this.appointmentStatusDataGridViewTextBoxColumn.DataPropertyName = "Appointment_Status";
+            this.appointmentStatusDataGridViewTextBoxColumn.HeaderText = "Appointment_Status";
+            this.appointmentStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.appointmentStatusDataGridViewTextBoxColumn.Name = "appointmentStatusDataGridViewTextBoxColumn";
+            this.appointmentStatusDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // startTimeDataGridViewTextBoxColumn
+            // 
+            this.startTimeDataGridViewTextBoxColumn.DataPropertyName = "StartTime";
+            this.startTimeDataGridViewTextBoxColumn.HeaderText = "StartTime";
+            this.startTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.startTimeDataGridViewTextBoxColumn.Name = "startTimeDataGridViewTextBoxColumn";
+            this.startTimeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // endTimeDataGridViewTextBoxColumn
+            // 
+            this.endTimeDataGridViewTextBoxColumn.DataPropertyName = "EndTime";
+            this.endTimeDataGridViewTextBoxColumn.HeaderText = "EndTime";
+            this.endTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.endTimeDataGridViewTextBoxColumn.Name = "endTimeDataGridViewTextBoxColumn";
+            this.endTimeDataGridViewTextBoxColumn.Width = 130;
+            // 
             // appointmentViewBindingSource
             // 
             this.appointmentViewBindingSource.DataMember = "AppointmentView";
@@ -898,9 +922,9 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(53)))));
             this.label7.Location = new System.Drawing.Point(301, 415);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(158, 20);
+            this.label7.Size = new System.Drawing.Size(256, 20);
             this.label7.TabIndex = 21;
-            this.label7.Text = "TODAY\'S QUEUE";
+            this.label7.Text = "UPCOMING APPOINTMENTS";
             // 
             // label18
             // 
@@ -925,45 +949,21 @@
             // 
             this.appointmentTableAdapter.ClearBeforeFill = true;
             // 
-            // PatientName
+            // button8
             // 
-            this.PatientName.DataPropertyName = "PatientName";
-            this.PatientName.HeaderText = "PatientName";
-            this.PatientName.MinimumWidth = 6;
-            this.PatientName.Name = "PatientName";
-            this.PatientName.Width = 125;
-            // 
-            // NurseName
-            // 
-            this.NurseName.DataPropertyName = "NurseName";
-            this.NurseName.HeaderText = "NurseName";
-            this.NurseName.MinimumWidth = 6;
-            this.NurseName.Name = "NurseName";
-            this.NurseName.Width = 125;
-            // 
-            // appointmentStatusDataGridViewTextBoxColumn
-            // 
-            this.appointmentStatusDataGridViewTextBoxColumn.DataPropertyName = "Appointment_Status";
-            this.appointmentStatusDataGridViewTextBoxColumn.HeaderText = "Appointment_Status";
-            this.appointmentStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.appointmentStatusDataGridViewTextBoxColumn.Name = "appointmentStatusDataGridViewTextBoxColumn";
-            this.appointmentStatusDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // startTimeDataGridViewTextBoxColumn
-            // 
-            this.startTimeDataGridViewTextBoxColumn.DataPropertyName = "StartTime";
-            this.startTimeDataGridViewTextBoxColumn.HeaderText = "StartTime";
-            this.startTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.startTimeDataGridViewTextBoxColumn.Name = "startTimeDataGridViewTextBoxColumn";
-            this.startTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // endTimeDataGridViewTextBoxColumn
-            // 
-            this.endTimeDataGridViewTextBoxColumn.DataPropertyName = "EndTime";
-            this.endTimeDataGridViewTextBoxColumn.HeaderText = "EndTime";
-            this.endTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.endTimeDataGridViewTextBoxColumn.Name = "endTimeDataGridViewTextBoxColumn";
-            this.endTimeDataGridViewTextBoxColumn.Width = 130;
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.SystemColors.Control;
+            this.button8.Location = new System.Drawing.Point(-1, 581);
+            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(241, 57);
+            this.button8.TabIndex = 8;
+            this.button8.Text = "Referrals";
+            this.button8.UseVisualStyleBackColor = true;
             // 
             // DashboardForm1
             // 
@@ -1029,7 +1029,6 @@
         private System.Windows.Forms.Button DashSettingbutton;
         private System.Windows.Forms.Button DashRepbutton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button DashPresbutton;
@@ -1066,7 +1065,7 @@
         private System.Windows.Forms.Label Dashlabel;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblPatientToday;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblAppointmentCount;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lblRegPatient;
         private System.Windows.Forms.Panel panel15;
@@ -1095,5 +1094,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn startTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn endTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button8;
     }
 }
