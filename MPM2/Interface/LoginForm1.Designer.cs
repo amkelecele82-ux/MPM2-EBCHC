@@ -70,7 +70,7 @@
             // loginbutton
             // 
             this.loginbutton.Location = new System.Drawing.Point(259, 538);
-            this.loginbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.loginbutton.Margin = new System.Windows.Forms.Padding(2);
             this.loginbutton.Name = "loginbutton";
             this.loginbutton.Size = new System.Drawing.Size(72, 28);
             this.loginbutton.TabIndex = 6;
@@ -81,7 +81,7 @@
             // exitbutton
             // 
             this.exitbutton.Location = new System.Drawing.Point(389, 538);
-            this.exitbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exitbutton.Margin = new System.Windows.Forms.Padding(2);
             this.exitbutton.Name = "exitbutton";
             this.exitbutton.Size = new System.Drawing.Size(72, 28);
             this.exitbutton.TabIndex = 7;
@@ -92,7 +92,7 @@
             // 
             this.CBRole.FormattingEnabled = true;
             this.CBRole.Location = new System.Drawing.Point(331, 410);
-            this.CBRole.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CBRole.Margin = new System.Windows.Forms.Padding(2);
             this.CBRole.Name = "CBRole";
             this.CBRole.Size = new System.Drawing.Size(132, 21);
             this.CBRole.TabIndex = 9;
@@ -119,7 +119,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(53)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(676, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(750, 760);
             this.panel1.TabIndex = 11;
@@ -153,9 +153,9 @@
             // 
             this.groupBox1.Controls.Add(this.TBUsername);
             this.groupBox1.Location = new System.Drawing.Point(260, 231);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(206, 44);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
@@ -167,7 +167,7 @@
             this.TBUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TBUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBUsername.Location = new System.Drawing.Point(7, 16);
-            this.TBUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TBUsername.Margin = new System.Windows.Forms.Padding(2);
             this.TBUsername.Name = "TBUsername";
             this.TBUsername.Size = new System.Drawing.Size(196, 16);
             this.TBUsername.TabIndex = 4;
@@ -176,9 +176,9 @@
             // 
             this.groupBox2.Controls.Add(this.TBPassword);
             this.groupBox2.Location = new System.Drawing.Point(260, 323);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(206, 44);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
@@ -190,7 +190,7 @@
             this.TBPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TBPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBPassword.Location = new System.Drawing.Point(4, 17);
-            this.TBPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TBPassword.Margin = new System.Windows.Forms.Padding(2);
             this.TBPassword.Name = "TBPassword";
             this.TBPassword.PasswordChar = '*';
             this.TBPassword.Size = new System.Drawing.Size(197, 16);
@@ -222,7 +222,7 @@
             this.Controls.Add(this.exitbutton);
             this.Controls.Add(this.loginbutton);
             this.Controls.Add(this.label3);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm1";
             this.Text = "LoginForm1";
             this.Load += new System.EventHandler(this.LoginForm1_Load);

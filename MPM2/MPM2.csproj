@@ -94,6 +94,12 @@
     <Compile Include="Business\RegPatientForm.Designer.cs">
       <DependentUpon>RegPatientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\RegPatientForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\RegPatientForm2.Designer.cs">
+      <DependentUpon>RegPatientForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\RegPrescriptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,8 +138,23 @@
     <Compile Include="Interface\LoginForm1.Designer.cs">
       <DependentUpon>LoginForm1.cs</DependentUpon>
     </Compile>
+    <Compile Include="loadForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RoundedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RoundedTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <EmbeddedResource Include="Business\AccountSettingsForm.resx">
       <DependentUpon>AccountSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\RegPatientForm.resx">
       <DependentUpon>RegPatientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\RegPatientForm2.resx">
+      <DependentUpon>RegPatientForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\RegPrescriptionForm.resx">
       <DependentUpon>RegPrescriptionForm.cs</DependentUpon>
@@ -182,6 +206,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RoleCard.resx">
+      <DependentUpon>RoleCard.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Database\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -239,6 +266,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="HelpDocs\style.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\calendar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\monitor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\settings.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\stethoscope.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
