@@ -10661,7 +10661,7 @@ SELECT treatmentInformationID, appointmentID, treatmentID, perfomed_at, results,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT a.Appointment_ID, d.FullName AS DoctorName, p.FullName AS PatientName, n.FullName AS NurseName, a.Appointment_Status, a.StartTime, a.EndTime
@@ -10672,14 +10672,26 @@ FROM     Appointment AS a INNER JOIN
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT a.Appointment_ID, d.FullName AS DoctorName, p.FullName AS PatientName, n.FullName AS NurseName, a.Appointment_Status, a.StartTime, a.EndTime
+            this._commandCollection[1].CommandText = @"SELECT a.Appointment_ID, d.FullName AS DoctorName, p.FullName AS PatientName, n.FullName AS NurseName, a.Appointment_Status, a.StartTime, a.EndTime, a.Doctor_ID, a.Nurse_ID
 FROM     Appointment AS a INNER JOIN
                   Doctor AS d ON a.Doctor_ID = d.DoctorID INNER JOIN
                   Patient AS p ON a.Patient_ID = p.PatientID INNER JOIN
                   Nurse AS n ON a.Nurse_ID = n.NurseID
-WHERE  (d.FullName = @name) AND (a.Appointment_Date >= GETDATE())";
+WHERE  (a.Appointment_Date >= @date) AND (a.Nurse_ID = @id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Appointment_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Nurse_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT a.Appointment_ID, d.FullName AS DoctorName, p.FullName AS PatientName, n.FullName AS NurseName, a.Appointment_Status, a.StartTime, a.EndTime, a.Doctor_ID
+FROM     Appointment AS a INNER JOIN
+                  Doctor AS d ON a.Doctor_ID = d.DoctorID INNER JOIN
+                  Patient AS p ON a.Patient_ID = p.PatientID INNER JOIN
+                  Nurse AS n ON a.Nurse_ID = n.NurseID
+WHERE  (a.Appointment_Date >= @date) AND (a.Doctor_ID = @id)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Appointment_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Doctor_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10710,14 +10722,10 @@ WHERE  (d.FullName = @name) AND (a.Appointment_Date >= GETDATE())";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByNameFilterByTodaysDate(DataSet1.AppointmentViewDataTable dataTable, string name) {
+        public virtual int FillByDateNurse(DataSet1.AppointmentViewDataTable dataTable, System.DateTime date, int id) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((name == null)) {
-                throw new global::System.ArgumentNullException("name");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(name));
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(date));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -10729,14 +10737,38 @@ WHERE  (d.FullName = @name) AND (a.Appointment_Date >= GETDATE())";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSet1.AppointmentViewDataTable GetDataBy(string name) {
+        public virtual DataSet1.AppointmentViewDataTable GetDataBy1(System.DateTime date, int id) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((name == null)) {
-                throw new global::System.ArgumentNullException("name");
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(date));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id));
+            DataSet1.AppointmentViewDataTable dataTable = new DataSet1.AppointmentViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByNameFilterByTodaysDate(DataSet1.AppointmentViewDataTable dataTable, System.DateTime date, int id) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(date));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
             }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(name));
-            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet1.AppointmentViewDataTable GetDataBy(System.DateTime date, int id) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(date));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id));
             DataSet1.AppointmentViewDataTable dataTable = new DataSet1.AppointmentViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

@@ -19,6 +19,7 @@ namespace MPM2.Business
         string userName;
         string fullName;
         string role;
+        int medid;
         public DashboardForm1(string role,DataRow datarow)
         {
             InitializeComponent();
@@ -26,10 +27,16 @@ namespace MPM2.Business
             //this.fullName = fullName;
             this.fullName = datarow["FullName"].ToString();
             this.role = role;
+            
             patientTableAdapter1.Fill(dataSet11.Patient);
 
             if (role.Equals("Nurse")) {
                 DashPresbutton.Text = "Administration";
+                this.medid = Convert.ToInt32(datarow["NurseID"]);
+            }
+            else if (role.Equals("Doctor"))
+                {
+                    this.medid = Convert.ToInt32(datarow["DoctorID"]);
             }
         }
 
@@ -38,8 +45,17 @@ namespace MPM2.Business
             // TODO: This line of code loads data into the 'dataSet11.Appointment' table. You can move, or remove it, as needed.
             this.appointmentTableAdapter.Fill(this.dataSet11.Appointment);
             // TODO: This line of code loads data into the 'dataSet11.AppointmentView' table. You can move, or remove it, as needed.
-            this.appointmentViewTableAdapter.FillByNameFilterByTodaysDate(this.dataSet11.AppointmentView, userName);
-            medicationAdministrationTableAdapter1.Fill(dataSet11.MedicationAdministration);
+            if(role.Equals("Doctor"))
+            {
+                this.appointmentViewTableAdapter.FillByNameFilterByTodaysDate(this.dataSet11.AppointmentView, DateTime.Today,medid);
+                dgvWidgetAppointment.Columns["DoctorName"].Visible = false;
+            }
+            else
+            {
+                this.appointmentViewTableAdapter.FillByDateNurse(this.dataSet11.AppointmentView, DateTime.Today, medid);
+                dgvWidgetAppointment.Columns["NurseName"].Visible = false;
+            }
+                medicationAdministrationTableAdapter1.Fill(dataSet11.MedicationAdministration);
             fullNameLabel.Text = fullName;
             lblRegPatient.Text = dataSet11.Patient.Count.ToString();
             Dashlabel.Text = DateTime.Now.ToString("dddd dd MMMM yyyy") + " | East Boom CHC | KwaZulu Natal Province";
@@ -64,7 +80,7 @@ namespace MPM2.Business
 
                     string status = appointment["Appointment_Status"].ToString();
 
-                    if (status == "No Show")
+                    if (status.Equals("No Show"))
                         missedToday++;
 
                     if (status == "Cancelled")

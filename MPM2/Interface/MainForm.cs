@@ -33,8 +33,8 @@ namespace MPM2
             disableMenuItems();
             this.MainMenuStrip = menuStrip1;
             //DashboardForm1 d = new DashboardForm1();
-            //LoginForm1 l = new LoginForm1();
-            Login2 l = new Login2();
+            LoginForm1 l = new LoginForm1();
+            //Login2 l = new Login2();
             formSetup(l);
         }
         public void formSetup(Form myForm)
@@ -59,6 +59,7 @@ namespace MPM2
             adminToolStripMenuItem.Visible = false;
             homeToolStripMenuItem.Visible = false;
             accountSettingsToolStripMenuItem.Visible = false;
+            treatmentToolStripMenuItem.Visible = false;
         }
         public void enableMenuItems()
         {
@@ -73,10 +74,15 @@ namespace MPM2
                 patientToolStripMenuItem.Visible = true;
                 appointmentToolStripMenuItem.Visible = true;
                 reportsToolStripMenuItem.Visible = true;
-                adminToolStripMenuItem.Visible = true;
+                
+                treatmentToolStripMenuItem.Visible = true;
                 if (CurrentRole != null && CurrentRole.Equals("Doctor"))
                 {
                     cToolStripMenuItem.Visible = true;
+                }
+                else
+                {
+                    adminToolStripMenuItem.Visible = true;
                 }
             }
         }
