@@ -201,12 +201,14 @@
             this.viewAllToolStripMenuItem2.Name = "viewAllToolStripMenuItem2";
             this.viewAllToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
             this.viewAllToolStripMenuItem2.Text = "View All";
+            this.viewAllToolStripMenuItem2.Click += new System.EventHandler(this.viewAllToolStripMenuItem2_Click);
             // 
             // administerToolStripMenuItem
             // 
             this.administerToolStripMenuItem.Name = "administerToolStripMenuItem";
             this.administerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.administerToolStripMenuItem.Text = "Administer";
+            this.administerToolStripMenuItem.Click += new System.EventHandler(this.administerToolStripMenuItem_Click);
             // 
             // treatmentToolStripMenuItem
             // 
@@ -221,21 +223,23 @@
             // recordToolStripMenuItem
             // 
             this.recordToolStripMenuItem.Name = "recordToolStripMenuItem";
-            this.recordToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
+            this.recordToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.recordToolStripMenuItem.Text = "Record";
             this.recordToolStripMenuItem.Click += new System.EventHandler(this.recordToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.viewToolStripMenuItem.Text = "View";
+            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
             // 
             // createToolStripMenuItem
             // 
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            this.createToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.createToolStripMenuItem.Text = "Create";
+            this.createToolStripMenuItem.Click += new System.EventHandler(this.createToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 

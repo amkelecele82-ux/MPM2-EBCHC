@@ -19,11 +19,18 @@ namespace MPM2.Business
 
         private void MedicationAdministrationForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSet11.CustomMedAdm' table. You can move, or remove it, as needed.
+            this.customMedAdmTableAdapter.FillByMedAdmPrescripNurseDoctorPatient(this.dataSet11.CustomMedAdm);
             // TODO: This line of code loads data into the 'dataSet11.Prescriptionn_' table. You can move, or remove it, as needed.
             this.prescriptionn_TableAdapter.Fill(this.dataSet11.Prescriptionn_);
             // TODO: This line of code loads data into the 'dataSet11.MedicationAdministration' table. You can move, or remove it, as needed.
             this.medicationAdministrationTableAdapter.Fill(this.dataSet11.MedicationAdministration);
 
+        }
+        public void SetTab(int tabIndex)
+        {
+            // Set the selected tab index
+            tabControl1.SelectedIndex = tabIndex;
         }
     }
 }

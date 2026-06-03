@@ -230,5 +230,33 @@ namespace MPM2
             TreatmentForm t = new TreatmentForm();
             formSetup(t);
         }
+
+        private void viewAllToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            MedicationAdministrationForm maf = new MedicationAdministrationForm();
+            formSetup(maf);
+        }
+
+        private void administerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MedicationAdministrationForm maf = new MedicationAdministrationForm();
+            maf.SetTab(1);
+            formSetup(maf);
+        }
+
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TreatmentForm t = new TreatmentForm();
+            t.SetTab(1);
+            formSetup(t);
+
+        }
+
+        private void createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TreatmentForm t = new TreatmentForm();
+            t.SetTab(1);
+            formSetup(t);
+        }
     }
 }

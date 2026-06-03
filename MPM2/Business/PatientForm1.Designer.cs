@@ -33,8 +33,6 @@
             this.dataSet1 = new MPM2.Database.DataSet1();
             this.patientTableAdapter = new MPM2.Database.DataSet1TableAdapters.PatientTableAdapter();
             this.dgvPatient = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TBPName = new System.Windows.Forms.TextBox();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +40,10 @@
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alternativePhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TBPName = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatient)).BeginInit();
@@ -76,35 +78,14 @@
             this.emailAddressDataGridViewTextBoxColumn,
             this.alternativePhoneNumberDataGridViewTextBoxColumn});
             this.dgvPatient.DataSource = this.patientBindingSource;
-            this.dgvPatient.Location = new System.Drawing.Point(71, 78);
-            this.dgvPatient.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.dgvPatient.Location = new System.Drawing.Point(231, 207);
+            this.dgvPatient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPatient.Name = "dgvPatient";
             this.dgvPatient.RowHeadersWidth = 51;
             this.dgvPatient.RowTemplate.Height = 24;
             this.dgvPatient.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvPatient.Size = new System.Drawing.Size(1402, 634);
+            this.dgvPatient.Size = new System.Drawing.Size(978, 507);
             this.dgvPatient.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(67, 39);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Patient name:";
-            // 
-            // TBPName
-            // 
-            this.TBPName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBPName.Location = new System.Drawing.Point(265, 35);
-            this.TBPName.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.TBPName.Name = "TBPName";
-            this.TBPName.Size = new System.Drawing.Size(285, 27);
-            this.TBPName.TabIndex = 3;
-            this.TBPName.TextChanged += new System.EventHandler(this.TBPName_TextChanged_1);
             // 
             // fullNameDataGridViewTextBoxColumn
             // 
@@ -162,17 +143,57 @@
             this.alternativePhoneNumberDataGridViewTextBoxColumn.Name = "alternativePhoneNumberDataGridViewTextBoxColumn";
             this.alternativePhoneNumberDataGridViewTextBoxColumn.Width = 175;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(497, 139);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 18);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Patient name:";
+            // 
+            // TBPName
+            // 
+            this.TBPName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBPName.Location = new System.Drawing.Point(645, 133);
+            this.TBPName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TBPName.Name = "TBPName";
+            this.TBPName.Size = new System.Drawing.Size(229, 24);
+            this.TBPName.TabIndex = 3;
+            this.TBPName.TextChanged += new System.EventHandler(this.TBPName_TextChanged_1);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1049, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "View Appointments";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1049, 133);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(160, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Previous Treatments";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // PatientForm1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1942, 960);
+            this.ClientSize = new System.Drawing.Size(1539, 768);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TBPName);
             this.Controls.Add(this.dgvPatient);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PatientForm1";
             this.Text = "PatientForm1";
             this.Load += new System.EventHandler(this.PatientForm1_Load);
@@ -198,5 +219,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailAddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn alternativePhoneNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

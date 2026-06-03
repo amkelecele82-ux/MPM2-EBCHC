@@ -23,5 +23,10 @@ namespace MPM2.Business
             this.treatmentTableAdapter.Fill(this.dataSet1.Treatment);
 
         }
+        public void SetTab(int tabIndex)
+        {
+            // Set the selected tab index
+            tabControl1.SelectedIndex = tabIndex;
+        }
     }
 }
