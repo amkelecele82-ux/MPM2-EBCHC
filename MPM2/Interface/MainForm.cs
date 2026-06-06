@@ -33,8 +33,8 @@ namespace MPM2
             disableMenuItems();
             this.MainMenuStrip = menuStrip1;
             //DashboardForm1 d = new DashboardForm1();
-            LoginForm1 l = new LoginForm1();
-            //Login2 l = new Login2();
+            //LoginForm1 l = new LoginForm1();
+            Login2 l = new Login2();
             formSetup(l);
         }
         public void formSetup(Form myForm)
@@ -135,7 +135,7 @@ namespace MPM2
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoginForm1 loginForm1 = new LoginForm1();
+            Login2 loginForm1 = new Login2();
             disableMenuItems();
             formSetup(loginForm1);
         }

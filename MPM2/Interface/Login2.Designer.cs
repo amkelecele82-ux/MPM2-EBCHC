@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataSet11 = new MPM2.Database.DataSet1();
             this.roundedPanel = new RoundedPanel();
             this.roleNurse = new RoleCard();
             this.roleAdmin = new RoleCard();
@@ -40,8 +41,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.ButtonSignIn = new RoundedButton();
-            this.textboxPassword = new RoundedTextBox();
-            this.textBoxUsername = new RoundedTextBox();
+            this.TBPassword = new RoundedTextBox();
+            this.TBUsername = new RoundedTextBox();
             this.pnlSecureBar = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBoxRemember = new System.Windows.Forms.CheckBox();
@@ -52,11 +53,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Provincelabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.doctorTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.DoctorTableAdapter();
+            this.nurseTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.NurseTableAdapter();
+            this.administratorTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.AdministratorTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             this.roundedPanel.SuspendLayout();
             this.panelFootBar.SuspendLayout();
             this.pnlSecureBar.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // dataSet11
+            // 
+            this.dataSet11.DataSetName = "DataSet1";
+            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // roundedPanel
             // 
@@ -70,8 +80,8 @@
             this.roundedPanel.Controls.Add(this.panelFootBar);
             this.roundedPanel.Controls.Add(this.linkLabel2);
             this.roundedPanel.Controls.Add(this.ButtonSignIn);
-            this.roundedPanel.Controls.Add(this.textboxPassword);
-            this.roundedPanel.Controls.Add(this.textBoxUsername);
+            this.roundedPanel.Controls.Add(this.TBPassword);
+            this.roundedPanel.Controls.Add(this.TBUsername);
             this.roundedPanel.Controls.Add(this.pnlSecureBar);
             this.roundedPanel.Controls.Add(this.checkBoxRemember);
             this.roundedPanel.Controls.Add(this.labelPassword);
@@ -99,6 +109,7 @@
             this.roleNurse.SubTitle = "Vitals & triage";
             this.roleNurse.TabIndex = 20;
             this.roleNurse.Title = "Nurse / sister";
+            this.roleNurse.Load += new System.EventHandler(this.roleNurse_Load);
             // 
             // roleAdmin
             // 
@@ -114,6 +125,7 @@
             this.roleAdmin.SubTitle = "Full system access";
             this.roleAdmin.TabIndex = 21;
             this.roleAdmin.Title = "Administrator";
+            this.roleAdmin.Load += new System.EventHandler(this.roleAdmin_Load);
             // 
             // rolePatient
             // 
@@ -129,6 +141,7 @@
             this.rolePatient.SubTitle = "Book Appointment";
             this.rolePatient.TabIndex = 20;
             this.rolePatient.Title = "Patient";
+            this.rolePatient.Load += new System.EventHandler(this.rolePatient_Load);
             // 
             // roleDoctor
             // 
@@ -144,6 +157,7 @@
             this.roleDoctor.SubTitle = "Full clinical access";
             this.roleDoctor.TabIndex = 19;
             this.roleDoctor.Title = "Doctor / clinician";
+            this.roleDoctor.Load += new System.EventHandler(this.roleDoctor_Load);
             // 
             // linkLabel1
             // 
@@ -155,7 +169,7 @@
             this.linkLabel1.Location = new System.Drawing.Point(190, 552);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(100, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(118, 19);
             this.linkLabel1.TabIndex = 16;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Forgot password?";
@@ -178,7 +192,7 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             this.label6.Location = new System.Drawing.Point(191, 42);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(408, 15);
+            this.label6.Size = new System.Drawing.Size(510, 20);
             this.label6.TabIndex = 18;
             this.label6.Text = "Protected Under the National Health Act & POPIA. Authorized personnel only.";
             // 
@@ -189,7 +203,7 @@
             this.label5.Location = new System.Drawing.Point(614, 8);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 13);
+            this.label5.Size = new System.Drawing.Size(141, 19);
             this.label5.TabIndex = 1;
             this.label5.Text = "🔒 Secure & encrypted";
             // 
@@ -201,7 +215,7 @@
             this.label4.Location = new System.Drawing.Point(10, 8);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(213, 13);
+            this.label4.Size = new System.Drawing.Size(269, 19);
             this.label4.TabIndex = 0;
             this.label4.Text = "East Boom CHC · KZN DoH · 11 May 2026";
             // 
@@ -213,7 +227,7 @@
             this.linkLabel2.Location = new System.Drawing.Point(444, 552);
             this.linkLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(31, 13);
+            this.linkLabel2.Size = new System.Drawing.Size(37, 19);
             this.linkLabel2.TabIndex = 17;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Help";
@@ -238,34 +252,34 @@
             this.ButtonSignIn.UseVisualStyleBackColor = false;
             this.ButtonSignIn.Click += new System.EventHandler(this.ButtonSignIn_Click);
             // 
-            // textboxPassword
+            // TBPassword
             // 
-            this.textboxPassword.BackColor = System.Drawing.Color.White;
-            this.textboxPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(221)))), ((int)(((byte)(211)))));
-            this.textboxPassword.CornerRadius = 8;
-            this.textboxPassword.IsPassword = true;
-            this.textboxPassword.Location = new System.Drawing.Point(112, 400);
-            this.textboxPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textboxPassword.Name = "textboxPassword";
-            this.textboxPassword.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.textboxPassword.PasswordChar = '•';
-            this.textboxPassword.Size = new System.Drawing.Size(460, 36);
-            this.textboxPassword.TabIndex = 14;
+            this.TBPassword.BackColor = System.Drawing.Color.White;
+            this.TBPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(221)))), ((int)(((byte)(211)))));
+            this.TBPassword.CornerRadius = 8;
+            this.TBPassword.IsPassword = true;
+            this.TBPassword.Location = new System.Drawing.Point(112, 400);
+            this.TBPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.TBPassword.Name = "TBPassword";
+            this.TBPassword.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.TBPassword.PasswordChar = '•';
+            this.TBPassword.Size = new System.Drawing.Size(460, 36);
+            this.TBPassword.TabIndex = 14;
             // 
-            // textBoxUsername
+            // TBUsername
             // 
-            this.textBoxUsername.BackColor = System.Drawing.Color.White;
-            this.textBoxUsername.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(221)))), ((int)(((byte)(211)))));
-            this.textBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxUsername.CornerRadius = 8;
-            this.textBoxUsername.IsPassword = false;
-            this.textBoxUsername.Location = new System.Drawing.Point(115, 336);
-            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.textBoxUsername.PasswordChar = '\0';
-            this.textBoxUsername.Size = new System.Drawing.Size(460, 35);
-            this.textBoxUsername.TabIndex = 13;
+            this.TBUsername.BackColor = System.Drawing.Color.White;
+            this.TBUsername.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(221)))), ((int)(((byte)(211)))));
+            this.TBUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TBUsername.CornerRadius = 8;
+            this.TBUsername.IsPassword = false;
+            this.TBUsername.Location = new System.Drawing.Point(115, 336);
+            this.TBUsername.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.TBUsername.Name = "TBUsername";
+            this.TBUsername.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.TBUsername.PasswordChar = '\0';
+            this.TBUsername.Size = new System.Drawing.Size(460, 35);
+            this.TBUsername.TabIndex = 13;
             // 
             // pnlSecureBar
             // 
@@ -295,7 +309,7 @@
             this.checkBoxRemember.Location = new System.Drawing.Point(112, 453);
             this.checkBoxRemember.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.checkBoxRemember.Name = "checkBoxRemember";
-            this.checkBoxRemember.Size = new System.Drawing.Size(235, 19);
+            this.checkBoxRemember.Size = new System.Drawing.Size(291, 24);
             this.checkBoxRemember.TabIndex = 14;
             this.checkBoxRemember.Text = "Remember my username on this device";
             this.checkBoxRemember.UseVisualStyleBackColor = true;
@@ -308,7 +322,7 @@
             this.labelPassword.Location = new System.Drawing.Point(112, 382);
             this.labelPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(59, 15);
+            this.labelPassword.Size = new System.Drawing.Size(76, 20);
             this.labelPassword.TabIndex = 12;
             this.labelPassword.Text = "Password";
             // 
@@ -320,7 +334,7 @@
             this.labelUsername.Location = new System.Drawing.Point(112, 318);
             this.labelUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(64, 15);
+            this.labelUsername.Size = new System.Drawing.Size(80, 20);
             this.labelUsername.TabIndex = 10;
             this.labelUsername.Text = "Username";
             // 
@@ -380,13 +394,25 @@
             this.label2.Location = new System.Drawing.Point(14, 149);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.Size = new System.Drawing.Size(64, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Your role";
             // 
+            // doctorTableAdapter1
+            // 
+            this.doctorTableAdapter1.ClearBeforeFill = true;
+            // 
+            // nurseTableAdapter1
+            // 
+            this.nurseTableAdapter1.ClearBeforeFill = true;
+            // 
+            // administratorTableAdapter1
+            // 
+            this.administratorTableAdapter1.ClearBeforeFill = true;
+            // 
             // Login2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(107)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(1450, 852);
@@ -399,6 +425,8 @@
             this.Name = "Login2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "East Boom Community Health Centre";
+            this.Load += new System.EventHandler(this.Login2_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             this.roundedPanel.ResumeLayout(false);
             this.roundedPanel.PerformLayout();
             this.panelFootBar.ResumeLayout(false);
@@ -423,8 +451,8 @@
         private System.Windows.Forms.LinkLabel linkLabel2;
         private RoundedPanel roundedPanel;
         private System.Windows.Forms.Panel pnlHeader;
-        private RoundedTextBox textboxPassword;
-        private RoundedTextBox textBoxUsername;
+        private RoundedTextBox TBPassword;
+        private RoundedTextBox TBUsername;
         private RoundedButton ButtonSignIn;
         private System.Windows.Forms.Panel panelFootBar;
         private System.Windows.Forms.Label label5;
@@ -434,5 +462,9 @@
         private RoleCard roleAdmin;
         private RoleCard rolePatient;
         private RoleCard roleNurse;
+        private Database.DataSet1 dataSet11;
+        private Database.DataSet1TableAdapters.DoctorTableAdapter doctorTableAdapter1;
+        private Database.DataSet1TableAdapters.NurseTableAdapter nurseTableAdapter1;
+        private Database.DataSet1TableAdapters.AdministratorTableAdapter administratorTableAdapter1;
     }
 }
