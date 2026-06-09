@@ -281,5 +281,10 @@ namespace MPM2.Business
         {
 
         }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
