@@ -284,7 +284,7 @@
             this.BookTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.BookTabPage.Name = "BookTabPage";
             this.BookTabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.BookTabPage.Size = new System.Drawing.Size(1408, 813);
+            this.BookTabPage.Size = new System.Drawing.Size(1408, 576);
             this.BookTabPage.TabIndex = 1;
             this.BookTabPage.Text = "Make Appointment";
             this.BookTabPage.UseVisualStyleBackColor = true;
@@ -634,7 +634,7 @@
             this.AppointProgressTabPage.Controls.Add(this.appProgressDataGridView);
             this.AppointProgressTabPage.Location = new System.Drawing.Point(4, 22);
             this.AppointProgressTabPage.Name = "AppointProgressTabPage";
-            this.AppointProgressTabPage.Size = new System.Drawing.Size(1408, 813);
+            this.AppointProgressTabPage.Size = new System.Drawing.Size(1408, 576);
             this.AppointProgressTabPage.TabIndex = 2;
             this.AppointProgressTabPage.Text = "Appointment Progress";
             this.AppointProgressTabPage.UseVisualStyleBackColor = true;
@@ -849,9 +849,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlSectionBar.Controls.Add(this.lblCount);
             this.pnlSectionBar.Controls.Add(this.label11);
-            this.pnlSectionBar.Location = new System.Drawing.Point(5, 126);
+            this.pnlSectionBar.Location = new System.Drawing.Point(0, 126);
             this.pnlSectionBar.Name = "pnlSectionBar";
-            this.pnlSectionBar.Size = new System.Drawing.Size(912, 38);
+            this.pnlSectionBar.Size = new System.Drawing.Size(917, 38);
             this.pnlSectionBar.TabIndex = 7;
             // 
             // label11
@@ -994,7 +994,7 @@
             // 
             this.lblCount.AutoSize = true;
             this.lblCount.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lblCount.Location = new System.Drawing.Point(508, 11);
+            this.lblCount.Location = new System.Drawing.Point(809, 10);
             this.lblCount.Name = "lblCount";
             this.lblCount.Size = new System.Drawing.Size(95, 13);
             this.lblCount.TabIndex = 1;
