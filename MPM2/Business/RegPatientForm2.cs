@@ -21,5 +21,10 @@ namespace MPM2.Business
         {
 
         }
+
+        private void lblMarital_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
