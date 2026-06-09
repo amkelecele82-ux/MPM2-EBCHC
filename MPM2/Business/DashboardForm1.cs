@@ -171,7 +171,7 @@ namespace MPM2.Business
             {
                 this.ActiveMdiChild.Close();
             }
-            RegPatientForm rp = new RegPatientForm();
+            RegPatientForm2 rp = new RegPatientForm2();
             rp.MdiParent = this.MdiParent;
             rp.WindowState = FormWindowState.Maximized;
             rp.FormBorderStyle = FormBorderStyle.None;
