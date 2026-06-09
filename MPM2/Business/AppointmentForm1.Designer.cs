@@ -169,7 +169,7 @@
             this.TCAppointments.Margin = new System.Windows.Forms.Padding(2);
             this.TCAppointments.Name = "TCAppointments";
             this.TCAppointments.SelectedIndex = 0;
-            this.TCAppointments.Size = new System.Drawing.Size(1416, 839);
+            this.TCAppointments.Size = new System.Drawing.Size(1416, 602);
             this.TCAppointments.TabIndex = 8;
             // 
             // ViewAllTabPage
@@ -184,7 +184,7 @@
             this.ViewAllTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.ViewAllTabPage.Name = "ViewAllTabPage";
             this.ViewAllTabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.ViewAllTabPage.Size = new System.Drawing.Size(1408, 813);
+            this.ViewAllTabPage.Size = new System.Drawing.Size(1408, 576);
             this.ViewAllTabPage.TabIndex = 0;
             this.ViewAllTabPage.Text = "View All";
             this.ViewAllTabPage.UseVisualStyleBackColor = true;
@@ -192,7 +192,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(490, 11);
+            this.dateTimePicker2.Location = new System.Drawing.Point(552, 11);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(209, 23);
@@ -203,7 +203,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(444, 14);
+            this.label5.Location = new System.Drawing.Point(506, 14);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 15);
@@ -238,9 +238,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NurseName,
             this.StartTime,
             this.EndTime,
             this.doctorIDDataGridViewTextBoxColumn1,
@@ -249,15 +249,16 @@
             this.appointmentStatusDataGridViewTextBoxColumn,
             this.dataGridViewTextBoxColumn5,
             this.startTimeDataGridViewTextBoxColumn2,
-            this.endTimeDataGridViewTextBoxColumn2});
+            this.endTimeDataGridViewTextBoxColumn2,
+            this.NurseName});
             this.dataGridView2.DataSource = this.appointmentBindingSource1;
-            this.dataGridView2.Location = new System.Drawing.Point(26, 217);
+            this.dataGridView2.Location = new System.Drawing.Point(20, 169);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(1116, 524);
+            this.dataGridView2.Size = new System.Drawing.Size(1116, 305);
             this.dataGridView2.TabIndex = 0;
             // 
             // appointmentBindingSource1
@@ -802,9 +803,9 @@
             this.pnlFilterBar.Controls.Add(this.dateTimePicker2);
             this.pnlFilterBar.Controls.Add(this.label4);
             this.pnlFilterBar.Controls.Add(this.textBox3);
-            this.pnlFilterBar.Location = new System.Drawing.Point(2, 90);
+            this.pnlFilterBar.Location = new System.Drawing.Point(2, 68);
             this.pnlFilterBar.Name = "pnlFilterBar";
-            this.pnlFilterBar.Size = new System.Drawing.Size(1432, 52);
+            this.pnlFilterBar.Size = new System.Drawing.Size(1403, 52);
             this.pnlFilterBar.TabIndex = 5;
             // 
             // pnlFooter
@@ -815,31 +816,32 @@
             this.pnlFooter.Controls.Add(this.btnExport);
             this.pnlFooter.Controls.Add(this.btnNewAppointment);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(2, 734);
+            this.pnlFooter.Location = new System.Drawing.Point(2, 497);
             this.pnlFooter.Name = "pnlFooter";
             this.pnlFooter.Size = new System.Drawing.Size(1404, 77);
             this.pnlFooter.TabIndex = 6;
             // 
             // btnNewAppointment
             // 
-            this.btnNewAppointment.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnNewAppointment.BackColor = System.Drawing.Color.Teal;
             this.btnNewAppointment.ForeColor = System.Drawing.Color.White;
-            this.btnNewAppointment.Location = new System.Drawing.Point(18, 25);
+            this.btnNewAppointment.Location = new System.Drawing.Point(461, 25);
             this.btnNewAppointment.Name = "btnNewAppointment";
-            this.btnNewAppointment.Size = new System.Drawing.Size(152, 33);
+            this.btnNewAppointment.Size = new System.Drawing.Size(167, 33);
             this.btnNewAppointment.TabIndex = 0;
             this.btnNewAppointment.Text = "New appointment";
             this.btnNewAppointment.UseVisualStyleBackColor = false;
             // 
             // btnExport
             // 
-            this.btnExport.ForeColor = System.Drawing.Color.DimGray;
-            this.btnExport.Location = new System.Drawing.Point(232, 25);
+            this.btnExport.BackColor = System.Drawing.Color.Teal;
+            this.btnExport.ForeColor = System.Drawing.Color.MintCream;
+            this.btnExport.Location = new System.Drawing.Point(663, 25);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(88, 33);
+            this.btnExport.Size = new System.Drawing.Size(154, 33);
             this.btnExport.TabIndex = 1;
             this.btnExport.Text = "Export";
-            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.UseVisualStyleBackColor = false;
             // 
             // pnlSectionBar
             // 
@@ -847,7 +849,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlSectionBar.Controls.Add(this.lblCount);
             this.pnlSectionBar.Controls.Add(this.label11);
-            this.pnlSectionBar.Location = new System.Drawing.Point(3, 174);
+            this.pnlSectionBar.Location = new System.Drawing.Point(5, 126);
             this.pnlSectionBar.Name = "pnlSectionBar";
             this.pnlSectionBar.Size = new System.Drawing.Size(912, 38);
             this.pnlSectionBar.TabIndex = 7;
@@ -896,11 +898,11 @@
             this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(155, 10);
+            this.lblTitle.Location = new System.Drawing.Point(529, 10);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(176, 15);
+            this.lblTitle.Size = new System.Drawing.Size(214, 19);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Appointments  East Boom CHC";
             // 
@@ -1024,7 +1026,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1416, 839);
+            this.ClientSize = new System.Drawing.Size(1416, 602);
             this.Controls.Add(this.TCAppointments);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AppointmentForm1";
