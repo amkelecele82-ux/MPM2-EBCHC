@@ -52,6 +52,12 @@
     <Compile Include="Business\AccountSettingsForm.Designer.cs">
       <DependentUpon>AccountSettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\AdminAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\AdminAppointment.Designer.cs">
+      <DependentUpon>AdminAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\AppointmentForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </Compile>
     <EmbeddedResource Include="Business\AccountSettingsForm.resx">
       <DependentUpon>AccountSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\AdminAppointment.resx">
+      <DependentUpon>AdminAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\AppointmentForm1.resx">
       <DependentUpon>AppointmentForm1.cs</DependentUpon>

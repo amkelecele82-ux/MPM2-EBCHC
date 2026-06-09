@@ -16,6 +16,10 @@
 
 namespace MPM2.Database.DataSet1TableAdapters
 {
+    partial class Pro_AppointmentTableAdapter
+    {
+    }
+
     partial class CustomMedAdmTableAdapter
     {
     }
