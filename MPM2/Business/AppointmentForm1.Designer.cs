@@ -91,6 +91,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnUpdateStatus = new System.Windows.Forms.Button();
             this.appProgressDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Appointment_Status = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.appProgressBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.appProgressBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.liteAppointmentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.liteAppointmentBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
@@ -104,13 +111,6 @@
             this.liteAppointmentBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentTableAdapter = new MPM2.Database.DataSet1TableAdapters.AppointmentTableAdapter();
             this.liteAppointmentBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
-            this.appProgressBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Appointment_Status = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.TCAppointments.SuspendLayout();
             this.ViewAllTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -127,6 +127,7 @@
             this.AppointProgressTabPage.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appProgressDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appProgressBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appProgressBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource6)).BeginInit();
@@ -137,7 +138,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appProgressBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // TCAppointments
@@ -364,6 +364,7 @@
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Book Appointment";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // label10
             // 
@@ -722,6 +723,51 @@
             this.appProgressDataGridView.Size = new System.Drawing.Size(751, 150);
             this.appProgressDataGridView.TabIndex = 0;
             // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "AppointmentID";
+            this.dataGridViewTextBoxColumn4.HeaderText = "AppointmentID";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // patientIDDataGridViewTextBoxColumn2
+            // 
+            this.patientIDDataGridViewTextBoxColumn2.DataPropertyName = "Patient_ID";
+            this.patientIDDataGridViewTextBoxColumn2.HeaderText = "Patient_ID";
+            this.patientIDDataGridViewTextBoxColumn2.Name = "patientIDDataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Appointment_Date";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Appointment_Date";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // startTimeDataGridViewTextBoxColumn1
+            // 
+            this.startTimeDataGridViewTextBoxColumn1.DataPropertyName = "StartTime";
+            this.startTimeDataGridViewTextBoxColumn1.HeaderText = "StartTime";
+            this.startTimeDataGridViewTextBoxColumn1.Name = "startTimeDataGridViewTextBoxColumn1";
+            // 
+            // endTimeDataGridViewTextBoxColumn1
+            // 
+            this.endTimeDataGridViewTextBoxColumn1.DataPropertyName = "EndTime";
+            this.endTimeDataGridViewTextBoxColumn1.HeaderText = "EndTime";
+            this.endTimeDataGridViewTextBoxColumn1.Name = "endTimeDataGridViewTextBoxColumn1";
+            // 
+            // Appointment_Status
+            // 
+            this.Appointment_Status.DataPropertyName = "Appointment_Status";
+            this.Appointment_Status.HeaderText = "Status";
+            this.Appointment_Status.Items.AddRange(new object[] {
+            "Scheduled",
+            "Completed",
+            "Cancelled"});
+            this.Appointment_Status.Name = "Appointment_Status";
+            // 
+            // appProgressBindingSource1
+            // 
+            this.appProgressBindingSource1.DataMember = "appProgress";
+            this.appProgressBindingSource1.DataSource = this.dataSet1;
+            // 
             // appProgressBindingSource
             // 
             this.appProgressBindingSource.DataMember = "appProgress";
@@ -784,51 +830,6 @@
             this.liteAppointmentBindingSource7.DataMember = "LiteAppointment";
             this.liteAppointmentBindingSource7.DataSource = this.dataSet1;
             // 
-            // appProgressBindingSource1
-            // 
-            this.appProgressBindingSource1.DataMember = "appProgress";
-            this.appProgressBindingSource1.DataSource = this.dataSet1;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "AppointmentID";
-            this.dataGridViewTextBoxColumn4.HeaderText = "AppointmentID";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // patientIDDataGridViewTextBoxColumn2
-            // 
-            this.patientIDDataGridViewTextBoxColumn2.DataPropertyName = "Patient_ID";
-            this.patientIDDataGridViewTextBoxColumn2.HeaderText = "Patient_ID";
-            this.patientIDDataGridViewTextBoxColumn2.Name = "patientIDDataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Appointment_Date";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Appointment_Date";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // startTimeDataGridViewTextBoxColumn1
-            // 
-            this.startTimeDataGridViewTextBoxColumn1.DataPropertyName = "StartTime";
-            this.startTimeDataGridViewTextBoxColumn1.HeaderText = "StartTime";
-            this.startTimeDataGridViewTextBoxColumn1.Name = "startTimeDataGridViewTextBoxColumn1";
-            // 
-            // endTimeDataGridViewTextBoxColumn1
-            // 
-            this.endTimeDataGridViewTextBoxColumn1.DataPropertyName = "EndTime";
-            this.endTimeDataGridViewTextBoxColumn1.HeaderText = "EndTime";
-            this.endTimeDataGridViewTextBoxColumn1.Name = "endTimeDataGridViewTextBoxColumn1";
-            // 
-            // Appointment_Status
-            // 
-            this.Appointment_Status.DataPropertyName = "Appointment_Status";
-            this.Appointment_Status.HeaderText = "Status";
-            this.Appointment_Status.Items.AddRange(new object[] {
-            "Scheduled",
-            "Completed",
-            "Cancelled"});
-            this.Appointment_Status.Name = "Appointment_Status";
-            // 
             // AppointmentForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -858,6 +859,7 @@
             this.AppointProgressTabPage.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.appProgressDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appProgressBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appProgressBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource6)).EndInit();
@@ -868,7 +870,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.liteAppointmentBindingSource7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appProgressBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
