@@ -112,7 +112,7 @@ namespace MPM2
 
         private void registerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RegPatientForm r = new RegPatientForm();
+            RegPatientForm2 r = new RegPatientForm2();
             formSetup(r);
         }
 
