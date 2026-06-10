@@ -1694,21 +1694,21 @@ SELECT PatientID, DoctorID, NurseID, AppointmentStatus, AppointmentReason, Appoi
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DoctorName" msprop:Generator_ColumnPropNameInRow="DoctorName" msprop:Generator_ColumnPropNameInTable="DoctorNameColumn" msprop:Generator_ColumnVarNameInTable="columnDoctorName" msprop:Generator_UserColumnName="DoctorName">
+              <xs:element name="DoctorName" msprop:Generator_UserColumnName="DoctorName" msprop:Generator_ColumnPropNameInTable="DoctorNameColumn" msprop:Generator_ColumnPropNameInRow="DoctorName" msprop:Generator_ColumnVarNameInTable="columnDoctorName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NurseName" msprop:Generator_ColumnPropNameInRow="NurseName" msprop:Generator_ColumnPropNameInTable="NurseNameColumn" msprop:Generator_ColumnVarNameInTable="columnNurseName" msprop:Generator_UserColumnName="NurseName">
+              <xs:element name="NurseName" msprop:Generator_UserColumnName="NurseName" msprop:Generator_ColumnPropNameInTable="NurseNameColumn" msprop:Generator_ColumnPropNameInRow="NurseName" msprop:Generator_ColumnVarNameInTable="columnNurseName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PatientName" msprop:Generator_ColumnPropNameInRow="PatientName" msprop:Generator_ColumnPropNameInTable="PatientNameColumn" msprop:Generator_ColumnVarNameInTable="columnPatientName" msprop:Generator_UserColumnName="PatientName">
+              <xs:element name="PatientName" msprop:Generator_UserColumnName="PatientName" msprop:Generator_ColumnPropNameInTable="PatientNameColumn" msprop:Generator_ColumnPropNameInRow="PatientName" msprop:Generator_ColumnVarNameInTable="columnPatientName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -1718,36 +1718,44 @@ SELECT PatientID, DoctorID, NurseID, AppointmentStatus, AppointmentReason, Appoi
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Pro_Appointment" msprop:Generator_RowClassName="Pro_AppointmentRow" msprop:Generator_RowEvHandlerName="Pro_AppointmentRowChangeEventHandler" msprop:Generator_RowDeletedName="Pro_AppointmentRowDeleted" msprop:Generator_RowDeletingName="Pro_AppointmentRowDeleting" msprop:Generator_RowEvArgName="Pro_AppointmentRowChangeEvent" msprop:Generator_TablePropName="Pro_Appointment" msprop:Generator_RowChangedName="Pro_AppointmentRowChanged" msprop:Generator_UserTableName="Pro_Appointment" msprop:Generator_RowChangingName="Pro_AppointmentRowChanging" msprop:Generator_TableClassName="Pro_AppointmentDataTable" msprop:Generator_TableVarName="tablePro_Appointment">
+        <xs:element name="Pro_Appointment" msprop:Generator_RowEvHandlerName="Pro_AppointmentRowChangeEventHandler" msprop:Generator_RowDeletedName="Pro_AppointmentRowDeleted" msprop:Generator_RowDeletingName="Pro_AppointmentRowDeleting" msprop:Generator_RowEvArgName="Pro_AppointmentRowChangeEvent" msprop:Generator_TablePropName="Pro_Appointment" msprop:Generator_RowChangedName="Pro_AppointmentRowChanged" msprop:Generator_UserTableName="Pro_Appointment" msprop:Generator_RowChangingName="Pro_AppointmentRowChanging" msprop:Generator_RowClassName="Pro_AppointmentRow" msprop:Generator_TableClassName="Pro_AppointmentDataTable" msprop:Generator_TableVarName="tablePro_Appointment">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="PatientID" msprop:Generator_UserColumnName="PatientID" msprop:Generator_ColumnPropNameInTable="PatientIDColumn" msprop:Generator_ColumnPropNameInRow="PatientID" msprop:Generator_ColumnVarNameInTable="columnPatientID" type="xs:int" />
-              <xs:element name="DoctorID" msprop:Generator_UserColumnName="DoctorID" msprop:Generator_ColumnPropNameInTable="DoctorIDColumn" msprop:Generator_ColumnPropNameInRow="DoctorID" msprop:Generator_ColumnVarNameInTable="columnDoctorID" type="xs:int" />
-              <xs:element name="NurseID" msprop:Generator_UserColumnName="NurseID" msprop:Generator_ColumnPropNameInTable="NurseIDColumn" msprop:Generator_ColumnPropNameInRow="NurseID" msprop:Generator_ColumnVarNameInTable="columnNurseID" type="xs:int" />
-              <xs:element name="AppointmentStatus" msprop:Generator_UserColumnName="AppointmentStatus" msprop:Generator_ColumnPropNameInTable="AppointmentStatusColumn" msprop:Generator_ColumnPropNameInRow="AppointmentStatus" msprop:Generator_ColumnVarNameInTable="columnAppointmentStatus">
+              <xs:element name="PatientID" msprop:Generator_ColumnPropNameInTable="PatientIDColumn" msprop:Generator_ColumnPropNameInRow="PatientID" msprop:Generator_UserColumnName="PatientID" msprop:Generator_ColumnVarNameInTable="columnPatientID" type="xs:int" />
+              <xs:element name="DoctorID" msprop:Generator_ColumnPropNameInTable="DoctorIDColumn" msprop:Generator_ColumnPropNameInRow="DoctorID" msprop:Generator_UserColumnName="DoctorID" msprop:Generator_ColumnVarNameInTable="columnDoctorID" type="xs:int" />
+              <xs:element name="NurseID" msprop:Generator_ColumnPropNameInTable="NurseIDColumn" msprop:Generator_ColumnPropNameInRow="NurseID" msprop:Generator_UserColumnName="NurseID" msprop:Generator_ColumnVarNameInTable="columnNurseID" type="xs:int" />
+              <xs:element name="AppointmentStatus" msprop:Generator_ColumnPropNameInTable="AppointmentStatusColumn" msprop:Generator_ColumnPropNameInRow="AppointmentStatus" msprop:Generator_UserColumnName="AppointmentStatus" msprop:Generator_ColumnVarNameInTable="columnAppointmentStatus">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="AppointmentReason" msprop:Generator_UserColumnName="AppointmentReason" msprop:Generator_ColumnPropNameInTable="AppointmentReasonColumn" msprop:Generator_ColumnPropNameInRow="AppointmentReason" msprop:Generator_ColumnVarNameInTable="columnAppointmentReason">
+              <xs:element name="AppointmentReason" msprop:Generator_ColumnPropNameInTable="AppointmentReasonColumn" msprop:Generator_ColumnPropNameInRow="AppointmentReason" msprop:Generator_UserColumnName="AppointmentReason" msprop:Generator_ColumnVarNameInTable="columnAppointmentReason">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="AppointmentDate" msprop:Generator_UserColumnName="AppointmentDate" msprop:Generator_ColumnPropNameInTable="AppointmentDateColumn" msprop:Generator_ColumnPropNameInRow="AppointmentDate" msprop:Generator_ColumnVarNameInTable="columnAppointmentDate" type="xs:dateTime" />
-              <xs:element name="TimeSlots" msprop:Generator_UserColumnName="TimeSlots" msprop:Generator_ColumnPropNameInTable="TimeSlotsColumn" msprop:Generator_ColumnPropNameInRow="TimeSlots" msprop:Generator_ColumnVarNameInTable="columnTimeSlots">
+              <xs:element name="AppointmentDate" msprop:Generator_ColumnPropNameInTable="AppointmentDateColumn" msprop:Generator_ColumnPropNameInRow="AppointmentDate" msprop:Generator_UserColumnName="AppointmentDate" msprop:Generator_ColumnVarNameInTable="columnAppointmentDate" type="xs:dateTime" />
+              <xs:element name="TimeSlots" msprop:Generator_ColumnPropNameInTable="TimeSlotsColumn" msprop:Generator_ColumnPropNameInRow="TimeSlots" msprop:Generator_UserColumnName="TimeSlots" msprop:Generator_ColumnVarNameInTable="columnTimeSlots">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="AppointmentID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_UserColumnName="AppointmentID" msprop:Generator_ColumnPropNameInTable="AppointmentIDColumn" msprop:Generator_ColumnPropNameInRow="AppointmentID" msprop:Generator_ColumnVarNameInTable="columnAppointmentID" type="xs:int" />
+              <xs:element name="AppointmentID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnPropNameInTable="AppointmentIDColumn" msprop:Generator_ColumnPropNameInRow="AppointmentID" msprop:Generator_UserColumnName="AppointmentID" msprop:Generator_ColumnVarNameInTable="columnAppointmentID" type="xs:int" />
             </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FullyBookedDoctors" msprop:Generator_RowEvHandlerName="FullyBookedDoctorsRowChangeEventHandler" msprop:Generator_RowDeletedName="FullyBookedDoctorsRowDeleted" msprop:Generator_RowDeletingName="FullyBookedDoctorsRowDeleting" msprop:Generator_RowEvArgName="FullyBookedDoctorsRowChangeEvent" msprop:Generator_TablePropName="FullyBookedDoctors" msprop:Generator_RowChangedName="FullyBookedDoctorsRowChanged" msprop:Generator_RowChangingName="FullyBookedDoctorsRowChanging" msprop:Generator_TableClassName="FullyBookedDoctorsDataTable" msprop:Generator_RowClassName="FullyBookedDoctorsRow" msprop:Generator_TableVarName="tableFullyBookedDoctors" msprop:Generator_UserTableName="FullyBookedDoctors">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AvailableDoctors" msprop:Generator_RowEvHandlerName="AvailableDoctorsRowChangeEventHandler" msprop:Generator_RowDeletedName="AvailableDoctorsRowDeleted" msprop:Generator_RowDeletingName="AvailableDoctorsRowDeleting" msprop:Generator_RowEvArgName="AvailableDoctorsRowChangeEvent" msprop:Generator_TablePropName="AvailableDoctors" msprop:Generator_RowChangedName="AvailableDoctorsRowChanged" msprop:Generator_RowChangingName="AvailableDoctorsRowChanging" msprop:Generator_TableClassName="AvailableDoctorsDataTable" msprop:Generator_RowClassName="AvailableDoctorsRow" msprop:Generator_TableVarName="tableAvailableDoctors" msprop:Generator_UserTableName="AvailableDoctors">
+          <xs:complexType>
           </xs:complexType>
         </xs:element>
       </xs:choice>
