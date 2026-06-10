@@ -16,6 +16,8 @@ namespace MPM2
 {
     public partial class MainForm : Form
     {
+        private object panelMain;
+
         //These are added so that we can pass the user information from the login form to other forms
         //public string CurrentUserName { get; set; }
         //public string CurrentFullName { get; set; }
@@ -200,10 +202,11 @@ namespace MPM2
 
         private void prescriptionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PrescriptionForm p = new PrescriptionForm();    
-            formSetup(p);   
+            PrescriptionForm p = new PrescriptionForm();
+            formSetup(p);
 
         }
+       
 
         private void generatePrescriptionToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -258,5 +261,78 @@ namespace MPM2
             t.SetTab(1);
             formSetup(t);
         }
+
+       
+
+        private void viewReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reportViewFrm frm = new reportViewFrm();
+            formSetup(frm);
+        }
+
+        private void viewAllToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            // Try to find an existing report form
+            reportViewFrm reportForm = null;
+            foreach (Form child in this.MdiChildren)
+            {
+                if (child is reportViewFrm frm)
+                {
+                    reportForm = frm;
+                    break;
+                }
+            }
+
+            if (reportForm == null)
+            {
+                // No report form open – open one and then call LoadAllRecords
+                reportForm = new reportViewFrm();
+                formSetup(reportForm);
+                // Use Shown event to ensure the form is fully loaded before calling
+                reportForm.Shown += (s, args) => reportForm.LoadAllRecords();
+            }
+            else
+            {
+                reportForm.LoadAllRecords();
+            }
+        }
+
+        private void recordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reportViewFrm reportForm = null;
+            foreach (Form child in this.MdiChildren)
+            {
+                if (child is reportViewFrm frm)
+                {
+                    reportForm = frm;
+                    break;
+                }
+            }
+
+            if (reportForm == null)
+            {
+                reportForm = new reportViewFrm();
+                formSetup(reportForm);
+                this.BeginInvoke(new Action(() => reportForm.LoadFilteredRecords()));
+            }
+            else
+            {
+                reportForm.LoadFilteredRecords();
+            }
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reportViewFrm reportForm = Application.OpenForms.OfType<reportViewFrm>().FirstOrDefault();
+            if (reportForm != null)
+            {
+                reportForm.PrintCurrentReport();
+            }
+            else
+            {
+                MessageBox.Show("No report is currently open. Please open a report first.");
+            }
+        }
     }
-}
+    }
+
