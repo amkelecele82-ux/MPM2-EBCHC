@@ -1,4 +1,5 @@
-﻿using MPM2.Database;
+﻿using Microsoft.Reporting.Map.WebForms.BingMaps;
+using MPM2.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -139,7 +140,7 @@ namespace MPM2.Business
             RefreshAvailableStartTimesForSelectedDate();
 
             // Ensure dataGridView3 shows filtered view for the logged-in role
-            ApplyRoleFilter();
+          //  ApplyRoleFilter();
 
             txtStatus.Text = "Scheduled";
         }
@@ -220,9 +221,9 @@ namespace MPM2.Business
 
                 DateTime datex = monthCalendar1.SelectionStart.Date;
 
-                int doctorId = Convert.ToInt32(textBoxDrID.Text);
-                int patientId = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                int nurseId = Convert.ToInt32(dataGridView2.CurrentRow.Cells[0].Value);
+                int doctorId = int.Parse(textBoxDrID.Text);
+                int patientId = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                int nurseId = int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString());
 
                 // 3. Block lunch time
                 var blockedStart = DateTime.ParseExact("12:00 PM", "hh:mm tt", CultureInfo.InvariantCulture).TimeOfDay;
@@ -236,22 +237,22 @@ namespace MPM2.Business
                 }
 
                 // 4. Daily limit check
-                int currentCount = CountDoctorAppointmentsOnDate(doctorId, datex);
-                if (currentCount >= 5)
-                {
-                    MessageBox.Show("You have reached the maximum of 5 appointments.");
-                    return;
-                }
+                //int doctorIdk = Convert.ToInt32(textBoxDrID.Text);
+                //DateTime datexx = monthCalendar1.SelectionStart.Date;
 
-                // 5. OVERLAP CHECK (IMPORTANT)
-                if (IsTimeSlotBooked(doctorId, datex, newStart, newEnd))
+                // doctorId
+                DateTime date = monthCalendar1.SelectionStart.Date;
+
+                int currentCount = CountDoctorAppointmentsOnDate(doctorId, date);
+
+                if (currentCount >= 6)
                 {
-                    MessageBox.Show("Slot time already booked");
+                    MessageBox.Show("Doctor Fully Booked ,Will be Available Tomorrow ");
                     return;
                 }
 
                 // 6. ONLY NOW create dataset row
-                var dr = dataSet1.NewApointments.NewRow();
+                /*var dr = dataSet1.NewApointments.NewRow();
 
                 dr["DoctorName"] = txtDoctor.Text;
                 dr["NurseName"] = txtNurse.Text;
@@ -260,27 +261,35 @@ namespace MPM2.Business
                 dr["AppointmentReason"] = txtReason.Text;
                 dr["AppointmentDate"] = datex;
                 dr["TimeSlots"] = comboBoxSta.SelectedItem + " - " + comboBoxEnd.SelectedItem;
-
+                */
                 // 7. DB insert
+                string timeSlot =
+    comboBoxSta.SelectedItem.ToString()
+    + " - "
+    + comboBoxEnd.SelectedItem.ToString();
+
                 pro_AppointmentTableAdapter.Insert(
-                    doctorId,
                     patientId,
+                       doctorId,
                     nurseId,
                     txtStatus.Text,
                     txtReason.Text,
                     datex,
-                    dr["TimeSlots"].ToString()
+                    timeSlot.ToString()
                 );
 
                 // 8. UI refresh
                 pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment);
+               
                 newAppointmentsTableAdapter.Fill(this.dataSet1.NewApointments);
 
-                ApplyDoctorFilter();
-                BuildBookedSlotsFromDataset();
-                RefreshAvailableStartTimesForSelectedDate();
+              
 
                 MessageBox.Show("Appointment created successfully!");
+
+                BuildBookedSlotsFromDataset();
+                RefreshAvailableStartTimesForSelectedDate();
+                ApplyDoctorFilter();
             }
             catch (Exception ex)
             {
@@ -493,44 +502,57 @@ namespace MPM2.Business
                 MessageBox.Show(ex.Message);
             }
         }
-        private int CountDoctorAppointmentsOnDate(int doctorId, DateTime date)
-        {
-            if (dataSet1 == null || dataSet1.Pro_Appointment == null)
-                return 0;
+        /*
+          private int CountDoctorAppointmentsOnDate(int doctorId, DateTime date)
+          {
+              int count = 0;
 
-            int count = 0;
-            foreach (DataRow row in dataSet1.Pro_Appointment.Rows)
-            {
-                if (row == null)
-                    continue;
+              if (dataGridViewInnerJoin == null)
+                  return 0;
 
-                if (!row.Table.Columns.Contains("DoctorID") || row["DoctorID"] == DBNull.Value)
-                    continue;
+              foreach (DataGridViewRow row in dataGridViewInnerJoin.Rows)
+              {
+                  if (row.IsNewRow)
+                      continue;
 
+                  try
+                  {
+                      // Doctor ID (from grid)
+                      int gridDoctorId =
+                          Convert.ToInt32(row.Cells["DoctorID"].Value);
+
+                      // Date (from grid)
+                      DateTime gridDate =
+                          Convert.ToDateTime(row.Cells["AppointmentDate"].Value);
+
+                      if (gridDoctorId == doctorId &&
+                          gridDate.Date == date.Date)
+                      {
+                          count++;
+                      }
+                  }
+                  catch
+                  {
+                      continue;
+                  }
+              }
+
+              return count;
+          }
+        */
+        private int CountDoctorAppointmentsOnDate(int doctorId, DateTime date) { 
+            if (dataSet1 == null || dataSet1.Pro_Appointment == null) return 0; int count = 0;
+            foreach (DataRow row in dataSet1.Pro_Appointment.Rows) { 
+                if (row == null) continue; if (!row.Table.Columns.Contains("DoctorID") || row["DoctorID"] == DBNull.Value) continue;
                 int rowDoctorId;
-                if (!int.TryParse(row["DoctorID"].ToString(), out rowDoctorId))
-                    continue;
-
-                if (rowDoctorId != doctorId)
-                    continue;
-
-                if (!row.Table.Columns.Contains("AppointmentDate") || row["AppointmentDate"] == DBNull.Value)
-                    continue;
-
-                DateTime apptDate;
-                try
-                {
-                    apptDate = Convert.ToDateTime(row["AppointmentDate"]);
-                }
-                catch
-                {
-                    continue;
-                }
-
-                if (apptDate.Date == date.Date)
-                    count++;
-            }
-            return count;
+                if (!int.TryParse(row["DoctorID"].ToString(), out rowDoctorId)) continue; 
+                if (rowDoctorId != doctorId) continue; 
+                if (!row.Table.Columns.Contains("AppointmentDate") || row["AppointmentDate"] == DBNull.Value) continue;
+                DateTime apptDate; try { apptDate = Convert.ToDateTime(row["AppointmentDate"]); } 
+                catch { continue;
+                } 
+                if (apptDate.Date == date.Date) count++;
+            } return count; 
         }
         private void BuildBookedSlotsFromDataset()
         {
@@ -683,54 +705,62 @@ namespace MPM2.Business
                 comboBoxEnd.Text = string.Empty;
             }
         }
-    private void ApplyRoleFilter()
+        private void ApplyRoleFilter()
         {
             try
             {
                 if (dataSet1 == null || dataSet1.Pro_Appointment == null)
                     return;
 
-                if (!(this.MdiParent is MainForm main) || main.CurrentDataRow == null)
+                // Ensure BindingSource exists (create if not in designer)
+                if (proAppointmentBindingSource == null)
                 {
-                    dataSet1.Pro_Appointment.DefaultView.RowFilter = string.Empty;
-                    if (dataGridViewInnerJoin != null)
-                        dataGridViewInnerJoin.DataSource = dataSet1.Pro_Appointment.DefaultView;
-                    return;
+                    proAppointmentBindingSource = new BindingSource();
                 }
 
-                if (main.CurrentRole == "Doctor")
+                // ALWAYS bind once to table (not DefaultView repeatedly)
+                if (proAppointmentBindingSource.DataSource == null)
+                {
+                    proAppointmentBindingSource.DataSource = dataSet1;
+                    proAppointmentBindingSource.DataMember = "Pro_Appointment";
+                }
+
+                if (!(this.MdiParent is MainForm main) || main.CurrentDataRow == null)
+                {
+                    proAppointmentBindingSource.RemoveFilter();
+                }
+                else if (main.CurrentRole == "Doctor")
                 {
                     int doctorId = GetLoggedInDoctorId();
+
                     if (doctorId != 0)
                     {
-                        // Choose the correct column name for doctor id
-                        string docCol = dataSet1.Pro_Appointment.Columns.Contains("DoctorID") ? "DoctorID"
-                            : dataSet1.Pro_Appointment.Columns.Contains("Doctor_ID") ? "Doctor_ID"
-                            : null;
+                        string docCol =
+                            dataSet1.Pro_Appointment.Columns.Contains("DoctorID") ? "DoctorID" :
+                            dataSet1.Pro_Appointment.Columns.Contains("Doctor_ID") ? "Doctor_ID" :
+                            null;
 
                         if (!string.IsNullOrEmpty(docCol))
-                            dataSet1.Pro_Appointment.DefaultView.RowFilter = $"[{docCol}] = {doctorId}";
+                        {
+                            proAppointmentBindingSource.Filter = $"[{docCol}] = {doctorId}";
+                        }
                         else
-                            dataSet1.Pro_Appointment.DefaultView.RowFilter = string.Empty;
-                    }
-                    else
-                    {
-                        dataSet1.Pro_Appointment.DefaultView.RowFilter = string.Empty;
+                        {
+                            proAppointmentBindingSource.RemoveFilter();
+                        }
                     }
                 }
                 else
                 {
-                    // AdminAppointment is not responsible for nurse-scoped filtering;
-                    // show all for non-doctor roles so dashboard can present nurse-specific views.
-                    dataSet1.Pro_Appointment.DefaultView.RowFilter = string.Empty;
+                    proAppointmentBindingSource.RemoveFilter();
                 }
 
-                if (dataGridViewInnerJoin != null)
-                    dataGridViewInnerJoin.DataSource = dataSet1.Pro_Appointment.DefaultView;
+                // IMPORTANT: bind grid ONLY here
+                dataGridViewInnerJoin.DataSource = proAppointmentBindingSource;
             }
-            catch
+            catch (Exception ex)
             {
-                // keep UI usable on error
+                MessageBox.Show("Filter error: " + ex.Message);
             }
         }
 

@@ -204,13 +204,13 @@
             this.dataGridViewInnerJoin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewInnerJoin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.appointmentIDDataGridViewTextBoxColumn,
+            this.doctorNameDataGridViewTextBoxColumn,
+            this.nurseNameDataGridViewTextBoxColumn,
+            this.patientNameDataGridViewTextBoxColumn,
             this.appointmentStatusDataGridViewTextBoxColumn,
             this.appointmentReasonDataGridViewTextBoxColumn,
             this.appointmentDateDataGridViewTextBoxColumn,
-            this.timeSlotsDataGridViewTextBoxColumn,
-            this.doctorNameDataGridViewTextBoxColumn,
-            this.nurseNameDataGridViewTextBoxColumn,
-            this.patientNameDataGridViewTextBoxColumn});
+            this.timeSlotsDataGridViewTextBoxColumn});
             this.dataGridViewInnerJoin.DataSource = this.newApointmentsBindingSource;
             this.dataGridViewInnerJoin.Location = new System.Drawing.Point(62, 150);
             this.dataGridViewInnerJoin.Name = "dataGridViewInnerJoin";
@@ -793,8 +793,8 @@
             // 
             // dataSet1BindingSource
             // 
-            this.dataSet1BindingSource.DataSource = this.dataSet1;
-            this.dataSet1BindingSource.Position = 0;
+            this.newApointmentsBindingSource.DataMember = "NewApointments";
+            this.newApointmentsBindingSource.DataSource = this.dataSet1;
             // 
             // newApointmentsBindingSource1
             // 
@@ -1019,15 +1019,15 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.BindingSource newApointmentsBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doctorNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nurseNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentReasonDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeSlotsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doctorNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nurseNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource newApointmentsBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentIDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn doctorIDDataGridViewTextBoxColumn;
