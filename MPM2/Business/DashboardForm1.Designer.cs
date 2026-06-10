@@ -138,19 +138,20 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.Dashlabel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 903);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Location = new System.Drawing.Point(0, 734);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1670, 32);
+            this.panel3.Size = new System.Drawing.Size(1410, 26);
             this.panel3.TabIndex = 12;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(245, 7);
+            this.label3.Location = new System.Drawing.Point(184, 6);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(189, 16);
+            this.label3.Size = new System.Drawing.Size(153, 13);
             this.label3.TabIndex = 15;
             this.label3.Text = "East Boom CHC KZN Province";
             // 
@@ -159,9 +160,10 @@
             this.Dashlabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Dashlabel2.AutoSize = true;
             this.Dashlabel2.ForeColor = System.Drawing.SystemColors.Control;
-            this.Dashlabel2.Location = new System.Drawing.Point(1534, 7);
+            this.Dashlabel2.Location = new System.Drawing.Point(1308, 6);
+            this.Dashlabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Dashlabel2.Name = "Dashlabel2";
-            this.Dashlabel2.Size = new System.Drawing.Size(130, 16);
+            this.Dashlabel2.Size = new System.Drawing.Size(113, 13);
             this.Dashlabel2.TabIndex = 6;
             this.Dashlabel2.Text = "14:35 | 13 May 2026   ";
             this.Dashlabel2.Click += new System.EventHandler(this.Dashlabel2_Click);
@@ -182,19 +184,20 @@
             this.panel2.Controls.Add(this.DashConbutton);
             this.panel2.Controls.Add(this.DashApbutton);
             this.panel2.Controls.Add(this.DashPatientbutton);
-            this.panel2.Location = new System.Drawing.Point(-1, 71);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(-1, 58);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(240, 864);
+            this.panel2.Size = new System.Drawing.Size(180, 702);
             this.panel2.TabIndex = 13;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(11, 137);
+            this.label8.Location = new System.Drawing.Point(8, 111);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(40, 16);
+            this.label8.Size = new System.Drawing.Size(34, 13);
             this.label8.TabIndex = 13;
             this.label8.Text = "MAIN";
             // 
@@ -204,10 +207,10 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.fullNameLabel);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(-3, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(-2, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(243, 96);
+            this.panel1.Size = new System.Drawing.Size(183, 78);
             this.panel1.TabIndex = 12;
             // 
             // fullNameLabel
@@ -215,9 +218,10 @@
             this.fullNameLabel.AutoSize = true;
             this.fullNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullNameLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.fullNameLabel.Location = new System.Drawing.Point(27, 46);
+            this.fullNameLabel.Location = new System.Drawing.Point(20, 37);
+            this.fullNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.fullNameLabel.Name = "fullNameLabel";
-            this.fullNameLabel.Size = new System.Drawing.Size(69, 25);
+            this.fullNameLabel.Size = new System.Drawing.Size(58, 20);
             this.fullNameLabel.TabIndex = 6;
             this.fullNameLabel.Text = "Guest";
             // 
@@ -225,9 +229,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(13, 7);
+            this.label5.Location = new System.Drawing.Point(10, 6);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 16);
+            this.label5.Size = new System.Drawing.Size(68, 13);
             this.label5.TabIndex = 5;
             this.label5.Text = "Logged in as";
             // 
@@ -239,10 +244,10 @@
             this.DashRepbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DashRepbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashRepbutton.ForeColor = System.Drawing.SystemColors.Control;
-            this.DashRepbutton.Location = new System.Drawing.Point(0, 632);
-            this.DashRepbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DashRepbutton.Location = new System.Drawing.Point(0, 514);
+            this.DashRepbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DashRepbutton.Name = "DashRepbutton";
-            this.DashRepbutton.Size = new System.Drawing.Size(241, 57);
+            this.DashRepbutton.Size = new System.Drawing.Size(181, 46);
             this.DashRepbutton.TabIndex = 10;
             this.DashRepbutton.Text = "Reports";
             this.DashRepbutton.UseVisualStyleBackColor = true;
@@ -251,9 +256,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(11, 598);
+            this.label2.Location = new System.Drawing.Point(8, 486);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 16);
+            this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "ADMIN";
             // 
@@ -265,10 +271,10 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.Control;
-            this.button7.Location = new System.Drawing.Point(-1, 520);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button7.Location = new System.Drawing.Point(-1, 422);
+            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(241, 57);
+            this.button7.Size = new System.Drawing.Size(181, 46);
             this.button7.TabIndex = 7;
             this.button7.Text = "Vitals";
             this.button7.UseVisualStyleBackColor = true;
@@ -281,10 +287,10 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.Control;
-            this.button6.Location = new System.Drawing.Point(-1, 467);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button6.Location = new System.Drawing.Point(-1, 379);
+            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(241, 57);
+            this.button6.Size = new System.Drawing.Size(181, 46);
             this.button6.TabIndex = 6;
             this.button6.Text = "Lab Result";
             this.button6.UseVisualStyleBackColor = true;
@@ -297,10 +303,10 @@
             this.DashPresbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DashPresbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashPresbutton.ForeColor = System.Drawing.SystemColors.Control;
-            this.DashPresbutton.Location = new System.Drawing.Point(-1, 412);
-            this.DashPresbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DashPresbutton.Location = new System.Drawing.Point(-1, 335);
+            this.DashPresbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DashPresbutton.Name = "DashPresbutton";
-            this.DashPresbutton.Size = new System.Drawing.Size(241, 57);
+            this.DashPresbutton.Size = new System.Drawing.Size(181, 46);
             this.DashPresbutton.TabIndex = 5;
             this.DashPresbutton.Text = "Prescriptions";
             this.DashPresbutton.UseVisualStyleBackColor = true;
@@ -310,9 +316,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(11, 373);
+            this.label6.Location = new System.Drawing.Point(8, 303);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 16);
+            this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 4;
             this.label6.Text = "CLINICAL";
             // 
@@ -324,10 +331,10 @@
             this.DashConbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DashConbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashConbutton.ForeColor = System.Drawing.SystemColors.Control;
-            this.DashConbutton.Location = new System.Drawing.Point(-1, 281);
-            this.DashConbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DashConbutton.Location = new System.Drawing.Point(-1, 228);
+            this.DashConbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DashConbutton.Name = "DashConbutton";
-            this.DashConbutton.Size = new System.Drawing.Size(241, 57);
+            this.DashConbutton.Size = new System.Drawing.Size(181, 46);
             this.DashConbutton.TabIndex = 3;
             this.DashConbutton.Text = "Consultations";
             this.DashConbutton.UseVisualStyleBackColor = true;
@@ -340,10 +347,10 @@
             this.DashApbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DashApbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashApbutton.ForeColor = System.Drawing.SystemColors.Control;
-            this.DashApbutton.Location = new System.Drawing.Point(-1, 226);
-            this.DashApbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DashApbutton.Location = new System.Drawing.Point(-1, 184);
+            this.DashApbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DashApbutton.Name = "DashApbutton";
-            this.DashApbutton.Size = new System.Drawing.Size(241, 57);
+            this.DashApbutton.Size = new System.Drawing.Size(181, 46);
             this.DashApbutton.TabIndex = 2;
             this.DashApbutton.Text = "Appoinments";
             this.DashApbutton.UseVisualStyleBackColor = true;
@@ -357,10 +364,10 @@
             this.DashPatientbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DashPatientbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashPatientbutton.ForeColor = System.Drawing.SystemColors.Control;
-            this.DashPatientbutton.Location = new System.Drawing.Point(-1, 172);
-            this.DashPatientbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DashPatientbutton.Location = new System.Drawing.Point(-1, 140);
+            this.DashPatientbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DashPatientbutton.Name = "DashPatientbutton";
-            this.DashPatientbutton.Size = new System.Drawing.Size(241, 57);
+            this.DashPatientbutton.Size = new System.Drawing.Size(181, 46);
             this.DashPatientbutton.TabIndex = 1;
             this.DashPatientbutton.Text = "Patients";
             this.DashPatientbutton.UseVisualStyleBackColor = true;
@@ -376,19 +383,19 @@
             this.tmpanel.Controls.Add(this.npbutton);
             this.tmpanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.tmpanel.Location = new System.Drawing.Point(0, 0);
-            this.tmpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tmpanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tmpanel.Name = "tmpanel";
-            this.tmpanel.Size = new System.Drawing.Size(1670, 74);
+            this.tmpanel.Size = new System.Drawing.Size(1410, 60);
             this.tmpanel.TabIndex = 14;
             // 
             // repbutton
             // 
             this.repbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.repbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(27)))), ((int)(((byte)(14)))));
-            this.repbutton.Location = new System.Drawing.Point(549, 12);
-            this.repbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.repbutton.Location = new System.Drawing.Point(412, 10);
+            this.repbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.repbutton.Name = "repbutton";
-            this.repbutton.Size = new System.Drawing.Size(133, 46);
+            this.repbutton.Size = new System.Drawing.Size(100, 37);
             this.repbutton.TabIndex = 5;
             this.repbutton.Text = "📊 Report";
             this.repbutton.UseVisualStyleBackColor = true;
@@ -397,10 +404,10 @@
             // 
             this.printbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.printbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(27)))), ((int)(((byte)(14)))));
-            this.printbutton.Location = new System.Drawing.Point(411, 12);
-            this.printbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.printbutton.Location = new System.Drawing.Point(308, 10);
+            this.printbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.printbutton.Name = "printbutton";
-            this.printbutton.Size = new System.Drawing.Size(133, 46);
+            this.printbutton.Size = new System.Drawing.Size(100, 37);
             this.printbutton.TabIndex = 4;
             this.printbutton.Text = "🖨 Print";
             this.printbutton.UseVisualStyleBackColor = true;
@@ -409,10 +416,10 @@
             // 
             this.nabutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nabutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(27)))), ((int)(((byte)(14)))));
-            this.nabutton.Location = new System.Drawing.Point(271, 12);
-            this.nabutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nabutton.Location = new System.Drawing.Point(203, 10);
+            this.nabutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nabutton.Name = "nabutton";
-            this.nabutton.Size = new System.Drawing.Size(133, 46);
+            this.nabutton.Size = new System.Drawing.Size(100, 37);
             this.nabutton.TabIndex = 3;
             this.nabutton.Text = "🗓New appointment";
             this.nabutton.UseVisualStyleBackColor = true;
@@ -422,10 +429,10 @@
             // 
             this.fpbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fpbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(27)))), ((int)(((byte)(14)))));
-            this.fpbutton.Location = new System.Drawing.Point(132, 12);
-            this.fpbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fpbutton.Location = new System.Drawing.Point(99, 10);
+            this.fpbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.fpbutton.Name = "fpbutton";
-            this.fpbutton.Size = new System.Drawing.Size(133, 46);
+            this.fpbutton.Size = new System.Drawing.Size(100, 37);
             this.fpbutton.TabIndex = 2;
             this.fpbutton.Text = "🔍 Find patient";
             this.fpbutton.UseVisualStyleBackColor = true;
@@ -436,10 +443,10 @@
             this.npbutton.BackColor = System.Drawing.Color.Transparent;
             this.npbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.npbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(27)))), ((int)(((byte)(14)))));
-            this.npbutton.Location = new System.Drawing.Point(13, 12);
-            this.npbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.npbutton.Location = new System.Drawing.Point(10, 10);
+            this.npbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.npbutton.Name = "npbutton";
-            this.npbutton.Size = new System.Drawing.Size(113, 46);
+            this.npbutton.Size = new System.Drawing.Size(85, 37);
             this.npbutton.TabIndex = 1;
             this.npbutton.Text = "👤New patient";
             this.npbutton.UseVisualStyleBackColor = false;
@@ -453,18 +460,19 @@
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.Dashlabel);
             this.panel4.Controls.Add(this.label13);
-            this.panel4.Location = new System.Drawing.Point(237, 74);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Location = new System.Drawing.Point(178, 60);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1446, 93);
+            this.panel4.Size = new System.Drawing.Size(1243, 76);
             this.panel4.TabIndex = 15;
             // 
             // Dashlabel
             // 
             this.Dashlabel.AutoSize = true;
-            this.Dashlabel.Location = new System.Drawing.Point(23, 59);
+            this.Dashlabel.Location = new System.Drawing.Point(17, 48);
+            this.Dashlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Dashlabel.Name = "Dashlabel";
-            this.Dashlabel.Size = new System.Drawing.Size(392, 16);
+            this.Dashlabel.Size = new System.Drawing.Size(319, 13);
             this.Dashlabel.TabIndex = 3;
             this.Dashlabel.Text = "Monday |13 May 2026 | East Boom CHC | KwaZulu Natal Province";
             // 
@@ -473,9 +481,10 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(53)))));
-            this.label13.Location = new System.Drawing.Point(21, 21);
+            this.label13.Location = new System.Drawing.Point(16, 17);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(273, 25);
+            this.label13.Size = new System.Drawing.Size(226, 20);
             this.label13.TabIndex = 2;
             this.label13.Text = "Good Morning - Dashboard";
             // 
@@ -488,10 +497,10 @@
             this.NAPanel.Controls.Add(this.lblNAPatient);
             this.NAPanel.Controls.Add(this.NASubpanel);
             this.NAPanel.Controls.Add(this.label1);
-            this.NAPanel.Location = new System.Drawing.Point(621, 197);
-            this.NAPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NAPanel.Location = new System.Drawing.Point(466, 160);
+            this.NAPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.NAPanel.Name = "NAPanel";
-            this.NAPanel.Size = new System.Drawing.Size(219, 182);
+            this.NAPanel.Size = new System.Drawing.Size(165, 148);
             this.NAPanel.TabIndex = 16;
             this.NAPanel.MouseEnter += new System.EventHandler(this.NAPanel_MouseEnter);
             this.NAPanel.MouseLeave += new System.EventHandler(this.NAPanel_MouseLeave);
@@ -499,27 +508,30 @@
             // lblNAMinutes
             // 
             this.lblNAMinutes.AutoSize = true;
-            this.lblNAMinutes.Location = new System.Drawing.Point(25, 154);
+            this.lblNAMinutes.Location = new System.Drawing.Point(19, 125);
+            this.lblNAMinutes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNAMinutes.Name = "lblNAMinutes";
-            this.lblNAMinutes.Size = new System.Drawing.Size(16, 16);
+            this.lblNAMinutes.Size = new System.Drawing.Size(16, 13);
             this.lblNAMinutes.TabIndex = 6;
             this.lblNAMinutes.Text = "   ";
             // 
             // lblNATime
             // 
             this.lblNATime.AutoSize = true;
-            this.lblNATime.Location = new System.Drawing.Point(25, 119);
+            this.lblNATime.Location = new System.Drawing.Point(19, 97);
+            this.lblNATime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNATime.Name = "lblNATime";
-            this.lblNATime.Size = new System.Drawing.Size(19, 16);
+            this.lblNATime.Size = new System.Drawing.Size(19, 13);
             this.lblNATime.TabIndex = 5;
             this.lblNATime.Text = "    ";
             // 
             // lblNAPatient
             // 
             this.lblNAPatient.AutoSize = true;
-            this.lblNAPatient.Location = new System.Drawing.Point(25, 83);
+            this.lblNAPatient.Location = new System.Drawing.Point(19, 67);
+            this.lblNAPatient.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNAPatient.Name = "lblNAPatient";
-            this.lblNAPatient.Size = new System.Drawing.Size(143, 16);
+            this.lblNAPatient.Size = new System.Drawing.Size(116, 13);
             this.lblNAPatient.TabIndex = 4;
             this.lblNAPatient.Text = "No New  Appointments";
             // 
@@ -528,18 +540,19 @@
             this.NASubpanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NASubpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.NASubpanel.Location = new System.Drawing.Point(0, -10);
-            this.NASubpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NASubpanel.Location = new System.Drawing.Point(0, -8);
+            this.NASubpanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.NASubpanel.Name = "NASubpanel";
-            this.NASubpanel.Size = new System.Drawing.Size(217, 21);
+            this.NASubpanel.Size = new System.Drawing.Size(163, 17);
             this.NASubpanel.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 39);
+            this.label1.Location = new System.Drawing.Point(33, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 16);
+            this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Next Appointment";
             // 
@@ -552,10 +565,10 @@
             this.CAPanel.Controls.Add(this.lblCATime);
             this.CAPanel.Controls.Add(this.CASubpanel);
             this.CAPanel.Controls.Add(this.label12);
-            this.CAPanel.Location = new System.Drawing.Point(305, 197);
-            this.CAPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CAPanel.Location = new System.Drawing.Point(229, 160);
+            this.CAPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CAPanel.Name = "CAPanel";
-            this.CAPanel.Size = new System.Drawing.Size(219, 182);
+            this.CAPanel.Size = new System.Drawing.Size(165, 148);
             this.CAPanel.TabIndex = 17;
             this.CAPanel.MouseEnter += new System.EventHandler(this.CAPanel_MouseEnter);
             this.CAPanel.MouseLeave += new System.EventHandler(this.CAPanel_MouseLeave);
@@ -563,27 +576,30 @@
             // lblCAMedStaff
             // 
             this.lblCAMedStaff.AutoSize = true;
-            this.lblCAMedStaff.Location = new System.Drawing.Point(17, 119);
+            this.lblCAMedStaff.Location = new System.Drawing.Point(13, 97);
+            this.lblCAMedStaff.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCAMedStaff.Name = "lblCAMedStaff";
-            this.lblCAMedStaff.Size = new System.Drawing.Size(16, 16);
+            this.lblCAMedStaff.Size = new System.Drawing.Size(16, 13);
             this.lblCAMedStaff.TabIndex = 9;
             this.lblCAMedStaff.Text = "   ";
             // 
             // lblCAPatient
             // 
             this.lblCAPatient.AutoSize = true;
-            this.lblCAPatient.Location = new System.Drawing.Point(17, 86);
+            this.lblCAPatient.Location = new System.Drawing.Point(13, 70);
+            this.lblCAPatient.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCAPatient.Name = "lblCAPatient";
-            this.lblCAPatient.Size = new System.Drawing.Size(181, 16);
+            this.lblCAPatient.Size = new System.Drawing.Size(143, 13);
             this.lblCAPatient.TabIndex = 8;
             this.lblCAPatient.Text = "No Appointments in Progress";
             // 
             // lblCATime
             // 
             this.lblCATime.AutoSize = true;
-            this.lblCATime.Location = new System.Drawing.Point(17, 154);
+            this.lblCATime.Location = new System.Drawing.Point(13, 125);
+            this.lblCATime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCATime.Name = "lblCATime";
-            this.lblCATime.Size = new System.Drawing.Size(16, 16);
+            this.lblCATime.Size = new System.Drawing.Size(16, 13);
             this.lblCATime.TabIndex = 6;
             this.lblCATime.Text = "   ";
             // 
@@ -592,18 +608,19 @@
             this.CASubpanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CASubpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(135)))), ((int)(((byte)(38)))));
-            this.CASubpanel.Location = new System.Drawing.Point(0, -11);
-            this.CASubpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CASubpanel.Location = new System.Drawing.Point(0, -9);
+            this.CASubpanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CASubpanel.Name = "CASubpanel";
-            this.CASubpanel.Size = new System.Drawing.Size(217, 22);
+            this.CASubpanel.Size = new System.Drawing.Size(163, 18);
             this.CASubpanel.TabIndex = 3;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(41, 39);
+            this.label12.Location = new System.Drawing.Point(31, 32);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(127, 16);
+            this.label12.Size = new System.Drawing.Size(103, 13);
             this.label12.TabIndex = 1;
             this.label12.Text = "Current Appointment";
             // 
@@ -616,10 +633,10 @@
             this.RPAPanel.Controls.Add(this.lblRPATime);
             this.RPAPanel.Controls.Add(this.RPASubpanel);
             this.RPAPanel.Controls.Add(this.lblRPATitle);
-            this.RPAPanel.Location = new System.Drawing.Point(937, 197);
-            this.RPAPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RPAPanel.Location = new System.Drawing.Point(703, 160);
+            this.RPAPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RPAPanel.Name = "RPAPanel";
-            this.RPAPanel.Size = new System.Drawing.Size(311, 182);
+            this.RPAPanel.Size = new System.Drawing.Size(234, 148);
             this.RPAPanel.TabIndex = 17;
             this.RPAPanel.MouseEnter += new System.EventHandler(this.RPAPanel_MouseEnter);
             this.RPAPanel.MouseLeave += new System.EventHandler(this.RPAPanel_MouseLeave);
@@ -627,27 +644,30 @@
             // lblRPAMedicine
             // 
             this.lblRPAMedicine.AutoSize = true;
-            this.lblRPAMedicine.Location = new System.Drawing.Point(12, 154);
+            this.lblRPAMedicine.Location = new System.Drawing.Point(9, 125);
+            this.lblRPAMedicine.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRPAMedicine.Name = "lblRPAMedicine";
-            this.lblRPAMedicine.Size = new System.Drawing.Size(152, 16);
+            this.lblRPAMedicine.Size = new System.Drawing.Size(121, 13);
             this.lblRPAMedicine.TabIndex = 8;
             this.lblRPAMedicine.Text = "Prescribed Medication: -";
             // 
             // lblRPAPatient
             // 
             this.lblRPAPatient.AutoSize = true;
-            this.lblRPAPatient.Location = new System.Drawing.Point(12, 86);
+            this.lblRPAPatient.Location = new System.Drawing.Point(9, 70);
+            this.lblRPAPatient.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRPAPatient.Name = "lblRPAPatient";
-            this.lblRPAPatient.Size = new System.Drawing.Size(58, 16);
+            this.lblRPAPatient.Size = new System.Drawing.Size(49, 13);
             this.lblRPAPatient.TabIndex = 7;
             this.lblRPAPatient.Text = "Patient: -";
             // 
             // lblRPATime
             // 
             this.lblRPATime.AutoSize = true;
-            this.lblRPATime.Location = new System.Drawing.Point(12, 122);
+            this.lblRPATime.Location = new System.Drawing.Point(9, 99);
+            this.lblRPATime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRPATime.Name = "lblRPATime";
-            this.lblRPATime.Size = new System.Drawing.Size(89, 16);
+            this.lblRPATime.Size = new System.Drawing.Size(73, 13);
             this.lblRPATime.TabIndex = 6;
             this.lblRPATime.Text = "Date Issued: -";
             // 
@@ -656,18 +676,19 @@
             this.RPASubpanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RPASubpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(83)))), ((int)(((byte)(85)))));
-            this.RPASubpanel.Location = new System.Drawing.Point(0, -11);
-            this.RPASubpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RPASubpanel.Location = new System.Drawing.Point(0, -9);
+            this.RPASubpanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RPASubpanel.Name = "RPASubpanel";
-            this.RPASubpanel.Size = new System.Drawing.Size(309, 22);
+            this.RPASubpanel.Size = new System.Drawing.Size(232, 18);
             this.RPASubpanel.TabIndex = 3;
             // 
             // lblRPATitle
             // 
             this.lblRPATitle.AutoSize = true;
-            this.lblRPATitle.Location = new System.Drawing.Point(73, 39);
+            this.lblRPATitle.Location = new System.Drawing.Point(55, 32);
+            this.lblRPATitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRPATitle.Name = "lblRPATitle";
-            this.lblRPATitle.Size = new System.Drawing.Size(169, 16);
+            this.lblRPATitle.Size = new System.Drawing.Size(137, 13);
             this.lblRPATitle.TabIndex = 1;
             this.lblRPATitle.Text = "Recent Prescription Activity";
             // 
@@ -680,10 +701,10 @@
             this.WTPanel.Controls.Add(this.lblWTCompleted);
             this.WTPanel.Controls.Add(this.WTSubpanel);
             this.WTPanel.Controls.Add(this.label10);
-            this.WTPanel.Location = new System.Drawing.Point(1324, 197);
-            this.WTPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.WTPanel.Location = new System.Drawing.Point(993, 160);
+            this.WTPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.WTPanel.Name = "WTPanel";
-            this.WTPanel.Size = new System.Drawing.Size(311, 182);
+            this.WTPanel.Size = new System.Drawing.Size(234, 148);
             this.WTPanel.TabIndex = 17;
             this.WTPanel.MouseEnter += new System.EventHandler(this.WTPanel_MouseEnter);
             this.WTPanel.MouseLeave += new System.EventHandler(this.WTPanel_MouseLeave);
@@ -691,27 +712,30 @@
             // lblWTTime
             // 
             this.lblWTTime.AutoSize = true;
-            this.lblWTTime.Location = new System.Drawing.Point(62, 154);
+            this.lblWTTime.Location = new System.Drawing.Point(46, 125);
+            this.lblWTTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWTTime.Name = "lblWTTime";
-            this.lblWTTime.Size = new System.Drawing.Size(146, 16);
+            this.lblWTTime.Size = new System.Drawing.Size(115, 13);
             this.lblWTTime.TabIndex = 6;
             this.lblWTTime.Text = "Estimated Finish Time:-";
             // 
             // lblWTRemaining
             // 
             this.lblWTRemaining.AutoSize = true;
-            this.lblWTRemaining.Location = new System.Drawing.Point(96, 119);
+            this.lblWTRemaining.Location = new System.Drawing.Point(72, 97);
+            this.lblWTRemaining.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWTRemaining.Name = "lblWTRemaining";
-            this.lblWTRemaining.Size = new System.Drawing.Size(79, 16);
+            this.lblWTRemaining.Size = new System.Drawing.Size(63, 13);
             this.lblWTRemaining.TabIndex = 5;
             this.lblWTRemaining.Text = "Remaining:-";
             // 
             // lblWTCompleted
             // 
             this.lblWTCompleted.AutoSize = true;
-            this.lblWTCompleted.Location = new System.Drawing.Point(95, 83);
+            this.lblWTCompleted.Location = new System.Drawing.Point(71, 67);
+            this.lblWTCompleted.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWTCompleted.Name = "lblWTCompleted";
-            this.lblWTCompleted.Size = new System.Drawing.Size(83, 16);
+            this.lblWTCompleted.Size = new System.Drawing.Size(66, 13);
             this.lblWTCompleted.TabIndex = 4;
             this.lblWTCompleted.Text = "Completed: -";
             // 
@@ -720,18 +744,19 @@
             this.WTSubpanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.WTSubpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(92)))), ((int)(((byte)(146)))));
-            this.WTSubpanel.Location = new System.Drawing.Point(0, -10);
-            this.WTSubpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.WTSubpanel.Location = new System.Drawing.Point(0, -8);
+            this.WTSubpanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.WTSubpanel.Name = "WTSubpanel";
-            this.WTSubpanel.Size = new System.Drawing.Size(309, 21);
+            this.WTSubpanel.Size = new System.Drawing.Size(232, 17);
             this.WTSubpanel.TabIndex = 3;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(87, 39);
+            this.label10.Location = new System.Drawing.Point(65, 32);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(130, 16);
+            this.label10.Size = new System.Drawing.Size(103, 13);
             this.label10.TabIndex = 1;
             this.label10.Text = "My Workload Today";
             // 
@@ -741,10 +766,10 @@
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel13.Controls.Add(this.panel14);
             this.panel13.Controls.Add(this.dgvWidgetAppointment);
-            this.panel13.Location = new System.Drawing.Point(305, 440);
-            this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel13.Location = new System.Drawing.Point(229, 358);
+            this.panel13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(736, 320);
+            this.panel13.Size = new System.Drawing.Size(552, 260);
             this.panel13.TabIndex = 18;
             // 
             // panel14
@@ -752,10 +777,10 @@
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(53)))));
             this.panel14.Controls.Add(this.button11);
             this.panel14.Controls.Add(this.label11);
-            this.panel14.Location = new System.Drawing.Point(-13, -15);
-            this.panel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel14.Location = new System.Drawing.Point(-10, -12);
+            this.panel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(853, 65);
+            this.panel14.Size = new System.Drawing.Size(640, 53);
             this.panel14.TabIndex = 6;
             // 
             // button11
@@ -763,10 +788,10 @@
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.SystemColors.Control;
-            this.button11.Location = new System.Drawing.Point(644, 23);
-            this.button11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button11.Location = new System.Drawing.Point(483, 19);
+            this.button11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(93, 34);
+            this.button11.Size = new System.Drawing.Size(70, 28);
             this.button11.TabIndex = 3;
             this.button11.Text = "View All";
             this.button11.UseVisualStyleBackColor = true;
@@ -776,9 +801,10 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.Control;
-            this.label11.Location = new System.Drawing.Point(35, 30);
+            this.label11.Location = new System.Drawing.Point(26, 24);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(123, 20);
+            this.label11.Size = new System.Drawing.Size(106, 17);
             this.label11.TabIndex = 2;
             this.label11.Text = "Appointments";
             // 
@@ -795,14 +821,14 @@
             this.timeSlotsDataGridViewTextBoxColumn,
             this.appointmentDateDataGridViewTextBoxColumn});
             this.dgvWidgetAppointment.DataSource = this.appointmentViewBindingSource;
-            this.dgvWidgetAppointment.Location = new System.Drawing.Point(-3, 49);
-            this.dgvWidgetAppointment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvWidgetAppointment.Location = new System.Drawing.Point(-2, 40);
+            this.dgvWidgetAppointment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvWidgetAppointment.Name = "dgvWidgetAppointment";
             this.dgvWidgetAppointment.RowHeadersVisible = false;
             this.dgvWidgetAppointment.RowHeadersWidth = 51;
             this.dgvWidgetAppointment.RowTemplate.Height = 24;
             this.dgvWidgetAppointment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvWidgetAppointment.Size = new System.Drawing.Size(758, 270);
+            this.dgvWidgetAppointment.Size = new System.Drawing.Size(568, 219);
             this.dgvWidgetAppointment.TabIndex = 8;
             this.dgvWidgetAppointment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWidgetAppointment_CellContentClick);
             // 
@@ -878,10 +904,10 @@
             this.panel15.Controls.Add(this.lblMissedAppointment);
             this.panel15.Controls.Add(this.label14);
             this.panel15.Controls.Add(this.panel16);
-            this.panel15.Location = new System.Drawing.Point(1201, 440);
-            this.panel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel15.Location = new System.Drawing.Point(901, 358);
+            this.panel15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(469, 320);
+            this.panel15.Size = new System.Drawing.Size(352, 260);
             this.panel15.TabIndex = 20;
             // 
             // button4
@@ -889,9 +915,10 @@
             this.button4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(135)))), ((int)(((byte)(38)))));
             this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Location = new System.Drawing.Point(361, 250);
+            this.button4.Location = new System.Drawing.Point(271, 203);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 30);
+            this.button4.Size = new System.Drawing.Size(56, 24);
             this.button4.TabIndex = 22;
             this.button4.Text = "Show";
             this.button4.UseVisualStyleBackColor = false;
@@ -901,9 +928,10 @@
             this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(135)))), ((int)(((byte)(38)))));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(361, 166);
+            this.button1.Location = new System.Drawing.Point(271, 135);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 30);
+            this.button1.Size = new System.Drawing.Size(56, 24);
             this.button1.TabIndex = 21;
             this.button1.Text = "Show";
             this.button1.UseVisualStyleBackColor = false;
@@ -913,9 +941,10 @@
             this.button3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(135)))), ((int)(((byte)(38)))));
             this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(361, 88);
+            this.button3.Location = new System.Drawing.Point(271, 72);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 30);
+            this.button3.Size = new System.Drawing.Size(56, 24);
             this.button3.TabIndex = 20;
             this.button3.Text = "Show";
             this.button3.UseVisualStyleBackColor = false;
@@ -924,9 +953,10 @@
             // 
             this.lblCompletedAppointment.AutoSize = true;
             this.lblCompletedAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompletedAppointment.Location = new System.Drawing.Point(39, 69);
+            this.lblCompletedAppointment.Location = new System.Drawing.Point(29, 56);
+            this.lblCompletedAppointment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCompletedAppointment.Name = "lblCompletedAppointment";
-            this.lblCompletedAppointment.Size = new System.Drawing.Size(75, 54);
+            this.lblCompletedAppointment.Size = new System.Drawing.Size(61, 44);
             this.lblCompletedAppointment.TabIndex = 19;
             this.lblCompletedAppointment.Text = "10";
             // 
@@ -934,9 +964,10 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(194, 93);
+            this.label31.Location = new System.Drawing.Point(146, 76);
+            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(114, 25);
+            this.label31.Size = new System.Drawing.Size(91, 20);
             this.label31.TabIndex = 18;
             this.label31.Text = "-Completed";
             // 
@@ -944,9 +975,10 @@
             // 
             this.lblCancelledAppointment.AutoSize = true;
             this.lblCancelledAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCancelledAppointment.Location = new System.Drawing.Point(39, 231);
+            this.lblCancelledAppointment.Location = new System.Drawing.Point(29, 188);
+            this.lblCancelledAppointment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCancelledAppointment.Name = "lblCancelledAppointment";
-            this.lblCancelledAppointment.Size = new System.Drawing.Size(75, 54);
+            this.lblCancelledAppointment.Size = new System.Drawing.Size(61, 44);
             this.lblCancelledAppointment.TabIndex = 12;
             this.lblCancelledAppointment.Text = "10";
             // 
@@ -954,9 +986,10 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(194, 255);
+            this.label21.Location = new System.Drawing.Point(146, 207);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(107, 25);
+            this.label21.Size = new System.Drawing.Size(84, 20);
             this.label21.TabIndex = 11;
             this.label21.Text = "-Cancelled";
             // 
@@ -964,9 +997,10 @@
             // 
             this.lblMissedAppointment.AutoSize = true;
             this.lblMissedAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMissedAppointment.Location = new System.Drawing.Point(39, 142);
+            this.lblMissedAppointment.Location = new System.Drawing.Point(29, 115);
+            this.lblMissedAppointment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMissedAppointment.Name = "lblMissedAppointment";
-            this.lblMissedAppointment.Size = new System.Drawing.Size(75, 54);
+            this.lblMissedAppointment.Size = new System.Drawing.Size(61, 44);
             this.lblMissedAppointment.TabIndex = 10;
             this.lblMissedAppointment.Text = "10";
             // 
@@ -974,9 +1008,10 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(194, 166);
+            this.label14.Location = new System.Drawing.Point(146, 135);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(82, 25);
+            this.label14.Size = new System.Drawing.Size(64, 20);
             this.label14.TabIndex = 9;
             this.label14.Text = "-Missed";
             // 
@@ -986,10 +1021,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(53)))));
             this.panel16.Controls.Add(this.label19);
-            this.panel16.Location = new System.Drawing.Point(-13, -15);
-            this.panel16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel16.Location = new System.Drawing.Point(-10, -12);
+            this.panel16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(493, 65);
+            this.panel16.Size = new System.Drawing.Size(370, 53);
             this.panel16.TabIndex = 6;
             // 
             // label19
@@ -997,9 +1032,10 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.SystemColors.Control;
-            this.label19.Location = new System.Drawing.Point(35, 30);
+            this.label19.Location = new System.Drawing.Point(26, 24);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(115, 20);
+            this.label19.Size = new System.Drawing.Size(98, 17);
             this.label19.TabIndex = 2;
             this.label19.Text = "Notifications";
             // 
@@ -1008,9 +1044,10 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(53)))));
-            this.label7.Location = new System.Drawing.Point(301, 415);
+            this.label7.Location = new System.Drawing.Point(226, 337);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(256, 20);
+            this.label7.Size = new System.Drawing.Size(215, 17);
             this.label7.TabIndex = 21;
             this.label7.Text = "UPCOMING APPOINTMENTS";
             // 
@@ -1019,9 +1056,10 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(53)))));
-            this.label18.Location = new System.Drawing.Point(1197, 415);
+            this.label18.Location = new System.Drawing.Point(898, 337);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(219, 20);
+            this.label18.Size = new System.Drawing.Size(185, 17);
             this.label18.TabIndex = 22;
             this.label18.Text = "ALERT and REMINDERS";
             // 
@@ -1056,10 +1094,10 @@
             // 
             // DashboardForm1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1670, 935);
+            this.ClientSize = new System.Drawing.Size(1410, 760);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel15);
@@ -1072,7 +1110,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DashboardForm1";
             this.Text = "DashboardForm1";
             this.Load += new System.EventHandler(this.DashboardForm1_Load);

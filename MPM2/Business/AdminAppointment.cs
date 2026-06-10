@@ -1,17 +1,9 @@
-﻿using Microsoft.Reporting.Map.WebForms.BingMaps;
-using MPM2.Database;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MPM2.Business
 {
@@ -27,7 +19,7 @@ namespace MPM2.Business
         {
             InitializeComponent();
             txtReason.MaxLength = 100;
-            if(txtReason.MaxLength > 100)
+            if (txtReason.MaxLength > 100)
             {
                 MessageBox.Show(" Please ensure it is set to 100 characters.", "Initialization Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -71,7 +63,7 @@ namespace MPM2.Business
 
                 monthCalendar1.SetDate(DateTime.Today);
             }
-           // LoadAvailableStartTimes(monthCalendar1.SelectionStart);
+            // LoadAvailableStartTimes(monthCalendar1.SelectionStart);
 
             RefreshAvailableStartTimesForSelectedDate();
 
@@ -80,15 +72,15 @@ namespace MPM2.Business
         private void AdminAppointment_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dataSet13.NewApointments' table. You can move, or remove it, as needed.
-           // this.newAppointmentsTableAdapter.Fill(this.dataSet13.NewApointments);
+            // this.newAppointmentsTableAdapter.Fill(this.dataSet13.NewApointments);
             // TODO: This line of code loads data into the 'dataSet12.NewApointments' table. You can move, or remove it, as needed.
             this.newAppointmentsTableAdapter.Fill(this.dataSet1.NewApointments);
             // TODO: This line of code loads data into the 'dataSet12.Pro_Appointment' table. You can move, or remove it, as needed.
-           this.pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment);
+            this.pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment);
             // Fill datasets
 
             this.pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment);
-           // this.pro_AppointmentTableAdapter.Fill(this.dataSet11.Pro_Appointment);
+            // this.pro_AppointmentTableAdapter.Fill(this.dataSet11.Pro_Appointment);
 
             // build master time slots and populate initial comboBoxSta items
             masterTimeSlots.Clear();
@@ -140,7 +132,7 @@ namespace MPM2.Business
             RefreshAvailableStartTimesForSelectedDate();
 
             // Ensure dataGridView3 shows filtered view for the logged-in role
-          //  ApplyRoleFilter();
+            //  ApplyRoleFilter();
 
             txtStatus.Text = "Scheduled";
         }
@@ -280,10 +272,10 @@ namespace MPM2.Business
 
                 // 8. UI refresh
                 pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment);
-               
+
                 newAppointmentsTableAdapter.Fill(this.dataSet1.NewApointments);
 
-              
+
 
                 MessageBox.Show("Appointment created successfully!");
 
@@ -327,93 +319,93 @@ namespace MPM2.Business
         {
 
         }
-       /* private void GetBookedTimesForDate(DateTime date, out HashSet<string> bookedStarts, out HashSet<string> bookedEnds)
-        {
-            bookedStarts = new HashSet<string>();
-            bookedEnds = new HashSet<string>();
+        /* private void GetBookedTimesForDate(DateTime date, out HashSet<string> bookedStarts, out HashSet<string> bookedEnds)
+         {
+             bookedStarts = new HashSet<string>();
+             bookedEnds = new HashSet<string>();
 
-            if (dataSet11 == null || dataSet11.Pro_Appointment == null)
-                return;
+             if (dataSet11 == null || dataSet11.Pro_Appointment == null)
+                 return;
 
-            foreach (DataRow row in dataSet11.Pro_Appointment.Rows)
+             foreach (DataRow row in dataSet11.Pro_Appointment.Rows)
+             {
+                 if (row == null)
+                     continue;
+
+                 if (row.Table.Columns.Contains("AppointmentDate") && row["AppointmentDate"] != DBNull.Value)
+                 {
+                     DateTime apptDate;
+                     try
+                     {
+                         apptDate = Convert.ToDateTime(row["AppointmentDate"]);
+                     }
+                     catch
+                     {
+                         continue;
+                     }
+
+                     if (apptDate.Date != date.Date)
+                         continue;
+
+                     if (!row.Table.Columns.Contains("TimeSlots") || row["TimeSlots"] == DBNull.Value)
+                         continue;
+
+                     string timeSlots = row["TimeSlots"].ToString();
+                     if (string.IsNullOrWhiteSpace(timeSlots))
+                         continue;
+
+                     // Expecting format "hh:mm tt - hh:mm tt"
+                     string[] parts = timeSlots.Split(new[] { '-' }, 2);
+                     if (parts.Length != 2)
+                         continue;
+
+                     string s = parts[0].Trim();
+                     string e = parts[1].Trim();
+
+                     DateTime sd, ed;
+                     if (DateTime.TryParseExact(s, "hh:mm tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out sd))
+                         s = sd.ToString("hh:mm tt");
+                     if (DateTime.TryParseExact(e, "hh:mm tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out ed))
+                         e = ed.ToString("hh:mm tt");
+
+                     bookedStarts.Add(s);
+                     bookedEnds.Add(e);
+                 }
+             }
+         }
+        */
+        /*    private void LoadAvailableStartTimes(DateTime date)
             {
-                if (row == null)
-                    continue;
+                comboBoxSta.Items.Clear();
+                comboBoxEnd.Items.Clear();
 
-                if (row.Table.Columns.Contains("AppointmentDate") && row["AppointmentDate"] != DBNull.Value)
+                HashSet<string> bookedStarts, bookedEnds;
+                GetBookedTimesForDate(date, out bookedStarts, out bookedEnds);
+
+                DateTime start = DateTime.ParseExact("09:00", "HH:mm", CultureInfo.InvariantCulture);
+                DateTime end = DateTime.ParseExact("16:30", "HH:mm", CultureInfo.InvariantCulture);
+
+                while (start <= end)
                 {
-                    DateTime apptDate;
-                    try
+                    string formatted = start.ToString("hh:mm tt");
+                    if (!bookedStarts.Contains(formatted))
                     {
-                        apptDate = Convert.ToDateTime(row["AppointmentDate"]);
+                        comboBoxSta.Items.Add(formatted);
                     }
-                    catch
-                    {
-                        continue;
-                    }
+                    start = start.AddMinutes(30);
+                }
 
-                    if (apptDate.Date != date.Date)
-                        continue;
-
-                    if (!row.Table.Columns.Contains("TimeSlots") || row["TimeSlots"] == DBNull.Value)
-                        continue;
-
-                    string timeSlots = row["TimeSlots"].ToString();
-                    if (string.IsNullOrWhiteSpace(timeSlots))
-                        continue;
-
-                    // Expecting format "hh:mm tt - hh:mm tt"
-                    string[] parts = timeSlots.Split(new[] { '-' }, 2);
-                    if (parts.Length != 2)
-                        continue;
-
-                    string s = parts[0].Trim();
-                    string e = parts[1].Trim();
-
-                    DateTime sd, ed;
-                    if (DateTime.TryParseExact(s, "hh:mm tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out sd))
-                        s = sd.ToString("hh:mm tt");
-                    if (DateTime.TryParseExact(e, "hh:mm tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out ed))
-                        e = ed.ToString("hh:mm tt");
-
-                    bookedStarts.Add(s);
-                    bookedEnds.Add(e);
+                if (comboBoxSta.Items.Count > 0)
+                {
+                    comboBoxSta.SelectedIndex = 0;
+                }
+                else
+                {
+                    comboBoxSta.Text = string.Empty;
+                    comboBoxEnd.Text = string.Empty;
                 }
             }
-        }
-       */
-    /*    private void LoadAvailableStartTimes(DateTime date)
-        {
-            comboBoxSta.Items.Clear();
-            comboBoxEnd.Items.Clear();
-
-            HashSet<string> bookedStarts, bookedEnds;
-            GetBookedTimesForDate(date, out bookedStarts, out bookedEnds);
-
-            DateTime start = DateTime.ParseExact("09:00", "HH:mm", CultureInfo.InvariantCulture);
-            DateTime end = DateTime.ParseExact("16:30", "HH:mm", CultureInfo.InvariantCulture);
-
-            while (start <= end)
-            {
-                string formatted = start.ToString("hh:mm tt");
-                if (!bookedStarts.Contains(formatted))
-                {
-                    comboBoxSta.Items.Add(formatted);
-                }
-                start = start.AddMinutes(30);
-            }
-
-            if (comboBoxSta.Items.Count > 0)
-            {
-                comboBoxSta.SelectedIndex = 0;
-            }
-            else
-            {
-                comboBoxSta.Text = string.Empty;
-                comboBoxEnd.Text = string.Empty;
-            }
-        }
-    */
+        */
         private void LoadAvailableEndTimesForSelectedStart(DateTime selectedDate, TimeSpan selectedStartTs)
         {
             comboBoxEnd.Items.Clear();
@@ -540,19 +532,24 @@ namespace MPM2.Business
               return count;
           }
         */
-        private int CountDoctorAppointmentsOnDate(int doctorId, DateTime date) { 
+        private int CountDoctorAppointmentsOnDate(int doctorId, DateTime date)
+        {
             if (dataSet1 == null || dataSet1.Pro_Appointment == null) return 0; int count = 0;
-            foreach (DataRow row in dataSet1.Pro_Appointment.Rows) { 
+            foreach (DataRow row in dataSet1.Pro_Appointment.Rows)
+            {
                 if (row == null) continue; if (!row.Table.Columns.Contains("DoctorID") || row["DoctorID"] == DBNull.Value) continue;
                 int rowDoctorId;
-                if (!int.TryParse(row["DoctorID"].ToString(), out rowDoctorId)) continue; 
-                if (rowDoctorId != doctorId) continue; 
+                if (!int.TryParse(row["DoctorID"].ToString(), out rowDoctorId)) continue;
+                if (rowDoctorId != doctorId) continue;
                 if (!row.Table.Columns.Contains("AppointmentDate") || row["AppointmentDate"] == DBNull.Value) continue;
-                DateTime apptDate; try { apptDate = Convert.ToDateTime(row["AppointmentDate"]); } 
-                catch { continue;
-                } 
+                DateTime apptDate; try { apptDate = Convert.ToDateTime(row["AppointmentDate"]); }
+                catch
+                {
+                    continue;
+                }
                 if (apptDate.Date == date.Date) count++;
-            } return count; 
+            }
+            return count;
         }
         private void BuildBookedSlotsFromDataset()
         {
@@ -821,7 +818,7 @@ namespace MPM2.Business
     newStart == existingStart && newEnd == existingEnd;
                 bool overlap = newStart < existingEnd && newEnd > existingStart;
 
-                if (overlap|| exactMatch)
+                if (overlap || exactMatch)
                     return true;
             }
 

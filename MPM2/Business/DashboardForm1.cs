@@ -50,7 +50,7 @@ namespace MPM2.Business
 
             if (role.Equals("Doctor"))
             {
-                this.appointmentViewTableAdapter.FillByNameFilterByTodaysDate(this.dataSet11.AppointmentView, DateTime.Today, medid);
+                //this.appointmentViewTableAdapter.FillByNameFilterByTodaysDate(this.dataSet11.AppointmentView, DateTime.Today, medid);
                 dgvWidgetAppointment.Columns["DoctorName"].Visible = false;
                 this.customMedAdmTableAdapter1.FillByMedAdmPrescripNurseDoctorPatient(this.dataSet11.CustomMedAdm);
             }
