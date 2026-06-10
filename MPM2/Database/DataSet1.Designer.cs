@@ -5265,11 +5265,11 @@ namespace MPM2.Database {
             
             private global::System.Data.DataColumn columnTimeSlots;
             
-            private global::System.Data.DataColumn columnFullName;
+            private global::System.Data.DataColumn columnDoctorName;
             
-            private global::System.Data.DataColumn columnExpr1;
+            private global::System.Data.DataColumn columnNurseName;
             
-            private global::System.Data.DataColumn columnExpr2;
+            private global::System.Data.DataColumn columnPatientName;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -5346,25 +5346,25 @@ namespace MPM2.Database {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn FullNameColumn {
+            public global::System.Data.DataColumn DoctorNameColumn {
                 get {
-                    return this.columnFullName;
+                    return this.columnDoctorName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Expr1Column {
+            public global::System.Data.DataColumn NurseNameColumn {
                 get {
-                    return this.columnExpr1;
+                    return this.columnNurseName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Expr2Column {
+            public global::System.Data.DataColumn PatientNameColumn {
                 get {
-                    return this.columnExpr2;
+                    return this.columnPatientName;
                 }
             }
             
@@ -5405,7 +5405,7 @@ namespace MPM2.Database {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public NewApointmentsRow AddNewApointmentsRow(string AppointmentStatus, string AppointmentReason, System.DateTime AppointmentDate, string TimeSlots, string FullName, string Expr1, string Expr2) {
+            public NewApointmentsRow AddNewApointmentsRow(string AppointmentStatus, string AppointmentReason, System.DateTime AppointmentDate, string TimeSlots, string DoctorName, string NurseName, string PatientName) {
                 NewApointmentsRow rowNewApointmentsRow = ((NewApointmentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -5413,9 +5413,9 @@ namespace MPM2.Database {
                         AppointmentReason,
                         AppointmentDate,
                         TimeSlots,
-                        FullName,
-                        Expr1,
-                        Expr2};
+                        DoctorName,
+                        NurseName,
+                        PatientName};
                 rowNewApointmentsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNewApointmentsRow);
                 return rowNewApointmentsRow;
@@ -5450,9 +5450,9 @@ namespace MPM2.Database {
                 this.columnAppointmentReason = base.Columns["AppointmentReason"];
                 this.columnAppointmentDate = base.Columns["AppointmentDate"];
                 this.columnTimeSlots = base.Columns["TimeSlots"];
-                this.columnFullName = base.Columns["FullName"];
-                this.columnExpr1 = base.Columns["Expr1"];
-                this.columnExpr2 = base.Columns["Expr2"];
+                this.columnDoctorName = base.Columns["DoctorName"];
+                this.columnNurseName = base.Columns["NurseName"];
+                this.columnPatientName = base.Columns["PatientName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5468,12 +5468,12 @@ namespace MPM2.Database {
                 base.Columns.Add(this.columnAppointmentDate);
                 this.columnTimeSlots = new global::System.Data.DataColumn("TimeSlots", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTimeSlots);
-                this.columnFullName = new global::System.Data.DataColumn("FullName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFullName);
-                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpr1);
-                this.columnExpr2 = new global::System.Data.DataColumn("Expr2", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpr2);
+                this.columnDoctorName = new global::System.Data.DataColumn("DoctorName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDoctorName);
+                this.columnNurseName = new global::System.Data.DataColumn("NurseName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNurseName);
+                this.columnPatientName = new global::System.Data.DataColumn("PatientName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPatientName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAppointmentID}, true));
                 this.columnAppointmentID.AutoIncrement = true;
@@ -5488,12 +5488,12 @@ namespace MPM2.Database {
                 this.columnAppointmentDate.AllowDBNull = false;
                 this.columnTimeSlots.AllowDBNull = false;
                 this.columnTimeSlots.MaxLength = 50;
-                this.columnFullName.AllowDBNull = false;
-                this.columnFullName.MaxLength = 50;
-                this.columnExpr1.AllowDBNull = false;
-                this.columnExpr1.MaxLength = 50;
-                this.columnExpr2.AllowDBNull = false;
-                this.columnExpr2.MaxLength = 50;
+                this.columnDoctorName.AllowDBNull = false;
+                this.columnDoctorName.MaxLength = 50;
+                this.columnNurseName.AllowDBNull = false;
+                this.columnNurseName.MaxLength = 50;
+                this.columnPatientName.AllowDBNull = false;
+                this.columnPatientName.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8178,34 +8178,34 @@ namespace MPM2.Database {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string FullName {
+            public string DoctorName {
                 get {
-                    return ((string)(this[this.tableNewApointments.FullNameColumn]));
+                    return ((string)(this[this.tableNewApointments.DoctorNameColumn]));
                 }
                 set {
-                    this[this.tableNewApointments.FullNameColumn] = value;
+                    this[this.tableNewApointments.DoctorNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Expr1 {
+            public string NurseName {
                 get {
-                    return ((string)(this[this.tableNewApointments.Expr1Column]));
+                    return ((string)(this[this.tableNewApointments.NurseNameColumn]));
                 }
                 set {
-                    this[this.tableNewApointments.Expr1Column] = value;
+                    this[this.tableNewApointments.NurseNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Expr2 {
+            public string PatientName {
                 get {
-                    return ((string)(this[this.tableNewApointments.Expr2Column]));
+                    return ((string)(this[this.tableNewApointments.PatientNameColumn]));
                 }
                 set {
-                    this[this.tableNewApointments.Expr2Column] = value;
+                    this[this.tableNewApointments.PatientNameColumn] = value;
                 }
             }
         }
@@ -14698,9 +14698,9 @@ SELECT AdministratorID, FullName, Username, Password, emailAddress, CellphoneNum
             tableMapping.ColumnMappings.Add("AppointmentReason", "AppointmentReason");
             tableMapping.ColumnMappings.Add("AppointmentDate", "AppointmentDate");
             tableMapping.ColumnMappings.Add("TimeSlots", "TimeSlots");
-            tableMapping.ColumnMappings.Add("FullName", "FullName");
-            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
-            tableMapping.ColumnMappings.Add("Expr2", "Expr2");
+            tableMapping.ColumnMappings.Add("DoctorName", "DoctorName");
+            tableMapping.ColumnMappings.Add("NurseName", "NurseName");
+            tableMapping.ColumnMappings.Add("PatientName", "PatientName");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -14717,8 +14717,8 @@ SELECT AdministratorID, FullName, Username, Password, emailAddress, CellphoneNum
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Pro_Appointment.AppointmentID, Pro_Appointment.AppointmentStatus, Pro_Appointment.AppointmentReason, Pro_Appointment.AppointmentDate, Pro_Appointment.TimeSlots, Doctor.FullName, Nurse.FullName AS Expr1, 
-                         Patient.FullName AS Expr2
+            this._commandCollection[0].CommandText = @"SELECT        Pro_Appointment.AppointmentID, Pro_Appointment.AppointmentStatus, Pro_Appointment.AppointmentReason, Pro_Appointment.AppointmentDate, Pro_Appointment.TimeSlots, Doctor.FullName AS DoctorName, 
+                         Nurse.FullName AS NurseName, Patient.FullName AS PatientName
 FROM            Pro_Appointment INNER JOIN
                          Doctor ON Pro_Appointment.DoctorID = Doctor.DoctorID INNER JOIN
                          Nurse ON Pro_Appointment.NurseID = Nurse.NurseID INNER JOIN

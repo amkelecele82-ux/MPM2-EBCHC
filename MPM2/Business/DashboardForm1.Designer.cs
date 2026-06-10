@@ -74,11 +74,17 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.dataGridViewDash = new System.Windows.Forms.DataGridView();
+            this.appointmentStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeSlotsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentReasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.newApointmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet11 = new MPM2.Database.DataSet1();
             this.panel14 = new System.Windows.Forms.Panel();
             this.button11 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.appointmentViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet11 = new MPM2.Database.DataSet1();
             this.panel15 = new System.Windows.Forms.Panel();
             this.lblMissedMed = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -96,15 +102,7 @@
             this.appointmentViewTableAdapter = new MPM2.Database.DataSet1TableAdapters.AppointmentViewTableAdapter();
             this.medicationAdministrationTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.MedicationAdministrationTableAdapter();
             this.appointmentTableAdapter = new MPM2.Database.DataSet1TableAdapters.AppointmentTableAdapter();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.newApointmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.newAppointmentsTableAdapter = new MPM2.Database.DataSet1TableAdapters.newAppointmentsTableAdapter();
-            this.expr1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expr2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appointmentStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appointmentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeSlotsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appointmentReasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -115,14 +113,14 @@
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDash)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newApointmentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentViewBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newApointmentsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -699,13 +697,64 @@
             // 
             this.panel13.BackColor = System.Drawing.Color.White;
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel13.Controls.Add(this.dataGridView1);
+            this.panel13.Controls.Add(this.dataGridViewDash);
             this.panel13.Controls.Add(this.panel14);
             this.panel13.Location = new System.Drawing.Point(213, 358);
             this.panel13.Margin = new System.Windows.Forms.Padding(2);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(684, 260);
             this.panel13.TabIndex = 18;
+            // 
+            // dataGridViewDash
+            // 
+            this.dataGridViewDash.AutoGenerateColumns = false;
+            this.dataGridViewDash.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDash.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.appointmentStatusDataGridViewTextBoxColumn,
+            this.appointmentDateDataGridViewTextBoxColumn,
+            this.timeSlotsDataGridViewTextBoxColumn,
+            this.appointmentReasonDataGridViewTextBoxColumn});
+            this.dataGridViewDash.DataSource = this.newApointmentsBindingSource;
+            this.dataGridViewDash.Location = new System.Drawing.Point(-3, 35);
+            this.dataGridViewDash.Name = "dataGridViewDash";
+            this.dataGridViewDash.Size = new System.Drawing.Size(685, 150);
+            this.dataGridViewDash.TabIndex = 7;
+            this.dataGridViewDash.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // appointmentStatusDataGridViewTextBoxColumn
+            // 
+            this.appointmentStatusDataGridViewTextBoxColumn.DataPropertyName = "AppointmentStatus";
+            this.appointmentStatusDataGridViewTextBoxColumn.HeaderText = "AppointmentStatus";
+            this.appointmentStatusDataGridViewTextBoxColumn.Name = "appointmentStatusDataGridViewTextBoxColumn";
+            // 
+            // appointmentDateDataGridViewTextBoxColumn
+            // 
+            this.appointmentDateDataGridViewTextBoxColumn.DataPropertyName = "AppointmentDate";
+            this.appointmentDateDataGridViewTextBoxColumn.HeaderText = "AppointmentDate";
+            this.appointmentDateDataGridViewTextBoxColumn.Name = "appointmentDateDataGridViewTextBoxColumn";
+            // 
+            // timeSlotsDataGridViewTextBoxColumn
+            // 
+            this.timeSlotsDataGridViewTextBoxColumn.DataPropertyName = "TimeSlots";
+            this.timeSlotsDataGridViewTextBoxColumn.HeaderText = "TimeSlots";
+            this.timeSlotsDataGridViewTextBoxColumn.Name = "timeSlotsDataGridViewTextBoxColumn";
+            // 
+            // appointmentReasonDataGridViewTextBoxColumn
+            // 
+            this.appointmentReasonDataGridViewTextBoxColumn.DataPropertyName = "AppointmentReason";
+            this.appointmentReasonDataGridViewTextBoxColumn.HeaderText = "AppointmentReason";
+            this.appointmentReasonDataGridViewTextBoxColumn.Name = "appointmentReasonDataGridViewTextBoxColumn";
+            this.appointmentReasonDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // newApointmentsBindingSource
+            // 
+            this.newApointmentsBindingSource.DataMember = "NewApointments";
+            this.newApointmentsBindingSource.DataSource = this.dataSet11;
+            // 
+            // dataSet11
+            // 
+            this.dataSet11.DataSetName = "DataSet1";
+            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel14
             // 
@@ -747,11 +796,6 @@
             // 
             this.appointmentViewBindingSource.DataMember = "AppointmentView";
             this.appointmentViewBindingSource.DataSource = this.dataSet11;
-            // 
-            // dataSet11
-            // 
-            this.dataSet11.DataSetName = "DataSet1";
-            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel15
             // 
@@ -920,69 +964,9 @@
             // 
             this.appointmentTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.expr1DataGridViewTextBoxColumn,
-            this.expr2DataGridViewTextBoxColumn,
-            this.appointmentStatusDataGridViewTextBoxColumn,
-            this.appointmentDateDataGridViewTextBoxColumn,
-            this.timeSlotsDataGridViewTextBoxColumn,
-            this.appointmentReasonDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.newApointmentsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(-3, 35);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(685, 150);
-            this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // newApointmentsBindingSource
-            // 
-            this.newApointmentsBindingSource.DataMember = "NewApointments";
-            this.newApointmentsBindingSource.DataSource = this.dataSet11;
-            // 
             // newAppointmentsTableAdapter
             // 
             this.newAppointmentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // expr1DataGridViewTextBoxColumn
-            // 
-            this.expr1DataGridViewTextBoxColumn.DataPropertyName = "Expr1";
-            this.expr1DataGridViewTextBoxColumn.HeaderText = "Nurse Name";
-            this.expr1DataGridViewTextBoxColumn.Name = "expr1DataGridViewTextBoxColumn";
-            // 
-            // expr2DataGridViewTextBoxColumn
-            // 
-            this.expr2DataGridViewTextBoxColumn.DataPropertyName = "Expr2";
-            this.expr2DataGridViewTextBoxColumn.HeaderText = "Patient Name";
-            this.expr2DataGridViewTextBoxColumn.Name = "expr2DataGridViewTextBoxColumn";
-            // 
-            // appointmentStatusDataGridViewTextBoxColumn
-            // 
-            this.appointmentStatusDataGridViewTextBoxColumn.DataPropertyName = "AppointmentStatus";
-            this.appointmentStatusDataGridViewTextBoxColumn.HeaderText = "AppointmentStatus";
-            this.appointmentStatusDataGridViewTextBoxColumn.Name = "appointmentStatusDataGridViewTextBoxColumn";
-            // 
-            // appointmentDateDataGridViewTextBoxColumn
-            // 
-            this.appointmentDateDataGridViewTextBoxColumn.DataPropertyName = "AppointmentDate";
-            this.appointmentDateDataGridViewTextBoxColumn.HeaderText = "AppointmentDate";
-            this.appointmentDateDataGridViewTextBoxColumn.Name = "appointmentDateDataGridViewTextBoxColumn";
-            // 
-            // timeSlotsDataGridViewTextBoxColumn
-            // 
-            this.timeSlotsDataGridViewTextBoxColumn.DataPropertyName = "TimeSlots";
-            this.timeSlotsDataGridViewTextBoxColumn.HeaderText = "TimeSlots";
-            this.timeSlotsDataGridViewTextBoxColumn.Name = "timeSlotsDataGridViewTextBoxColumn";
-            // 
-            // appointmentReasonDataGridViewTextBoxColumn
-            // 
-            this.appointmentReasonDataGridViewTextBoxColumn.DataPropertyName = "AppointmentReason";
-            this.appointmentReasonDataGridViewTextBoxColumn.HeaderText = "AppointmentReason";
-            this.appointmentReasonDataGridViewTextBoxColumn.Name = "appointmentReasonDataGridViewTextBoxColumn";
-            this.appointmentReasonDataGridViewTextBoxColumn.Width = 180;
             // 
             // DashboardForm1
             // 
@@ -1024,17 +1008,17 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDash)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newApointmentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentViewBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newApointmentsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1108,7 +1092,7 @@
         private System.Windows.Forms.BindingSource appointmentBindingSource;
         private Database.DataSet1TableAdapters.AppointmentTableAdapter appointmentTableAdapter;
         private System.Windows.Forms.Button btnBookAppointmentAdmin;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewDash;
         private System.Windows.Forms.BindingSource newApointmentsBindingSource;
         private Database.DataSet1TableAdapters.newAppointmentsTableAdapter newAppointmentsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn expr1DataGridViewTextBoxColumn;

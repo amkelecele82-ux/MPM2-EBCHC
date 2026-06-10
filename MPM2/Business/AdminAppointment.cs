@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPM2.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,6 +7,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -23,6 +25,11 @@ namespace MPM2.Business
         public AdminAppointment()
         {
             InitializeComponent();
+            txtReason.MaxLength = 100;
+            if(txtReason.MaxLength > 100)
+            {
+                MessageBox.Show(" Please ensure it is set to 100 characters.", "Initialization Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         private int GetLoggedInDoctorId()
         {
@@ -71,14 +78,16 @@ namespace MPM2.Business
 
         private void AdminAppointment_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSet13.NewApointments' table. You can move, or remove it, as needed.
+           // this.newAppointmentsTableAdapter.Fill(this.dataSet13.NewApointments);
             // TODO: This line of code loads data into the 'dataSet12.NewApointments' table. You can move, or remove it, as needed.
-            this.newAppointmentsTableAdapter.Fill(this.dataSet12.NewApointments);
+            this.newAppointmentsTableAdapter.Fill(this.dataSet1.NewApointments);
             // TODO: This line of code loads data into the 'dataSet12.Pro_Appointment' table. You can move, or remove it, as needed.
-            this.pro_AppointmentTableAdapter.Fill(this.dataSet12.Pro_Appointment);
+           this.pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment);
             // Fill datasets
 
             this.pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment);
-            this.pro_AppointmentTableAdapter.Fill(this.dataSet11.Pro_Appointment);
+           // this.pro_AppointmentTableAdapter.Fill(this.dataSet11.Pro_Appointment);
 
             // build master time slots and populate initial comboBoxSta items
             masterTimeSlots.Clear();
@@ -95,7 +104,6 @@ namespace MPM2.Business
             comboBoxSta.Items.Clear();
             comboBoxSta.Items.AddRange(masterTimeSlots.ToArray());
             comboBoxSta.SelectedIndexChanged += comboBoxSta_SelectedIndexChanged;
-
             string doctorName = GetLoggedInDoctorName();
             if (!string.IsNullOrEmpty(doctorName))
             {
@@ -174,72 +182,105 @@ namespace MPM2.Business
         {
             try
             {
-
+                // 1. Basic validation FIRST
                 if (comboBoxSta.SelectedItem == null || comboBoxEnd.SelectedItem == null)
                 {
-                    MessageBox.Show("Please select a valid start and end time.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please select a valid start and end time.");
                     return;
                 }
 
+                if (string.IsNullOrWhiteSpace(txtDoctor.Text) ||
+                    string.IsNullOrWhiteSpace(txtNurse.Text) ||
+                    string.IsNullOrWhiteSpace(txtPatients.Text) ||
+                    string.IsNullOrWhiteSpace(txtStatus.Text) ||
+                    string.IsNullOrWhiteSpace(txtReason.Text))
+                {
+                    MessageBox.Show("Please complete all required fields.");
+                    return;
+                }
+
+                if (txtReason.Text.Length > 100)
+                {
+                    MessageBox.Show("Reason cannot exceed 100 characters.");
+                    return;
+                }
+
+                if (dataGridView1.CurrentRow == null || dataGridView2.CurrentRow == null)
+                {
+                    MessageBox.Show("Please select both patient and nurse.");
+                    return;
+                }
+
+                // 2. Parse times
                 DateTime selectedStart = DateTime.ParseExact(comboBoxSta.SelectedItem.ToString(), "hh:mm tt", CultureInfo.InvariantCulture);
                 DateTime selectedEnd = DateTime.ParseExact(comboBoxEnd.SelectedItem.ToString(), "hh:mm tt", CultureInfo.InvariantCulture);
 
-                // Disallow any booking inside the blocked hour 12:00 PM - 1:00 PM
+                TimeSpan newStart = selectedStart.TimeOfDay;
+                TimeSpan newEnd = selectedEnd.TimeOfDay;
+
+                DateTime datex = monthCalendar1.SelectionStart.Date;
+
+                int doctorId = Convert.ToInt32(textBoxDrID.Text);
+                int patientId = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                int nurseId = Convert.ToInt32(dataGridView2.CurrentRow.Cells[0].Value);
+
+                // 3. Block lunch time
                 var blockedStart = DateTime.ParseExact("12:00 PM", "hh:mm tt", CultureInfo.InvariantCulture).TimeOfDay;
                 var blockedEnd = DateTime.ParseExact("01:00 PM", "hh:mm tt", CultureInfo.InvariantCulture).TimeOfDay;
 
-                if ((selectedStart.TimeOfDay >= blockedStart && selectedStart.TimeOfDay < blockedEnd)
-                    || (selectedEnd.TimeOfDay > blockedStart && selectedEnd.TimeOfDay <= blockedEnd))
+                if ((newStart >= blockedStart && newStart < blockedEnd) ||
+                    (newEnd > blockedStart && newEnd <= blockedEnd))
                 {
-                    MessageBox.Show("Appointments cannot be scheduled between 12:00 PM and 1:00 PM.", "Invalid Time", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Appointments cannot be scheduled between 12:00 PM and 1:00 PM.");
                     return;
                 }
 
-                int doctorIds = Convert.ToInt32(textBoxDrID.Text);
-                DateTime date = monthCalendar1.SelectionStart.Date;
-
-                // Enforce doctor's daily limit (5 appointments per day)
-                if (doctorIds != 0)
+                // 4. Daily limit check
+                int currentCount = CountDoctorAppointmentsOnDate(doctorId, datex);
+                if (currentCount >= 5)
                 {
-                    int currentCount = CountDoctorAppointmentsOnDate(doctorIds, date);
-                    if (currentCount >= 5)
-                    {
-                        MessageBox.Show("You have reached the maximum of 5 appointments for the selected day.", "Limit Reached", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                    MessageBox.Show("You have reached the maximum of 5 appointments.");
+                    return;
                 }
 
+                // 5. OVERLAP CHECK (IMPORTANT)
+                if (IsTimeSlotBooked(doctorId, datex, newStart, newEnd))
+                {
+                    MessageBox.Show("Slot time already booked");
+                    return;
+                }
+
+                // 6. ONLY NOW create dataset row
                 var dr = dataSet1.NewApointments.NewRow();
 
-                dr["FullName"] = txtDoctor.Text;
-                dr["Expr1"] = txtNurse.Text;
-                dr["Expr2"] = txtPatients.Text;
+                dr["DoctorName"] = txtDoctor.Text;
+                dr["NurseName"] = txtNurse.Text;
+                dr["PatientName"] = txtPatients.Text;
                 dr["AppointmentStatus"] = txtStatus.Text;
                 dr["AppointmentReason"] = txtReason.Text;
-                dr["AppointmentDate"] = monthCalendar1.SelectionStart;
-                dr["TimeSlots"] = comboBoxSta.SelectedItem.ToString() + " - " + comboBoxEnd.SelectedItem.ToString();
+                dr["AppointmentDate"] = datex;
+                dr["TimeSlots"] = comboBoxSta.SelectedItem + " - " + comboBoxEnd.SelectedItem;
 
+                // 7. DB insert
+                pro_AppointmentTableAdapter.Insert(
+                    doctorId,
+                    patientId,
+                    nurseId,
+                    txtStatus.Text,
+                    txtReason.Text,
+                    datex,
+                    dr["TimeSlots"].ToString()
+                );
 
-                int doctorId = Convert.ToInt32(textBoxDrID.Text);
-                int patientId = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-                int nurseId = Convert.ToInt32(dataGridView2.CurrentRow.Cells[0].Value.ToString());
-                string status = txtStatus.Text;
-                string reason = txtReason.Text;
-                DateTime dates = monthCalendar1.SelectionStart;
-                string timeSlot = comboBoxSta.SelectedItem.ToString() + " - " + comboBoxEnd.SelectedItem.ToString();
+                // 8. UI refresh
+                pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment);
+                newAppointmentsTableAdapter.Fill(this.dataSet1.NewApointments);
 
-                
-                dataSet1.NewApointments.Rows.Add(dr);
-                pro_AppointmentTableAdapter.Insert(doctorId, patientId, nurseId, status, reason, dates, timeSlot);
-                MessageBox.Show("Appointment created successfully!");
-                pro_AppointmentTableAdapter.Fill(this.dataSet11.Pro_Appointment);
-                this.newAppointmentsTableAdapter.Fill(this.dataSet1.NewApointments);
+                ApplyDoctorFilter();
                 BuildBookedSlotsFromDataset();
                 RefreshAvailableStartTimesForSelectedDate();
-                //
-                LoadAvailableStartTimes(monthCalendar1.SelectionStart);
 
-
+                MessageBox.Show("Appointment created successfully!");
             }
             catch (Exception ex)
             {
@@ -277,7 +318,7 @@ namespace MPM2.Business
         {
 
         }
-        private void GetBookedTimesForDate(DateTime date, out HashSet<string> bookedStarts, out HashSet<string> bookedEnds)
+       /* private void GetBookedTimesForDate(DateTime date, out HashSet<string> bookedStarts, out HashSet<string> bookedEnds)
         {
             bookedStarts = new HashSet<string>();
             bookedEnds = new HashSet<string>();
@@ -331,7 +372,8 @@ namespace MPM2.Business
                 }
             }
         }
-        private void LoadAvailableStartTimes(DateTime date)
+       */
+    /*    private void LoadAvailableStartTimes(DateTime date)
         {
             comboBoxSta.Items.Clear();
             comboBoxEnd.Items.Clear();
@@ -362,6 +404,7 @@ namespace MPM2.Business
                 comboBoxEnd.Text = string.Empty;
             }
         }
+    */
         private void LoadAvailableEndTimesForSelectedStart(DateTime selectedDate, TimeSpan selectedStartTs)
         {
             comboBoxEnd.Items.Clear();
@@ -423,33 +466,40 @@ namespace MPM2.Business
         {
             try
             {
-                if (dataSet11 == null || dataSet11.Pro_Appointment == null)
+                if (!(this.MdiParent is MainForm main))
                     return;
 
-                int doctorId = GetLoggedInDoctorId();
-                if (doctorId != 0 && this.MdiParent is MainForm main && main.CurrentRole == "Doctor")
+                // ADMIN: see everything
+                if (main.CurrentRole != "Doctor")
                 {
-                    // Filter the default view so bound controls (e.g., dataGridView3) only show this doctor's appointments.
-                    dataSet11.Pro_Appointment.DefaultView.RowFilter = $"DoctorID = {doctorId}";
+                    newApointmentsBindingSource.RemoveFilter();
+                    return;
                 }
-                else
+
+                // DOCTOR: filter own appointments only
+                string doctorName = txtDoctor.Text.Trim();
+
+                if (string.IsNullOrWhiteSpace(doctorName))
                 {
-                    // Show all appointments for non-doctor roles (or when no doctor logged in)
-                    dataSet11.Pro_Appointment.DefaultView.RowFilter = string.Empty;
+                    newApointmentsBindingSource.RemoveFilter();
+                    return;
                 }
+
+                newApointmentsBindingSource.Filter =
+                    $"DoctorName = '{doctorName.Replace("'", "''")}'";
             }
-            catch
+            catch (Exception ex)
             {
-                // If something goes wrong with the filter (e.g. wrong column name), silently ignore so UI remains usable.
+                MessageBox.Show(ex.Message);
             }
         }
         private int CountDoctorAppointmentsOnDate(int doctorId, DateTime date)
         {
-            if (dataSet11 == null || dataSet11.Pro_Appointment == null)
+            if (dataSet1 == null || dataSet1.Pro_Appointment == null)
                 return 0;
 
             int count = 0;
-            foreach (DataRow row in dataSet11.Pro_Appointment.Rows)
+            foreach (DataRow row in dataSet1.Pro_Appointment.Rows)
             {
                 if (row == null)
                     continue;
@@ -486,10 +536,10 @@ namespace MPM2.Business
         {
             bookedSlotsByDoctor.Clear();
 
-            if (dataSet11 == null || dataSet11.Pro_Appointment == null)
+            if (dataSet1 == null || dataSet1.Pro_Appointment == null)
                 return;
 
-            foreach (DataRow row in dataSet11.Pro_Appointment.Rows)
+            foreach (DataRow row in dataSet1.Pro_Appointment.Rows)
             {
                 if (row == null)
                     continue;
@@ -554,70 +604,97 @@ namespace MPM2.Business
             comboBoxEnd.Items.Clear();
 
             DateTime selectedDate = monthCalendar1.SelectionStart.Date;
-            DateTime now = DateTime.Now;
 
             var unavailable = new List<Tuple<TimeSpan, TimeSpan>>();
 
             int currentDoctorId = GetLoggedInDoctorId();
+
             if (currentDoctorId != 0)
             {
-                List<Tuple<TimeSpan, TimeSpan>> list;
-                if (bookedSlotsByDoctor.TryGetValue(currentDoctorId, out var dict) && dict.TryGetValue(selectedDate, out list))
+                if (bookedSlotsByDoctor.TryGetValue(currentDoctorId, out var dict) &&
+                    dict.TryGetValue(selectedDate, out var list))
+                {
                     unavailable.AddRange(list);
+                }
             }
             else
             {
-                // If not a logged-in doctor, optionally aggregate all doctors' slots (or leave unavailable empty).
-                // For now, we aggregate all persisted bookings for the date to avoid double-booking across roles.
+                // Optional: show all booked slots across all doctors
                 foreach (var perDoc in bookedSlotsByDoctor.Values)
                 {
                     if (perDoc.TryGetValue(selectedDate, out var list))
+                    {
                         unavailable.AddRange(list);
+                    }
                 }
             }
 
-            // block window: 12:00 PM to 1:00 PM
-            var blockedStart = DateTime.ParseExact("12:00 PM", "hh:mm tt", CultureInfo.InvariantCulture).TimeOfDay;
-            var blockedEnd = DateTime.ParseExact("01:00 PM", "hh:mm tt", CultureInfo.InvariantCulture).TimeOfDay;
+            // Lunch break block: 12:00 PM - 1:00 PM
+            TimeSpan blockedStart =
+                DateTime.ParseExact(
+                    "12:00 PM",
+                    "hh:mm tt",
+                    CultureInfo.InvariantCulture)
+                .TimeOfDay;
+
+            TimeSpan blockedEnd =
+                DateTime.ParseExact(
+                    "01:00 PM",
+                    "hh:mm tt",
+                    CultureInfo.InvariantCulture)
+                .TimeOfDay;
 
             foreach (string slot in masterTimeSlots)
             {
-                DateTime slotDt = DateTime.ParseExact(slot, "hh:mm tt", CultureInfo.InvariantCulture);
-                DateTime slotFull = selectedDate.Add(slotDt.TimeOfDay);
+                DateTime slotDt =
+                    DateTime.ParseExact(
+                        slot,
+                        "hh:mm tt",
+                        CultureInfo.InvariantCulture);
 
-                // if selected date is today, exclude past times
-                if (selectedDate == now.Date && slotFull <= now)
+                TimeSpan slotTs = slotDt.TimeOfDay;
+
+                // Skip lunch period
+                if (slotTs >= blockedStart &&
+                    slotTs < blockedEnd)
+                {
                     continue;
+                }
 
-                // skip times inside blocked window
-                var slotTs = slotDt.TimeOfDay;
-                if (slotTs >= blockedStart && slotTs < blockedEnd)
-                    continue;
+                // Remove slots that fall inside an existing booking
+                bool isUnavailable =
+                    unavailable.Any(b =>
+                        slotTs >= b.Item1 &&
+                        slotTs < b.Item2);
 
-                // check overlap with unavailable entries (start >= bookedStart && start < bookedEnd)
-                bool isUnavailable = unavailable.Any(b => slotTs >= b.Item1 && slotTs < b.Item2);
                 if (!isUnavailable)
+                {
                     comboBoxSta.Items.Add(slot);
+                }
             }
 
             if (comboBoxSta.Items.Count > 0)
+            {
                 comboBoxSta.SelectedIndex = 0;
-            else { 
-                comboBoxEnd.Items.Clear();
+            }
+            else
+            {
+                comboBoxSta.Text = string.Empty;
+                comboBoxEnd.Text = string.Empty;
+            }
         }
-    }
     private void ApplyRoleFilter()
         {
             try
             {
-                if (dataSet11 == null || dataSet11.Pro_Appointment == null)
+                if (dataSet1 == null || dataSet1.Pro_Appointment == null)
                     return;
 
                 if (!(this.MdiParent is MainForm main) || main.CurrentDataRow == null)
                 {
-                    dataSet11.Pro_Appointment.DefaultView.RowFilter = string.Empty;
-                    if (dataGridView3 != null)
-                        dataGridView3.DataSource = dataSet11.Pro_Appointment.DefaultView;
+                    dataSet1.Pro_Appointment.DefaultView.RowFilter = string.Empty;
+                    if (dataGridViewInnerJoin != null)
+                        dataGridViewInnerJoin.DataSource = dataSet1.Pro_Appointment.DefaultView;
                     return;
                 }
 
@@ -627,29 +704,29 @@ namespace MPM2.Business
                     if (doctorId != 0)
                     {
                         // Choose the correct column name for doctor id
-                        string docCol = dataSet11.Pro_Appointment.Columns.Contains("DoctorID") ? "DoctorID"
-                            : dataSet11.Pro_Appointment.Columns.Contains("Doctor_ID") ? "Doctor_ID"
+                        string docCol = dataSet1.Pro_Appointment.Columns.Contains("DoctorID") ? "DoctorID"
+                            : dataSet1.Pro_Appointment.Columns.Contains("Doctor_ID") ? "Doctor_ID"
                             : null;
 
                         if (!string.IsNullOrEmpty(docCol))
-                            dataSet11.Pro_Appointment.DefaultView.RowFilter = $"[{docCol}] = {doctorId}";
+                            dataSet1.Pro_Appointment.DefaultView.RowFilter = $"[{docCol}] = {doctorId}";
                         else
-                            dataSet11.Pro_Appointment.DefaultView.RowFilter = string.Empty;
+                            dataSet1.Pro_Appointment.DefaultView.RowFilter = string.Empty;
                     }
                     else
                     {
-                        dataSet11.Pro_Appointment.DefaultView.RowFilter = string.Empty;
+                        dataSet1.Pro_Appointment.DefaultView.RowFilter = string.Empty;
                     }
                 }
                 else
                 {
                     // AdminAppointment is not responsible for nurse-scoped filtering;
                     // show all for non-doctor roles so dashboard can present nurse-specific views.
-                    dataSet11.Pro_Appointment.DefaultView.RowFilter = string.Empty;
+                    dataSet1.Pro_Appointment.DefaultView.RowFilter = string.Empty;
                 }
 
-                if (dataGridView3 != null)
-                    dataGridView3.DataSource = dataSet11.Pro_Appointment.DefaultView;
+                if (dataGridViewInnerJoin != null)
+                    dataGridViewInnerJoin.DataSource = dataSet1.Pro_Appointment.DefaultView;
             }
             catch
             {
@@ -657,6 +734,68 @@ namespace MPM2.Business
             }
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private bool IsTimeSlotBooked(int doctorId, DateTime date, TimeSpan newStart, TimeSpan newEnd)
+        {
+            if (dataSet1 == null || dataSet1.Pro_Appointment == null)
+                return false;
+
+            foreach (DataRow row in dataSet1.Pro_Appointment.Rows)
+            {
+                if (row == null)
+                    continue;
+
+                if (!row.Table.Columns.Contains("DoctorID") || row["DoctorID"] == DBNull.Value)
+                    continue;
+
+                int rowDoctorId = Convert.ToInt32(row["DoctorID"]);
+
+                if (rowDoctorId != doctorId)
+                    continue;
+
+                if (!row.Table.Columns.Contains("AppointmentDate") || row["AppointmentDate"] == DBNull.Value)
+                    continue;
+
+                DateTime rowDate = Convert.ToDateTime(row["AppointmentDate"]);
+
+                if (rowDate.Date != date.Date)
+                    continue;
+
+                if (!row.Table.Columns.Contains("TimeSlots") || row["TimeSlots"] == DBNull.Value)
+                    continue;
+
+                string slot = row["TimeSlots"].ToString();
+
+                string[] parts = slot.Split(new[] { '-' }, 2);
+                if (parts.Length != 2)
+                    continue;
+
+                TimeSpan existingStart =
+                    DateTime.ParseExact(parts[0].Trim(), "hh:mm tt", CultureInfo.InvariantCulture)
+                    .TimeOfDay;
+
+                TimeSpan existingEnd =
+                    DateTime.ParseExact(parts[1].Trim(), "hh:mm tt", CultureInfo.InvariantCulture)
+                    .TimeOfDay;
+
+                // 🔥 OVERLAP CHECK (MOST IMPORTANT PART)
+                bool exactMatch =
+    newStart == existingStart && newEnd == existingEnd;
+                bool overlap = newStart < existingEnd && newEnd > existingStart;
+
+                if (overlap|| exactMatch)
+                    return true;
+            }
+
+            return false;
+        }
     }
 }
