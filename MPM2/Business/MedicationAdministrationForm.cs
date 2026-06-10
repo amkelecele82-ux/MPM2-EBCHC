@@ -98,7 +98,7 @@ namespace MPM2.Business
             if (dgvMedAdministration.CurrentRow == null)
                 return;
 
-            ChangeValues();
+          ChangeValues();
 
         }
         private void ResetFilter()
@@ -118,22 +118,37 @@ namespace MPM2.Business
         }
         private void ChangeValues()
         {
-            if (dgvMedAdministration.CurrentRow.Cells["Notes"].Value != null)
+            if (dgvMedAdministration.CurrentRow == null ||
+                dgvMedAdministration.CurrentRow.IsNewRow)
             {
-                string notes = dgvMedAdministration.CurrentRow.Cells["Notes"].Value.ToString();
+                RTBNotes.Clear();
+                TBDosageAmount.Clear();
+                CBStatus.SelectedIndex = -1;
+                return;
+            }
 
-                if (notes != null)
-                {
-                    RTBNotes.Text = notes;
-                }
-                else
-                {
-                    RTBNotes.Clear();
-                }
-                TBDosageAmount.Text = dgvMedAdministration.CurrentRow.Cells["frequencyInstanceDataGridViewTextBoxColumn"].Value.ToString();
-                CBStatus.SelectedItem = dgvMedAdministration.CurrentRow.Cells["statusDataGridViewTextBoxColumn"].Value.ToString();
+            var row = dgvMedAdministration.CurrentRow;
+            var notesValue = row.Cells["Notes"]?.Value;
+
+            RTBNotes.Text = notesValue != null ? notesValue.ToString() : "";
+            var dosageValue = row.Cells["frequencyInstanceDataGridViewTextBoxColumn"]?.Value;
+            TBDosageAmount.Text = dosageValue != null ? dosageValue.ToString() : "";
+            var statusValue = row.Cells["statusDataGridViewTextBoxColumn"]?.Value;
+
+            if (statusValue != null)
+            {
+                string status = statusValue.ToString();
+
+                CBStatus.SelectedItem = CBStatus.Items
+                    .Cast<string>()
+                    .FirstOrDefault(item => item.Equals(status, StringComparison.OrdinalIgnoreCase));
+            }
+            else
+            {
+                CBStatus.SelectedIndex = -1;
             }
         }
+
         private void TBDoctor_TextChanged(object sender, EventArgs e)
         {
             ApplyFilter();

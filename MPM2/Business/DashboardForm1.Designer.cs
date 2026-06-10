@@ -84,15 +84,17 @@
             this.button11 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvWidgetAppointment = new System.Windows.Forms.DataGridView();
-            this.PatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NurseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appointmentStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeSlotsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appointmentViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet11 = new MPM2.Database.DataSet1();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.lblCompletedAppointment = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -110,8 +112,7 @@
             this.medicationAdministrationTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.MedicationAdministrationTableAdapter();
             this.appointmentTableAdapter = new MPM2.Database.DataSet1TableAdapters.AppointmentTableAdapter();
             this.customMedAdmTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.CustomMedAdmTableAdapter();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.pro_AppointmentTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.Pro_AppointmentTableAdapter();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -787,12 +788,12 @@
             this.dgvWidgetAppointment.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvWidgetAppointment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvWidgetAppointment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PatientName,
             this.DoctorName,
+            this.PatientName,
             this.NurseName,
             this.appointmentStatusDataGridViewTextBoxColumn,
-            this.startTimeDataGridViewTextBoxColumn,
-            this.endTimeDataGridViewTextBoxColumn});
+            this.timeSlotsDataGridViewTextBoxColumn,
+            this.appointmentDateDataGridViewTextBoxColumn});
             this.dgvWidgetAppointment.DataSource = this.appointmentViewBindingSource;
             this.dgvWidgetAppointment.Location = new System.Drawing.Point(-3, 49);
             this.dgvWidgetAppointment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -805,14 +806,6 @@
             this.dgvWidgetAppointment.TabIndex = 8;
             this.dgvWidgetAppointment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWidgetAppointment_CellContentClick);
             // 
-            // PatientName
-            // 
-            this.PatientName.DataPropertyName = "PatientName";
-            this.PatientName.HeaderText = "PatientName";
-            this.PatientName.MinimumWidth = 6;
-            this.PatientName.Name = "PatientName";
-            this.PatientName.Width = 125;
-            // 
             // DoctorName
             // 
             this.DoctorName.DataPropertyName = "DoctorName";
@@ -820,6 +813,14 @@
             this.DoctorName.MinimumWidth = 6;
             this.DoctorName.Name = "DoctorName";
             this.DoctorName.Width = 125;
+            // 
+            // PatientName
+            // 
+            this.PatientName.DataPropertyName = "PatientName";
+            this.PatientName.HeaderText = "PatientName";
+            this.PatientName.MinimumWidth = 6;
+            this.PatientName.Name = "PatientName";
+            this.PatientName.Width = 125;
             // 
             // NurseName
             // 
@@ -831,27 +832,27 @@
             // 
             // appointmentStatusDataGridViewTextBoxColumn
             // 
-            this.appointmentStatusDataGridViewTextBoxColumn.DataPropertyName = "Appointment_Status";
-            this.appointmentStatusDataGridViewTextBoxColumn.HeaderText = "Appointment_Status";
+            this.appointmentStatusDataGridViewTextBoxColumn.DataPropertyName = "AppointmentStatus";
+            this.appointmentStatusDataGridViewTextBoxColumn.HeaderText = "AppointmentStatus";
             this.appointmentStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.appointmentStatusDataGridViewTextBoxColumn.Name = "appointmentStatusDataGridViewTextBoxColumn";
-            this.appointmentStatusDataGridViewTextBoxColumn.Width = 130;
+            this.appointmentStatusDataGridViewTextBoxColumn.Width = 125;
             // 
-            // startTimeDataGridViewTextBoxColumn
+            // timeSlotsDataGridViewTextBoxColumn
             // 
-            this.startTimeDataGridViewTextBoxColumn.DataPropertyName = "StartTime";
-            this.startTimeDataGridViewTextBoxColumn.HeaderText = "StartTime";
-            this.startTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.startTimeDataGridViewTextBoxColumn.Name = "startTimeDataGridViewTextBoxColumn";
-            this.startTimeDataGridViewTextBoxColumn.Width = 127;
+            this.timeSlotsDataGridViewTextBoxColumn.DataPropertyName = "TimeSlots";
+            this.timeSlotsDataGridViewTextBoxColumn.HeaderText = "TimeSlots";
+            this.timeSlotsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.timeSlotsDataGridViewTextBoxColumn.Name = "timeSlotsDataGridViewTextBoxColumn";
+            this.timeSlotsDataGridViewTextBoxColumn.Width = 125;
             // 
-            // endTimeDataGridViewTextBoxColumn
+            // appointmentDateDataGridViewTextBoxColumn
             // 
-            this.endTimeDataGridViewTextBoxColumn.DataPropertyName = "EndTime";
-            this.endTimeDataGridViewTextBoxColumn.HeaderText = "EndTime";
-            this.endTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.endTimeDataGridViewTextBoxColumn.Name = "endTimeDataGridViewTextBoxColumn";
-            this.endTimeDataGridViewTextBoxColumn.Width = 135;
+            this.appointmentDateDataGridViewTextBoxColumn.DataPropertyName = "AppointmentDate";
+            this.appointmentDateDataGridViewTextBoxColumn.HeaderText = "AppointmentDate";
+            this.appointmentDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.appointmentDateDataGridViewTextBoxColumn.Name = "appointmentDateDataGridViewTextBoxColumn";
+            this.appointmentDateDataGridViewTextBoxColumn.Width = 125;
             // 
             // appointmentViewBindingSource
             // 
@@ -882,6 +883,30 @@
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(469, 320);
             this.panel15.TabIndex = 20;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(135)))), ((int)(((byte)(38)))));
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button4.Location = new System.Drawing.Point(361, 250);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 30);
+            this.button4.TabIndex = 22;
+            this.button4.Text = "Show";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(135)))), ((int)(((byte)(38)))));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(361, 166);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 30);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Show";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
@@ -1025,29 +1050,9 @@
             // 
             this.customMedAdmTableAdapter1.ClearBeforeFill = true;
             // 
-            // button1
+            // pro_AppointmentTableAdapter1
             // 
-            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(135)))), ((int)(((byte)(38)))));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(361, 166);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 30);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Show";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(135)))), ((int)(((byte)(38)))));
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Location = new System.Drawing.Point(361, 250);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 30);
-            this.button4.TabIndex = 22;
-            this.button4.Text = "Show";
-            this.button4.UseVisualStyleBackColor = false;
+            this.pro_AppointmentTableAdapter1.ClearBeforeFill = true;
             // 
             // DashboardForm1
             // 
@@ -1180,13 +1185,16 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label lblCAMedStaff;
         private Database.DataSet1TableAdapters.CustomMedAdmTableAdapter customMedAdmTableAdapter1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PatientName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DoctorName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NurseName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn appointmentStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn startTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn endTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DoctorName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PatientName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NurseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn appointmentStatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timeSlotsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn appointmentDateDataGridViewTextBoxColumn;
+        private Database.DataSet1TableAdapters.Pro_AppointmentTableAdapter pro_AppointmentTableAdapter1;
     }
 }

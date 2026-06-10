@@ -217,7 +217,7 @@ namespace MPM2
 
         private void viewAllToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            AppointmentForm1 a = new AppointmentForm1();
+            AdminAppointment a = new AdminAppointment();
             formSetup(a);
         }
 

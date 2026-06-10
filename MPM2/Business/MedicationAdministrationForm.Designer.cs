@@ -89,13 +89,6 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.medicationAdministrationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.prescriptionnBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.medicationAdministrationTableAdapter = new MPM2.Database.DataSet1TableAdapters.MedicationAdministrationTableAdapter();
-            this.prescriptionn_TableAdapter = new MPM2.Database.DataSet1TableAdapters.Prescriptionn_TableAdapter();
-            this.customMedAdmTableAdapter = new MPM2.Database.DataSet1TableAdapters.CustomMedAdmTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,6 +105,13 @@
             this.dosageGivenDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.frequencyInstanceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.medicationAdministrationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.prescriptionnBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.medicationAdministrationTableAdapter = new MPM2.Database.DataSet1TableAdapters.MedicationAdministrationTableAdapter();
+            this.prescriptionn_TableAdapter = new MPM2.Database.DataSet1TableAdapters.Prescriptionn_TableAdapter();
+            this.customMedAdmTableAdapter = new MPM2.Database.DataSet1TableAdapters.CustomMedAdmTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -729,44 +729,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(751, 501);
             this.dataGridView1.TabIndex = 8;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(158, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 22);
-            this.textBox1.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 16);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Patient Name:";
-            // 
-            // medicationAdministrationBindingSource
-            // 
-            this.medicationAdministrationBindingSource.DataMember = "MedicationAdministration";
-            this.medicationAdministrationBindingSource.DataSource = this.dataSet11;
-            // 
-            // prescriptionnBindingSource
-            // 
-            this.prescriptionnBindingSource.DataMember = "Prescriptionn_";
-            this.prescriptionnBindingSource.DataSource = this.dataSet11;
-            // 
-            // medicationAdministrationTableAdapter
-            // 
-            this.medicationAdministrationTableAdapter.ClearBeforeFill = true;
-            // 
-            // prescriptionn_TableAdapter
-            // 
-            this.prescriptionn_TableAdapter.ClearBeforeFill = true;
-            // 
-            // customMedAdmTableAdapter
-            // 
-            this.customMedAdmTableAdapter.ClearBeforeFill = true;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "PatientName";
@@ -896,6 +858,44 @@
             this.frequencyInstanceDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.frequencyInstanceDataGridViewTextBoxColumn1.Name = "frequencyInstanceDataGridViewTextBoxColumn1";
             this.frequencyInstanceDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(158, 32);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(229, 22);
+            this.textBox1.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 16);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Patient Name:";
+            // 
+            // medicationAdministrationBindingSource
+            // 
+            this.medicationAdministrationBindingSource.DataMember = "MedicationAdministration";
+            this.medicationAdministrationBindingSource.DataSource = this.dataSet11;
+            // 
+            // prescriptionnBindingSource
+            // 
+            this.prescriptionnBindingSource.DataMember = "Prescriptionn_";
+            this.prescriptionnBindingSource.DataSource = this.dataSet11;
+            // 
+            // medicationAdministrationTableAdapter
+            // 
+            this.medicationAdministrationTableAdapter.ClearBeforeFill = true;
+            // 
+            // prescriptionn_TableAdapter
+            // 
+            this.prescriptionn_TableAdapter.ClearBeforeFill = true;
+            // 
+            // customMedAdmTableAdapter
+            // 
+            this.customMedAdmTableAdapter.ClearBeforeFill = true;
             // 
             // MedicationAdministrationForm
             // 

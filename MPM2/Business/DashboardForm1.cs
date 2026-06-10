@@ -46,17 +46,17 @@ namespace MPM2.Business
             this.appointmentTableAdapter.Fill(this.dataSet11.Appointment);
             // TODO: This line of code loads data into the 'dataSet11.AppointmentView' table. You can move, or remove it, as needed.
 
-
+            this.pro_AppointmentTableAdapter1.Fill(this.dataSet11.Pro_Appointment);
 
             if (role.Equals("Doctor"))
             {
-                this.appointmentViewTableAdapter.FillByNameFilterByTodaysDate(this.dataSet11.AppointmentView, medid);
+                this.appointmentViewTableAdapter.FillByNameFilterByTodaysDate(this.dataSet11.AppointmentView, DateTime.Today, medid);
                 dgvWidgetAppointment.Columns["DoctorName"].Visible = false;
                 this.customMedAdmTableAdapter1.FillByMedAdmPrescripNurseDoctorPatient(this.dataSet11.CustomMedAdm);
             }
             else
             {
-                this.appointmentViewTableAdapter.FillByDateNurse(this.dataSet11.AppointmentView, DateTime.Today, medid);
+                this.appointmentViewTableAdapter.FillByDateNurse(this.dataSet11.AppointmentView, medid,DateTime.Today);
                 dgvWidgetAppointment.Columns["NurseName"].Visible = false;
                 lblRPATitle.Text = "Recent Medicine Administration";
                 lblRPATime.Text = "Date Administered: ";
@@ -82,17 +82,17 @@ namespace MPM2.Business
             int adminappointmentcancelcount = 0;
             int adminappointmentmissedcount = 0;
 
-            foreach (DataRow appointment in dataSet11.Appointment.Rows)
+            foreach (DataRow appointment in dataSet11.Pro_Appointment.Rows)
             {
                 //Notification widgets
                 DateTime appointmentDate =
-                    Convert.ToDateTime(appointment["Appointment_Date"]);
+                    Convert.ToDateTime(appointment["AppointmentDate"]);
 
-                if (appointmentDate.Date == today && role == "Doctor" && Convert.ToInt32(appointment["Doctor_ID"]) == medid)
+                if (appointmentDate.Date == today && role.Equals("Doctor") && Convert.ToInt32(appointment["DoctorID"]) == medid)
                 {
 
 
-                    string status = appointment["Appointment_Status"].ToString();
+                    string status = appointment["AppointmentStatus"].ToString();
                     if (status == "Completed" || status == "Scheduled")
                     {
                         appointmentcount++;
@@ -110,13 +110,13 @@ namespace MPM2.Business
                     }
                     //Current Appointment Widget
                     DateTime date = appointmentDate.Date;
-                    TimeSpan startTime = (TimeSpan)(appointment["StartTime"]);
-                    TimeSpan endTime = ((TimeSpan)(appointment["EndTime"]));
                     DateTime currentTime = DateTime.Now;
+                    string timeSlot = appointment["TimeSlots"].ToString();
 
-                    DateTime startDateTime = date.Add(startTime);
-                    DateTime endDateTime = date.Add(endTime);
+                    var times = ParseTimeSlot(timeSlot, appointmentDate);
 
+                    DateTime startDateTime = times.start;
+                    DateTime endDateTime = times.end;
 
 
                     if (status == "Scheduled" && startDateTime >= DateTime.Now)
@@ -143,13 +143,13 @@ namespace MPM2.Business
 
                             if (nurseRow != null)
                                 lblCAMedStaff.Text = "Nurse: " + nurseRow["FullName"].ToString();
-                            lblCATime.Text = "Time: " + startTime.ToString("hh\\:mm") + " - " + endTime.ToString("hh\\:mm");
+                            lblCATime.Text = "Time: " +appointment["TimeSlots"].ToString();
                         }
                     }
                 }
-                else if(appointmentDate.Date == today && role == "Nurse" && Convert.ToInt32(appointment["Nurse_ID"]) == medid)
+                else if(appointmentDate.Date == today && role == "Nurse" && Convert.ToInt32(appointment["NurseID"]) == medid)
                 {
-                    string status = appointment["Appointment_Status"].ToString();
+                    string status = appointment["AppointmentStatus"].ToString();
                     if (status == "Completed" || status == "Scheduled")
                     {
                         appointmentcount++;
@@ -169,12 +169,13 @@ namespace MPM2.Business
 
                     //Current Appointment Widget
                     DateTime date = appointmentDate.Date;
-                    TimeSpan startTime = (TimeSpan)(appointment["StartTime"]);
-                    TimeSpan endTime = ((TimeSpan)(appointment["EndTime"]));
                     DateTime currentTime = DateTime.Now;
+                    string timeSlot = appointment["TimeSlots"].ToString();
 
-                    DateTime startDateTime = date.Add(startTime);
-                    DateTime endDateTime = date.Add(endTime);
+                    var times = ParseTimeSlot(timeSlot, appointmentDate);
+
+                    DateTime startDateTime = times.start;
+                    DateTime endDateTime = times.end;
 
 
 
@@ -197,7 +198,7 @@ namespace MPM2.Business
                             .FirstOrDefault(r => r["DoctorID"].ToString() == appointment["Doctor_ID"].ToString());
                         if (doctorRow != null)
                             lblCAMedStaff.Text = "Doctor: " + doctorRow["FullName"].ToString();
-                        lblCATime.Text = "Time: " + startTime.ToString("hh\\:mm") + " - " + endTime.ToString("hh\\:mm");
+                        lblCATime.Text = "Time: " + appointment["TimeSlots"].ToString();
                     }
                 }
 
@@ -230,37 +231,36 @@ namespace MPM2.Business
             lblWTRemaining.Text ="Remaining: "+appointmentremaincount+"/"+appointmentcount;
             lblCompletedAppointment.Text = appointmentcompletecount.ToString();
 
-            var latestAppointment = dataSet11.Appointment.AsEnumerable()
+            var latestAppointment = dataSet11.Pro_Appointment.AsEnumerable()
                 .Where(r =>
-                    Convert.ToDateTime(r["Appointment_Date"]).Date == DateTime.Today &&
-                    Convert.ToInt32(r["Doctor_ID"]) == medid &&
-                    r["Appointment_Status"].ToString() != "Cancelled" &&
-                    r["Appointment_Status"].ToString() != "No Show")
+                    Convert.ToDateTime(r["AppointmentDate"]).Date == DateTime.Today &&
+                    (
+                        (role == "Doctor" && Convert.ToInt32(r["DoctorID"]) == medid) ||
+                        (role == "Nurse" && Convert.ToInt32(r["NurseID"]) == medid)
+                    ) &&
+                    r["AppointmentStatus"].ToString() != "Cancelled" &&
+                    r["AppointmentStatus"].ToString() != "No Show")
                 .OrderByDescending(r =>
-                    Convert.ToDateTime(r["Appointment_Date"])
-                    .Add((TimeSpan)r["EndTime"]))
+                {
+                    DateTime date = Convert.ToDateTime(r["AppointmentDate"]);
+                    string timeSlot = r["TimeSlots"].ToString();
+
+                    var times = ParseTimeSlot(timeSlot, date);
+
+                    return times.end; // ✅ use parsed END time
+                })
                 .FirstOrDefault();
-            if(role == "Nurse")
-            {
-                latestAppointment = dataSet11.Appointment.AsEnumerable()
-                .Where(r =>
-                    Convert.ToDateTime(r["Appointment_Date"]).Date == DateTime.Today &&
-                    Convert.ToInt32(r["Nurse_ID"]) == medid &&
-                    r["Appointment_Status"].ToString() != "Cancelled" &&
-                    r["Appointment_Status"].ToString() != "No Show")
-                .OrderByDescending(r =>
-                    Convert.ToDateTime(r["Appointment_Date"])
-                    .Add((TimeSpan)r["EndTime"]))
-                .FirstOrDefault();
-            }
+  
             if (latestAppointment != null)
             {
-                DateTime date = Convert.ToDateTime(latestAppointment["Appointment_Date"]);
-                TimeSpan endTime = (TimeSpan)latestAppointment["EndTime"];
+                DateTime date = Convert.ToDateTime(latestAppointment["AppointmentDate"]);
+                string timeSlot = latestAppointment["TimeSlots"].ToString();
 
-                DateTime finishTime = date.Add(endTime);
+                var times = ParseTimeSlot(timeSlot, date);
 
-                lblWTTime.Text = $"Estimated Finish Time:{finishTime:HH:mm}";
+                DateTime finishTime = times.end;
+
+                lblWTTime.Text = $"Estimated Finish Time: {finishTime:HH:mm}";
             }
 
             // Recent Prescription Activity Widget
@@ -301,12 +301,15 @@ namespace MPM2.Business
                 if (status == "Scheduled")
                 {
                     patientName = dgvWidgetAppointment.Rows[i].Cells["PatientName"].Value.ToString();
-                    appointmentTime = dgvWidgetAppointment.Rows[i].Cells["startTimeDataGridViewTextBoxColumn"].Value.ToString();
+                    appointmentTime = dgvWidgetAppointment.Rows[i].Cells["timeSlotsDataGridViewTextBoxColumn"].Value.ToString();
 
+                    string timeSlot = dgvWidgetAppointment.Rows[i]
+                        .Cells["timeSlotsDataGridViewTextBoxColumn"].Value.ToString();
 
-                    TimeSpan startTime = (TimeSpan)dgvWidgetAppointment.Rows[i].Cells["startTimeDataGridViewTextBoxColumn"].Value;
+                    var times = ParseTimeSlot(timeSlot, DateTime.Today);
 
-                    DateTime nextAppointmentDateTime = DateTime.Today.Add(startTime);
+                    DateTime nextAppointmentDateTime = times.start;
+
                     DateTime now = DateTime.Now;
 
                     TimeSpan difference = nextAppointmentDateTime - now;
@@ -320,6 +323,27 @@ namespace MPM2.Business
                     break;
                 }
 
+            }
+        }
+        private (DateTime start, DateTime end) ParseTimeSlot(string timeSlot, DateTime date)
+        {
+            try
+            {
+                string[] parts = timeSlot.Split('-');
+
+                string startStr = parts[0].Trim();
+                string endStr = parts[1].Trim();
+
+                DateTime start = DateTime.ParseExact(startStr, "hh:mm tt", null);
+                DateTime end = DateTime.ParseExact(endStr, "hh:mm tt", null);
+                start = date.Date.Add(start.TimeOfDay);
+                end = date.Date.Add(end.TimeOfDay);
+
+                return (start, end);
+            }
+            catch
+            {
+                return (DateTime.MinValue, DateTime.MinValue);
             }
         }
 
