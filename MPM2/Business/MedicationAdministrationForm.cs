@@ -33,6 +33,7 @@ namespace MPM2.Business
             CBStatus.Items.Add("Delayed");
             CBStatus.SelectedIndex = 0;
 
+
         }
         public void SetTab(int tabIndex)
         {
@@ -85,7 +86,6 @@ namespace MPM2.Business
                 filter += "status = 'Delayed'";
             }
 
-            // ✅ DATE FIX
             DateTime date = dateTimePicker1.Value.Date;
 
             if (filter != "") filter += " AND ";
@@ -98,19 +98,42 @@ namespace MPM2.Business
             if (dgvMedAdministration.CurrentRow == null)
                 return;
 
-            String notes = dgvMedAdministration.CurrentRow.Cells["Notes"].Value.ToString();
-
-            if (notes != null)
-            {
-                RTBNotes.Text = notes;
-            }
-            else
-            {
-                RTBNotes.Clear();
-            }
+            ChangeValues();
 
         }
+        private void ResetFilter()
+        {
+            customMedAdmBindingSource.RemoveFilter();
+            TBDoctor.Clear();
+            TBPatient.Clear();
+            TBMedicine.Clear();
+            RBPending.Checked = false;
+            RBCompleted.Checked = false;
+            RBMissed.Checked = false;
+            RBDelayed.Checked = false;
+            dateTimePicker1.Checked = false;
+            dateTimePicker1.Value = DateTime.Today;
+            RTBNotes.Clear();
 
+        }
+        private void ChangeValues()
+        {
+            if (dgvMedAdministration.CurrentRow.Cells["Notes"].Value != null)
+            {
+                string notes = dgvMedAdministration.CurrentRow.Cells["Notes"].Value.ToString();
+
+                if (notes != null)
+                {
+                    RTBNotes.Text = notes;
+                }
+                else
+                {
+                    RTBNotes.Clear();
+                }
+                TBDosageAmount.Text = dgvMedAdministration.CurrentRow.Cells["frequencyInstanceDataGridViewTextBoxColumn"].Value.ToString();
+                CBStatus.SelectedItem = dgvMedAdministration.CurrentRow.Cells["statusDataGridViewTextBoxColumn"].Value.ToString();
+            }
+        }
         private void TBDoctor_TextChanged(object sender, EventArgs e)
         {
             ApplyFilter();
@@ -149,6 +172,16 @@ namespace MPM2.Business
         private void RBDelayed_CheckedChanged(object sender, EventArgs e)
         {
             ApplyFilter();
+        }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            ResetFilter();
+        }
+
+        private void dgvMedAdministration_SelectionChanged(object sender, EventArgs e)
+        {
+            ChangeValues();
         }
     }
 }

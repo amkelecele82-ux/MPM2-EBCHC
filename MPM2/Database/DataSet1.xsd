@@ -1485,7 +1485,7 @@ SELECT AdministratorID, FullName, Username, Password, emailAddress, CellphoneNum
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DateIssued" msprop:Generator_UserColumnName="DateIssued" msprop:Generator_ColumnPropNameInTable="DateIssuedColumn" msprop:Generator_ColumnPropNameInRow="DateIssued" msprop:Generator_ColumnVarNameInTable="columnDateIssued">
+              <xs:element name="DateIssued" msprop:Generator_ColumnPropNameInTable="DateIssuedColumn" msprop:Generator_ColumnPropNameInRow="DateIssued" msprop:Generator_UserColumnName="DateIssued" msprop:Generator_ColumnVarNameInTable="columnDateIssued">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
