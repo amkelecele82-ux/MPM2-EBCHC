@@ -4413,6 +4413,8 @@ namespace MPM2.Database {
             
             private global::System.Data.DataColumn columnNotes;
             
+            private global::System.Data.DataColumn columnDateIssued;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public CustomMedAdmDataTable() {
@@ -4560,6 +4562,14 @@ namespace MPM2.Database {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DateIssuedColumn {
+                get {
+                    return this.columnDateIssued;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4595,7 +4605,7 @@ namespace MPM2.Database {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public CustomMedAdmRow AddCustomMedAdmRow(string NurseName, string DoctorName, string MedicineName, string PatientName, int Expr1, int PrescriptionID, System.DateTime Admnistered_at, string dosageGiven, string status, int frequency_Instance, string Notes) {
+            public CustomMedAdmRow AddCustomMedAdmRow(string NurseName, string DoctorName, string MedicineName, string PatientName, int Expr1, int PrescriptionID, System.DateTime Admnistered_at, string dosageGiven, string status, int frequency_Instance, string Notes, string DateIssued) {
                 CustomMedAdmRow rowCustomMedAdmRow = ((CustomMedAdmRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NurseName,
@@ -4611,7 +4621,8 @@ namespace MPM2.Database {
                         dosageGiven,
                         status,
                         frequency_Instance,
-                        Notes};
+                        Notes,
+                        DateIssued};
                 rowCustomMedAdmRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCustomMedAdmRow);
                 return rowCustomMedAdmRow;
@@ -4648,6 +4659,7 @@ namespace MPM2.Database {
                 this.columnstatus = base.Columns["status"];
                 this.columnfrequency_Instance = base.Columns["frequency_Instance"];
                 this.columnNotes = base.Columns["Notes"];
+                this.columnDateIssued = base.Columns["DateIssued"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4681,6 +4693,8 @@ namespace MPM2.Database {
                 base.Columns.Add(this.columnfrequency_Instance);
                 this.columnNotes = new global::System.Data.DataColumn("Notes", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNotes);
+                this.columnDateIssued = new global::System.Data.DataColumn("DateIssued", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateIssued);
                 this.columnNurseName.AllowDBNull = false;
                 this.columnNurseName.MaxLength = 50;
                 this.columnDoctorName.AllowDBNull = false;
@@ -4714,6 +4728,8 @@ namespace MPM2.Database {
                 this.columnfrequency_Instance.AllowDBNull = false;
                 this.columnNotes.AllowDBNull = false;
                 this.columnNotes.MaxLength = 50;
+                this.columnDateIssued.AllowDBNull = false;
+                this.columnDateIssued.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7143,6 +7159,17 @@ namespace MPM2.Database {
                 }
                 set {
                     this[this.tableCustomMedAdm.NotesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string DateIssued {
+                get {
+                    return ((string)(this[this.tableCustomMedAdm.DateIssuedColumn]));
+                }
+                set {
+                    this[this.tableCustomMedAdm.DateIssuedColumn] = value;
                 }
             }
         }
@@ -10164,27 +10191,21 @@ SELECT NurseID, FullName, CellphoneNumber, UserName, Password, EmailAddress FROM
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Patient] WHERE (([PatientID] = @Original_PatientID) AND ([FullName] = @Original_FullName) AND ((@IsNull_DateOfBirth = 1 AND [DateOfBirth] IS NULL) OR ([DateOfBirth] = @Original_DateOfBirth)) AND ((@IsNull_Username = 1 AND [Username] IS NULL) OR ([Username] = @Original_Username)) AND ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)) AND ((@IsNull_PhoneNumber = 1 AND [PhoneNumber] IS NULL) OR ([PhoneNumber] = @Original_PhoneNumber)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ((@IsNull_EmailAddress = 1 AND [EmailAddress] IS NULL) OR ([EmailAddress] = @Original_EmailAddress)) AND ((@IsNull_AlternativePhoneNumber = 1 AND [AlternativePhoneNumber] IS NULL) OR ([AlternativePhoneNumber] = @Original_AlternativePhoneNumber)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Patient] WHERE (([PatientID] = @Original_PatientID) AND ([FullName] = @Original_FullName) AND ([DateOfBirth] = @Original_DateOfBirth) AND ([Username] = @Original_Username) AND ([Password] = @Original_Password) AND ([PhoneNumber] = @Original_PhoneNumber) AND ([Address] = @Original_Address) AND ([EmailAddress] = @Original_EmailAddress) AND ((@IsNull_AlternativePhoneNumber = 1 AND [AlternativePhoneNumber] IS NULL) OR ([AlternativePhoneNumber] = @Original_AlternativePhoneNumber)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FullName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DateOfBirth", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateOfBirth", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Username", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Password", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PhoneNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PhoneNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Address", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EmailAddress", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmailAddress", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmailAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmailAddress", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AlternativePhoneNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AlternativePhoneNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AlternativePhoneNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AlternativePhoneNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Patient] ([FullName], [DateOfBirth], [Username], [Password], [PhoneNumber], [Address], [EmailAddress], [AlternativePhoneNumber]) VALUES (@FullName, @DateOfBirth, @Username, @Password, @PhoneNumber, @Address, @EmailAddress, @AlternativePhoneNumber);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Patient] ([FullName], [DateOfBirth], [Username], [Password], [PhoneNumber], [Address], [EmailAddress], [AlternativePhoneNumber]) VALUES (@FullName, @DateOfBirth, @Username, @Password, @PhoneNumber, @Address, @EmailAddress, @AlternativePhoneNumber);
 SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Address, EmailAddress, AlternativePhoneNumber FROM Patient WHERE (PatientID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FullName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10197,7 +10218,7 @@ SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Addres
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AlternativePhoneNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AlternativePhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Patient] SET [FullName] = @FullName, [DateOfBirth] = @DateOfBirth, [Username] = @Username, [Password] = @Password, [PhoneNumber] = @PhoneNumber, [Address] = @Address, [EmailAddress] = @EmailAddress, [AlternativePhoneNumber] = @AlternativePhoneNumber WHERE (([PatientID] = @Original_PatientID) AND ([FullName] = @Original_FullName) AND ((@IsNull_DateOfBirth = 1 AND [DateOfBirth] IS NULL) OR ([DateOfBirth] = @Original_DateOfBirth)) AND ((@IsNull_Username = 1 AND [Username] IS NULL) OR ([Username] = @Original_Username)) AND ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)) AND ((@IsNull_PhoneNumber = 1 AND [PhoneNumber] IS NULL) OR ([PhoneNumber] = @Original_PhoneNumber)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ((@IsNull_EmailAddress = 1 AND [EmailAddress] IS NULL) OR ([EmailAddress] = @Original_EmailAddress)) AND ((@IsNull_AlternativePhoneNumber = 1 AND [AlternativePhoneNumber] IS NULL) OR ([AlternativePhoneNumber] = @Original_AlternativePhoneNumber)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Patient] SET [FullName] = @FullName, [DateOfBirth] = @DateOfBirth, [Username] = @Username, [Password] = @Password, [PhoneNumber] = @PhoneNumber, [Address] = @Address, [EmailAddress] = @EmailAddress, [AlternativePhoneNumber] = @AlternativePhoneNumber WHERE (([PatientID] = @Original_PatientID) AND ([FullName] = @Original_FullName) AND ([DateOfBirth] = @Original_DateOfBirth) AND ([Username] = @Original_Username) AND ([Password] = @Original_Password) AND ([PhoneNumber] = @Original_PhoneNumber) AND ([Address] = @Original_Address) AND ([EmailAddress] = @Original_EmailAddress) AND ((@IsNull_AlternativePhoneNumber = 1 AND [AlternativePhoneNumber] IS NULL) OR ([AlternativePhoneNumber] = @Original_AlternativePhoneNumber)));
 SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Address, EmailAddress, AlternativePhoneNumber FROM Patient WHERE (PatientID = @PatientID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FullName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10210,17 +10231,11 @@ SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Addres
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AlternativePhoneNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AlternativePhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FullName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DateOfBirth", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateOfBirth", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Username", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Password", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PhoneNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PhoneNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Address", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EmailAddress", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmailAddress", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmailAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmailAddress", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AlternativePhoneNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AlternativePhoneNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AlternativePhoneNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AlternativePhoneNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -10241,13 +10256,13 @@ SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Addres
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Address" +
-                ", EmailAddress, AlternativePhoneNumber FROM dbo.Patient";
+                ", EmailAddress, AlternativePhoneNumber FROM Patient";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Address" +
-                ", EmailAddress, AlternativePhoneNumber\r\nFROM     Patient\r\nWHERE  (FullName LIKE " +
-                "\'%\' + @name + \'%\')";
+                ", EmailAddress, AlternativePhoneNumber FROM Patient WHERE (FullName LIKE \'%\' + @" +
+                "name + \'%\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -10373,7 +10388,7 @@ SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Addres
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PatientID, string Original_FullName, global::System.Nullable<global::System.DateTime> Original_DateOfBirth, string Original_Username, string Original_Password, string Original_PhoneNumber, string Original_Address, string Original_EmailAddress, string Original_AlternativePhoneNumber) {
+        public virtual int Delete(int Original_PatientID, string Original_FullName, System.DateTime Original_DateOfBirth, string Original_Username, string Original_Password, string Original_PhoneNumber, string Original_Address, string Original_EmailAddress, string Original_AlternativePhoneNumber) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PatientID));
             if ((Original_FullName == null)) {
                 throw new global::System.ArgumentNullException("Original_FullName");
@@ -10381,61 +10396,44 @@ SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Addres
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_FullName));
             }
-            if ((Original_DateOfBirth.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_DateOfBirth.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_DateOfBirth));
             if ((Original_Username == null)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Username");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Username));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Username));
             }
             if ((Original_Password == null)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Password");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Password));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Password));
             }
             if ((Original_PhoneNumber == null)) {
+                throw new global::System.ArgumentNullException("Original_PhoneNumber");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_PhoneNumber));
+            }
+            if ((Original_Address == null)) {
+                throw new global::System.ArgumentNullException("Original_Address");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Address));
+            }
+            if ((Original_EmailAddress == null)) {
+                throw new global::System.ArgumentNullException("Original_EmailAddress");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_EmailAddress));
+            }
+            if ((Original_AlternativePhoneNumber == null)) {
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_PhoneNumber));
-            }
-            if ((Original_Address == null)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Address));
-            }
-            if ((Original_EmailAddress == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_EmailAddress));
-            }
-            if ((Original_AlternativePhoneNumber == null)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_AlternativePhoneNumber));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_AlternativePhoneNumber));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10457,45 +10455,40 @@ SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Addres
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string FullName, global::System.Nullable<global::System.DateTime> DateOfBirth, string Username, string Password, string PhoneNumber, string Address, string EmailAddress, string AlternativePhoneNumber) {
+        public virtual int Insert(string FullName, System.DateTime DateOfBirth, string Username, string Password, string PhoneNumber, string Address, string EmailAddress, string AlternativePhoneNumber) {
             if ((FullName == null)) {
                 throw new global::System.ArgumentNullException("FullName");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(FullName));
             }
-            if ((DateOfBirth.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(DateOfBirth.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(DateOfBirth));
             if ((Username == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Username");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Username));
             }
             if ((Password == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Password");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Password));
             }
             if ((PhoneNumber == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("PhoneNumber");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(PhoneNumber));
             }
             if ((Address == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Address");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Address));
             }
             if ((EmailAddress == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("EmailAddress");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(EmailAddress));
@@ -10528,7 +10521,7 @@ SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Addres
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
                     string FullName, 
-                    global::System.Nullable<global::System.DateTime> DateOfBirth, 
+                    System.DateTime DateOfBirth, 
                     string Username, 
                     string Password, 
                     string PhoneNumber, 
@@ -10537,7 +10530,7 @@ SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Addres
                     string AlternativePhoneNumber, 
                     int Original_PatientID, 
                     string Original_FullName, 
-                    global::System.Nullable<global::System.DateTime> Original_DateOfBirth, 
+                    System.DateTime Original_DateOfBirth, 
                     string Original_Username, 
                     string Original_Password, 
                     string Original_PhoneNumber, 
@@ -10551,38 +10544,33 @@ SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Addres
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(FullName));
             }
-            if ((DateOfBirth.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(DateOfBirth.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(DateOfBirth));
             if ((Username == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Username");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Username));
             }
             if ((Password == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Password");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Password));
             }
             if ((PhoneNumber == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("PhoneNumber");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(PhoneNumber));
             }
             if ((Address == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Address");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Address));
             }
             if ((EmailAddress == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("EmailAddress");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(EmailAddress));
@@ -10600,63 +10588,46 @@ SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Addres
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_FullName));
             }
-            if ((Original_DateOfBirth.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_DateOfBirth.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_DateOfBirth));
             if ((Original_Username == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Username");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Username));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Username));
             }
             if ((Original_Password == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Password");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Password));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Password));
             }
             if ((Original_PhoneNumber == null)) {
+                throw new global::System.ArgumentNullException("Original_PhoneNumber");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_PhoneNumber));
+            }
+            if ((Original_Address == null)) {
+                throw new global::System.ArgumentNullException("Original_Address");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Address));
+            }
+            if ((Original_EmailAddress == null)) {
+                throw new global::System.ArgumentNullException("Original_EmailAddress");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_EmailAddress));
+            }
+            if ((Original_AlternativePhoneNumber == null)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_PhoneNumber));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_AlternativePhoneNumber));
             }
-            if ((Original_Address == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Address));
-            }
-            if ((Original_EmailAddress == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_EmailAddress));
-            }
-            if ((Original_AlternativePhoneNumber == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_AlternativePhoneNumber));
-            }
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(PatientID));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(PatientID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10679,7 +10650,7 @@ SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Addres
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
                     string FullName, 
-                    global::System.Nullable<global::System.DateTime> DateOfBirth, 
+                    System.DateTime DateOfBirth, 
                     string Username, 
                     string Password, 
                     string PhoneNumber, 
@@ -10688,7 +10659,7 @@ SELECT PatientID, FullName, DateOfBirth, Username, Password, PhoneNumber, Addres
                     string AlternativePhoneNumber, 
                     int Original_PatientID, 
                     string Original_FullName, 
-                    global::System.Nullable<global::System.DateTime> Original_DateOfBirth, 
+                    System.DateTime Original_DateOfBirth, 
                     string Original_Username, 
                     string Original_Password, 
                     string Original_PhoneNumber, 
@@ -11944,9 +11915,10 @@ FROM     Appointment AS a INNER JOIN
                   Doctor AS d ON a.Doctor_ID = d.DoctorID INNER JOIN
                   Patient AS p ON a.Patient_ID = p.PatientID INNER JOIN
                   Nurse AS n ON a.Nurse_ID = n.NurseID
-WHERE  (a.Appointment_Date >= @date) AND (a.Doctor_ID = @id)";
+WHERE  (a.Appointment_Date = CAST(GETDATE() AS DATE)) AND (a.StartTime >= CAST(GETDATE() AS TIME)) AND (a.Doctor_ID = @id)
+ORDER BY a.StartTime; 
+";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Appointment_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Doctor_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -12006,10 +11978,9 @@ WHERE  (a.Appointment_Date >= @date) AND (a.Doctor_ID = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByNameFilterByTodaysDate(DataSet1.AppointmentViewDataTable dataTable, System.DateTime date, int id) {
+        public virtual int FillByNameFilterByTodaysDate(DataSet1.AppointmentViewDataTable dataTable, int id) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(date));
-            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -12021,10 +11992,9 @@ WHERE  (a.Appointment_Date >= @date) AND (a.Doctor_ID = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSet1.AppointmentViewDataTable GetDataBy(System.DateTime date, int id) {
+        public virtual DataSet1.AppointmentViewDataTable GetDataBy(int id) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(date));
-            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             DataSet1.AppointmentViewDataTable dataTable = new DataSet1.AppointmentViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -12979,6 +12949,7 @@ FROM            LiteAppointment INNER JOIN
             tableMapping.ColumnMappings.Add("status", "status");
             tableMapping.ColumnMappings.Add("frequency_Instance", "frequency_Instance");
             tableMapping.ColumnMappings.Add("Notes", "Notes");
+            tableMapping.ColumnMappings.Add("DateIssued", "DateIssued");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -12995,8 +12966,8 @@ FROM            LiteAppointment INNER JOIN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT n.FullName AS NurseName, d.FullName AS DoctorName, p.MedicationName AS MedicineName, pt.FullName AS PatientName, d.DoctorID, n.NurseID, m.medication_AdministratorID, m.NurseID AS Expr1, m.PrescriptionID, m.Admnistered_at, 
-                  m.dosageGiven, m.status, m.frequency_Instance, m.Notes
+            this._commandCollection[0].CommandText = @"SELECT n.FullName AS NurseName, d.FullName AS DoctorName, p.MedicationName AS MedicineName, pt.FullName AS PatientName, p.DateIssued, d.DoctorID, n.NurseID, m.medication_AdministratorID, m.NurseID AS Expr1, m.PrescriptionID, 
+                  m.Admnistered_at, m.dosageGiven, m.status, m.frequency_Instance, m.Notes
 FROM     MedicationAdministration AS m INNER JOIN
                   Nurse AS n ON m.NurseID = n.NurseID INNER JOIN
                   Prescription AS p ON m.PrescriptionID = p.PrescriptionID INNER JOIN
