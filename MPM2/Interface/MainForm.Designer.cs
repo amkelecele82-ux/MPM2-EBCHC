@@ -52,8 +52,12 @@
             this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewAllToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.recordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.appointmentTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.AppointmentTableAdapter();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -199,14 +203,14 @@
             // viewAllToolStripMenuItem2
             // 
             this.viewAllToolStripMenuItem2.Name = "viewAllToolStripMenuItem2";
-            this.viewAllToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
+            this.viewAllToolStripMenuItem2.Size = new System.Drawing.Size(164, 26);
             this.viewAllToolStripMenuItem2.Text = "View All";
             this.viewAllToolStripMenuItem2.Click += new System.EventHandler(this.viewAllToolStripMenuItem2_Click);
             // 
             // administerToolStripMenuItem
             // 
             this.administerToolStripMenuItem.Name = "administerToolStripMenuItem";
-            this.administerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.administerToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
             this.administerToolStripMenuItem.Text = "Administer";
             this.administerToolStripMenuItem.Click += new System.EventHandler(this.administerToolStripMenuItem_Click);
             // 
@@ -223,28 +227,31 @@
             // recordToolStripMenuItem
             // 
             this.recordToolStripMenuItem.Name = "recordToolStripMenuItem";
-            this.recordToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.recordToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
             this.recordToolStripMenuItem.Text = "Record";
             this.recordToolStripMenuItem.Click += new System.EventHandler(this.recordToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
             this.viewToolStripMenuItem.Text = "View";
             this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
             // 
             // createToolStripMenuItem
             // 
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            this.createToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(139, 26);
             this.createToolStripMenuItem.Text = "Create";
             this.createToolStripMenuItem.Click += new System.EventHandler(this.createToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewReportsToolStripMenuItem});
+            this.viewReportsToolStripMenuItem,
+            this.viewAllToolStripMenuItem3,
+            this.recordsToolStripMenuItem,
+            this.printToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.reportsToolStripMenuItem.Text = "Reports";
@@ -252,8 +259,24 @@
             // viewReportsToolStripMenuItem
             // 
             this.viewReportsToolStripMenuItem.Name = "viewReportsToolStripMenuItem";
-            this.viewReportsToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.viewReportsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.viewReportsToolStripMenuItem.Text = "View Reports";
+            this.viewReportsToolStripMenuItem.Click += new System.EventHandler(this.viewReportsToolStripMenuItem_Click);
+            // 
+            // viewAllToolStripMenuItem3
+            // 
+            this.viewAllToolStripMenuItem3.Name = "viewAllToolStripMenuItem3";
+            this.viewAllToolStripMenuItem3.Size = new System.Drawing.Size(224, 26);
+            this.viewAllToolStripMenuItem3.Text = "&View All";
+            this.viewAllToolStripMenuItem3.ToolTipText = "Show all appointments without date filter";
+            this.viewAllToolStripMenuItem3.Click += new System.EventHandler(this.viewAllToolStripMenuItem3_Click);
+            // 
+            // recordsToolStripMenuItem
+            // 
+            this.recordsToolStripMenuItem.Name = "recordsToolStripMenuItem";
+            this.recordsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.recordsToolStripMenuItem.Text = "Records";
+            this.recordsToolStripMenuItem.Click += new System.EventHandler(this.recordsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -269,6 +292,17 @@
             this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.viewHelpToolStripMenuItem.Text = "View Help";
             this.viewHelpToolStripMenuItem.Click += new System.EventHandler(this.viewHelpToolStripMenuItem_Click);
+            // 
+            // appointmentTableAdapter1
+            // 
+            this.appointmentTableAdapter1.ClearBeforeFill = true;
+            // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.printToolStripMenuItem.Text = "&Print";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -320,6 +354,10 @@
         private System.Windows.Forms.ToolStripMenuItem recordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewAllToolStripMenuItem3;
+        private Database.DataSet1TableAdapters.AppointmentTableAdapter appointmentTableAdapter1;
+        private System.Windows.Forms.ToolStripMenuItem recordsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
     }
 }
 

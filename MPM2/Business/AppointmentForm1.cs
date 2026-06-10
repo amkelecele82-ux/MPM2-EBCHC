@@ -281,5 +281,10 @@ namespace MPM2.Business
         {
 
         }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
