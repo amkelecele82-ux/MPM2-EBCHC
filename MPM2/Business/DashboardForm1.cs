@@ -20,42 +20,77 @@ namespace MPM2.Business
         string fullName;
         string role;
         int medid;
-        public DashboardForm1(string role,DataRow datarow)
+        public DashboardForm1(string role, DataRow datarow)
         {
             InitializeComponent();
             this.userName = datarow["Username"].ToString();
             //this.fullName = fullName;
             this.fullName = datarow["FullName"].ToString();
             this.role = role;
-            
+
             patientTableAdapter1.Fill(dataSet11.Patient);
 
-            if (role.Equals("Nurse")) {
+            if (role.Equals("Nurse"))
+            {
                 DashPresbutton.Text = "Administration";
                 this.medid = Convert.ToInt32(datarow["NurseID"]);
             }
             else if (role.Equals("Doctor"))
-                {
-                    this.medid = Convert.ToInt32(datarow["DoctorID"]);
+            {
+                this.medid = Convert.ToInt32(datarow["DoctorID"]);
             }
         }
-
+        private int GetLoggedInNurseId()
+        {
+            if (this.MdiParent is MainForm main && main.CurrentDataRow != null && main.CurrentRole == "Nurse")
+            {
+                var dr = main.CurrentDataRow;
+                string[] candidateColumns = { "NurseID", "NurseId", "EmployeeID", "UserID", "ID" };
+                foreach (var col in candidateColumns)
+                {
+                    if (dr.Table.Columns.Contains(col) && dr[col] != DBNull.Value)
+                    {
+                        int id;
+                        if (int.TryParse(dr[col].ToString(), out id))
+                            return id;
+                    }
+                }
+            }
+            return 0;
+        }
+        private int GetLoggedInDoctorId()
+        {
+            if (this.MdiParent is MainForm main && main.CurrentDataRow != null && main.CurrentRole == "Doctor")
+            {
+                var dr = main.CurrentDataRow;
+                if (dr.Table.Columns.Contains("DoctorID") && dr["DoctorID"] != DBNull.Value)
+                {
+                    int id;
+                    if (int.TryParse(dr["DoctorID"].ToString(), out id))
+                        return id;
+                }
+            }
+            return 0;
+        }
         private void DashboardForm1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSet11.NewApointments' table. You can move, or remove it, as needed.
+            this.newAppointmentsTableAdapter.Fill(this.dataSet11.NewApointments);
             // TODO: This line of code loads data into the 'dataSet11.Appointment' table. You can move, or remove it, as needed.
             this.appointmentTableAdapter.Fill(this.dataSet11.Appointment);
             // TODO: This line of code loads data into the 'dataSet11.AppointmentView' table. You can move, or remove it, as needed.
-            if(role.Equals("Doctor"))
-            {
-                this.appointmentViewTableAdapter.FillByNameFilterByTodaysDate(this.dataSet11.AppointmentView, DateTime.Today,medid);
-                dgvWidgetAppointment.Columns["DoctorName"].Visible = false;
-            }
-            else
-            {
-                this.appointmentViewTableAdapter.FillByDateNurse(this.dataSet11.AppointmentView, DateTime.Today, medid);
-                dgvWidgetAppointment.Columns["NurseName"].Visible = false;
-            }
-                medicationAdministrationTableAdapter1.Fill(dataSet11.MedicationAdministration);
+            /* if(role.Equals("Doctor"))
+             {
+                 this.appointmentViewTableAdapter.FillByNameFilterByTodaysDate(this.dataSet11.AppointmentView, DateTime.Today,medid);
+                 dgvWidgetAppointment.Columns["DoctorName"].Visible = false;
+             }
+             else
+             {
+                 this.appointmentViewTableAdapter.FillByDateNurse(this.dataSet11.AppointmentView, DateTime.Today, medid);
+                 dgvWidgetAppointment.Columns["NurseName"].Visible = false;
+             }
+                 medicationAdministrationTableAdapter1.Fill(dataSet11.MedicationAdministration);
+            */
             fullNameLabel.Text = fullName;
             lblRegPatient.Text = dataSet11.Patient.Count.ToString();
             Dashlabel.Text = DateTime.Now.ToString("dddd dd MMMM yyyy") + " | East Boom CHC | KwaZulu Natal Province";
@@ -106,7 +141,8 @@ namespace MPM2.Business
             }
             string zero = "";
             string zero2 = "";
-            if (patientToday >= 0 && patientToday < 10) {
+            if (patientToday >= 0 && patientToday < 10)
+            {
                 zero = "0";
             }
             if (appointmentcount >= 0 && appointmentcount < 10)
@@ -121,12 +157,14 @@ namespace MPM2.Business
             int missedMed = 0;
             foreach (DataRow ma in dataSet11.MedicationAdministration.Rows)
             {
-                if (ma["status"].ToString() =="Missed")
+                if (ma["status"].ToString() == "Missed")
                 {
                     missedMed++;
                 }
             }
             lblMissedMed.Text = missedMed.ToString();
+            ApplyDoctorFilter();
+            //ApplyRoleFilter();
         }
 
         private void dgvWidgetAppointment_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -171,7 +209,7 @@ namespace MPM2.Business
             {
                 this.ActiveMdiChild.Close();
             }
-            RegPatientForm rp = new RegPatientForm();
+            RegPatientForm2 rp = new RegPatientForm2();
             rp.MdiParent = this.MdiParent;
             rp.WindowState = FormWindowState.Maximized;
             rp.FormBorderStyle = FormBorderStyle.None;
@@ -207,20 +245,21 @@ namespace MPM2.Business
 
         private void DashPresbutton_Click(object sender, EventArgs e)
         {
-            if (role.Equals("Doctor")) {
-            PrescriptionForm pf = new PrescriptionForm();
-            pf.MdiParent = this.MdiParent;
-            pf.WindowState = FormWindowState.Maximized;
-            pf.FormBorderStyle = FormBorderStyle.None;
-            pf.Show();
+            if (role.Equals("Doctor"))
+            {
+                PrescriptionForm pf = new PrescriptionForm();
+                pf.MdiParent = this.MdiParent;
+                pf.WindowState = FormWindowState.Maximized;
+                pf.FormBorderStyle = FormBorderStyle.None;
+                pf.Show();
             }
             else if (role.Equals("Nurse"))
-                {
-                    MedicationAdministrationForm maf = new MedicationAdministrationForm();
-                    maf.MdiParent = this.MdiParent;
-                    maf.WindowState = FormWindowState.Maximized;
-                    maf.FormBorderStyle = FormBorderStyle.None;
-                    maf.Show();
+            {
+                MedicationAdministrationForm maf = new MedicationAdministrationForm();
+                maf.MdiParent = this.MdiParent;
+                maf.WindowState = FormWindowState.Maximized;
+                maf.FormBorderStyle = FormBorderStyle.None;
+                maf.Show();
             }
         }
 
@@ -228,5 +267,130 @@ namespace MPM2.Business
         {
 
         }
+
+        private void lblMissedAppointment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AdminAppointment aa = new AdminAppointment();
+            aa.MdiParent = this.MdiParent;
+            aa.WindowState = FormWindowState.Maximized;
+            aa.FormBorderStyle = FormBorderStyle.None;
+            aa.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        private void ApplyDoctorFilter()
+        {
+            try
+            {
+                if (dataSet11 == null || dataSet11.Pro_Appointment == null)
+                    return;
+
+                int doctorId = GetLoggedInDoctorId();
+                if (doctorId != 0 && this.MdiParent is MainForm main && main.CurrentRole == "Doctor")
+                {
+                    // Filter the default view so bound controls (e.g., dataGridView3) only show this doctor's appointments.
+                    dataSet11.Pro_Appointment.DefaultView.RowFilter = $"DoctorID = {doctorId}";
+                }
+                else
+                {
+                    // Show all appointments for non-doctor roles (or when no doctor logged in)
+                    dataSet11.Pro_Appointment.DefaultView.RowFilter = string.Empty;
+                }
+            }
+            catch
+            {
+                // If something goes wrong with the filter (e.g. wrong column name), silently ignore so UI remains usable.
+            }
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void ApplyRoleFilter()
+        {
+            try
+            {
+                if (dataSet11 == null || dataSet11.Pro_Appointment == null)
+                    return;
+
+                if (this.MdiParent is MainForm main && main.CurrentDataRow != null)
+                {
+                    if (main.CurrentRole == "Doctor")
+                    {
+                        int doctorId = GetLoggedInDoctorId();
+                        if (doctorId != 0)
+                        {
+                            dataSet11.Pro_Appointment.DefaultView.RowFilter = $"DoctorID = {doctorId}";
+                            return;
+                        }
+                    }
+                    else if (main.CurrentRole == "Nurse")
+                    {
+                        int nurseId = GetLoggedInNurseId();
+                        if (nurseId != 0)
+                        {
+                            // Expect the column storing nurse reference to be NurseID (robustness: if your dataset uses a different column name,
+                            // update the string below to match it).
+                            dataSet11.Pro_Appointment.DefaultView.RowFilter = $"NurseID = {nurseId}";
+                            return;
+                        }
+                    }
+                }
+                dataSet11.Pro_Appointment.DefaultView.RowFilter = string.Empty;
+            }
+            catch (Exception)
+            { }
+        }
+
+        private void lblAppointmentCount_Click(object sender, EventArgs e)
+        {
+
+        }
+        private int CountDoctorAppointmentsOnDate(int doctorId, DateTime date)
+        {
+            if (dataSet11 == null || dataSet11.Pro_Appointment == null)
+                return 0;
+
+            int count = 0;
+            foreach (DataRow row in dataSet11.Pro_Appointment.Rows)
+            {
+                if (row == null)
+                    continue;
+
+                int rowDoctorId = 0;
+                if (row.Table.Columns.Contains("DoctorID") && row["DoctorID"] != DBNull.Value)
+                    int.TryParse(row["DoctorID"].ToString(), out rowDoctorId);
+                else if (row.Table.Columns.Contains("Doctor_ID") && row["Doctor_ID"] != DBNull.Value)
+                    int.TryParse(row["Doctor_ID"].ToString(), out rowDoctorId);
+                else
+                    continue;
+
+                if (rowDoctorId != doctorId)
+                    continue;
+
+                if (!row.Table.Columns.Contains("AppointmentDate") || row["AppointmentDate"] == DBNull.Value)
+                    continue;
+
+                DateTime apptDate;
+                try { apptDate = Convert.ToDateTime(row["AppointmentDate"]); }
+                catch { continue; }
+
+                if (apptDate.Date == date.Date)
+                    count++;
+            }
+            return count;
+        }
     }
 }
+
+       
+

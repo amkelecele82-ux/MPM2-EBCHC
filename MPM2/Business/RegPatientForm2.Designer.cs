@@ -29,13 +29,10 @@
         private void InitializeComponent()
         {
             this.pnlTitleBar = new System.Windows.Forms.Panel();
-            this.lblKZNBadge = new System.Windows.Forms.Label();
             this.lblFormTitle = new System.Windows.Forms.Label();
+            this.lblKZNBadge = new System.Windows.Forms.Label();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.pnlSectionHeader = new System.Windows.Forms.Panel();
             this.lblSectionHeader = new System.Windows.Forms.Label();
             this.lblFolderNumber = new System.Windows.Forms.Label();
@@ -59,18 +56,22 @@
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblMedicalAid = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txtComplaint = new System.Windows.Forms.TextBox();
             this.cmbMedicalAid = new System.Windows.Forms.ComboBox();
-            this.lblComplaint = new System.Windows.Forms.Label();
             this.pnlButtons = new System.Windows.Forms.Panel();
             this.pnlButtons2 = new System.Windows.Forms.Panel();
-            this.btnClearForm = new System.Windows.Forms.Button();
-            this.btnRegister = new System.Windows.Forms.Button();
-            this.btnSaveDraft = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
+            this.btnSaveDraft = new System.Windows.Forms.Button();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnClearForm = new System.Windows.Forms.Button();
             this.pnlStatusBar = new System.Windows.Forms.Panel();
-            this.lblStatusLeft = new System.Windows.Forms.Label();
             this.lblStatusRight = new System.Windows.Forms.Label();
+            this.lblStatusLeft = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.pnlTitleBar.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.pnlSectionHeader.SuspendLayout();
@@ -87,8 +88,20 @@
             this.pnlTitleBar.Location = new System.Drawing.Point(0, 0);
             this.pnlTitleBar.MaximumSize = new System.Drawing.Size(0, 32);
             this.pnlTitleBar.Name = "pnlTitleBar";
-            this.pnlTitleBar.Size = new System.Drawing.Size(1526, 32);
+            this.pnlTitleBar.Size = new System.Drawing.Size(1823, 32);
             this.pnlTitleBar.TabIndex = 0;
+            // 
+            // lblFormTitle
+            // 
+            this.lblFormTitle.AutoSize = true;
+            this.lblFormTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblFormTitle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormTitle.ForeColor = System.Drawing.Color.White;
+            this.lblFormTitle.Location = new System.Drawing.Point(78, 7);
+            this.lblFormTitle.Name = "lblFormTitle";
+            this.lblFormTitle.Size = new System.Drawing.Size(275, 17);
+            this.lblFormTitle.TabIndex = 1;
+            this.lblFormTitle.Text = "New patient registration — East Boom CHC";
             // 
             // lblKZNBadge
             // 
@@ -103,30 +116,15 @@
             this.lblKZNBadge.Text = "KZN DOH";
             this.lblKZNBadge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblFormTitle
-            // 
-            this.lblFormTitle.AutoSize = true;
-            this.lblFormTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblFormTitle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFormTitle.ForeColor = System.Drawing.Color.White;
-            this.lblFormTitle.Location = new System.Drawing.Point(78, 7);
-            this.lblFormTitle.Name = "lblFormTitle";
-            this.lblFormTitle.Size = new System.Drawing.Size(275, 17);
-            this.lblFormTitle.TabIndex = 1;
-            this.lblFormTitle.Text = "New patient registration — East Boom CHC";
-            // 
             // tabMain
             // 
             this.tabMain.Controls.Add(this.tabPage1);
-            this.tabMain.Controls.Add(this.tabPage2);
-            this.tabMain.Controls.Add(this.tabPage3);
-            this.tabMain.Controls.Add(this.tabPage4);
             this.tabMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabMain.ItemSize = new System.Drawing.Size(128, 24);
             this.tabMain.Location = new System.Drawing.Point(0, 32);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(1526, 26);
+            this.tabMain.Size = new System.Drawing.Size(1823, 26);
             this.tabMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabMain.TabIndex = 1;
             // 
@@ -135,40 +133,10 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1518, 0);
+            this.tabPage1.Size = new System.Drawing.Size(1815, 0);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Personal Details";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1518, 0);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Medical history";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 28);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1518, 0);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Chronic conditions";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 28);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1518, 0);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Next of kin";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // pnlSectionHeader
             // 
@@ -177,7 +145,7 @@
             this.pnlSectionHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSectionHeader.Location = new System.Drawing.Point(0, 58);
             this.pnlSectionHeader.Name = "pnlSectionHeader";
-            this.pnlSectionHeader.Size = new System.Drawing.Size(1526, 26);
+            this.pnlSectionHeader.Size = new System.Drawing.Size(1823, 26);
             this.pnlSectionHeader.TabIndex = 3;
             // 
             // lblSectionHeader
@@ -207,7 +175,7 @@
             // 
             this.lblIDNumber.AutoSize = true;
             this.lblIDNumber.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIDNumber.Location = new System.Drawing.Point(548, 92);
+            this.lblIDNumber.Location = new System.Drawing.Point(947, 92);
             this.lblIDNumber.Name = "lblIDNumber";
             this.lblIDNumber.Size = new System.Drawing.Size(124, 13);
             this.lblIDNumber.TabIndex = 5;
@@ -220,7 +188,7 @@
             this.txtFolderNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.txtFolderNumber.Location = new System.Drawing.Point(12, 109);
             this.txtFolderNumber.Name = "txtFolderNumber";
-            this.txtFolderNumber.Size = new System.Drawing.Size(524, 23);
+            this.txtFolderNumber.Size = new System.Drawing.Size(798, 23);
             this.txtFolderNumber.TabIndex = 6;
             // 
             // txtIDNumber
@@ -228,17 +196,17 @@
             this.txtIDNumber.BackColor = System.Drawing.Color.White;
             this.txtIDNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIDNumber.ForeColor = System.Drawing.Color.Gray;
-            this.txtIDNumber.Location = new System.Drawing.Point(548, 109);
+            this.txtIDNumber.Location = new System.Drawing.Point(950, 109);
             this.txtIDNumber.MaxLength = 13;
             this.txtIDNumber.Name = "txtIDNumber";
-            this.txtIDNumber.Size = new System.Drawing.Size(524, 23);
+            this.txtIDNumber.Size = new System.Drawing.Size(861, 23);
             this.txtIDNumber.TabIndex = 7;
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.Location = new System.Drawing.Point(548, 140);
+            this.lblFirstName.Location = new System.Drawing.Point(947, 140);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(79, 13);
             this.lblFirstName.TabIndex = 8;
@@ -259,9 +227,9 @@
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.textBox1.Location = new System.Drawing.Point(548, 157);
+            this.textBox1.Location = new System.Drawing.Point(950, 157);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(524, 23);
+            this.textBox1.Size = new System.Drawing.Size(861, 23);
             this.textBox1.TabIndex = 10;
             // 
             // textBox2
@@ -271,14 +239,14 @@
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.textBox2.Location = new System.Drawing.Point(12, 157);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(524, 23);
+            this.textBox2.Size = new System.Drawing.Size(798, 23);
             this.textBox2.TabIndex = 11;
             // 
             // lblGender
             // 
             this.lblGender.AutoSize = true;
             this.lblGender.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(548, 188);
+            this.lblGender.Location = new System.Drawing.Point(946, 183);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(53, 13);
             this.lblGender.TabIndex = 12;
@@ -300,7 +268,7 @@
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDOB.Location = new System.Drawing.Point(12, 205);
             this.dtpDOB.Name = "dtpDOB";
-            this.dtpDOB.Size = new System.Drawing.Size(524, 23);
+            this.dtpDOB.Size = new System.Drawing.Size(798, 23);
             this.dtpDOB.TabIndex = 14;
             // 
             // cmbGender
@@ -312,9 +280,9 @@
             "Female",
             "Male",
             "Other / Not specified"});
-            this.cmbGender.Location = new System.Drawing.Point(548, 205);
+            this.cmbGender.Location = new System.Drawing.Point(950, 205);
             this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(524, 23);
+            this.cmbGender.Size = new System.Drawing.Size(861, 23);
             this.cmbGender.TabIndex = 15;
             // 
             // lblLanguage
@@ -331,11 +299,12 @@
             // 
             this.lblMarital.AutoSize = true;
             this.lblMarital.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarital.Location = new System.Drawing.Point(548, 236);
+            this.lblMarital.Location = new System.Drawing.Point(946, 231);
             this.lblMarital.Name = "lblMarital";
             this.lblMarital.Size = new System.Drawing.Size(77, 13);
             this.lblMarital.TabIndex = 17;
             this.lblMarital.Text = "Marital status";
+            this.lblMarital.Click += new System.EventHandler(this.lblMarital_Click);
             // 
             // cmbMarital
             // 
@@ -350,9 +319,9 @@
             "Divorced",
             "",
             "Widowed"});
-            this.cmbMarital.Location = new System.Drawing.Point(548, 253);
+            this.cmbMarital.Location = new System.Drawing.Point(950, 253);
             this.cmbMarital.Name = "cmbMarital";
-            this.cmbMarital.Size = new System.Drawing.Size(524, 23);
+            this.cmbMarital.Size = new System.Drawing.Size(861, 23);
             this.cmbMarital.TabIndex = 18;
             // 
             // comboBox2
@@ -376,18 +345,18 @@
             "Other"});
             this.comboBox2.Location = new System.Drawing.Point(12, 253);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(524, 23);
+            this.comboBox2.Size = new System.Drawing.Size(798, 23);
             this.comboBox2.TabIndex = 19;
             // 
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.Location = new System.Drawing.Point(12, 284);
+            this.lblAddress.Location = new System.Drawing.Point(8, 343);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(115, 13);
+            this.lblAddress.Size = new System.Drawing.Size(175, 13);
             this.lblAddress.TabIndex = 20;
-            this.lblAddress.Text = "Residential address *";
+            this.lblAddress.Text = "House Number and street name*";
             // 
             // txtAddress
             // 
@@ -396,16 +365,16 @@
             this.txtAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.txtAddress.Location = new System.Drawing.Point(12, 301);
+            this.txtAddress.Location = new System.Drawing.Point(11, 368);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(1060, 23);
+            this.txtAddress.Size = new System.Drawing.Size(798, 23);
             this.txtAddress.TabIndex = 21;
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(12, 332);
+            this.lblPhone.Location = new System.Drawing.Point(8, 290);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(106, 13);
             this.lblPhone.TabIndex = 22;
@@ -415,7 +384,7 @@
             // 
             this.lblMedicalAid.AutoSize = true;
             this.lblMedicalAid.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMedicalAid.Location = new System.Drawing.Point(548, 332);
+            this.lblMedicalAid.Location = new System.Drawing.Point(946, 290);
             this.lblMedicalAid.Name = "lblMedicalAid";
             this.lblMedicalAid.Size = new System.Drawing.Size(114, 13);
             this.lblMedicalAid.TabIndex = 23;
@@ -426,22 +395,10 @@
             this.txtPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.txtPhone.Location = new System.Drawing.Point(12, 349);
+            this.txtPhone.Location = new System.Drawing.Point(11, 306);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(524, 23);
+            this.txtPhone.Size = new System.Drawing.Size(798, 23);
             this.txtPhone.TabIndex = 24;
-            // 
-            // txtComplaint
-            // 
-            this.txtComplaint.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtComplaint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.txtComplaint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtComplaint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.txtComplaint.Location = new System.Drawing.Point(12, 397);
-            this.txtComplaint.Name = "txtComplaint";
-            this.txtComplaint.Size = new System.Drawing.Size(1060, 23);
-            this.txtComplaint.TabIndex = 25;
             // 
             // cmbMedicalAid
             // 
@@ -460,27 +417,17 @@
             "Momentum",
             "",
             "Other"});
-            this.cmbMedicalAid.Location = new System.Drawing.Point(548, 349);
+            this.cmbMedicalAid.Location = new System.Drawing.Point(949, 306);
             this.cmbMedicalAid.Name = "cmbMedicalAid";
-            this.cmbMedicalAid.Size = new System.Drawing.Size(524, 23);
+            this.cmbMedicalAid.Size = new System.Drawing.Size(861, 23);
             this.cmbMedicalAid.TabIndex = 26;
-            // 
-            // lblComplaint
-            // 
-            this.lblComplaint.AutoSize = true;
-            this.lblComplaint.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblComplaint.Location = new System.Drawing.Point(12, 380);
-            this.lblComplaint.Name = "lblComplaint";
-            this.lblComplaint.Size = new System.Drawing.Size(202, 13);
-            this.lblComplaint.TabIndex = 27;
-            this.lblComplaint.Text = "Presenting complaint / reason for visit";
             // 
             // pnlButtons
             // 
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlButtons.Location = new System.Drawing.Point(0, 790);
             this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(1526, 44);
+            this.pnlButtons.Size = new System.Drawing.Size(1823, 44);
             this.pnlButtons.TabIndex = 28;
             // 
             // pnlButtons2
@@ -493,50 +440,8 @@
             this.pnlButtons2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlButtons2.Location = new System.Drawing.Point(0, 730);
             this.pnlButtons2.Name = "pnlButtons2";
-            this.pnlButtons2.Size = new System.Drawing.Size(1526, 60);
+            this.pnlButtons2.Size = new System.Drawing.Size(1823, 60);
             this.pnlButtons2.TabIndex = 29;
-            // 
-            // btnClearForm
-            // 
-            this.btnClearForm.BackColor = System.Drawing.Color.White;
-            this.btnClearForm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.btnClearForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClearForm.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btnClearForm.Location = new System.Drawing.Point(754, 8);
-            this.btnClearForm.Name = "btnClearForm";
-            this.btnClearForm.Size = new System.Drawing.Size(90, 28);
-            this.btnClearForm.TabIndex = 0;
-            this.btnClearForm.Text = "Clear form";
-            this.btnClearForm.UseVisualStyleBackColor = false;
-            // 
-            // btnRegister
-            // 
-            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(107)))), ((int)(((byte)(42)))));
-            this.btnRegister.FlatAppearance.BorderSize = 0;
-            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(1120, 8);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(120, 28);
-            this.btnRegister.TabIndex = 1;
-            this.btnRegister.Text = "Register & save";
-            this.btnRegister.UseVisualStyleBackColor = false;
-            // 
-            // btnSaveDraft
-            // 
-            this.btnSaveDraft.BackColor = System.Drawing.Color.White;
-            this.btnSaveDraft.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.btnSaveDraft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveDraft.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveDraft.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btnSaveDraft.Location = new System.Drawing.Point(852, 8);
-            this.btnSaveDraft.Name = "btnSaveDraft";
-            this.btnSaveDraft.Size = new System.Drawing.Size(90, 28);
-            this.btnSaveDraft.TabIndex = 2;
-            this.btnSaveDraft.Text = "Save draft";
-            this.btnSaveDraft.UseVisualStyleBackColor = false;
             // 
             // btnNext
             // 
@@ -552,6 +457,48 @@
             this.btnNext.Text = "Next — Medical history";
             this.btnNext.UseVisualStyleBackColor = false;
             // 
+            // btnSaveDraft
+            // 
+            this.btnSaveDraft.BackColor = System.Drawing.Color.White;
+            this.btnSaveDraft.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.btnSaveDraft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveDraft.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveDraft.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.btnSaveDraft.Location = new System.Drawing.Point(852, 8);
+            this.btnSaveDraft.Name = "btnSaveDraft";
+            this.btnSaveDraft.Size = new System.Drawing.Size(90, 28);
+            this.btnSaveDraft.TabIndex = 2;
+            this.btnSaveDraft.Text = "Save draft";
+            this.btnSaveDraft.UseVisualStyleBackColor = false;
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(107)))), ((int)(((byte)(42)))));
+            this.btnRegister.FlatAppearance.BorderSize = 0;
+            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.ForeColor = System.Drawing.Color.White;
+            this.btnRegister.Location = new System.Drawing.Point(1120, 8);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(120, 28);
+            this.btnRegister.TabIndex = 1;
+            this.btnRegister.Text = "Register & save";
+            this.btnRegister.UseVisualStyleBackColor = false;
+            // 
+            // btnClearForm
+            // 
+            this.btnClearForm.BackColor = System.Drawing.Color.White;
+            this.btnClearForm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.btnClearForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearForm.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.btnClearForm.Location = new System.Drawing.Point(754, 8);
+            this.btnClearForm.Name = "btnClearForm";
+            this.btnClearForm.Size = new System.Drawing.Size(90, 28);
+            this.btnClearForm.TabIndex = 0;
+            this.btnClearForm.Text = "Clear form";
+            this.btnClearForm.UseVisualStyleBackColor = false;
+            // 
             // pnlStatusBar
             // 
             this.pnlStatusBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(61)))), ((int)(((byte)(18)))));
@@ -560,20 +507,8 @@
             this.pnlStatusBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlStatusBar.Location = new System.Drawing.Point(0, 708);
             this.pnlStatusBar.Name = "pnlStatusBar";
-            this.pnlStatusBar.Size = new System.Drawing.Size(1526, 22);
+            this.pnlStatusBar.Size = new System.Drawing.Size(1823, 22);
             this.pnlStatusBar.TabIndex = 30;
-            // 
-            // lblStatusLeft
-            // 
-            this.lblStatusLeft.AutoSize = true;
-            this.lblStatusLeft.BackColor = System.Drawing.Color.Transparent;
-            this.lblStatusLeft.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatusLeft.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(208)))), ((int)(((byte)(138)))));
-            this.lblStatusLeft.Location = new System.Drawing.Point(8, 4);
-            this.lblStatusLeft.Name = "lblStatusLeft";
-            this.lblStatusLeft.Size = new System.Drawing.Size(235, 13);
-            this.lblStatusLeft.TabIndex = 0;
-            this.lblStatusLeft.Text = "New registration  ·  Required fields marked *";
             // 
             // lblStatusRight
             // 
@@ -587,18 +522,102 @@
             this.lblStatusRight.TabIndex = 1;
             this.lblStatusRight.Text = "Nurse: Sr. N. Dlamini  ·  11 May 2026";
             // 
+            // lblStatusLeft
+            // 
+            this.lblStatusLeft.AutoSize = true;
+            this.lblStatusLeft.BackColor = System.Drawing.Color.Transparent;
+            this.lblStatusLeft.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatusLeft.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(208)))), ((int)(((byte)(138)))));
+            this.lblStatusLeft.Location = new System.Drawing.Point(8, 4);
+            this.lblStatusLeft.Name = "lblStatusLeft";
+            this.lblStatusLeft.Size = new System.Drawing.Size(235, 13);
+            this.lblStatusLeft.TabIndex = 0;
+            this.lblStatusLeft.Text = "New registration  ·  Required fields marked *";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 406);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Suburb";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.textBox3.Location = new System.Drawing.Point(11, 422);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(798, 23);
+            this.textBox3.TabIndex = 32;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 470);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Town/City *";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.textBox4.Location = new System.Drawing.Point(11, 486);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(798, 23);
+            this.textBox4.TabIndex = 33;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(9, 532);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "Postal Code *";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.textBox5.Location = new System.Drawing.Point(11, 548);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(798, 23);
+            this.textBox5.TabIndex = 35;
+            // 
             // RegPatientForm2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(1526, 834);
+            this.ClientSize = new System.Drawing.Size(1823, 834);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pnlStatusBar);
             this.Controls.Add(this.pnlButtons2);
             this.Controls.Add(this.pnlButtons);
-            this.Controls.Add(this.lblComplaint);
             this.Controls.Add(this.cmbMedicalAid);
-            this.Controls.Add(this.txtComplaint);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.lblMedicalAid);
             this.Controls.Add(this.lblPhone);
@@ -648,9 +667,6 @@
         private System.Windows.Forms.Label lblFormTitle;
         private System.Windows.Forms.TabControl tabMain;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Panel pnlSectionHeader;
         private System.Windows.Forms.Label lblSectionHeader;
         private System.Windows.Forms.Label lblFolderNumber;
@@ -674,9 +690,7 @@
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblMedicalAid;
         private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.TextBox txtComplaint;
         private System.Windows.Forms.ComboBox cmbMedicalAid;
-        private System.Windows.Forms.Label lblComplaint;
         private System.Windows.Forms.Panel pnlButtons;
         private System.Windows.Forms.Panel pnlButtons2;
         private System.Windows.Forms.Button btnNext;
@@ -686,5 +700,11 @@
         private System.Windows.Forms.Panel pnlStatusBar;
         private System.Windows.Forms.Label lblStatusRight;
         private System.Windows.Forms.Label lblStatusLeft;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }
