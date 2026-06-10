@@ -1772,6 +1772,14 @@ SELECT PatientID, DoctorID, NurseID, AppointmentStatus, AppointmentReason, Appoi
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="FullyBookedDoctors" msprop:Generator_RowEvHandlerName="FullyBookedDoctorsRowChangeEventHandler" msprop:Generator_RowDeletedName="FullyBookedDoctorsRowDeleted" msprop:Generator_RowDeletingName="FullyBookedDoctorsRowDeleting" msprop:Generator_RowEvArgName="FullyBookedDoctorsRowChangeEvent" msprop:Generator_TablePropName="FullyBookedDoctors" msprop:Generator_RowChangedName="FullyBookedDoctorsRowChanged" msprop:Generator_RowChangingName="FullyBookedDoctorsRowChanging" msprop:Generator_TableClassName="FullyBookedDoctorsDataTable" msprop:Generator_RowClassName="FullyBookedDoctorsRow" msprop:Generator_TableVarName="tableFullyBookedDoctors" msprop:Generator_UserTableName="FullyBookedDoctors">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AvailableDoctors" msprop:Generator_RowEvHandlerName="AvailableDoctorsRowChangeEventHandler" msprop:Generator_RowDeletedName="AvailableDoctorsRowDeleted" msprop:Generator_RowDeletingName="AvailableDoctorsRowDeleting" msprop:Generator_RowEvArgName="AvailableDoctorsRowChangeEvent" msprop:Generator_TablePropName="AvailableDoctors" msprop:Generator_RowChangedName="AvailableDoctorsRowChanged" msprop:Generator_RowChangingName="AvailableDoctorsRowChanging" msprop:Generator_TableClassName="AvailableDoctorsDataTable" msprop:Generator_RowClassName="AvailableDoctorsRow" msprop:Generator_TableVarName="tableAvailableDoctors" msprop:Generator_UserTableName="AvailableDoctors">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">

@@ -29,17 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle133 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle134 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle135 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle136 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle137 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle138 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.dataGridViewInnerJoin = new System.Windows.Forms.DataGridView();
+            this.appointmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentReasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeSlotsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doctorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nurseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.newApointmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new MPM2.Database.DataSet1();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,40 +75,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.nurseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.newApointmentsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.nurseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nurseBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new MPM2.Database.DataSet1();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.patientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.appointmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appointmentStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appointmentReasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appointmentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeSlotsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doctorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nurseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.proAppointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.newApointmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.patientTableAdapter = new MPM2.Database.DataSet1TableAdapters.PatientTableAdapter();
-            this.nurseTableAdapter = new MPM2.Database.DataSet1TableAdapters.NurseTableAdapter();
-            this.newAppointmentsTableAdapter = new MPM2.Database.DataSet1TableAdapters.newAppointmentsTableAdapter();
-            this.pro_AppointmentTableAdapter = new MPM2.Database.DataSet1TableAdapters.Pro_AppointmentTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.appointmentIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.doctorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -107,32 +99,54 @@
             this.appointmentDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timeSlotsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appointmentReasonDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proAppointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nurseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.newApointmentsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.patientTableAdapter = new MPM2.Database.DataSet1TableAdapters.PatientTableAdapter();
+            this.nurseTableAdapter = new MPM2.Database.DataSet1TableAdapters.NurseTableAdapter();
+            this.newAppointmentsTableAdapter = new MPM2.Database.DataSet1TableAdapters.newAppointmentsTableAdapter();
+            this.pro_AppointmentTableAdapter = new MPM2.Database.DataSet1TableAdapters.Pro_AppointmentTableAdapter();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInnerJoin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newApointmentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nurseBindingSource1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nurseBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newApointmentsBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nurseBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proAppointmentBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newApointmentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nurseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newApointmentsBindingSource1)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Controls.Add(this.panel4);
             this.tabPage2.Controls.Add(this.panel3);
             this.tabPage2.Controls.Add(this.dataGridViewInnerJoin);
@@ -147,51 +161,121 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.panel4.Location = new System.Drawing.Point(6, 674);
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel4.Location = new System.Drawing.Point(0, 674);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1508, 39);
+            this.panel4.Size = new System.Drawing.Size(1514, 39);
             this.panel4.TabIndex = 39;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel3.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel3.Controls.Add(this.label12);
+            this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.label9);
-            this.panel3.Location = new System.Drawing.Point(3, 6);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1508, 39);
+            this.panel3.Size = new System.Drawing.Size(1506, 59);
             this.panel3.TabIndex = 38;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(534, 12);
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.SystemColors.Info;
+            this.label9.Location = new System.Drawing.Point(650, 4);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(110, 13);
+            this.label9.Size = new System.Drawing.Size(203, 25);
             this.label9.TabIndex = 2;
             this.label9.Text = "Appointment Progress";
             // 
             // dataGridViewInnerJoin
             // 
             this.dataGridViewInnerJoin.AllowUserToOrderColumns = true;
+            this.dataGridViewInnerJoin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewInnerJoin.AutoGenerateColumns = false;
+            this.dataGridViewInnerJoin.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewInnerJoin.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewInnerJoin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewInnerJoin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.appointmentIDDataGridViewTextBoxColumn,
+            this.doctorNameDataGridViewTextBoxColumn,
+            this.nurseNameDataGridViewTextBoxColumn,
+            this.patientNameDataGridViewTextBoxColumn,
             this.appointmentStatusDataGridViewTextBoxColumn,
             this.appointmentReasonDataGridViewTextBoxColumn,
             this.appointmentDateDataGridViewTextBoxColumn,
-            this.timeSlotsDataGridViewTextBoxColumn,
-            this.doctorNameDataGridViewTextBoxColumn,
-            this.nurseNameDataGridViewTextBoxColumn,
-            this.patientNameDataGridViewTextBoxColumn});
+            this.timeSlotsDataGridViewTextBoxColumn});
             this.dataGridViewInnerJoin.DataSource = this.newApointmentsBindingSource;
-            this.dataGridViewInnerJoin.Location = new System.Drawing.Point(110, 78);
+            this.dataGridViewInnerJoin.Location = new System.Drawing.Point(62, 150);
             this.dataGridViewInnerJoin.Name = "dataGridViewInnerJoin";
-            this.dataGridViewInnerJoin.Size = new System.Drawing.Size(940, 166);
+            this.dataGridViewInnerJoin.Size = new System.Drawing.Size(1285, 482);
             this.dataGridViewInnerJoin.TabIndex = 0;
             this.dataGridViewInnerJoin.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            // 
+            // appointmentIDDataGridViewTextBoxColumn
+            // 
+            this.appointmentIDDataGridViewTextBoxColumn.DataPropertyName = "AppointmentID";
+            this.appointmentIDDataGridViewTextBoxColumn.HeaderText = "AppointmentID";
+            this.appointmentIDDataGridViewTextBoxColumn.Name = "appointmentIDDataGridViewTextBoxColumn";
+            this.appointmentIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // appointmentStatusDataGridViewTextBoxColumn
+            // 
+            this.appointmentStatusDataGridViewTextBoxColumn.DataPropertyName = "AppointmentStatus";
+            this.appointmentStatusDataGridViewTextBoxColumn.HeaderText = "AppointmentStatus";
+            this.appointmentStatusDataGridViewTextBoxColumn.Name = "appointmentStatusDataGridViewTextBoxColumn";
+            // 
+            // appointmentReasonDataGridViewTextBoxColumn
+            // 
+            this.appointmentReasonDataGridViewTextBoxColumn.DataPropertyName = "AppointmentReason";
+            this.appointmentReasonDataGridViewTextBoxColumn.HeaderText = "AppointmentReason";
+            this.appointmentReasonDataGridViewTextBoxColumn.Name = "appointmentReasonDataGridViewTextBoxColumn";
+            // 
+            // appointmentDateDataGridViewTextBoxColumn
+            // 
+            this.appointmentDateDataGridViewTextBoxColumn.DataPropertyName = "AppointmentDate";
+            this.appointmentDateDataGridViewTextBoxColumn.HeaderText = "AppointmentDate";
+            this.appointmentDateDataGridViewTextBoxColumn.Name = "appointmentDateDataGridViewTextBoxColumn";
+            // 
+            // timeSlotsDataGridViewTextBoxColumn
+            // 
+            this.timeSlotsDataGridViewTextBoxColumn.DataPropertyName = "TimeSlots";
+            this.timeSlotsDataGridViewTextBoxColumn.HeaderText = "TimeSlots";
+            this.timeSlotsDataGridViewTextBoxColumn.Name = "timeSlotsDataGridViewTextBoxColumn";
+            // 
+            // doctorNameDataGridViewTextBoxColumn
+            // 
+            this.doctorNameDataGridViewTextBoxColumn.DataPropertyName = "DoctorName";
+            this.doctorNameDataGridViewTextBoxColumn.HeaderText = "DoctorName";
+            this.doctorNameDataGridViewTextBoxColumn.Name = "doctorNameDataGridViewTextBoxColumn";
+            // 
+            // nurseNameDataGridViewTextBoxColumn
+            // 
+            this.nurseNameDataGridViewTextBoxColumn.DataPropertyName = "NurseName";
+            this.nurseNameDataGridViewTextBoxColumn.HeaderText = "NurseName";
+            this.nurseNameDataGridViewTextBoxColumn.Name = "nurseNameDataGridViewTextBoxColumn";
+            // 
+            // patientNameDataGridViewTextBoxColumn
+            // 
+            this.patientNameDataGridViewTextBoxColumn.DataPropertyName = "PatientName";
+            this.patientNameDataGridViewTextBoxColumn.HeaderText = "PatientName";
+            this.patientNameDataGridViewTextBoxColumn.Name = "patientNameDataGridViewTextBoxColumn";
+            // 
+            // newApointmentsBindingSource
+            // 
+            this.newApointmentsBindingSource.DataMember = "NewApointments";
+            this.newApointmentsBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPage1
             // 
@@ -436,162 +520,41 @@
             // dataGridView2
             // 
             this.dataGridView2.AutoGenerateColumns = false;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle133.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle133.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle133.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle133.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle133.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle133.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle133.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle133;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nurseIDDataGridViewTextBoxColumn,
             this.fullNameDataGridViewTextBoxColumn1});
             this.dataGridView2.DataSource = this.nurseBindingSource1;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle134.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle134.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle134.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle134.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle134.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle134.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle134.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle134;
             this.dataGridView2.Location = new System.Drawing.Point(6, 13);
             this.dataGridView2.Name = "dataGridView2";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle135.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle135.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle135.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle135.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle135.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle135.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle135.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle135;
             this.dataGridView2.Size = new System.Drawing.Size(257, 240);
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             this.dataGridView2.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_RowHeaderMouseClick);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(219, 45);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(722, 330);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Patient Details";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.patientIDDataGridViewTextBoxColumn,
-            this.fullNameDataGridViewTextBoxColumn,
-            this.dateOfBirthDataGridViewTextBoxColumn,
-            this.phoneNumberDataGridViewTextBoxColumn,
-            this.emailAddressDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.patientBindingSource;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle17;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
-            this.dataGridView1.Size = new System.Drawing.Size(602, 305);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
-            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.panel1.Location = new System.Drawing.Point(4, 682);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1508, 28);
-            this.panel1.TabIndex = 0;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(1, 3);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1520, 739);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.panel5);
-            this.tabPage3.Controls.Add(this.dataGridView4);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1512, 713);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "View Appointments";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.panel5.Location = new System.Drawing.Point(4, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1508, 39);
-            this.panel5.TabIndex = 38;
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.AutoGenerateColumns = false;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.appointmentIDDataGridViewTextBoxColumn1,
-            this.patientIDDataGridViewTextBoxColumn1,
-            this.doctorIDDataGridViewTextBoxColumn,
-            this.nurseIDDataGridViewTextBoxColumn1,
-            this.appointmentStatusDataGridViewTextBoxColumn1,
-            this.appointmentDateDataGridViewTextBoxColumn1,
-            this.timeSlotsDataGridViewTextBoxColumn1,
-            this.appointmentReasonDataGridViewTextBoxColumn1});
-            this.dataGridView4.DataSource = this.proAppointmentBindingSource;
-            this.dataGridView4.Location = new System.Drawing.Point(196, 174);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(844, 150);
-            this.dataGridView4.TabIndex = 0;
-            // 
-            // nurseBindingSource
-            // 
-            this.nurseBindingSource.DataMember = "Nurse";
-            this.nurseBindingSource.DataSource = this.dataSet1BindingSource;
-            // 
-            // newApointmentsBindingSource1
-            // 
-            this.newApointmentsBindingSource1.DataMember = "NewApointments";
-            this.newApointmentsBindingSource1.DataSource = this.dataSet1BindingSource;
             // 
             // nurseIDDataGridViewTextBoxColumn
             // 
@@ -610,10 +573,59 @@
             this.nurseBindingSource1.DataMember = "Nurse";
             this.nurseBindingSource1.DataSource = this.dataSet1;
             // 
-            // dataSet1
+            // groupBox1
             // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Location = new System.Drawing.Point(219, 45);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(722, 330);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Patient Details";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            dataGridViewCellStyle136.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle136.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle136.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle136.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle136.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle136.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle136.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle136;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.patientIDDataGridViewTextBoxColumn,
+            this.fullNameDataGridViewTextBoxColumn,
+            this.dateOfBirthDataGridViewTextBoxColumn,
+            this.phoneNumberDataGridViewTextBoxColumn,
+            this.emailAddressDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.patientBindingSource;
+            dataGridViewCellStyle137.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle137.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle137.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle137.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle137.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle137.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle137.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle137;
+            this.dataGridView1.Location = new System.Drawing.Point(24, 19);
+            this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle138.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle138.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle138.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle138.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle138.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle138.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle138.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle138;
+            this.dataGridView1.Size = new System.Drawing.Size(602, 305);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
+            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // patientIDDataGridViewTextBoxColumn
             // 
@@ -651,85 +663,74 @@
             this.patientBindingSource.DataMember = "Patient";
             this.patientBindingSource.DataSource = this.dataSet1;
             // 
-            // appointmentIDDataGridViewTextBoxColumn
+            // panel1
             // 
-            this.appointmentIDDataGridViewTextBoxColumn.DataPropertyName = "AppointmentID";
-            this.appointmentIDDataGridViewTextBoxColumn.HeaderText = "AppointmentID";
-            this.appointmentIDDataGridViewTextBoxColumn.Name = "appointmentIDDataGridViewTextBoxColumn";
-            this.appointmentIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel1.Location = new System.Drawing.Point(4, 682);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1508, 28);
+            this.panel1.TabIndex = 0;
             // 
-            // appointmentStatusDataGridViewTextBoxColumn
+            // tabControl1
             // 
-            this.appointmentStatusDataGridViewTextBoxColumn.DataPropertyName = "AppointmentStatus";
-            this.appointmentStatusDataGridViewTextBoxColumn.HeaderText = "AppointmentStatus";
-            this.appointmentStatusDataGridViewTextBoxColumn.Name = "appointmentStatusDataGridViewTextBoxColumn";
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(1, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1520, 739);
+            this.tabControl1.TabIndex = 0;
             // 
-            // appointmentReasonDataGridViewTextBoxColumn
+            // tabPage3
             // 
-            this.appointmentReasonDataGridViewTextBoxColumn.DataPropertyName = "AppointmentReason";
-            this.appointmentReasonDataGridViewTextBoxColumn.HeaderText = "AppointmentReason";
-            this.appointmentReasonDataGridViewTextBoxColumn.Name = "appointmentReasonDataGridViewTextBoxColumn";
+            this.tabPage3.Controls.Add(this.panel8);
+            this.tabPage3.Controls.Add(this.panel7);
+            this.tabPage3.Controls.Add(this.panel5);
+            this.tabPage3.Controls.Add(this.dataGridView4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1512, 713);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "View Appointments";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // appointmentDateDataGridViewTextBoxColumn
+            // panel5
             // 
-            this.appointmentDateDataGridViewTextBoxColumn.DataPropertyName = "AppointmentDate";
-            this.appointmentDateDataGridViewTextBoxColumn.HeaderText = "AppointmentDate";
-            this.appointmentDateDataGridViewTextBoxColumn.Name = "appointmentDateDataGridViewTextBoxColumn";
+            this.panel5.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel5.Controls.Add(this.label16);
+            this.panel5.Controls.Add(this.label15);
+            this.panel5.Controls.Add(this.label13);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1512, 51);
+            this.panel5.TabIndex = 38;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
-            // timeSlotsDataGridViewTextBoxColumn
+            // dataGridView4
             // 
-            this.timeSlotsDataGridViewTextBoxColumn.DataPropertyName = "TimeSlots";
-            this.timeSlotsDataGridViewTextBoxColumn.HeaderText = "TimeSlots";
-            this.timeSlotsDataGridViewTextBoxColumn.Name = "timeSlotsDataGridViewTextBoxColumn";
-            // 
-            // doctorNameDataGridViewTextBoxColumn
-            // 
-            this.doctorNameDataGridViewTextBoxColumn.DataPropertyName = "DoctorName";
-            this.doctorNameDataGridViewTextBoxColumn.HeaderText = "DoctorName";
-            this.doctorNameDataGridViewTextBoxColumn.Name = "doctorNameDataGridViewTextBoxColumn";
-            // 
-            // nurseNameDataGridViewTextBoxColumn
-            // 
-            this.nurseNameDataGridViewTextBoxColumn.DataPropertyName = "NurseName";
-            this.nurseNameDataGridViewTextBoxColumn.HeaderText = "NurseName";
-            this.nurseNameDataGridViewTextBoxColumn.Name = "nurseNameDataGridViewTextBoxColumn";
-            // 
-            // patientNameDataGridViewTextBoxColumn
-            // 
-            this.patientNameDataGridViewTextBoxColumn.DataPropertyName = "PatientName";
-            this.patientNameDataGridViewTextBoxColumn.HeaderText = "PatientName";
-            this.patientNameDataGridViewTextBoxColumn.Name = "patientNameDataGridViewTextBoxColumn";
-            // 
-            // dataSet1BindingSource
-            // 
-            this.dataSet1BindingSource.DataSource = this.dataSet1;
-            this.dataSet1BindingSource.Position = 0;
-            // 
-            // proAppointmentBindingSource
-            // 
-            this.proAppointmentBindingSource.DataMember = "Pro_Appointment";
-            this.proAppointmentBindingSource.DataSource = this.dataSet1;
-            // 
-            // newApointmentsBindingSource
-            // 
-            this.newApointmentsBindingSource.DataMember = "NewApointments";
-            this.newApointmentsBindingSource.DataSource = this.dataSet1;
-            // 
-            // patientTableAdapter
-            // 
-            this.patientTableAdapter.ClearBeforeFill = true;
-            // 
-            // nurseTableAdapter
-            // 
-            this.nurseTableAdapter.ClearBeforeFill = true;
-            // 
-            // newAppointmentsTableAdapter
-            // 
-            this.newAppointmentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // pro_AppointmentTableAdapter
-            // 
-            this.pro_AppointmentTableAdapter.ClearBeforeFill = true;
+            this.dataGridView4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView4.AutoGenerateColumns = false;
+            this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView4.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.appointmentIDDataGridViewTextBoxColumn1,
+            this.patientIDDataGridViewTextBoxColumn1,
+            this.doctorIDDataGridViewTextBoxColumn,
+            this.nurseIDDataGridViewTextBoxColumn1,
+            this.appointmentStatusDataGridViewTextBoxColumn1,
+            this.appointmentDateDataGridViewTextBoxColumn1,
+            this.timeSlotsDataGridViewTextBoxColumn1,
+            this.appointmentReasonDataGridViewTextBoxColumn1});
+            this.dataGridView4.DataSource = this.proAppointmentBindingSource;
+            this.dataGridView4.Location = new System.Drawing.Point(33, 130);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(1379, 463);
+            this.dataGridView4.TabIndex = 0;
             // 
             // appointmentIDDataGridViewTextBoxColumn1
             // 
@@ -780,6 +781,143 @@
             this.appointmentReasonDataGridViewTextBoxColumn1.HeaderText = "AppointmentReason";
             this.appointmentReasonDataGridViewTextBoxColumn1.Name = "appointmentReasonDataGridViewTextBoxColumn1";
             // 
+            // proAppointmentBindingSource
+            // 
+            this.proAppointmentBindingSource.DataMember = "Pro_Appointment";
+            this.proAppointmentBindingSource.DataSource = this.dataSet1;
+            // 
+            // nurseBindingSource
+            // 
+            this.nurseBindingSource.DataMember = "Nurse";
+            this.nurseBindingSource.DataSource = this.dataSet1BindingSource;
+            // 
+            // dataSet1BindingSource
+            // 
+            this.newApointmentsBindingSource.DataMember = "NewApointments";
+            this.newApointmentsBindingSource.DataSource = this.dataSet1;
+            // 
+            // newApointmentsBindingSource1
+            // 
+            this.newApointmentsBindingSource1.DataMember = "NewApointments";
+            this.newApointmentsBindingSource1.DataSource = this.dataSet1BindingSource;
+            // 
+            // patientTableAdapter
+            // 
+            this.patientTableAdapter.ClearBeforeFill = true;
+            // 
+            // nurseTableAdapter
+            // 
+            this.nurseTableAdapter.ClearBeforeFill = true;
+            // 
+            // newAppointmentsTableAdapter
+            // 
+            this.newAppointmentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // pro_AppointmentTableAdapter
+            // 
+            this.pro_AppointmentTableAdapter.ClearBeforeFill = true;
+            // 
+            // panel6
+            // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel6.Controls.Add(this.label10);
+            this.panel6.Location = new System.Drawing.Point(0, 83);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(448, 34);
+            this.panel6.TabIndex = 40;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Yellow;
+            this.label10.Location = new System.Drawing.Point(98, 11);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(163, 13);
+            this.label10.TabIndex = 41;
+            this.label10.Text = "List Of  Appointments In Progress";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Yellow;
+            this.label11.Location = new System.Drawing.Point(26, 11);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(72, 13);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "UKZN DOH";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(26, 37);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(282, 13);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "AUTHORISED PERSONNEL ONLY — SECURE SYSTEM";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(0, 665);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1512, 48);
+            this.panel7.TabIndex = 39;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel8.Controls.Add(this.label14);
+            this.panel8.Location = new System.Drawing.Point(3, 78);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(374, 34);
+            this.panel8.TabIndex = 40;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Yellow;
+            this.label13.Location = new System.Drawing.Point(19, 7);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(61, 15);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "KZN DOH";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Yellow;
+            this.label14.Location = new System.Drawing.Point(96, 10);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(116, 15);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "List of appointments";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.Info;
+            this.label15.Location = new System.Drawing.Point(609, 7);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(144, 25);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Appointments ";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(19, 38);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(282, 13);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "AUTHORISED PERSONNEL ONLY — SECURE SYSTEM";
+            // 
             // AdminAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -793,6 +931,8 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInnerJoin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newApointmentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -802,19 +942,23 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nurseBindingSource1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nurseBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newApointmentsBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nurseBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proAppointmentBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newApointmentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nurseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newApointmentsBindingSource1)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -875,15 +1019,15 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.BindingSource newApointmentsBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doctorNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nurseNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentReasonDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeSlotsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doctorNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nurseNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource newApointmentsBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentIDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn doctorIDDataGridViewTextBoxColumn;
@@ -892,5 +1036,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentDateDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeSlotsDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentReasonDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label16;
     }
 }
