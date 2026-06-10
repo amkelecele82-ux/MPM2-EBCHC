@@ -797,5 +797,10 @@ namespace MPM2.Business
 
             return false;
         }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -75,7 +75,7 @@ namespace MPM2.Business
         private void DashboardForm1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dataSet11.NewApointments' table. You can move, or remove it, as needed.
-            this.newAppointmentsTableAdapter.Fill(this.dataSet11.NewApointments);
+         //   this.newAppointmentsTableAdapter.Fill(this.dataSet11.NewApointments);
             // TODO: This line of code loads data into the 'dataSet11.Appointment' table. You can move, or remove it, as needed.
             this.appointmentTableAdapter.Fill(this.dataSet11.Appointment);
             // TODO: This line of code loads data into the 'dataSet11.AppointmentView' table. You can move, or remove it, as needed.
