@@ -46,6 +46,7 @@ namespace MPM2.Business
             tabControl1.SelectedIndex = tabIndex;
         }
 
+        //Functionality for first tab
         private void ApplyFilter()
         {
             string filter = "";
@@ -136,9 +137,11 @@ namespace MPM2.Business
             var notesValue = row.Cells["Notes"]?.Value;
 
             RTBNotes.Text = notesValue != null ? notesValue.ToString() : "";
-            var dosageValue = row.Cells["frequencyInstanceDataGridViewTextBoxColumn"]?.Value;
-            TBDosageAmount.Text = dosageValue != null ? dosageValue.ToString() : "";
+            var frequencycount = row.Cells["frequencyInstanceDataGridViewTextBoxColumn"]?.Value;
+            TBFrequency2.Text = frequencycount != null ? frequencycount.ToString() : "";
             var statusValue = row.Cells["statusDataGridViewTextBoxColumn"]?.Value;
+            var dosageAmount = row.Cells["dosageGivenDataGridViewTextBoxColumn"]?.Value;
+            TBDosageAmount.Text = dosageAmount != null ? dosageAmount.ToString() : "";
 
             if (statusValue != null)
             {
@@ -206,6 +209,10 @@ namespace MPM2.Business
 
         private void Recordbutton_Click(object sender, EventArgs e)
         {
+            int nid=0;
+            int prid=0;
+            string nursename = "Default";
+            string notes = RTBNotes2.Text;
             if (this.MdiParent is MainForm mf)
             {
                 if (mf != null)
@@ -217,11 +224,109 @@ namespace MPM2.Business
                         return;
                     }
                     
-                    int nid = Convert.ToInt32(mf.CurrentDataRow["NurseID"]);
-                    int prid = Convert.ToInt32(dgvPrescription.CurrentRow.Cells["PrescriptionID"].Value);
-                    string notes = RTBNotes2.Text;
+                    nid = Convert.ToInt32(mf.CurrentDataRow["NurseID"]);
+                    prid = Convert.ToInt32(dgvPrescription.CurrentRow.Cells["prescriptionIDDataGridViewTextBoxColumn"].Value);
+                    nursename = mf.CurrentDataRow["FullName"].ToString();
 
                 }
+            }
+            DateTime adminAt = DateTime.Now;
+            string dosage = TBDosage.Text;
+            string status = CBStatus2.SelectedItem?.ToString() ?? "Pending";
+            int frequency = Convert.ToInt32(TBFrequency.Text);
+            DialogResult result = MessageBox.Show("Are you sure you want to record this medication administration?\nNurse:"+nursename+"\nAdministered at:"+adminAt+"\nDosage:"+dosage+"\nStatus:"+status+"\nFrequency:"+frequency+"\nNotes:"+notes, "Confirm Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.medicationAdministrationTableAdapter.InsertMedAdministration(nid, prid, adminAt, dosage, status, frequency,notes);
+            }
+        }
+
+        private void TBPPatient_TextChanged(object sender, EventArgs e)
+        {
+            ApplyFilter2();
+        }
+
+        private void TBPDoctor_TextChanged(object sender, EventArgs e)
+        {
+            ApplyFilter2();
+        }
+
+        private void TBCMedicine_TextChanged(object sender, EventArgs e)
+        {
+            ApplyFilter2();
+        }
+        private void ApplyFilter2()
+        {
+            string filter = "";
+
+            string doctor = TBPDoctor.Text.Replace("'", "''");
+            string patient = TBPPatient.Text.Replace("'", "''");
+            string medicine = TBCMedicine.Text.Replace("'", "''");
+
+            if (!string.IsNullOrWhiteSpace(doctor))
+                filter += $"DoctorName LIKE '%{doctor}%'";
+
+            if (!string.IsNullOrWhiteSpace(patient))
+            {
+                if (filter != "") filter += " AND ";
+                filter += $"PatientName LIKE '%{patient}%'";
+            }
+
+            if (!string.IsNullOrWhiteSpace(medicine))
+            {
+                if (filter != "") filter += " AND ";
+                filter += $"MedicineName LIKE '%{medicine}%'";
+            }
+
+            if (dateTimePicker2.Checked)
+            {
+                if (filter != "") filter += " AND ";
+
+                DateTime date = dateTimePicker2.Value.Date;
+
+                filter += $"DateIssued >= #{date:MM/dd/yyyy}# AND DateIssued < #{date.AddDays(1):MM/dd/yyyy}#";
+            }
+
+            customMedAdmBindingSource1.Filter = filter;
+
+            ChangeValues2();
+
+        }
+        private void ChangeValues2()
+        {
+            if (dgvPrescription.CurrentRow == null ||
+                dgvPrescription.CurrentRow.IsNewRow)
+            {
+                return;
+            }
+
+            var row = dgvPrescription.CurrentRow;
+            var patient2 = row.Cells["dataGridViewTextBoxColumn1"]?.Value;
+
+            string p2 = patient2 != null ? patient2.ToString() : "";
+            lblPatient2.Text = "Patient: " + p2;
+
+
+            var doctor2 = row.Cells["dataGridViewTextBoxColumn2"]?.Value;
+            string d2 = doctor2 != null ? doctor2.ToString() : "";
+            lblDoctor2.Text = "Prescription by: " + d2;
+        }
+
+        private void ChangeButton_Click(object sender, EventArgs e)
+        {
+            if (dgvMedAdministration.CurrentRow == null || dgvMedAdministration.CurrentRow.IsNewRow)
+            {
+                MessageBox.Show("Please select a valid medication administration record to update.", "No Record Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DialogResult result = MessageBox.Show("Are you sure you want to update this medication administration record?", "Confirm Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                int selectedId = Convert.ToInt32(dgvMedAdministration.CurrentRow.Cells["medicationAdministrationIDDataGridViewTextBoxColumn"].Value);
+                string newNotes = RTBNotes.Text;
+                string newDosage = TBDosageAmount.Text;
+                string newStatus = CBStatus.SelectedItem?.ToString() ?? "Pending";
+                this.medicationAdministrationTableAdapter.UpdateQuery(newDosage, newStatus, Convert.ToInt32(TBFrequency2.Text), newNotes, selectedId);
             }
         }
     }

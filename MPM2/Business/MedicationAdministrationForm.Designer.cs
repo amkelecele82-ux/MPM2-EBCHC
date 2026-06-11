@@ -38,7 +38,6 @@
             this.RBCompleted = new System.Windows.Forms.RadioButton();
             this.RBPending = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.Deletebutton = new System.Windows.Forms.Button();
             this.TBDosageAmount = new System.Windows.Forms.TextBox();
             this.ChangeButton = new System.Windows.Forms.Button();
             this.CBStatus = new System.Windows.Forms.ComboBox();
@@ -60,14 +59,9 @@
             this.DoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dosageGivenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.frequencyInstanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medication_AdministratorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customMedAdmBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet11 = new MPM2.Database.DataSet1();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblPatient2 = new System.Windows.Forms.Label();
@@ -85,16 +79,23 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TBPDoctor = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.TBCMedicine = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.dgvPrescription = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateIssuedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.frequency_Instance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TBPPatient = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dosageGivenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.frequencyInstanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customMedAdmBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet11 = new MPM2.Database.DataSet1();
+            this.dateIssuedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nurseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.doctorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medicineNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -106,25 +107,26 @@
             this.dosageGivenDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.frequencyInstanceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.customMedAdmBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.medicationAdministrationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.prescriptionnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.medicationAdministrationTableAdapter = new MPM2.Database.DataSet1TableAdapters.MedicationAdministrationTableAdapter();
             this.prescriptionn_TableAdapter = new MPM2.Database.DataSet1TableAdapters.Prescriptionn_TableAdapter();
             this.customMedAdmTableAdapter = new MPM2.Database.DataSet1TableAdapters.CustomMedAdmTableAdapter();
+            this.TBFrequency2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedAdministration)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customMedAdmBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrescription)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customMedAdmBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customMedAdmBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicationAdministrationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionnBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -235,7 +237,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.Deletebutton);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.TBFrequency2);
+            this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.TBDosageAmount);
             this.groupBox3.Controls.Add(this.ChangeButton);
             this.groupBox3.Controls.Add(this.CBStatus);
@@ -252,15 +256,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Additional Administration Information";
             // 
-            // Deletebutton
-            // 
-            this.Deletebutton.Location = new System.Drawing.Point(401, 544);
-            this.Deletebutton.Name = "Deletebutton";
-            this.Deletebutton.Size = new System.Drawing.Size(75, 23);
-            this.Deletebutton.TabIndex = 15;
-            this.Deletebutton.Text = "Delete";
-            this.Deletebutton.UseVisualStyleBackColor = true;
-            // 
             // TBDosageAmount
             // 
             this.TBDosageAmount.Location = new System.Drawing.Point(156, 417);
@@ -270,17 +265,18 @@
             // 
             // ChangeButton
             // 
-            this.ChangeButton.Location = new System.Drawing.Point(35, 539);
+            this.ChangeButton.Location = new System.Drawing.Point(401, 487);
             this.ChangeButton.Name = "ChangeButton";
             this.ChangeButton.Size = new System.Drawing.Size(75, 28);
             this.ChangeButton.TabIndex = 13;
             this.ChangeButton.Text = "Change";
             this.ChangeButton.UseVisualStyleBackColor = true;
+            this.ChangeButton.Click += new System.EventHandler(this.ChangeButton_Click);
             // 
             // CBStatus
             // 
             this.CBStatus.FormattingEnabled = true;
-            this.CBStatus.Location = new System.Drawing.Point(98, 461);
+            this.CBStatus.Location = new System.Drawing.Point(98, 493);
             this.CBStatus.Name = "CBStatus";
             this.CBStatus.Size = new System.Drawing.Size(158, 24);
             this.CBStatus.TabIndex = 12;
@@ -297,7 +293,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(32, 461);
+            this.label18.Location = new System.Drawing.Point(32, 493);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(47, 16);
             this.label18.TabIndex = 10;
@@ -453,22 +449,6 @@
             this.MedicineName.Name = "MedicineName";
             this.MedicineName.Width = 125;
             // 
-            // dosageGivenDataGridViewTextBoxColumn
-            // 
-            this.dosageGivenDataGridViewTextBoxColumn.DataPropertyName = "dosageGiven";
-            this.dosageGivenDataGridViewTextBoxColumn.HeaderText = "dosageGiven";
-            this.dosageGivenDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dosageGivenDataGridViewTextBoxColumn.Name = "dosageGivenDataGridViewTextBoxColumn";
-            this.dosageGivenDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // frequencyInstanceDataGridViewTextBoxColumn
-            // 
-            this.frequencyInstanceDataGridViewTextBoxColumn.DataPropertyName = "frequency_Instance";
-            this.frequencyInstanceDataGridViewTextBoxColumn.HeaderText = "Dose(#)";
-            this.frequencyInstanceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.frequencyInstanceDataGridViewTextBoxColumn.Name = "frequencyInstanceDataGridViewTextBoxColumn";
-            this.frequencyInstanceDataGridViewTextBoxColumn.Width = 125;
-            // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Admnistered_at";
@@ -476,14 +456,6 @@
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Width = 125;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "status";
-            this.statusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.Width = 125;
             // 
             // Notes
             // 
@@ -502,16 +474,6 @@
             this.medication_AdministratorID.ReadOnly = true;
             this.medication_AdministratorID.Width = 125;
             // 
-            // customMedAdmBindingSource
-            // 
-            this.customMedAdmBindingSource.DataMember = "CustomMedAdm";
-            this.customMedAdmBindingSource.DataSource = this.dataSet11;
-            // 
-            // dataSet11
-            // 
-            this.dataSet11.DataSetName = "DataSet1";
-            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox2);
@@ -526,8 +488,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dateTimePicker3);
-            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.lblPatient2);
             this.groupBox2.Controls.Add(this.TBFrequency);
             this.groupBox2.Controls.Add(this.label7);
@@ -552,9 +512,9 @@
             this.lblPatient2.AutoSize = true;
             this.lblPatient2.Location = new System.Drawing.Point(31, 32);
             this.lblPatient2.Name = "lblPatient2";
-            this.lblPatient2.Size = new System.Drawing.Size(119, 16);
+            this.lblPatient2.Size = new System.Drawing.Size(96, 16);
             this.lblPatient2.TabIndex = 17;
-            this.lblPatient2.Text = "Patient: John Smith";
+            this.lblPatient2.Text = "Patient: Default";
             // 
             // TBFrequency
             // 
@@ -621,9 +581,9 @@
             this.lblNurse2.AutoSize = true;
             this.lblNurse2.Location = new System.Drawing.Point(31, 110);
             this.lblNurse2.Name = "lblNurse2";
-            this.lblNurse2.Size = new System.Drawing.Size(136, 16);
+            this.lblNurse2.Size = new System.Drawing.Size(91, 16);
             this.lblNurse2.TabIndex = 9;
-            this.lblNurse2.Text = "Nurse: Zanele Mkhize";
+            this.lblNurse2.Text = "Nurse: Default";
             // 
             // TBDosage
             // 
@@ -646,20 +606,20 @@
             this.lblDoctor2.AutoSize = true;
             this.lblDoctor2.Location = new System.Drawing.Point(31, 70);
             this.lblDoctor2.Name = "lblDoctor2";
-            this.lblDoctor2.Size = new System.Drawing.Size(187, 16);
+            this.lblDoctor2.Size = new System.Drawing.Size(126, 16);
             this.lblDoctor2.TabIndex = 5;
-            this.lblDoctor2.Text = "Prescription: Dr. Sipho Naidoo";
+            this.lblDoctor2.Text = "Prescription: Default";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dateTimePicker2);
             this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.TBPDoctor);
             this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.TBCMedicine);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.dgvPrescription);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.TBPPatient);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(94, 53);
             this.groupBox1.Name = "groupBox1";
@@ -684,12 +644,13 @@
             this.label21.TabIndex = 13;
             this.label21.Text = "Date:";
             // 
-            // textBox4
+            // TBPDoctor
             // 
-            this.textBox4.Location = new System.Drawing.Point(158, 84);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(229, 22);
-            this.textBox4.TabIndex = 12;
+            this.TBPDoctor.Location = new System.Drawing.Point(158, 84);
+            this.TBPDoctor.Name = "TBPDoctor";
+            this.TBPDoctor.Size = new System.Drawing.Size(229, 22);
+            this.TBPDoctor.TabIndex = 12;
+            this.TBPDoctor.TextChanged += new System.EventHandler(this.TBPDoctor_TextChanged);
             // 
             // label20
             // 
@@ -700,12 +661,13 @@
             this.label20.TabIndex = 11;
             this.label20.Text = "Doctor Name:";
             // 
-            // textBox7
+            // TBCMedicine
             // 
-            this.textBox7.Location = new System.Drawing.Point(550, 35);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(229, 22);
-            this.textBox7.TabIndex = 10;
+            this.TBCMedicine.Location = new System.Drawing.Point(550, 35);
+            this.TBCMedicine.Name = "TBCMedicine";
+            this.TBCMedicine.Size = new System.Drawing.Size(229, 22);
+            this.TBCMedicine.TabIndex = 10;
+            this.TBCMedicine.TextChanged += new System.EventHandler(this.TBCMedicine_TextChanged);
             // 
             // label13
             // 
@@ -737,7 +699,7 @@
             this.dosageGivenDataGridViewTextBoxColumn1,
             this.statusDataGridViewTextBoxColumn1,
             this.frequencyInstanceDataGridViewTextBoxColumn1});
-            this.dgvPrescription.DataSource = this.customMedAdmBindingSource;
+            this.dgvPrescription.DataSource = this.customMedAdmBindingSource1;
             this.dgvPrescription.Location = new System.Drawing.Point(28, 139);
             this.dgvPrescription.Name = "dgvPrescription";
             this.dgvPrescription.RowHeadersWidth = 51;
@@ -769,14 +731,6 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Width = 125;
             // 
-            // dateIssuedDataGridViewTextBoxColumn
-            // 
-            this.dateIssuedDataGridViewTextBoxColumn.DataPropertyName = "DateIssued";
-            this.dateIssuedDataGridViewTextBoxColumn.HeaderText = "DateIssued";
-            this.dateIssuedDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dateIssuedDataGridViewTextBoxColumn.Name = "dateIssuedDataGridViewTextBoxColumn";
-            this.dateIssuedDataGridViewTextBoxColumn.Width = 125;
-            // 
             // frequency_Instance
             // 
             this.frequency_Instance.DataPropertyName = "frequency_Instance";
@@ -784,6 +738,65 @@
             this.frequency_Instance.MinimumWidth = 6;
             this.frequency_Instance.Name = "frequency_Instance";
             this.frequency_Instance.Width = 125;
+            // 
+            // TBPPatient
+            // 
+            this.TBPPatient.Location = new System.Drawing.Point(158, 32);
+            this.TBPPatient.Name = "TBPPatient";
+            this.TBPPatient.Size = new System.Drawing.Size(229, 22);
+            this.TBPPatient.TabIndex = 7;
+            this.TBPPatient.TextChanged += new System.EventHandler(this.TBPPatient_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 16);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Patient Name:";
+            // 
+            // dosageGivenDataGridViewTextBoxColumn
+            // 
+            this.dosageGivenDataGridViewTextBoxColumn.DataPropertyName = "dosageGiven";
+            this.dosageGivenDataGridViewTextBoxColumn.HeaderText = "dosageGiven";
+            this.dosageGivenDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dosageGivenDataGridViewTextBoxColumn.Name = "dosageGivenDataGridViewTextBoxColumn";
+            this.dosageGivenDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // frequencyInstanceDataGridViewTextBoxColumn
+            // 
+            this.frequencyInstanceDataGridViewTextBoxColumn.DataPropertyName = "frequency_Instance";
+            this.frequencyInstanceDataGridViewTextBoxColumn.HeaderText = "Dose(#)";
+            this.frequencyInstanceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.frequencyInstanceDataGridViewTextBoxColumn.Name = "frequencyInstanceDataGridViewTextBoxColumn";
+            this.frequencyInstanceDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "status";
+            this.statusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // customMedAdmBindingSource
+            // 
+            this.customMedAdmBindingSource.DataMember = "CustomMedAdm";
+            this.customMedAdmBindingSource.DataSource = this.dataSet11;
+            // 
+            // dataSet11
+            // 
+            this.dataSet11.DataSetName = "DataSet1";
+            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dateIssuedDataGridViewTextBoxColumn
+            // 
+            this.dateIssuedDataGridViewTextBoxColumn.DataPropertyName = "DateIssued";
+            this.dateIssuedDataGridViewTextBoxColumn.HeaderText = "DateIssued";
+            this.dateIssuedDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dateIssuedDataGridViewTextBoxColumn.Name = "dateIssuedDataGridViewTextBoxColumn";
+            this.dateIssuedDataGridViewTextBoxColumn.Width = 125;
             // 
             // nurseNameDataGridViewTextBoxColumn
             // 
@@ -875,21 +888,10 @@
             this.frequencyInstanceDataGridViewTextBoxColumn1.Name = "frequencyInstanceDataGridViewTextBoxColumn1";
             this.frequencyInstanceDataGridViewTextBoxColumn1.Width = 125;
             // 
-            // textBox1
+            // customMedAdmBindingSource1
             // 
-            this.textBox1.Location = new System.Drawing.Point(158, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 22);
-            this.textBox1.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 16);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Patient Name:";
+            this.customMedAdmBindingSource1.DataMember = "CustomMedAdm";
+            this.customMedAdmBindingSource1.DataSource = this.dataSet11;
             // 
             // medicationAdministrationBindingSource
             // 
@@ -913,21 +915,30 @@
             // 
             this.customMedAdmTableAdapter.ClearBeforeFill = true;
             // 
+            // TBFrequency2
+            // 
+            this.TBFrequency2.Location = new System.Drawing.Point(156, 456);
+            this.TBFrequency2.Name = "TBFrequency2";
+            this.TBFrequency2.Size = new System.Drawing.Size(100, 22);
+            this.TBFrequency2.TabIndex = 16;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(456, 110);
+            this.label2.Location = new System.Drawing.Point(32, 459);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 16);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Scheduled Time";
+            this.label2.Size = new System.Drawing.Size(74, 16);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Frequency:";
             // 
-            // dateTimePicker3
+            // label4
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(380, 148);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(242, 22);
-            this.dateTimePicker3.TabIndex = 19;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(262, 420);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 16);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "mg";
             // 
             // MedicationAdministrationForm
             // 
@@ -944,14 +955,15 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedAdministration)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customMedAdmBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrescription)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customMedAdmBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customMedAdmBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicationAdministrationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionnBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -980,7 +992,7 @@
         private System.Windows.Forms.Label lblDoctor2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvPrescription;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TBPPatient;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvMedAdministration;
         private System.Windows.Forms.BindingSource prescriptionnBindingSource;
@@ -999,7 +1011,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.BindingSource customMedAdmBindingSource;
         private Database.DataSet1TableAdapters.CustomMedAdmTableAdapter customMedAdmTableAdapter;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox TBCMedicine;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblPatient2;
         private System.Windows.Forms.Label label16;
@@ -1014,10 +1026,9 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button ResetButton;
-        private System.Windows.Forms.Button Deletebutton;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox TBPDoctor;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -1044,7 +1055,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Notes;
         private System.Windows.Forms.DataGridViewTextBoxColumn medication_AdministratorID;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.BindingSource customMedAdmBindingSource1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TBFrequency2;
         private System.Windows.Forms.Label label2;
     }
 }
