@@ -202,7 +202,7 @@ namespace MPM2
 
         private void prescriptionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PrescriptionForm p = new PrescriptionForm();
+            RegPrescriptionForm p = new RegPrescriptionForm();
             formSetup(p);
 
         }

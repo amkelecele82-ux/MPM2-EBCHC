@@ -159,7 +159,7 @@ namespace MPM2.Business
             {
                 this.ActiveMdiChild.Close();
             }
-            RegPatientForm rp = new RegPatientForm();
+            RegPatientForm2 rp = new RegPatientForm2();
             rp.MdiParent = this.MdiParent;
             rp.WindowState = FormWindowState.Maximized;
             rp.FormBorderStyle = FormBorderStyle.None;
@@ -196,7 +196,7 @@ namespace MPM2.Business
         private void DashPresbutton_Click(object sender, EventArgs e)
         {
             if (role.Equals("Doctor")) {
-            PrescriptionForm pf = new PrescriptionForm();
+            RegPrescriptionForm pf = new RegPrescriptionForm();
             pf.MdiParent = this.MdiParent;
             pf.WindowState = FormWindowState.Maximized;
             pf.FormBorderStyle = FormBorderStyle.None;
