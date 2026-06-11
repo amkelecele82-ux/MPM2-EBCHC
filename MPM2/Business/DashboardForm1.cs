@@ -1,16 +1,16 @@
-﻿using System;
+﻿using MPM2.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+//For rounded corners
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-//For rounded corners
-using System.Drawing.Drawing2D;
 
 namespace MPM2.Business
 {
@@ -39,291 +39,56 @@ namespace MPM2.Business
                     this.medid = Convert.ToInt32(datarow["DoctorID"]);
             }
         }
-
+        public void RefreshFullyBookedDoctorsUI()
+        {
+            BuildFullyBookedDoctors();
+            BindFullyBookedDoctorsList();
+            LoadNAPanelFullyBookedDoctors(role,medid);
+        }
+        public void BindFullyBookedDoctorsList()
+        {
+            listBoxFullyBookedDoctors.DataSource = dataSet11.FullyBookedDoctors;
+            listBoxFullyBookedDoctors.DisplayMember = "DoctorName";
+            listBoxFullyBookedDoctors.ValueMember = "DoctorID";
+        }
         private void DashboardForm1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataSet11.Appointment' table. You can move, or remove it, as needed.
-            this.appointmentTableAdapter.Fill(this.dataSet11.Appointment);
-            // TODO: This line of code loads data into the 'dataSet11.AppointmentView' table. You can move, or remove it, as needed.
+            // Fill dataset first
+            this.newAppointmentsTableAdapter.Fill(this.dataSet11.NewApointments);
 
+            // NOW assign datasource ONCE
+            if (role == "Doctor")
+            {
+                ApplyDoctorFilter(); // this will set filtered BindingSource
+            }
+            else
+            {
+                dgvWidgetAppointment.DataSource = dataSet11.NewApointments;
+            }
+
+            // Continue normal fills
+            this.appointmentTableAdapter.Fill(this.dataSet11.Appointment);
             this.pro_AppointmentTableAdapter1.Fill(this.dataSet11.Pro_Appointment);
+            dataSet11.FullyBookedDoctors.Clear();
+           this.doctorTableAdapter1.Fill(this.dataSet11.Doctor);
+            BuildFullyBookedDoctors();
+            BindFullyBookedDoctorsList();
+            LoadNAPanelFullyBookedDoctors(role, medid);
 
             if (role.Equals("Doctor"))
             {
-                //this.appointmentViewTableAdapter.FillByNameFilterByTodaysDate(this.dataSet11.AppointmentView, DateTime.Today, medid);
                 dgvWidgetAppointment.Columns["DoctorName"].Visible = false;
                 this.customMedAdmTableAdapter1.FillByMedAdmPrescripNurseDoctorPatient(this.dataSet11.CustomMedAdm);
             }
             else
             {
-                this.appointmentViewTableAdapter.FillByDateNurse(this.dataSet11.AppointmentView, medid,DateTime.Today);
+                this.appointmentViewTableAdapter.FillByDateNurse(this.dataSet11.AppointmentView, medid, DateTime.Today);
                 dgvWidgetAppointment.Columns["NurseName"].Visible = false;
-                lblRPATitle.Text = "Recent Medicine Administration";
-                lblRPATime.Text = "Date Administered: ";
             }
+
             medicationAdministrationTableAdapter1.Fill(dataSet11.MedicationAdministration);
+
             fullNameLabel.Text = fullName;
-            Dashlabel.Text = DateTime.Now.ToString("dddd dd MMMM yyyy") + " | East Boom CHC | KwaZulu Natal Province";
-            Dashlabel2.Text = DateTime.Now.ToString("HH:mm MMMM yyyy");
-
-
-            int missedToday = 0;
-            int cancelledToday = 0;
-
-            int appointmentcount = 0;
-            int appointmentcompletecount = 0;
-            int appointmentremaincount = 0;
-            DateTime estimateTime;
-
-            DateTime today = DateTime.Today;
-
-            int adminappointmentcount = 0; 
-            int adminappointmentcompletecount = 0;
-            int adminappointmentcancelcount = 0;
-            int adminappointmentmissedcount = 0;
-
-            foreach (DataRow appointment in dataSet11.Pro_Appointment.Rows)
-            {
-                //Notification widgets
-                DateTime appointmentDate =
-                    Convert.ToDateTime(appointment["AppointmentDate"]);
-
-                if (appointmentDate.Date == today && role.Equals("Doctor") && Convert.ToInt32(appointment["DoctorID"]) == medid)
-                {
-
-
-                    string status = appointment["AppointmentStatus"].ToString();
-                    if (status == "Completed" || status == "Scheduled")
-                    {
-                        appointmentcount++;
-                    }
-                    if (status.Equals("No Show")) {
-                        missedToday++;
-                    }
-                    if (status == "Cancelled")
-                    {
-                        cancelledToday++;
-                    }
-                    if (status == "Completed")
-                    {
-                        appointmentcompletecount++;
-                    }
-                    //Current Appointment Widget
-                    DateTime date = appointmentDate.Date;
-                    DateTime currentTime = DateTime.Now;
-                    string timeSlot = appointment["TimeSlots"].ToString();
-
-                    var times = ParseTimeSlot(timeSlot, appointmentDate);
-
-                    DateTime startDateTime = times.start;
-                    DateTime endDateTime = times.end;
-
-
-                    if (status == "Scheduled" && startDateTime >= DateTime.Now)
-                    {
-                        appointmentremaincount++;
-                    }
-
-                    if (currentTime >= startDateTime && currentTime <= endDateTime)
-                    {
-
-                        var patientRow = dataSet11.Patient.Rows
-                                        .Cast<DataRow>()
-                                        .FirstOrDefault(r => r["PatientID"].ToString() == appointment["Patient_ID"].ToString());
-
-                        if (patientRow != null)
-                            lblCAPatient.Text = "Patient: " + patientRow["FullName"].ToString();
-
-                        if (role == "Doctor")
-                        {
-                            var nurseRow = dataSet11.Nurse.Rows
-                                .Cast<DataRow>()
-                                .FirstOrDefault(r => r["NurseID"].ToString() == appointment["Nurse_ID"].ToString());
-
-
-                            if (nurseRow != null)
-                                lblCAMedStaff.Text = "Nurse: " + nurseRow["FullName"].ToString();
-                            lblCATime.Text = "Time: " +appointment["TimeSlots"].ToString();
-                        }
-                    }
-                }
-                else if(appointmentDate.Date == today && role == "Nurse" && Convert.ToInt32(appointment["NurseID"]) == medid)
-                {
-                    string status = appointment["AppointmentStatus"].ToString();
-                    if (status == "Completed" || status == "Scheduled")
-                    {
-                        appointmentcount++;
-                    }
-                    if (status.Equals("No Show"))
-                    {
-                        missedToday++;
-                    }
-                    if (status == "Cancelled")
-                    {
-                        cancelledToday++;
-                    }
-                    if (status == "Completed")
-                    {
-                        appointmentcompletecount++;
-                    }
-
-                    //Current Appointment Widget
-                    DateTime date = appointmentDate.Date;
-                    DateTime currentTime = DateTime.Now;
-                    string timeSlot = appointment["TimeSlots"].ToString();
-
-                    var times = ParseTimeSlot(timeSlot, appointmentDate);
-
-                    DateTime startDateTime = times.start;
-                    DateTime endDateTime = times.end;
-
-
-
-                    if (status == "Scheduled" && startDateTime >= DateTime.Now)
-                    {
-                        appointmentremaincount++;
-                    }
-
-                    if (currentTime >= startDateTime && currentTime <= endDateTime)
-                    {
-                        var patientRow = dataSet11.Patient.Rows
-                                        .Cast<DataRow>()
-                                        .FirstOrDefault(r => r["PatientID"].ToString() == appointment["Patient_ID"].ToString());
-
-                        if (patientRow != null)
-                            lblCAPatient.Text = "Patient: " + patientRow["FullName"].ToString();
-
-                        var doctorRow = dataSet11.Doctor.Rows
-                            .Cast<DataRow>()
-                            .FirstOrDefault(r => r["DoctorID"].ToString() == appointment["Doctor_ID"].ToString());
-                        if (doctorRow != null)
-                            lblCAMedStaff.Text = "Doctor: " + doctorRow["FullName"].ToString();
-                        lblCATime.Text = "Time: " + appointment["TimeSlots"].ToString();
-                    }
-                }
-
-                //Administrators appointments
-               if (appointmentDate.Date == today && role == "Admin") { 
-                    adminappointmentcount++;
-                    string status = appointment["Appointment_Status"].ToString();
-                    if (status == "Completed")
-                    {
-                        adminappointmentcompletecount++;
-                    }
-                    if (status == "Cancelled")
-                    {
-                        adminappointmentcancelcount++;
-                    }
-                    if (status == "No Show")
-                    {
-                        adminappointmentmissedcount++;
-                    }
-               }
-            }
-
-            if(role == "Admin")
-            {
-                lblCAPatient.Text = "Total Appointments: " + adminappointmentcount;
-                lblCAMedStaff.Text = "Completed: " + adminappointmentcompletecount;
-                lblCATime.Text = "Missed: " + adminappointmentmissedcount.ToString();
-            }
-            lblWTCompleted.Text = "Completed: " + appointmentcompletecount+"/"+appointmentcount;
-            lblWTRemaining.Text ="Remaining: "+appointmentremaincount+"/"+appointmentcount;
-            lblCompletedAppointment.Text = appointmentcompletecount.ToString();
-
-            var latestAppointment = dataSet11.Pro_Appointment.AsEnumerable()
-                .Where(r =>
-                    Convert.ToDateTime(r["AppointmentDate"]).Date == DateTime.Today &&
-                    (
-                        (role == "Doctor" && Convert.ToInt32(r["DoctorID"]) == medid) ||
-                        (role == "Nurse" && Convert.ToInt32(r["NurseID"]) == medid)
-                    ) &&
-                    r["AppointmentStatus"].ToString() != "Cancelled" &&
-                    r["AppointmentStatus"].ToString() != "No Show")
-                .OrderByDescending(r =>
-                {
-                    DateTime date = Convert.ToDateTime(r["AppointmentDate"]);
-                    string timeSlot = r["TimeSlots"].ToString();
-
-                    var times = ParseTimeSlot(timeSlot, date);
-
-                    return times.end; // ✅ use parsed END time
-                })
-                .FirstOrDefault();
-  
-            if (latestAppointment != null)
-            {
-                DateTime date = Convert.ToDateTime(latestAppointment["AppointmentDate"]);
-                string timeSlot = latestAppointment["TimeSlots"].ToString();
-
-                var times = ParseTimeSlot(timeSlot, date);
-
-                DateTime finishTime = times.end;
-
-                lblWTTime.Text = $"Estimated Finish Time: {finishTime:HH:mm}";
-            }
-
-            // Recent Prescription Activity Widget
-            var latestRow = dataSet11.CustomMedAdm.AsEnumerable()
-                .Where(r => r.Field<string>("status") == "Completed")
-                .OrderByDescending(r => Convert.ToDateTime(r["DateIssued"])
-)
-                .FirstOrDefault();
-            if (latestRow != null)
-            {
-                
-                string patient = latestRow["PatientName"].ToString();
-                string medicine = latestRow["MedicineName"].ToString();
-                DateTime time = latestRow.Field<DateTime>("Admnistered_at");
-                lblRPAPatient.Text = $"Completed: {patient}";
-                lblRPAMedicine.Text = $"Prescribed Medication: {medicine}";
-                lblRPATime.Text = $"Date Issued: {time:dd MMMM yyyy}";
-            }
-
-            string zero2 = "";
-            if (appointmentcount >= 0 && appointmentcount < 10)
-            {
-                zero2 = "0";
-            }
-            lblMissedAppointment.Text = missedToday.ToString();
-            lblCancelledAppointment.Text = cancelledToday.ToString();
-
-
-            //Next Appointment
-            string patientName = "No Patient";
-            string appointmentTime = "No Time";
-            string minutes = "Starts In: N/A";
-            for (int i = 0; i < dgvWidgetAppointment.Rows.Count; i++)
-            {
-
-                string status = dgvWidgetAppointment.Rows[i].Cells["appointmentStatusDataGridViewTextBoxColumn"]?.Value?.ToString();
-
-                if (status == "Scheduled")
-                {
-                    patientName = dgvWidgetAppointment.Rows[i].Cells["PatientName"].Value.ToString();
-                    appointmentTime = dgvWidgetAppointment.Rows[i].Cells["timeSlotsDataGridViewTextBoxColumn"].Value.ToString();
-
-                    string timeSlot = dgvWidgetAppointment.Rows[i]
-                        .Cells["timeSlotsDataGridViewTextBoxColumn"].Value.ToString();
-
-                    var times = ParseTimeSlot(timeSlot, DateTime.Today);
-
-                    DateTime nextAppointmentDateTime = times.start;
-
-                    DateTime now = DateTime.Now;
-
-                    TimeSpan difference = nextAppointmentDateTime - now;
-
-                    int minutesLeft = (int)Math.Max(0, difference.TotalMinutes);
-
-                    minutes = $"Starts in {minutesLeft} minutes";
-                    lblNAPatient.Text = "Patient: " + patientName;
-                    lblNATime.Text = "Time: " + appointmentTime;
-                    lblNAMinutes.Text = minutes;
-                    break;
-                }
-
-            }
         }
         private (DateTime start, DateTime end) ParseTimeSlot(string timeSlot, DateTime date)
         {
@@ -371,7 +136,7 @@ namespace MPM2.Business
             {
                 this.ActiveMdiChild.Close();
             }
-            AppointmentForm1 a = new AppointmentForm1();
+            AdminAppointment a = new AdminAppointment();
             a.MdiParent = this.MdiParent;
             a.WindowState = FormWindowState.Maximized;
             a.FormBorderStyle = FormBorderStyle.None;
@@ -500,6 +265,137 @@ namespace MPM2.Business
         {
             WTSubpanel.BackColor = Color.FromArgb(27, 94, 53);
             WTPanel.BackColor = Color.WhiteSmoke;
+        }
+        private void ApplyDoctorFilter()
+        {
+            if (role != "Doctor")
+                return;
+
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataSet11.NewApointments;
+
+            string doctorName = fullName.Replace("'", "''");
+
+            bs.Filter = $"DoctorName = '{doctorName}'";
+
+            dgvWidgetAppointment.DataSource = bs;
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            
+        }
+        public void BuildFullyBookedDoctors()
+        {
+            dataSet11.FullyBookedDoctors.Clear();
+
+            DateTime today = DateTime.Today;
+
+            var grouped = dataSet11.Pro_Appointment.AsEnumerable()
+                .Where(r => Convert.ToDateTime(r["AppointmentDate"]).Date == today)
+                .GroupBy(r => r["DoctorID"]);
+
+            foreach (var group in grouped)
+            {
+                int doctorId = Convert.ToInt32(group.Key);
+                int count = group.Count();
+
+                if (count >= 6) // fully booked rule
+                {
+                    var doctorRow = dataSet11.Doctor.AsEnumerable()
+                        .FirstOrDefault(d => Convert.ToInt32(d["DoctorID"]) == doctorId);
+
+                    string doctorName = doctorRow != null
+                        ? doctorRow["FullName"].ToString()
+                        : "Unknown";
+
+                    // ✅ CREATE NEW ROW (THIS IS THE CORRECT PART)
+                    DataRow dr = dataSet11.FullyBookedDoctors.NewRow();
+
+                    dr["DoctorID"] = doctorId;
+                    dr["DoctorName"] = doctorName;
+                    dr["AppointmentCount"] = count;
+                    dr["BookingDate"] = today;
+
+                    // ✅ ADD TO TABLE
+                    dataSet11.FullyBookedDoctors.Rows.Add(dr);
+                }
+            }
+        }
+        //DataTable doctorDisplayTable = new DataTable();
+
+        private void NAPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        /* private void BuildDoctorDisplayTable()
+         {
+             doctorDisplayTable.Clear();
+
+             foreach (DataRow dr in dataSet1.Doctor.Rows)
+             {
+                 int doctorId = Convert.ToInt32(dr["DoctorID"]);
+                 string name = dr["FullName"].ToString();
+
+                 bool isFullyBooked = dataSet1.FullyBookedDoctors.AsEnumerable()
+                     .Any(r => Convert.ToInt32(r["DoctorID"]) == doctorId);
+
+                 string displayName = isFullyBooked
+                     ? name + " (FULLY BOOKED)"
+                     : name;
+
+                 DataRow newRow = doctorDisplayTable.NewRow();
+                 newRow["DoctorID"] = doctorId;
+                 newRow["DisplayName"] = displayName;
+
+                 doctorDisplayTable.Rows.Add(newRow);
+             }
+         }
+     }
+        */
+        public void LoadNAPanelFullyBookedDoctors(string role, int doctorId = 0)
+        {
+            if (role == "Doctor")
+            {
+                listBoxFullyBookedDoctors.DataSource = null;
+
+                lblDisplayFullyBooked.Text = "";
+
+                int count = dataSet11.Pro_Appointment.AsEnumerable()
+                    .Count(r =>
+                        Convert.ToInt32(r["DoctorID"]) == doctorId &&
+                        Convert.ToDateTime(r["AppointmentDate"]).Date == DateTime.Today);
+
+                lblNumberOfAppointments.Text =  count+"\n Appointments \nFor Today";
+                lblNumberOfAppointments.Visible = true;
+
+                return;
+            }
+
+            if (role == "Admin")
+            {
+                lblNumberOfAppointments.Text="";
+
+                var names = dataSet11.FullyBookedDoctors
+                    .AsEnumerable()
+                    .Select(r => r["DoctorName"].ToString())
+                    .ToList();
+
+                lblDisplayFullyBooked.Text = "Fully Booked Doctors Today: " + names.Count;
+
+                listBoxFullyBookedDoctors.DataSource = names;
+            }
+        }
+
+        private void lblNAFullYBookedDoctors_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNumberOfAppointments_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
