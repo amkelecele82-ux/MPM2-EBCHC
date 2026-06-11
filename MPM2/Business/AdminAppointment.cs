@@ -839,5 +839,10 @@ namespace MPM2.Business
         {
             label18.Text = DateTime.Now.ToString("dd/MM/yyyy").ToString();
         }
+
+        internal void SetTab(int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -96,12 +96,6 @@
     <Compile Include="Business\AdminAppointment.Designer.cs">
       <DependentUpon>AdminAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Business\AppointmentForm1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Business\AppointmentForm1.Designer.cs">
-      <DependentUpon>AppointmentForm1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Business\DashboardForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,9 +212,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\AdminAppointment.resx">
       <DependentUpon>AdminAppointment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Business\AppointmentForm1.resx">
-      <DependentUpon>AppointmentForm1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\DashboardForm1.resx">
       <DependentUpon>DashboardForm1.cs</DependentUpon>
