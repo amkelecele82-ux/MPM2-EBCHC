@@ -68,5 +68,10 @@ namespace MPM2.Business
             txtInstruction.Text=prescriptiondataGridView1.CurrentRow.Cells[8].Value.ToString();
 
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            label6.Text = DateTime.Now.ToString("dd/MM/yyyy");
+        }
     }
 }

@@ -58,20 +58,25 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnSaveUpdate = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Yellow;
-            this.label1.Location = new System.Drawing.Point(430, 9);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(503, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(165, 26);
             this.label1.TabIndex = 0;
@@ -79,6 +84,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Green;
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.txtDoctorID);
             this.groupBox1.Controls.Add(this.textBox1);
@@ -88,7 +94,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Cornsilk;
             this.groupBox1.Location = new System.Drawing.Point(100, 75);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(619, 142);
+            this.groupBox1.Size = new System.Drawing.Size(578, 160);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Prescription Management";
@@ -144,6 +150,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.Green;
             this.groupBox2.Controls.Add(this.maskedTextBox1);
             this.groupBox2.Controls.Add(this.txtDuration);
             this.groupBox2.Controls.Add(this.txtFrequency);
@@ -155,9 +162,9 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox2.Location = new System.Drawing.Point(100, 234);
+            this.groupBox2.Location = new System.Drawing.Point(100, 241);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(619, 192);
+            this.groupBox2.Size = new System.Drawing.Size(578, 185);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Details";
@@ -249,27 +256,27 @@
             // 
             this.groupBox3.Controls.Add(this.txtInstruction);
             this.groupBox3.ForeColor = System.Drawing.Color.Beige;
-            this.groupBox3.Location = new System.Drawing.Point(100, 448);
+            this.groupBox3.Location = new System.Drawing.Point(100, 432);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(607, 152);
+            this.groupBox3.Size = new System.Drawing.Size(607, 168);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Instructions";
             // 
             // txtInstruction
             // 
-            this.txtInstruction.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtInstruction.Location = new System.Drawing.Point(6, 19);
+            this.txtInstruction.BackColor = System.Drawing.Color.White;
+            this.txtInstruction.Location = new System.Drawing.Point(-25, 19);
             this.txtInstruction.Multiline = true;
             this.txtInstruction.Name = "txtInstruction";
-            this.txtInstruction.Size = new System.Drawing.Size(595, 127);
+            this.txtInstruction.Size = new System.Drawing.Size(613, 127);
             this.txtInstruction.TabIndex = 0;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(848, 258);
+            this.button1.Location = new System.Drawing.Point(70, 35);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(189, 31);
             this.button1.TabIndex = 4;
@@ -279,9 +286,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(848, 319);
+            this.button2.Location = new System.Drawing.Point(76, 85);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 31);
+            this.button2.Size = new System.Drawing.Size(183, 31);
             this.button2.TabIndex = 5;
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = true;
@@ -313,39 +320,69 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(0)))));
             this.groupBox4.Controls.Add(this.btnSaveUpdate);
             this.groupBox4.Controls.Add(this.btnUpdate);
             this.groupBox4.ForeColor = System.Drawing.Color.Black;
-            this.groupBox4.Location = new System.Drawing.Point(837, 467);
+            this.groupBox4.Location = new System.Drawing.Point(55, 174);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 119);
+            this.groupBox4.Size = new System.Drawing.Size(204, 116);
             this.groupBox4.TabIndex = 7;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Update Prescription Details";
             // 
             // btnSaveUpdate
             // 
-            this.btnSaveUpdate.Location = new System.Drawing.Point(46, 69);
+            this.btnSaveUpdate.Location = new System.Drawing.Point(36, 65);
             this.btnSaveUpdate.Name = "btnSaveUpdate";
-            this.btnSaveUpdate.Size = new System.Drawing.Size(105, 23);
+            this.btnSaveUpdate.Size = new System.Drawing.Size(133, 27);
             this.btnSaveUpdate.TabIndex = 7;
             this.btnSaveUpdate.Text = "Save Changes";
             this.btnSaveUpdate.UseVisualStyleBackColor = true;
             this.btnSaveUpdate.Click += new System.EventHandler(this.button4_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1215, 44);
+            this.panel1.TabIndex = 8;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.groupBox4);
+            this.panel2.Location = new System.Drawing.Point(809, 87);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(329, 375);
+            this.panel2.TabIndex = 9;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 606);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1215, 58);
+            this.panel3.TabIndex = 10;
+            // 
             // RegPrescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(53)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(239)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1215, 664);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
             this.Name = "RegPrescriptionForm";
             this.Text = "RegPrescriptionForm";
             this.Load += new System.EventHandler(this.RegPrescriptionForm_Load);
@@ -358,8 +395,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -394,5 +433,8 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnSaveUpdate;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }

@@ -37,16 +37,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine">
-      <HintPath>..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+      <HintPath>..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportSource">
-      <HintPath>..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+      <HintPath>..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.Shared">
-      <HintPath>..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.Shared.dll</HintPath>
+      <HintPath>..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.Shared.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.Windows.Forms">
-      <HintPath>..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.Windows.Forms.dll</HintPath>
+      <HintPath>..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.Windows.Forms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -96,12 +96,6 @@
     <Compile Include="Business\AdminAppointment.Designer.cs">
       <DependentUpon>AdminAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Business\AppointmentForm1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Business\AppointmentForm1.Designer.cs">
-      <DependentUpon>AppointmentForm1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Business\DashboardForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,12 +143,6 @@
     </Compile>
     <Compile Include="Business\RegPrescriptionForm.Designer.cs">
       <DependentUpon>RegPrescriptionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Business\TreatmentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Business\TreatmentForm.Designer.cs">
-      <DependentUpon>TreatmentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -225,9 +213,6 @@
     <EmbeddedResource Include="Business\AdminAppointment.resx">
       <DependentUpon>AdminAppointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Business\AppointmentForm1.resx">
-      <DependentUpon>AppointmentForm1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Business\DashboardForm1.resx">
       <DependentUpon>DashboardForm1.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,9 +236,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\RegPrescriptionForm.resx">
       <DependentUpon>RegPrescriptionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Business\TreatmentForm.resx">
-      <DependentUpon>TreatmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\Login2.resx">
       <DependentUpon>Login2.cs</DependentUpon>
