@@ -144,6 +144,12 @@
     <Compile Include="Business\RegPrescriptionForm.Designer.cs">
       <DependentUpon>RegPrescriptionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database\DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
@@ -151,6 +157,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DoctorReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DoctorReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DoctorReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Interface\Login2.cs">
       <SubType>Form</SubType>
@@ -236,6 +254,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\RegPrescriptionForm.resx">
       <DependentUpon>RegPrescriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DoctorReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\Login2.resx">
       <DependentUpon>Login2.cs</DependentUpon>
