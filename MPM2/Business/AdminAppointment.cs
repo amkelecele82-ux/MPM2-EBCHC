@@ -951,12 +951,12 @@ namespace MPM2.Business
 
         private void label17_Click(object sender, EventArgs e)
         {
-            label17.Text= DateTime.Now.ToString("dd/MM/yyyy").ToString();
+            //label17.Text= DateTime.Now.ToString("dd/MM/yyyy").ToString();
         }
 
         private void label18_Click(object sender, EventArgs e)
         {
-            label18.Text = DateTime.Now.ToString("dd/MM/yyyy").ToString();
+           // label18.Text = DateTime.Now.ToString("dd/MM/yyyy").ToString();
         }
 
         internal void SetTab(int v)
