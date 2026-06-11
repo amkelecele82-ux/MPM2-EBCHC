@@ -33,6 +33,11 @@ namespace MPM2.Business
             CBStatus.Items.Add("Delayed");
             CBStatus.SelectedIndex = 0;
 
+            CBStatus2.Items.Add("Pending");
+            CBStatus2.Items.Add("Completed");
+            CBStatus2.Items.Add("Missed");
+            CBStatus2.Items.Add("Delayed");
+            CBStatus2.SelectedIndex = 0;
 
         }
         public void SetTab(int tabIndex)
@@ -197,6 +202,27 @@ namespace MPM2.Business
         private void dgvMedAdministration_SelectionChanged(object sender, EventArgs e)
         {
             ChangeValues();
+        }
+
+        private void Recordbutton_Click(object sender, EventArgs e)
+        {
+            if (this.MdiParent is MainForm mf)
+            {
+                if (mf != null)
+                {
+                    if (mf.CurrentRole != "Nurse")
+                    {
+                        MessageBox.Show("Access Denied. Only Administrators can access this form.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Close();
+                        return;
+                    }
+                    
+                    int nid = Convert.ToInt32(mf.CurrentDataRow["NurseID"]);
+                    int prid = Convert.ToInt32(dgvPrescription.CurrentRow.Cells["PrescriptionID"].Value);
+                    string notes = RTBNotes2.Text;
+
+                }
+            }
         }
     }
 }
