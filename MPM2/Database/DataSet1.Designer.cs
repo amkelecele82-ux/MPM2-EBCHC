@@ -6425,6 +6425,14 @@ namespace MPM2.Database {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class FullyBookedDoctorsDataTable : global::System.Data.TypedTableBase<FullyBookedDoctorsRow> {
             
+            private global::System.Data.DataColumn columnDoctorID;
+            
+            private global::System.Data.DataColumn columnDoctorName;
+            
+            private global::System.Data.DataColumn columnAppointmentCount;
+            
+            private global::System.Data.DataColumn columnBookingDate;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public FullyBookedDoctorsDataTable() {
@@ -6456,6 +6464,38 @@ namespace MPM2.Database {
             protected FullyBookedDoctorsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DoctorIDColumn {
+                get {
+                    return this.columnDoctorID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DoctorNameColumn {
+                get {
+                    return this.columnDoctorName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AppointmentCountColumn {
+                get {
+                    return this.columnAppointmentCount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BookingDateColumn {
+                get {
+                    return this.columnBookingDate;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6495,9 +6535,13 @@ namespace MPM2.Database {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public FullyBookedDoctorsRow AddFullyBookedDoctorsRow() {
+            public FullyBookedDoctorsRow AddFullyBookedDoctorsRow(int DoctorID, string DoctorName, int AppointmentCount, System.DateTime BookingDate) {
                 FullyBookedDoctorsRow rowFullyBookedDoctorsRow = ((FullyBookedDoctorsRow)(this.NewRow()));
-                object[] columnValuesArray = new object[0];
+                object[] columnValuesArray = new object[] {
+                        DoctorID,
+                        DoctorName,
+                        AppointmentCount,
+                        BookingDate};
                 rowFullyBookedDoctorsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFullyBookedDoctorsRow);
                 return rowFullyBookedDoctorsRow;
@@ -6520,11 +6564,26 @@ namespace MPM2.Database {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
+                this.columnDoctorID = base.Columns["DoctorID"];
+                this.columnDoctorName = base.Columns["DoctorName"];
+                this.columnAppointmentCount = base.Columns["AppointmentCount"];
+                this.columnBookingDate = base.Columns["BookingDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
+                this.columnDoctorID = new global::System.Data.DataColumn("DoctorID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDoctorID);
+                this.columnDoctorName = new global::System.Data.DataColumn("DoctorName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDoctorName);
+                this.columnAppointmentCount = new global::System.Data.DataColumn("AppointmentCount", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAppointmentCount);
+                this.columnBookingDate = new global::System.Data.DataColumn("BookingDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBookingDate);
+                this.columnDoctorID.AllowDBNull = false;
+                this.columnAppointmentCount.AllowDBNull = false;
+                this.columnBookingDate.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9057,6 +9116,67 @@ namespace MPM2.Database {
             internal FullyBookedDoctorsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableFullyBookedDoctors = ((FullyBookedDoctorsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int DoctorID {
+                get {
+                    return ((int)(this[this.tableFullyBookedDoctors.DoctorIDColumn]));
+                }
+                set {
+                    this[this.tableFullyBookedDoctors.DoctorIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string DoctorName {
+                get {
+                    try {
+                        return ((string)(this[this.tableFullyBookedDoctors.DoctorNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DoctorName\' in table \'FullyBookedDoctors\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFullyBookedDoctors.DoctorNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int AppointmentCount {
+                get {
+                    return ((int)(this[this.tableFullyBookedDoctors.AppointmentCountColumn]));
+                }
+                set {
+                    this[this.tableFullyBookedDoctors.AppointmentCountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime BookingDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tableFullyBookedDoctors.BookingDateColumn]));
+                }
+                set {
+                    this[this.tableFullyBookedDoctors.BookingDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDoctorNameNull() {
+                return this.IsNull(this.tableFullyBookedDoctors.DoctorNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDoctorNameNull() {
+                this[this.tableFullyBookedDoctors.DoctorNameColumn] = global::System.Convert.DBNull;
             }
         }
         

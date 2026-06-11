@@ -4,6 +4,10 @@
 
     partial class DataSet1
     {
+        partial class DoctorDataTable
+        {
+        }
+
         partial class appProgressDataTable
         {
         }
@@ -16,6 +20,10 @@
 
 namespace MPM2.Database.DataSet1TableAdapters
 {
+    partial class DoctorTableAdapter
+    {
+    }
+
     partial class Pro_AppointmentTableAdapter
     {
     }

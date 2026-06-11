@@ -97,7 +97,7 @@ namespace MPM2
 
         private void nabutton_Click(object sender, EventArgs e)
         {
-            AppointmentForm1 a = new AppointmentForm1();
+            AdminAppointment a = new AdminAppointment();
             formSetup(a);
         }
 
@@ -120,7 +120,7 @@ namespace MPM2
 
         private void viewAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AppointmentForm1 a = new AppointmentForm1();
+            AdminAppointment a = new AdminAppointment();
             formSetup(a);
         }
 
@@ -223,7 +223,7 @@ namespace MPM2
 
         private void bookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AppointmentForm1 a = new AppointmentForm1();
+            AdminAppointment a = new AdminAppointment();
             a.SetTab(1);
             formSetup(a);
         }

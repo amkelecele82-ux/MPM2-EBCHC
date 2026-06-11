@@ -14,6 +14,8 @@ namespace MPM2.Business
             = new Dictionary<int, Dictionary<DateTime, List<Tuple<TimeSpan, TimeSpan>>>>();
 
         // Master list of start slot strings (e.g. "09:00 AM")
+        private DashboardForm1 dashboardForm;
+        
         private readonly List<string> masterTimeSlots = new List<string>();
         public AdminAppointment()
         {
@@ -71,6 +73,14 @@ namespace MPM2.Business
 
         private void AdminAppointment_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSet1.Doctor' table. You can move, or remove it, as needed.
+            this.doctorTableAdapter.Fill(this.dataSet1.Doctor);
+            BindingSource doctorBS = new BindingSource();
+            doctorBS.DataSource = dataSet1.Doctor;
+
+            comboBox1DoctorName.DataSource = doctorBS;
+            comboBox1DoctorName.DisplayMember = "FullName";
+            comboBox1DoctorName.ValueMember = "DoctorID";
             // TODO: This line of code loads data into the 'dataSet13.NewApointments' table. You can move, or remove it, as needed.
             // this.newAppointmentsTableAdapter.Fill(this.dataSet13.NewApointments);
             // TODO: This line of code loads data into the 'dataSet12.NewApointments' table. You can move, or remove it, as needed.
@@ -100,13 +110,13 @@ namespace MPM2.Business
             string doctorName = GetLoggedInDoctorName();
             if (!string.IsNullOrEmpty(doctorName))
             {
-                txtDoctor.Text = doctorName;
-                txtDoctor.ReadOnly = true;
+                comboBox1DoctorName.Text = doctorName;
+               // txtDocto.ReadOnly = true;
             }
             else
             {
-                txtDoctor.Text = string.Empty;
-                txtDoctor.ReadOnly = true;
+                comboBox1DoctorName.Text = string.Empty;
+                //txtDoctor.ReadOnly = true;
             }
 
             int doctorId = GetLoggedInDoctorId();
@@ -130,11 +140,12 @@ namespace MPM2.Business
 
             // Refresh combo boxes for the currently selected date and logged-in doctor
             RefreshAvailableStartTimesForSelectedDate();
-
+            ApplyDoctorFilter();    
             // Ensure dataGridView3 shows filtered view for the logged-in role
             //  ApplyRoleFilter();
 
             txtStatus.Text = "Scheduled";
+            ApplyTabPermissions();
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -182,7 +193,7 @@ namespace MPM2.Business
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(txtDoctor.Text) ||
+                if (string.IsNullOrWhiteSpace(comboBox1DoctorName.Text) ||
                     string.IsNullOrWhiteSpace(txtNurse.Text) ||
                     string.IsNullOrWhiteSpace(txtPatients.Text) ||
                     string.IsNullOrWhiteSpace(txtStatus.Text) ||
@@ -213,7 +224,8 @@ namespace MPM2.Business
 
                 DateTime datex = monthCalendar1.SelectionStart.Date;
 
-                int doctorId = int.Parse(textBoxDrID.Text);
+               int doctorId = int.Parse(textBoxDrID.Text);
+              // int doctorId= int.Parse(GetLoggedInDoctorId().ToString());   
                 int patientId = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
                 int nurseId = int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString());
 
@@ -242,7 +254,7 @@ namespace MPM2.Business
                     MessageBox.Show("Doctor Fully Booked ,Will be Available Tomorrow ");
                     return;
                 }
-
+           
                 // 6. ONLY NOW create dataset row
                 /*var dr = dataSet1.NewApointments.NewRow();
 
@@ -259,7 +271,16 @@ namespace MPM2.Business
     comboBoxSta.SelectedItem.ToString()
     + " - "
     + comboBoxEnd.SelectedItem.ToString();
+                pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment); // ensure dataset is up-to-date before duplicate check
+                if (IsDuplicateAppointment(patientId, doctorId, date, timeSlot,txtReason.Text))
+                {
+                    MessageBox.Show("This exact appointment already exists.",
+                        "Duplicate Blocked",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
 
+                    return;
+                }
                 pro_AppointmentTableAdapter.Insert(
                     patientId,
                        doctorId,
@@ -272,20 +293,34 @@ namespace MPM2.Business
 
                 // 8. UI refresh
                 pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment);
-
+               /* if (dashboardForm != null)
+                {
+                    dashboardForm.BuildFullyBookedDoctors();
+                    dashboardForm.BindFullyBookedDoctorsList();
+                    dashboardForm.LoadNAPanelFullyBookedDoctors();
+                }
+               */
                 newAppointmentsTableAdapter.Fill(this.dataSet1.NewApointments);
+                if (dashboardForm != null)
+                {
+                    dashboardForm.RefreshFullyBookedDoctorsUI();
+                    dashboardForm.LoadNAPanelFullyBookedDoctors("Admin");
+                }
 
-
-
-                MessageBox.Show("Appointment created successfully!");
 
                 BuildBookedSlotsFromDataset();
                 RefreshAvailableStartTimesForSelectedDate();
-                ApplyDoctorFilter();
+                MessageBox.Show("Appointment created successfully!");
+
+               // ApplyDoctorFilter();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error creating appointment: " + ex.Message);
+            }
+            finally
+            {
+                button1.Enabled = true;
             }
         }
         private void comboBoxSta_SelectedIndexChanged(object sender, EventArgs e)
@@ -478,7 +513,7 @@ namespace MPM2.Business
                 }
 
                 // DOCTOR: filter own appointments only
-                string doctorName = txtDoctor.Text.Trim();
+                string doctorName = comboBox1DoctorName.Text.Trim();
 
                 if (string.IsNullOrWhiteSpace(doctorName))
                 {
@@ -829,6 +864,90 @@ namespace MPM2.Business
         {
 
         }
+        private void ApplyTabPermissions()
+        {
+            if (!(this.MdiParent is MainForm main))
+                return;
+
+            if (main.CurrentRole == "Doctor")
+            {
+                // Doctor only sees TabPage3
+                tabControl1.TabPages.Remove(tabPage1);
+                tabControl1.TabPages.Remove(tabPage3);
+                tabControl1.SelectedTab = tabPage2;
+                ApplyDoctorFilter();
+            }
+            else if (main.CurrentRole == "Admin")
+            {
+                // Admin sees everything (no change needed)
+            }
+        }
+
+        private void comboBox1DoctorName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1DoctorName.SelectedValue != null)
+            {
+                if (comboBox1DoctorName.SelectedValue == null)
+                    return;
+
+                int selectedDoctorId;
+
+                if (!int.TryParse(comboBox1DoctorName.SelectedValue.ToString(), out selectedDoctorId))
+                    return;
+
+                // Check if doctor is fully booked today
+                bool isFullyBooked = dataSet1.FullyBookedDoctors.AsEnumerable()
+                    .Any(r => Convert.ToInt32(r["DoctorID"]) == selectedDoctorId);
+
+                if (isFullyBooked)
+                {
+                    MessageBox.Show(
+                        "Unable to Pick, Doctor Fully Booked For Today",
+                        "Booking Blocked",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    // 🔥 reset selection
+                    comboBox1DoctorName.SelectedIndexChanged -= comboBox1DoctorName_SelectedIndexChanged;
+                    comboBox1DoctorName.SelectedIndex = -1;
+                    comboBox1DoctorName.SelectedIndexChanged += comboBox1DoctorName_SelectedIndexChanged;
+
+                    textBoxDrID.Clear();
+                    return;
+                }
+                textBoxDrID.Text = comboBox1DoctorName.SelectedValue.ToString();
+            }
+        }
+        private bool IsDuplicateAppointment(int patientId, int doctorId, DateTime date, string timeSlot, string reason)
+        {
+            if (dataSet1 == null || dataSet1.Pro_Appointment == null)
+                return false;
+
+            foreach (DataRow row in dataSet1.Pro_Appointment.Rows)
+            {
+                if (row.RowState == DataRowState.Deleted)
+                    continue;
+
+                int dbPatientId = Convert.ToInt32(row["PatientID"]);
+                int dbDoctorId = Convert.ToInt32(row["DoctorID"]);
+                DateTime dbDate = Convert.ToDateTime(row["AppointmentDate"]);
+                string dbTimeSlot = row["TimeSlots"].ToString().Trim();
+                string dbReason = row["AppointmentReason"].ToString().Trim();
+
+                bool same =
+                    dbPatientId == patientId &&
+                    dbDoctorId == doctorId &&
+                    dbDate.Date == date.Date &&
+                    dbTimeSlot.Equals(timeSlot.Trim(), StringComparison.OrdinalIgnoreCase) &&
+                    dbReason.Equals(reason.Trim(), StringComparison.OrdinalIgnoreCase);
+
+                if (same)
+                    return true;
+            }
+
+            return false;
+        }
 
         private void label17_Click(object sender, EventArgs e)
         {
@@ -838,6 +957,11 @@ namespace MPM2.Business
         private void label18_Click(object sender, EventArgs e)
         {
             label18.Text = DateTime.Now.ToString("dd/MM/yyyy").ToString();
+        }
+
+        internal void SetTab(int v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
