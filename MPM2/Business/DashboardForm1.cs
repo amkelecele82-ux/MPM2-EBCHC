@@ -397,5 +397,16 @@ namespace MPM2.Business
         {
 
         }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Report r = new Report();
+            r.Show();
+        }
     }
 }

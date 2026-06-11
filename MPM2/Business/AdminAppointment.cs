@@ -281,6 +281,7 @@ namespace MPM2.Business
 
                     return;
                 }
+                pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment);
                 pro_AppointmentTableAdapter.Insert(
                     patientId,
                        doctorId,
@@ -307,7 +308,7 @@ namespace MPM2.Business
                     dashboardForm.LoadNAPanelFullyBookedDoctors("Admin");
                 }
 
-
+                pro_AppointmentTableAdapter.Fill(dataSet1.Pro_Appointment);
                 BuildBookedSlotsFromDataset();
                 RefreshAvailableStartTimesForSelectedDate();
                 MessageBox.Show("Appointment created successfully!");
@@ -446,24 +447,21 @@ namespace MPM2.Business
             comboBoxEnd.Items.Clear();
 
             var unavailable = new List<Tuple<TimeSpan, TimeSpan>>();
-            int currentDoctorId = GetLoggedInDoctorId();
-            if (currentDoctorId != 0)
+
+            int doctorIdToCheck = GetActiveDoctorId();
+
+            if (doctorIdToCheck != 0)
             {
-                if (bookedSlotsByDoctor.TryGetValue(currentDoctorId, out var dict)
-                    && dict.TryGetValue(selectedDate, out var list))
-                    unavailable.AddRange(list);
-            }
-            else
-            {
-                foreach (var perDoc in bookedSlotsByDoctor.Values)
+                if (bookedSlotsByDoctor.TryGetValue(doctorIdToCheck, out var dict) &&
+                    dict.TryGetValue(selectedDate, out var list))
                 {
-                    if (perDoc.TryGetValue(selectedDate, out var list))
-                        unavailable.AddRange(list);
+                    unavailable.AddRange(list);
                 }
             }
 
             DateTime limit = DateTime.ParseExact("16:30", "HH:mm", CultureInfo.InvariantCulture);
-            DateTime next = DateTime.Today.Add(selectedStartTs).AddMinutes(30); // use TimeSpan component
+            DateTime next = DateTime.Today.Add(selectedStartTs).AddMinutes(30);
+
             var blockedStart = DateTime.ParseExact("12:00 PM", "hh:mm tt", CultureInfo.InvariantCulture).TimeOfDay;
             var blockedEnd = DateTime.ParseExact("01:00 PM", "hh:mm tt", CultureInfo.InvariantCulture).TimeOfDay;
 
@@ -472,14 +470,12 @@ namespace MPM2.Business
                 var formatted = next.ToString("hh:mm tt", CultureInfo.InvariantCulture);
                 var ts = next.TimeOfDay;
 
-                // skip end times that fall inside blocked window
                 if (ts > blockedStart && ts <= blockedEnd)
                 {
                     next = next.AddMinutes(30);
                     continue;
                 }
 
-                // ensure the interval selectedStartTs -> ts does not overlap any unavailable booking
                 bool overlaps = unavailable.Any(b => !(ts <= b.Item1 || selectedStartTs >= b.Item2));
                 if (!overlaps)
                     comboBoxEnd.Items.Add(formatted);
@@ -590,66 +586,44 @@ namespace MPM2.Business
         {
             bookedSlotsByDoctor.Clear();
 
-            if (dataSet1 == null || dataSet1.Pro_Appointment == null)
+            if (dataSet1?.Pro_Appointment == null)
                 return;
 
             foreach (DataRow row in dataSet1.Pro_Appointment.Rows)
             {
-                if (row == null)
+                if (row == null || row.RowState == DataRowState.Deleted)
                     continue;
 
-                // determine doctor id column name and value
-                int doctorId = 0;
-                if (row.Table.Columns.Contains("DoctorID") && row["DoctorID"] != DBNull.Value)
-                    int.TryParse(row["DoctorID"].ToString(), out doctorId);
-                else if (row.Table.Columns.Contains("Doctor_ID") && row["Doctor_ID"] != DBNull.Value)
-                    int.TryParse(row["Doctor_ID"].ToString(), out doctorId);
-                else
-                    continue; // skip rows without doctor reference
-
-                if (!row.Table.Columns.Contains("AppointmentDate") || row["AppointmentDate"] == DBNull.Value)
+                if (!int.TryParse(row["DoctorID"]?.ToString(), out int doctorId))
                     continue;
 
-                DateTime apptDate;
-                try
-                {
-                    apptDate = Convert.ToDateTime(row["AppointmentDate"]);
-                }
-                catch
-                {
-                    continue;
-                }
-
-                if (!row.Table.Columns.Contains("TimeSlots") || row["TimeSlots"] == DBNull.Value)
+                if (!DateTime.TryParse(row["AppointmentDate"]?.ToString(), out DateTime apptDate))
                     continue;
 
-                string timeSlots = row["TimeSlots"].ToString();
+                string timeSlots = row["TimeSlots"]?.ToString();
                 if (string.IsNullOrWhiteSpace(timeSlots))
                     continue;
 
-                // Expecting "hh:mm tt - hh:mm tt"
                 string[] parts = timeSlots.Split(new[] { '-' }, 2);
                 if (parts.Length != 2)
                     continue;
 
-                string s = parts[0].Trim();
-                string e = parts[1].Trim();
-
-                DateTime sd, ed;
-                if (!DateTime.TryParseExact(s, "hh:mm tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out sd))
-                    continue;
-                if (!DateTime.TryParseExact(e, "hh:mm tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out ed))
+                if (!DateTime.TryParseExact(parts[0].Trim(), "hh:mm tt",
+                    CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime sd))
                     continue;
 
-                var dictForDoctor = bookedSlotsByDoctor.ContainsKey(doctorId)
-                    ? bookedSlotsByDoctor[doctorId]
-                    : (bookedSlotsByDoctor[doctorId] = new Dictionary<DateTime, List<Tuple<TimeSpan, TimeSpan>>>());
+                if (!DateTime.TryParseExact(parts[1].Trim(), "hh:mm tt",
+                    CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime ed))
+                    continue;
 
-                var dateKey = apptDate.Date;
-                if (!dictForDoctor.ContainsKey(dateKey))
-                    dictForDoctor[dateKey] = new List<Tuple<TimeSpan, TimeSpan>>();
+                if (!bookedSlotsByDoctor.ContainsKey(doctorId))
+                    bookedSlotsByDoctor[doctorId] = new Dictionary<DateTime, List<Tuple<TimeSpan, TimeSpan>>>();
 
-                dictForDoctor[dateKey].Add(Tuple.Create(sd.TimeOfDay, ed.TimeOfDay));
+                if (!bookedSlotsByDoctor[doctorId].ContainsKey(apptDate.Date))
+                    bookedSlotsByDoctor[doctorId][apptDate.Date] = new List<Tuple<TimeSpan, TimeSpan>>();
+
+                bookedSlotsByDoctor[doctorId][apptDate.Date]
+                    .Add(Tuple.Create(sd.TimeOfDay, ed.TimeOfDay));
             }
         }
         private void RefreshAvailableStartTimesForSelectedDate()
@@ -659,82 +633,41 @@ namespace MPM2.Business
 
             DateTime selectedDate = monthCalendar1.SelectionStart.Date;
 
-            var unavailable = new List<Tuple<TimeSpan, TimeSpan>>();
+            int doctorId = GetActiveDoctorId();
 
-            int currentDoctorId = GetLoggedInDoctorId();
+            List<Tuple<TimeSpan, TimeSpan>> unavailable = new List<Tuple<TimeSpan, TimeSpan>>();
 
-            if (currentDoctorId != 0)
+            if (doctorId != 0 &&
+                bookedSlotsByDoctor.TryGetValue(doctorId, out var dict) &&
+                dict.TryGetValue(selectedDate, out var list))
             {
-                if (bookedSlotsByDoctor.TryGetValue(currentDoctorId, out var dict) &&
-                    dict.TryGetValue(selectedDate, out var list))
-                {
-                    unavailable.AddRange(list);
-                }
-            }
-            else
-            {
-                // Optional: show all booked slots across all doctors
-                foreach (var perDoc in bookedSlotsByDoctor.Values)
-                {
-                    if (perDoc.TryGetValue(selectedDate, out var list))
-                    {
-                        unavailable.AddRange(list);
-                    }
-                }
+                unavailable = list;
             }
 
-            // Lunch break block: 12:00 PM - 1:00 PM
-            TimeSpan blockedStart =
-                DateTime.ParseExact(
-                    "12:00 PM",
-                    "hh:mm tt",
-                    CultureInfo.InvariantCulture)
-                .TimeOfDay;
-
-            TimeSpan blockedEnd =
-                DateTime.ParseExact(
-                    "01:00 PM",
-                    "hh:mm tt",
-                    CultureInfo.InvariantCulture)
-                .TimeOfDay;
+            TimeSpan blockedStart = TimeSpan.Parse("12:00");
+            TimeSpan blockedEnd = TimeSpan.Parse("13:00");
 
             foreach (string slot in masterTimeSlots)
             {
-                DateTime slotDt =
-                    DateTime.ParseExact(
-                        slot,
-                        "hh:mm tt",
-                        CultureInfo.InvariantCulture);
+                TimeSpan slotTs =
+                    DateTime.ParseExact(slot, "hh:mm tt", CultureInfo.InvariantCulture).TimeOfDay;
 
-                TimeSpan slotTs = slotDt.TimeOfDay;
-
-                // Skip lunch period
-                if (slotTs >= blockedStart &&
-                    slotTs < blockedEnd)
-                {
+                if (slotTs >= blockedStart && slotTs < blockedEnd)
                     continue;
-                }
 
-                // Remove slots that fall inside an existing booking
-                bool isUnavailable =
-                    unavailable.Any(b =>
-                        slotTs >= b.Item1 &&
-                        slotTs < b.Item2);
+                bool isUnavailable = unavailable.Any(b =>
+                    slotTs >= b.Item1 && slotTs < b.Item2);
 
                 if (!isUnavailable)
-                {
                     comboBoxSta.Items.Add(slot);
-                }
             }
 
             if (comboBoxSta.Items.Count > 0)
-            {
                 comboBoxSta.SelectedIndex = 0;
-            }
             else
             {
-                comboBoxSta.Text = string.Empty;
-                comboBoxEnd.Text = string.Empty;
+                comboBoxSta.Text = "";
+                comboBoxEnd.Text = "";
             }
         }
         private void ApplyRoleFilter()
@@ -917,6 +850,11 @@ namespace MPM2.Business
                     return;
                 }
                 textBoxDrID.Text = comboBox1DoctorName.SelectedValue.ToString();
+                //textBoxDrID.Text = comboBox1DoctorName.SelectedValue.ToString();
+                BuildBookedSlotsFromDataset();
+                RefreshAvailableStartTimesForSelectedDate();
+                comboBoxEnd.Items.Clear();
+                //RefreshAvailableStartTimesForSelectedDate();
             }
         }
         private bool IsDuplicateAppointment(int patientId, int doctorId, DateTime date, string timeSlot, string reason)
@@ -932,36 +870,58 @@ namespace MPM2.Business
                 int dbPatientId = Convert.ToInt32(row["PatientID"]);
                 int dbDoctorId = Convert.ToInt32(row["DoctorID"]);
                 DateTime dbDate = Convert.ToDateTime(row["AppointmentDate"]);
-                string dbTimeSlot = row["TimeSlots"].ToString().Trim();
-                string dbReason = row["AppointmentReason"].ToString().Trim();
 
-                bool same =
+                // ONLY CORE IDENTITY MATCH
+                bool sameCoreAppointment =
                     dbPatientId == patientId &&
                     dbDoctorId == doctorId &&
-                    dbDate.Date == date.Date &&
-                    dbTimeSlot.Equals(timeSlot.Trim(), StringComparison.OrdinalIgnoreCase) &&
-                    dbReason.Equals(reason.Trim(), StringComparison.OrdinalIgnoreCase);
+                    dbDate.Date == date.Date;
 
-                if (same)
-                    return true;
+                if (sameCoreAppointment)
+                {
+                    return true; // already exists, block it
+                }
             }
 
             return false;
         }
-
         private void label17_Click(object sender, EventArgs e)
         {
-            //label17.Text= DateTime.Now.ToString("dd/MM/yyyy").ToString();
+        //    label17.Text= DateTime.Now.ToString("dd/MM/yyyy").ToString();
         }
 
         private void label18_Click(object sender, EventArgs e)
         {
-           // label18.Text = DateTime.Now.ToString("dd/MM/yyyy").ToString();
+            //label18.Text = DateTime.Now.ToString("dd/MM/yyyy").ToString();
         }
 
         internal void SetTab(int v)
         {
             throw new NotImplementedException();
         }
+        private int GetSelectedDoctorId()
+        {
+            int doctorId;
+
+            if (comboBox1DoctorName.SelectedValue != null &&
+                int.TryParse(comboBox1DoctorName.SelectedValue.ToString(), out doctorId))
+            {
+                return doctorId;
+            }
+
+            return 0;
+        }
+        private int GetActiveDoctorId()
+        {
+            // Admin mode: must use selected doctor
+            if (!(this.MdiParent is MainForm main))
+                return GetSelectedDoctorId();
+
+            if (main.CurrentRole == "Doctor")
+                return GetLoggedInDoctorId();
+
+            return GetSelectedDoctorId();
+        }
+
     }
 }
