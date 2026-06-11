@@ -835,6 +835,11 @@ namespace MPM2.Business
             else if (main.CurrentRole == "Admin")
             {
                 // Admin sees everything (no change needed)
+            }else if (main.CurrentRole == "Nurse")
+            {
+                tabControl1.TabPages.Remove(tabPage1);
+                tabControl1.TabPages.Remove(tabPage3);
+                tabControl1.SelectedTab = tabPage2;
             }
         }
 

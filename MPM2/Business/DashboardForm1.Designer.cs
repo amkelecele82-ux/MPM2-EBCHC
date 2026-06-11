@@ -39,11 +39,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.DashRepbutton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnVitalsDashBoard = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.DashPresbutton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.DashConbutton = new System.Windows.Forms.Button();
+            this.btnConsultation = new System.Windows.Forms.Button();
             this.DashApbutton = new System.Windows.Forms.Button();
             this.DashPatientbutton = new System.Windows.Forms.Button();
             this.tmpanel = new System.Windows.Forms.Panel();
@@ -117,9 +117,9 @@
             this.NASubpanel = new System.Windows.Forms.Panel();
             this.lblNATime = new System.Windows.Forms.Label();
             this.lblNAMinutes = new System.Windows.Forms.Label();
-            this.lblNumberOfAppointments = new System.Windows.Forms.Label();
             this.NAPanel = new System.Windows.Forms.Panel();
             this.listBoxFullyBookedDoctors = new System.Windows.Forms.ListBox();
+            this.lblNumberOfAppointments = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -171,9 +171,8 @@
             this.Dashlabel2.Location = new System.Drawing.Point(1333, 6);
             this.Dashlabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Dashlabel2.Name = "Dashlabel2";
-            this.Dashlabel2.Size = new System.Drawing.Size(113, 13);
+            this.Dashlabel2.Size = new System.Drawing.Size(0, 13);
             this.Dashlabel2.TabIndex = 6;
-            this.Dashlabel2.Text = "14:35 | 13 May 2026   ";
             this.Dashlabel2.Click += new System.EventHandler(this.Dashlabel2_Click);
             // 
             // panel2
@@ -185,11 +184,11 @@
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.DashRepbutton);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.button7);
+            this.panel2.Controls.Add(this.btnVitalsDashBoard);
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.DashPresbutton);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.DashConbutton);
+            this.panel2.Controls.Add(this.btnConsultation);
             this.panel2.Controls.Add(this.DashApbutton);
             this.panel2.Controls.Add(this.DashPatientbutton);
             this.panel2.Location = new System.Drawing.Point(-1, 58);
@@ -271,21 +270,22 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "ADMIN";
             // 
-            // button7
+            // btnVitalsDashBoard
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnVitalsDashBoard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.Control;
-            this.button7.Location = new System.Drawing.Point(-1, 422);
-            this.button7.Margin = new System.Windows.Forms.Padding(2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(181, 46);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Vitals";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnVitalsDashBoard.FlatAppearance.BorderSize = 0;
+            this.btnVitalsDashBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVitalsDashBoard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVitalsDashBoard.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnVitalsDashBoard.Location = new System.Drawing.Point(-1, 422);
+            this.btnVitalsDashBoard.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVitalsDashBoard.Name = "btnVitalsDashBoard";
+            this.btnVitalsDashBoard.Size = new System.Drawing.Size(181, 46);
+            this.btnVitalsDashBoard.TabIndex = 7;
+            this.btnVitalsDashBoard.Text = "Vitals";
+            this.btnVitalsDashBoard.UseVisualStyleBackColor = true;
+            this.btnVitalsDashBoard.Click += new System.EventHandler(this.btnVitalsDashBoard_Click);
             // 
             // button6
             // 
@@ -302,6 +302,7 @@
             this.button6.TabIndex = 6;
             this.button6.Text = "Lab Result";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // DashPresbutton
             // 
@@ -331,21 +332,21 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "CLINICAL";
             // 
-            // DashConbutton
+            // btnConsultation
             // 
-            this.DashConbutton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnConsultation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DashConbutton.FlatAppearance.BorderSize = 0;
-            this.DashConbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DashConbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DashConbutton.ForeColor = System.Drawing.SystemColors.Control;
-            this.DashConbutton.Location = new System.Drawing.Point(-1, 228);
-            this.DashConbutton.Margin = new System.Windows.Forms.Padding(2);
-            this.DashConbutton.Name = "DashConbutton";
-            this.DashConbutton.Size = new System.Drawing.Size(181, 46);
-            this.DashConbutton.TabIndex = 3;
-            this.DashConbutton.Text = "Consultations";
-            this.DashConbutton.UseVisualStyleBackColor = true;
+            this.btnConsultation.FlatAppearance.BorderSize = 0;
+            this.btnConsultation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultation.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnConsultation.Location = new System.Drawing.Point(-1, 228);
+            this.btnConsultation.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConsultation.Name = "btnConsultation";
+            this.btnConsultation.Size = new System.Drawing.Size(181, 46);
+            this.btnConsultation.TabIndex = 3;
+            this.btnConsultation.Text = "Consultations";
+            this.btnConsultation.UseVisualStyleBackColor = true;
             // 
             // DashApbutton
             // 
@@ -1127,17 +1128,6 @@
             this.lblNAMinutes.TabIndex = 6;
             this.lblNAMinutes.Text = "   ";
             // 
-            // lblNumberOfAppointments
-            // 
-            this.lblNumberOfAppointments.AutoSize = true;
-            this.lblNumberOfAppointments.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberOfAppointments.Location = new System.Drawing.Point(76, 70);
-            this.lblNumberOfAppointments.Name = "lblNumberOfAppointments";
-            this.lblNumberOfAppointments.Size = new System.Drawing.Size(55, 21);
-            this.lblNumberOfAppointments.TabIndex = 8;
-            this.lblNumberOfAppointments.Text = "label1";
-            this.lblNumberOfAppointments.Click += new System.EventHandler(this.lblNumberOfAppointments_Click);
-            // 
             // NAPanel
             // 
             this.NAPanel.BackColor = System.Drawing.Color.White;
@@ -1163,6 +1153,17 @@
             this.listBoxFullyBookedDoctors.Name = "listBoxFullyBookedDoctors";
             this.listBoxFullyBookedDoctors.Size = new System.Drawing.Size(213, 186);
             this.listBoxFullyBookedDoctors.TabIndex = 7;
+            // 
+            // lblNumberOfAppointments
+            // 
+            this.lblNumberOfAppointments.AutoSize = true;
+            this.lblNumberOfAppointments.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumberOfAppointments.Location = new System.Drawing.Point(76, 70);
+            this.lblNumberOfAppointments.Name = "lblNumberOfAppointments";
+            this.lblNumberOfAppointments.Size = new System.Drawing.Size(55, 21);
+            this.lblNumberOfAppointments.TabIndex = 8;
+            this.lblNumberOfAppointments.Text = "label1";
+            this.lblNumberOfAppointments.Click += new System.EventHandler(this.lblNumberOfAppointments_Click);
             // 
             // DashboardForm1
             // 
@@ -1230,11 +1231,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button DashRepbutton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnVitalsDashBoard;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button DashPresbutton;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button DashConbutton;
+        private System.Windows.Forms.Button btnConsultation;
         private System.Windows.Forms.Button DashApbutton;
         private System.Windows.Forms.Button DashPatientbutton;
         private System.Windows.Forms.Panel tmpanel;
@@ -1313,8 +1314,8 @@
         private System.Windows.Forms.Panel NASubpanel;
         private System.Windows.Forms.Label lblNATime;
         private System.Windows.Forms.Label lblNAMinutes;
-        private System.Windows.Forms.Label lblNumberOfAppointments;
         private System.Windows.Forms.Panel NAPanel;
         private System.Windows.Forms.ListBox listBoxFullyBookedDoctors;
+        private System.Windows.Forms.Label lblNumberOfAppointments;
     }
 }

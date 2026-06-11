@@ -504,5 +504,15 @@ namespace MPM2.Business
                 MessageBox.Show("Nurse filter error: " + ex.Message);
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVitalsDashBoard_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     }
