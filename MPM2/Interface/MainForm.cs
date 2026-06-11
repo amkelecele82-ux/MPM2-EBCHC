@@ -230,8 +230,8 @@ namespace MPM2
 
         private void recordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TreatmentForm t = new TreatmentForm();
-           // formSetup(t);
+            TreatmentForm t = new TreatmentForm();
+           formSetup(t);
         }
 
         private void viewAllToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -249,17 +249,17 @@ namespace MPM2
 
         private void viewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TreatmentForm t = new TreatmentForm();
-           // t.SetTab(1);
-            //formSetup(t);
+            TreatmentForm t = new TreatmentForm();
+            t.SetTab(1);
+            formSetup(t);
 
         }
 
         private void createToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TreatmentForm t = new TreatmentForm();
-            //t.SetTab(1);
-           // formSetup(t);
+            TreatmentForm t = new TreatmentForm();
+            t.SetTab(1);
+            formSetup(t);
         }
 
        
