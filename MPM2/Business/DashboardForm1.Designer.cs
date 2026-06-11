@@ -55,12 +55,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.Dashlabel = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.NAPanel = new System.Windows.Forms.Panel();
-            this.lblNumberOfAppointments = new System.Windows.Forms.Label();
-            this.listBoxFullyBookedDoctors = new System.Windows.Forms.ListBox();
-            this.lblNAMinutes = new System.Windows.Forms.Label();
-            this.lblNATime = new System.Windows.Forms.Label();
-            this.NASubpanel = new System.Windows.Forms.Panel();
             this.lblDisplayFullyBooked = new System.Windows.Forms.Label();
             this.CAPanel = new System.Windows.Forms.Panel();
             this.lblCAMedStaff = new System.Windows.Forms.Label();
@@ -103,7 +97,7 @@
             this.label31 = new System.Windows.Forms.Label();
             this.lblCancelledAppointment = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.lblMissedAppointment = new System.Windows.Forms.Label();
+            this.lblScheduledAppointment = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
@@ -120,12 +114,17 @@
             this.newAppointmentsTableAdapter = new MPM2.Database.DataSet1TableAdapters.newAppointmentsTableAdapter();
             this.doctorTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.DoctorTableAdapter();
             this.button5 = new System.Windows.Forms.Button();
+            this.NASubpanel = new System.Windows.Forms.Panel();
+            this.lblNATime = new System.Windows.Forms.Label();
+            this.lblNAMinutes = new System.Windows.Forms.Label();
+            this.lblNumberOfAppointments = new System.Windows.Forms.Label();
+            this.NAPanel = new System.Windows.Forms.Panel();
+            this.listBoxFullyBookedDoctors = new System.Windows.Forms.ListBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tmpanel.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.NAPanel.SuspendLayout();
             this.CAPanel.SuspendLayout();
             this.RPAPanel.SuspendLayout();
             this.WTPanel.SuspendLayout();
@@ -138,6 +137,7 @@
             this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
+            this.NAPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -496,74 +496,6 @@
             this.label13.Size = new System.Drawing.Size(226, 20);
             this.label13.TabIndex = 2;
             this.label13.Text = "Good Morning - Dashboard";
-            // 
-            // NAPanel
-            // 
-            this.NAPanel.BackColor = System.Drawing.Color.White;
-            this.NAPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NAPanel.Controls.Add(this.lblNumberOfAppointments);
-            this.NAPanel.Controls.Add(this.listBoxFullyBookedDoctors);
-            this.NAPanel.Controls.Add(this.lblNAMinutes);
-            this.NAPanel.Controls.Add(this.lblNATime);
-            this.NAPanel.Controls.Add(this.NASubpanel);
-            this.NAPanel.Location = new System.Drawing.Point(466, 160);
-            this.NAPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.NAPanel.Name = "NAPanel";
-            this.NAPanel.Size = new System.Drawing.Size(217, 194);
-            this.NAPanel.TabIndex = 16;
-            this.NAPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.NAPanel_Paint);
-            this.NAPanel.MouseEnter += new System.EventHandler(this.NAPanel_MouseEnter);
-            this.NAPanel.MouseLeave += new System.EventHandler(this.NAPanel_MouseLeave);
-            // 
-            // lblNumberOfAppointments
-            // 
-            this.lblNumberOfAppointments.AutoSize = true;
-            this.lblNumberOfAppointments.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberOfAppointments.Location = new System.Drawing.Point(3, 61);
-            this.lblNumberOfAppointments.Name = "lblNumberOfAppointments";
-            this.lblNumberOfAppointments.Size = new System.Drawing.Size(55, 21);
-            this.lblNumberOfAppointments.TabIndex = 8;
-            this.lblNumberOfAppointments.Text = "label1";
-            this.lblNumberOfAppointments.Click += new System.EventHandler(this.lblNumberOfAppointments_Click);
-            // 
-            // listBoxFullyBookedDoctors
-            // 
-            this.listBoxFullyBookedDoctors.FormattingEnabled = true;
-            this.listBoxFullyBookedDoctors.Location = new System.Drawing.Point(2, 8);
-            this.listBoxFullyBookedDoctors.Name = "listBoxFullyBookedDoctors";
-            this.listBoxFullyBookedDoctors.Size = new System.Drawing.Size(213, 186);
-            this.listBoxFullyBookedDoctors.TabIndex = 7;
-            // 
-            // lblNAMinutes
-            // 
-            this.lblNAMinutes.AutoSize = true;
-            this.lblNAMinutes.Location = new System.Drawing.Point(19, 125);
-            this.lblNAMinutes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblNAMinutes.Name = "lblNAMinutes";
-            this.lblNAMinutes.Size = new System.Drawing.Size(16, 13);
-            this.lblNAMinutes.TabIndex = 6;
-            this.lblNAMinutes.Text = "   ";
-            // 
-            // lblNATime
-            // 
-            this.lblNATime.AutoSize = true;
-            this.lblNATime.Location = new System.Drawing.Point(19, 97);
-            this.lblNATime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblNATime.Name = "lblNATime";
-            this.lblNATime.Size = new System.Drawing.Size(19, 13);
-            this.lblNATime.TabIndex = 5;
-            this.lblNATime.Text = "    ";
-            // 
-            // NASubpanel
-            // 
-            this.NASubpanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NASubpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.NASubpanel.Location = new System.Drawing.Point(0, -8);
-            this.NASubpanel.Margin = new System.Windows.Forms.Padding(2);
-            this.NASubpanel.Name = "NASubpanel";
-            this.NASubpanel.Size = new System.Drawing.Size(215, 17);
-            this.NASubpanel.TabIndex = 3;
             // 
             // lblDisplayFullyBooked
             // 
@@ -942,7 +874,7 @@
             this.panel15.Controls.Add(this.label31);
             this.panel15.Controls.Add(this.lblCancelledAppointment);
             this.panel15.Controls.Add(this.label21);
-            this.panel15.Controls.Add(this.lblMissedAppointment);
+            this.panel15.Controls.Add(this.lblScheduledAppointment);
             this.panel15.Controls.Add(this.label14);
             this.panel15.Controls.Add(this.panel16);
             this.panel15.Location = new System.Drawing.Point(1043, 365);
@@ -950,6 +882,7 @@
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(352, 260);
             this.panel15.TabIndex = 20;
+            this.panel15.Paint += new System.Windows.Forms.PaintEventHandler(this.panel15_Paint);
             // 
             // button4
             // 
@@ -1000,6 +933,7 @@
             this.lblCompletedAppointment.Size = new System.Drawing.Size(61, 44);
             this.lblCompletedAppointment.TabIndex = 19;
             this.lblCompletedAppointment.Text = "10";
+            this.lblCompletedAppointment.Click += new System.EventHandler(this.lblCompletedAppointment_Click);
             // 
             // label31
             // 
@@ -1022,6 +956,7 @@
             this.lblCancelledAppointment.Size = new System.Drawing.Size(61, 44);
             this.lblCancelledAppointment.TabIndex = 12;
             this.lblCancelledAppointment.Text = "10";
+            this.lblCancelledAppointment.Click += new System.EventHandler(this.lblCancelledAppointment_Click);
             // 
             // label21
             // 
@@ -1034,16 +969,17 @@
             this.label21.TabIndex = 11;
             this.label21.Text = "-Cancelled";
             // 
-            // lblMissedAppointment
+            // lblScheduledAppointment
             // 
-            this.lblMissedAppointment.AutoSize = true;
-            this.lblMissedAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMissedAppointment.Location = new System.Drawing.Point(29, 115);
-            this.lblMissedAppointment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblMissedAppointment.Name = "lblMissedAppointment";
-            this.lblMissedAppointment.Size = new System.Drawing.Size(61, 44);
-            this.lblMissedAppointment.TabIndex = 10;
-            this.lblMissedAppointment.Text = "10";
+            this.lblScheduledAppointment.AutoSize = true;
+            this.lblScheduledAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScheduledAppointment.Location = new System.Drawing.Point(29, 115);
+            this.lblScheduledAppointment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblScheduledAppointment.Name = "lblScheduledAppointment";
+            this.lblScheduledAppointment.Size = new System.Drawing.Size(61, 44);
+            this.lblScheduledAppointment.TabIndex = 10;
+            this.lblScheduledAppointment.Text = "10";
+            this.lblScheduledAppointment.Click += new System.EventHandler(this.lblScheduledAppointment_Click);
             // 
             // label14
             // 
@@ -1052,9 +988,9 @@
             this.label14.Location = new System.Drawing.Point(146, 135);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(64, 20);
+            this.label14.Size = new System.Drawing.Size(85, 20);
             this.label14.TabIndex = 9;
-            this.label14.Text = "-Missed";
+            this.label14.Text = "Scheduled";
             // 
             // panel16
             // 
@@ -1160,6 +1096,74 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // NASubpanel
+            // 
+            this.NASubpanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NASubpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.NASubpanel.Location = new System.Drawing.Point(0, -8);
+            this.NASubpanel.Margin = new System.Windows.Forms.Padding(2);
+            this.NASubpanel.Name = "NASubpanel";
+            this.NASubpanel.Size = new System.Drawing.Size(215, 17);
+            this.NASubpanel.TabIndex = 3;
+            // 
+            // lblNATime
+            // 
+            this.lblNATime.AutoSize = true;
+            this.lblNATime.Location = new System.Drawing.Point(19, 97);
+            this.lblNATime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNATime.Name = "lblNATime";
+            this.lblNATime.Size = new System.Drawing.Size(19, 13);
+            this.lblNATime.TabIndex = 5;
+            this.lblNATime.Text = "    ";
+            // 
+            // lblNAMinutes
+            // 
+            this.lblNAMinutes.AutoSize = true;
+            this.lblNAMinutes.Location = new System.Drawing.Point(19, 125);
+            this.lblNAMinutes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNAMinutes.Name = "lblNAMinutes";
+            this.lblNAMinutes.Size = new System.Drawing.Size(16, 13);
+            this.lblNAMinutes.TabIndex = 6;
+            this.lblNAMinutes.Text = "   ";
+            // 
+            // lblNumberOfAppointments
+            // 
+            this.lblNumberOfAppointments.AutoSize = true;
+            this.lblNumberOfAppointments.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumberOfAppointments.Location = new System.Drawing.Point(76, 70);
+            this.lblNumberOfAppointments.Name = "lblNumberOfAppointments";
+            this.lblNumberOfAppointments.Size = new System.Drawing.Size(55, 21);
+            this.lblNumberOfAppointments.TabIndex = 8;
+            this.lblNumberOfAppointments.Text = "label1";
+            this.lblNumberOfAppointments.Click += new System.EventHandler(this.lblNumberOfAppointments_Click);
+            // 
+            // NAPanel
+            // 
+            this.NAPanel.BackColor = System.Drawing.Color.White;
+            this.NAPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NAPanel.Controls.Add(this.lblNumberOfAppointments);
+            this.NAPanel.Controls.Add(this.listBoxFullyBookedDoctors);
+            this.NAPanel.Controls.Add(this.lblNAMinutes);
+            this.NAPanel.Controls.Add(this.lblNATime);
+            this.NAPanel.Controls.Add(this.NASubpanel);
+            this.NAPanel.Location = new System.Drawing.Point(466, 160);
+            this.NAPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.NAPanel.Name = "NAPanel";
+            this.NAPanel.Size = new System.Drawing.Size(217, 194);
+            this.NAPanel.TabIndex = 16;
+            this.NAPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.NAPanel_Paint);
+            this.NAPanel.MouseEnter += new System.EventHandler(this.NAPanel_MouseEnter);
+            this.NAPanel.MouseLeave += new System.EventHandler(this.NAPanel_MouseLeave);
+            // 
+            // listBoxFullyBookedDoctors
+            // 
+            this.listBoxFullyBookedDoctors.FormattingEnabled = true;
+            this.listBoxFullyBookedDoctors.Location = new System.Drawing.Point(2, 8);
+            this.listBoxFullyBookedDoctors.Name = "listBoxFullyBookedDoctors";
+            this.listBoxFullyBookedDoctors.Size = new System.Drawing.Size(213, 186);
+            this.listBoxFullyBookedDoctors.TabIndex = 7;
+            // 
             // DashboardForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1193,8 +1197,6 @@
             this.tmpanel.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.NAPanel.ResumeLayout(false);
-            this.NAPanel.PerformLayout();
             this.CAPanel.ResumeLayout(false);
             this.CAPanel.PerformLayout();
             this.RPAPanel.ResumeLayout(false);
@@ -1213,6 +1215,8 @@
             this.panel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
+            this.NAPanel.ResumeLayout(false);
+            this.NAPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1242,10 +1246,8 @@
         private System.Windows.Forms.Label fullNameLabel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel NAPanel;
         private System.Windows.Forms.Label lblDisplayFullyBooked;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel NASubpanel;
         private System.Windows.Forms.Panel CAPanel;
         private System.Windows.Forms.Panel CASubpanel;
         private System.Windows.Forms.Label label12;
@@ -1271,7 +1273,7 @@
         private System.Windows.Forms.BindingSource appointmentViewBindingSource;
         private Database.DataSet1TableAdapters.AppointmentViewTableAdapter appointmentViewTableAdapter;
         private System.Windows.Forms.DataGridView dgvWidgetAppointment;
-        private System.Windows.Forms.Label lblMissedAppointment;
+        private System.Windows.Forms.Label lblScheduledAppointment;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblCancelledAppointment;
         private System.Windows.Forms.Label label21;
@@ -1286,8 +1288,6 @@
         private System.Windows.Forms.Label lblRPAMedicine;
         private System.Windows.Forms.Label lblRPAPatient;
         private System.Windows.Forms.Label lblCAPatient;
-        private System.Windows.Forms.Label lblNAMinutes;
-        private System.Windows.Forms.Label lblNATime;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lblCompletedAppointment;
         private System.Windows.Forms.Label label31;
@@ -1308,9 +1308,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn appointmentDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AppointmentReason;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ListBox listBoxFullyBookedDoctors;
         private Database.DataSet1TableAdapters.DoctorTableAdapter doctorTableAdapter1;
-        private System.Windows.Forms.Label lblNumberOfAppointments;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Panel NASubpanel;
+        private System.Windows.Forms.Label lblNATime;
+        private System.Windows.Forms.Label lblNAMinutes;
+        private System.Windows.Forms.Label lblNumberOfAppointments;
+        private System.Windows.Forms.Panel NAPanel;
+        private System.Windows.Forms.ListBox listBoxFullyBookedDoctors;
     }
 }
