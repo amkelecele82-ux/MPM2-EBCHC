@@ -164,6 +164,12 @@
     <Compile Include="Business\RegPrescriptionForm.Designer.cs">
       <DependentUpon>RegPrescriptionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\TreatmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\TreatmentForm.Designer.cs">
+      <DependentUpon>TreatmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database\DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
@@ -256,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\RegPrescriptionForm.resx">
       <DependentUpon>RegPrescriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\TreatmentForm.resx">
+      <DependentUpon>TreatmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\Login2.resx">
       <DependentUpon>Login2.cs</DependentUpon>
