@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace MPM2.Business
 {
@@ -73,6 +75,12 @@ namespace MPM2.Business
 
         private void AdminAppointment_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSet1.vwUAppointments' table. You can move, or remove it, as needed.
+            this.vwUAppointmentsTableAdapter.Fill(this.dataSet1.vwUAppointments);
+            // TODO: This line of code loads data into the 'dataSet1.vwUAppointments' table. You can move, or remove it, as needed.
+            this.vwUAppointmentsTableAdapter.Fill(this.dataSet1.vwUAppointments);
+            // TODO: This line of code loads data into the 'dataSet11.vwUAppointments' table. You can move, or remove it, as needed.
+            this.vwUAppointmentsTableAdapter.Fill(this.dataSet1.vwUAppointments);
             // TODO: This line of code loads data into the 'dataSet1.Doctor' table. You can move, or remove it, as needed.
             this.doctorTableAdapter.Fill(this.dataSet1.Doctor);
             BindingSource doctorBS = new BindingSource();
@@ -84,7 +92,24 @@ namespace MPM2.Business
             // TODO: This line of code loads data into the 'dataSet13.NewApointments' table. You can move, or remove it, as needed.
             // this.newAppointmentsTableAdapter.Fill(this.dataSet13.NewApointments);
             // TODO: This line of code loads data into the 'dataSet12.NewApointments' table. You can move, or remove it, as needed.
+
+          /*  AppointmentStatus.Items.Clear();
+            AppointmentStatus.Items.Add("Scheduled");
+            AppointmentStatus.Items.Add("Completed");
+            AppointmentStatus.Items.Add("Cancelled");*/
+            var col = dataGridViewInnerJoin.Columns["AppointmentStatus"] as DataGridViewComboBoxColumn;
+
+            col.DataSource = new List<string>
+{
+    "Scheduled",
+    "Completed",
+    "Cancelled"
+};
+
+            col.DataPropertyName = "AppointmentStatus";
+           // AppointmentStatus.SelectedItem = 0;
             this.newAppointmentsTableAdapter.Fill(this.dataSet1.NewApointments);
+
             // TODO: This line of code loads data into the 'dataSet12.Pro_Appointment' table. You can move, or remove it, as needed.
             this.pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment);
             // Fill datasets
@@ -130,19 +155,34 @@ namespace MPM2.Business
                 textBoxDrID.Text = string.Empty;
                 textBoxDrID.ReadOnly = true;
             }
+            string nurseName = GetLoggedInNurseName();
+
+            if (!string.IsNullOrWhiteSpace(nurseName))
+            {
+                txtNurse.Text = nurseName; // optional display
+                ApplyNurseFilter();
+            }
 
             this.newAppointmentsTableAdapter.Fill(this.dataSet1.NewApointments);
+           ApplyNurseFilter();
             this.nurseTableAdapter.Fill(this.dataSet1.Nurse);
             this.patientTableAdapter.Fill(this.dataSet1.Patient);
+            this.vwUAppointmentsTableAdapter.Fill(this.dataSet1.vwUAppointments);
 
+            BindingSource vwAppointmentsBS = new BindingSource();
+            vwAppointmentsBS.DataSource = dataSet1;
+             vwAppointmentsBS.DataMember = "vwUAppointments";
+            ApplyNurseFilter();
+            ApplyDoctorFilter();
+            dataGridViewInnerJoin.DataSource = vwAppointmentsBS;
             // Build in-memory booked slots per doctor from dataset so per-doctor availability is correct
             BuildBookedSlotsFromDataset();
 
             // Refresh combo boxes for the currently selected date and logged-in doctor
             RefreshAvailableStartTimesForSelectedDate();
-            ApplyDoctorFilter();    
+           ApplyDoctorFilter();    
             // Ensure dataGridView3 shows filtered view for the logged-in role
-            //  ApplyRoleFilter();
+             //ApplyRoleFilter();
 
             txtStatus.Text = "Scheduled";
             ApplyTabPermissions();
@@ -294,18 +334,21 @@ namespace MPM2.Business
 
                 // 8. UI refresh
                 pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment);
-               /* if (dashboardForm != null)
-                {
-                    dashboardForm.BuildFullyBookedDoctors();
-                    dashboardForm.BindFullyBookedDoctorsList();
-                    dashboardForm.LoadNAPanelFullyBookedDoctors();
-                }
-               */
+                /* if (dashboardForm != null)
+                 {
+                     dashboardForm.BuildFullyBookedDoctors();
+                     dashboardForm.BindFullyBookedDoctorsList();
+                     dashboardForm.LoadNAPanelFullyBookedDoctors();
+                 }
+                */
+             
                 newAppointmentsTableAdapter.Fill(this.dataSet1.NewApointments);
                 if (dashboardForm != null)
                 {
                     dashboardForm.RefreshFullyBookedDoctorsUI();
                     dashboardForm.LoadNAPanelFullyBookedDoctors("Admin");
+
+                    dashboardForm.UpdateAppointmentStatusCounts();
                 }
 
                 pro_AppointmentTableAdapter.Fill(dataSet1.Pro_Appointment);
@@ -672,63 +715,42 @@ namespace MPM2.Business
         }
         private void ApplyRoleFilter()
         {
-            try
+            if (!(this.MdiParent is MainForm main))
+                return;
+
+            // ADMIN: see all records
+            if (main.CurrentRole == "Admin")
             {
-                if (dataSet1 == null || dataSet1.Pro_Appointment == null)
-                    return;
-
-                // Ensure BindingSource exists (create if not in designer)
-                if (proAppointmentBindingSource == null)
-                {
-                    proAppointmentBindingSource = new BindingSource();
-                }
-
-                // ALWAYS bind once to table (not DefaultView repeatedly)
-                if (proAppointmentBindingSource.DataSource == null)
-                {
-                    proAppointmentBindingSource.DataSource = dataSet1;
-                    proAppointmentBindingSource.DataMember = "Pro_Appointment";
-                }
-
-                if (!(this.MdiParent is MainForm main) || main.CurrentDataRow == null)
-                {
-                    proAppointmentBindingSource.RemoveFilter();
-                }
-                else if (main.CurrentRole == "Doctor")
-                {
-                    int doctorId = GetLoggedInDoctorId();
-
-                    if (doctorId != 0)
-                    {
-                        string docCol =
-                            dataSet1.Pro_Appointment.Columns.Contains("DoctorID") ? "DoctorID" :
-                            dataSet1.Pro_Appointment.Columns.Contains("Doctor_ID") ? "Doctor_ID" :
-                            null;
-
-                        if (!string.IsNullOrEmpty(docCol))
-                        {
-                            proAppointmentBindingSource.Filter = $"[{docCol}] = {doctorId}";
-                        }
-                        else
-                        {
-                            proAppointmentBindingSource.RemoveFilter();
-                        }
-                    }
-                }
-                else
-                {
-                    proAppointmentBindingSource.RemoveFilter();
-                }
-
-                // IMPORTANT: bind grid ONLY here
-                dataGridViewInnerJoin.DataSource = proAppointmentBindingSource;
+                newApointmentsBindingSource.RemoveFilter();
+                return;
             }
-            catch (Exception ex)
+
+            // DOCTOR: see only own appointments
+            if (main.CurrentRole == "Doctor")
             {
-                MessageBox.Show("Filter error: " + ex.Message);
+                string doctorName = GetLoggedInDoctorName();
+
+                if (!string.IsNullOrWhiteSpace(doctorName))
+                {
+                    newApointmentsBindingSource.Filter =
+                        $"DoctorName = '{doctorName.Replace("'", "''")}'";
+                }
+
+                return;
+            }
+
+            // NURSE: see only own appointments
+            if (main.CurrentRole == "Nurse")
+            {
+                string nurseName = GetLoggedInNurseName();
+
+                if (!string.IsNullOrWhiteSpace(nurseName))
+                {
+                    newApointmentsBindingSource.Filter =
+                        $"NurseName = '{nurseName.Replace("'", "''")}'";
+                }
             }
         }
-
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -813,6 +835,11 @@ namespace MPM2.Business
             else if (main.CurrentRole == "Admin")
             {
                 // Admin sees everything (no change needed)
+            }else if (main.CurrentRole == "Nurse")
+            {
+                tabControl1.TabPages.Remove(tabPage1);
+                tabControl1.TabPages.Remove(tabPage3);
+                tabControl1.SelectedTab = tabPage2;
             }
         }
 
@@ -922,6 +949,133 @@ namespace MPM2.Business
 
             return GetSelectedDoctorId();
         }
+        private void ApplyNurseFilter()
+        {
+            try
+            {
+                if (newApointmentsBindingSource == null)
+                    return;
 
+                if (!(this.MdiParent is MainForm main))
+                    return;
+
+                if (main.CurrentRole == "Admin")
+                {
+                    newApointmentsBindingSource.RemoveFilter();
+                    dataGridViewInnerJoin.DataSource = newApointmentsBindingSource;
+                    return;
+                }
+
+                string nurseName = GetLoggedInNurseName();
+
+                if (string.IsNullOrWhiteSpace(nurseName))
+                {
+                    newApointmentsBindingSource.RemoveFilter();
+                }
+                else
+                {
+                    newApointmentsBindingSource.Filter =
+                        $"NurseName = '{nurseName.Replace("'", "''")}'";
+                }
+
+                dataGridViewInnerJoin.DataSource = newApointmentsBindingSource;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nurse filter error: " + ex.Message);
+            }
+        }
+
+        private void dataGridViewInnerJoin_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dataGridViewInnerJoin.CurrentRow == null)
+                return;
+            dataGridViewInnerJoin.CurrentRow.DefaultCellStyle.BackColor = Color.LightYellow;
+            selectedAppointmentId =
+                Convert.ToInt32(dataGridViewInnerJoin.CurrentRow.Cells[0].Value);
+
+            MessageBox.Show("Selected Appointment ID: " + selectedAppointmentId);
+        }
+        private string GetLoggedInNurseName()
+        {
+            if (this.MdiParent is MainForm main && main.CurrentDataRow != null && main.CurrentRole == "Nurse")
+            {
+                var dr = main.CurrentDataRow;
+
+                if (dr.Table.Columns.Contains("FullName") && dr["FullName"] != DBNull.Value)
+                {
+                    return dr["FullName"].ToString();
+                }
+            }
+
+            return string.Empty;
+        }
+        private int selectedAppointmentId = -1;
+        private void btnUpdateStatus_Click(object sender, EventArgs e)
+        {
+            if(selectedAppointmentId == -1)
+    {
+                MessageBox.Show("Please select an appointment first.");
+                return;
+            }
+
+            // Enable editing mode
+            dataGridViewInnerJoin.ReadOnly = false;
+
+            // Lock everything
+            foreach (DataGridViewColumn col in dataGridViewInnerJoin.Columns)
+            {
+                col.ReadOnly = true;
+            }
+
+            // Unlock ONLY Status column
+            dataGridViewInnerJoin.Columns["AppointmentStatus"].ReadOnly = false;
+
+            MessageBox.Show("You can now update Appointment Status only.");
+        }
+
+        private void btnConfirmUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Validate();
+                proAppointmentBindingSource.EndEdit();
+
+                string newStatus =
+                    dataGridViewInnerJoin.CurrentRow.Cells["AppointmentStatus"].Value.ToString();
+
+                pro_AppointmentTableAdapter.UpdateAppointmentStatus(
+                    newStatus,
+                    selectedAppointmentId
+                );
+
+                pro_AppointmentTableAdapter.Fill(dataSet1.Pro_Appointment);
+                newAppointmentsTableAdapter.Fill(this.dataSet1.NewApointments);
+
+                MessageBox.Show("Status updated successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            /* this.Validate();
+             proAppointmentBindingSource.EndEdit();
+             pro_AppointmentTableAdapter.Update(dataSet1.Pro_Appointment);
+                 pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment);
+                 MessageBox.Show("Status Updated Successfully!");
+                 BuildBookedSlotsFromDataset();
+                 RefreshAvailableStartTimesForSelectedDate();*/
+        }
+
+        private void label17_Click_1(object sender, EventArgs e)
+        {
+       
+        }
+
+        private void txtSearchDoctor_TextChanged(object sender, EventArgs e)
+        {
+           newApointmentsBindingSource.Filter = "DoctorName LIKE '%"+txtSearchDoctor.Text+"%'";
+                       //     patientBindingSource.Filter = "FullName LIKE '%" + txtSP.Text + "%'";
+        }
     }
 }
