@@ -56,6 +56,7 @@
             this.Dashlabel = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.NAPanel = new System.Windows.Forms.Panel();
+            this.lblNumberOfAppointments = new System.Windows.Forms.Label();
             this.listBoxFullyBookedDoctors = new System.Windows.Forms.ListBox();
             this.lblNAMinutes = new System.Windows.Forms.Label();
             this.lblNATime = new System.Windows.Forms.Label();
@@ -118,7 +119,7 @@
             this.pro_AppointmentTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.Pro_AppointmentTableAdapter();
             this.newAppointmentsTableAdapter = new MPM2.Database.DataSet1TableAdapters.newAppointmentsTableAdapter();
             this.doctorTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.DoctorTableAdapter();
-            this.lblNumberOfAppointments = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -472,6 +473,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1268, 76);
             this.panel4.TabIndex = 15;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // Dashlabel
             // 
@@ -512,6 +514,17 @@
             this.NAPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.NAPanel_Paint);
             this.NAPanel.MouseEnter += new System.EventHandler(this.NAPanel_MouseEnter);
             this.NAPanel.MouseLeave += new System.EventHandler(this.NAPanel_MouseLeave);
+            // 
+            // lblNumberOfAppointments
+            // 
+            this.lblNumberOfAppointments.AutoSize = true;
+            this.lblNumberOfAppointments.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumberOfAppointments.Location = new System.Drawing.Point(3, 61);
+            this.lblNumberOfAppointments.Name = "lblNumberOfAppointments";
+            this.lblNumberOfAppointments.Size = new System.Drawing.Size(55, 21);
+            this.lblNumberOfAppointments.TabIndex = 8;
+            this.lblNumberOfAppointments.Text = "label1";
+            this.lblNumberOfAppointments.Click += new System.EventHandler(this.lblNumberOfAppointments_Click);
             // 
             // listBoxFullyBookedDoctors
             // 
@@ -1133,16 +1146,19 @@
             // 
             this.doctorTableAdapter1.ClearBeforeFill = true;
             // 
-            // lblNumberOfAppointments
+            // button5
             // 
-            this.lblNumberOfAppointments.AutoSize = true;
-            this.lblNumberOfAppointments.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberOfAppointments.Location = new System.Drawing.Point(3, 61);
-            this.lblNumberOfAppointments.Name = "lblNumberOfAppointments";
-            this.lblNumberOfAppointments.Size = new System.Drawing.Size(55, 21);
-            this.lblNumberOfAppointments.TabIndex = 8;
-            this.lblNumberOfAppointments.Text = "label1";
-            this.lblNumberOfAppointments.Click += new System.EventHandler(this.lblNumberOfAppointments_Click);
+            this.button5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(135)))), ((int)(((byte)(38)))));
+            this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button5.Location = new System.Drawing.Point(1218, 326);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(126, 24);
+            this.button5.TabIndex = 23;
+            this.button5.Text = "Try Report";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // DashboardForm1
             // 
@@ -1150,6 +1166,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1435, 760);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel15);
@@ -1294,5 +1311,6 @@
         private System.Windows.Forms.ListBox listBoxFullyBookedDoctors;
         private Database.DataSet1TableAdapters.DoctorTableAdapter doctorTableAdapter1;
         private System.Windows.Forms.Label lblNumberOfAppointments;
+        private System.Windows.Forms.Button button5;
     }
 }

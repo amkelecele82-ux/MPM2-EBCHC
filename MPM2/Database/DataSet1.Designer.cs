@@ -10,8 +10,6 @@
 
 #pragma warning disable 1591
 
-using System;
-
 namespace MPM2.Database {
     
     
@@ -10994,11 +10992,6 @@ SELECT DoctorID, FullName, Specialty, Username, emailAddress, Password, Cellphon
                 }
             }
             return returnValue;
-        }
-
-        internal void UpdatePassword(object value, int v)
-        {
-            throw new NotImplementedException();
         }
     }
     
