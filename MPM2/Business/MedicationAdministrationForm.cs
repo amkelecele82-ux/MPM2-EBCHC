@@ -39,6 +39,9 @@ namespace MPM2.Business
             CBStatus2.Items.Add("Delayed");
             CBStatus2.SelectedIndex = 0;
 
+            dgvMedAdministration.Columns["medication_AdministratorID"].Visible = false;
+            dgvPrescription.Columns["doctorIDDataGridViewTextBoxColumn"].Visible = false;
+            dgvPrescription.Columns["prescriptionIDDataGridViewTextBoxColumn"].Visible = false;
         }
         public void SetTab(int tabIndex)
         {
@@ -209,6 +212,32 @@ namespace MPM2.Business
 
         private void Recordbutton_Click(object sender, EventArgs e)
         {
+            if (dgvPrescription.CurrentRow == null ||
+                dgvPrescription.CurrentRow.IsNewRow)
+            {
+                MessageBox.Show("Please select a valid prescription to record medication administration.", "No Prescription Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if(string.IsNullOrWhiteSpace(TBDosage.Text))
+            {
+                MessageBox.Show("Please enter a valid dosage amount.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if(string.IsNullOrWhiteSpace(TBFrequency.Text) || !int.TryParse(TBFrequency.Text, out _))
+            {
+                MessageBox.Show("Please enter a valid frequency (number of times medication is administered).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (CBStatus2.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a valid status for the medication administration.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if(string.IsNullOrWhiteSpace(RTBNotes2.Text))
+            {
+                MessageBox.Show("Please enter notes for the medication administration.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             int nid=0;
             int prid=0;
             string nursename = "Default";
@@ -327,7 +356,23 @@ namespace MPM2.Business
                 string newDosage = TBDosageAmount.Text;
                 string newStatus = CBStatus.SelectedItem?.ToString() ?? "Pending";
                 this.medicationAdministrationTableAdapter.UpdateQuery(newDosage, newStatus, Convert.ToInt32(TBFrequency2.Text), newNotes, selectedId);
+                MessageBox.Show("Medication administration record updated successfully.", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            ApplyFilter2();
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvPrescription_SelectionChanged(object sender, EventArgs e)
+        {
+            ChangeValues2();
         }
     }
 }

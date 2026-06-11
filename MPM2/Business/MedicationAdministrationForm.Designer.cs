@@ -38,6 +38,9 @@
             this.RBCompleted = new System.Windows.Forms.RadioButton();
             this.RBPending = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TBFrequency2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.TBDosageAmount = new System.Windows.Forms.TextBox();
             this.ChangeButton = new System.Windows.Forms.Button();
             this.CBStatus = new System.Windows.Forms.ComboBox();
@@ -59,9 +62,14 @@
             this.DoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dosageGivenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.frequencyInstanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medication_AdministratorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customMedAdmBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet11 = new MPM2.Database.DataSet1();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblPatient2 = new System.Windows.Forms.Label();
@@ -84,51 +92,47 @@
             this.TBCMedicine = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.dgvPrescription = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.frequency_Instance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customMedAdmBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.TBPPatient = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dosageGivenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.frequencyInstanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customMedAdmBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet11 = new MPM2.Database.DataSet1();
-            this.dateIssuedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nurseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doctorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicineNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doctorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nurseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prescriptionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.admnisteredatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dosageGivenDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.frequencyInstanceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customMedAdmBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.medicationAdministrationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.prescriptionnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.medicationAdministrationTableAdapter = new MPM2.Database.DataSet1TableAdapters.MedicationAdministrationTableAdapter();
             this.prescriptionn_TableAdapter = new MPM2.Database.DataSet1TableAdapters.Prescriptionn_TableAdapter();
             this.customMedAdmTableAdapter = new MPM2.Database.DataSet1TableAdapters.CustomMedAdmTableAdapter();
-            this.TBFrequency2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateIssuedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doctorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescriptionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.pnlTitleBar = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblKZN = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedAdministration)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customMedAdmBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrescription)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customMedAdmBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customMedAdmBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicationAdministrationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionnBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.pnlTitleBar.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -144,6 +148,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Controls.Add(this.pnlTitleBar);
             this.tabPage1.Controls.Add(this.ResetButton);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.RBDelayed);
@@ -167,10 +173,11 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "View All";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // ResetButton
             // 
-            this.ResetButton.Location = new System.Drawing.Point(1014, 42);
+            this.ResetButton.Location = new System.Drawing.Point(1014, 119);
             this.ResetButton.Name = "ResetButton";
             this.ResetButton.Size = new System.Drawing.Size(75, 23);
             this.ResetButton.TabIndex = 15;
@@ -181,7 +188,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(656, 115);
+            this.label16.Location = new System.Drawing.Point(656, 192);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(47, 16);
             this.label16.TabIndex = 14;
@@ -190,7 +197,7 @@
             // RBDelayed
             // 
             this.RBDelayed.AutoSize = true;
-            this.RBDelayed.Location = new System.Drawing.Point(1005, 113);
+            this.RBDelayed.Location = new System.Drawing.Point(1005, 190);
             this.RBDelayed.Name = "RBDelayed";
             this.RBDelayed.Size = new System.Drawing.Size(80, 20);
             this.RBDelayed.TabIndex = 13;
@@ -202,7 +209,7 @@
             // RBMissed
             // 
             this.RBMissed.AutoSize = true;
-            this.RBMissed.Location = new System.Drawing.Point(927, 113);
+            this.RBMissed.Location = new System.Drawing.Point(927, 190);
             this.RBMissed.Name = "RBMissed";
             this.RBMissed.Size = new System.Drawing.Size(72, 20);
             this.RBMissed.TabIndex = 12;
@@ -214,7 +221,7 @@
             // RBCompleted
             // 
             this.RBCompleted.AutoSize = true;
-            this.RBCompleted.Location = new System.Drawing.Point(826, 113);
+            this.RBCompleted.Location = new System.Drawing.Point(826, 190);
             this.RBCompleted.Name = "RBCompleted";
             this.RBCompleted.Size = new System.Drawing.Size(94, 20);
             this.RBCompleted.TabIndex = 11;
@@ -226,7 +233,7 @@
             // RBPending
             // 
             this.RBPending.AutoSize = true;
-            this.RBPending.Location = new System.Drawing.Point(740, 113);
+            this.RBPending.Location = new System.Drawing.Point(740, 190);
             this.RBPending.Name = "RBPending";
             this.RBPending.Size = new System.Drawing.Size(78, 20);
             this.RBPending.TabIndex = 10;
@@ -249,12 +256,37 @@
             this.groupBox3.Controls.Add(this.RTBNotes);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Location = new System.Drawing.Point(1180, 42);
+            this.groupBox3.Location = new System.Drawing.Point(1180, 119);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(514, 590);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Additional Administration Information";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(262, 420);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 16);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "mg";
+            // 
+            // TBFrequency2
+            // 
+            this.TBFrequency2.Location = new System.Drawing.Point(156, 456);
+            this.TBFrequency2.Name = "TBFrequency2";
+            this.TBFrequency2.Size = new System.Drawing.Size(100, 22);
+            this.TBFrequency2.TabIndex = 16;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(32, 459);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 16);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Frequency:";
             // 
             // TBDosageAmount
             // 
@@ -337,7 +369,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(656, 42);
+            this.label11.Location = new System.Drawing.Point(656, 119);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(39, 16);
             this.label11.TabIndex = 8;
@@ -345,7 +377,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(740, 39);
+            this.dateTimePicker1.Location = new System.Drawing.Point(740, 116);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(229, 22);
             this.dateTimePicker1.TabIndex = 7;
@@ -353,7 +385,7 @@
             // 
             // TBPatient
             // 
-            this.TBPatient.Location = new System.Drawing.Point(196, 79);
+            this.TBPatient.Location = new System.Drawing.Point(196, 156);
             this.TBPatient.Name = "TBPatient";
             this.TBPatient.Size = new System.Drawing.Size(280, 22);
             this.TBPatient.TabIndex = 6;
@@ -362,7 +394,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(33, 82);
+            this.label10.Location = new System.Drawing.Point(33, 159);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 16);
             this.label10.TabIndex = 5;
@@ -370,7 +402,7 @@
             // 
             // TBMedicine
             // 
-            this.TBMedicine.Location = new System.Drawing.Point(196, 115);
+            this.TBMedicine.Location = new System.Drawing.Point(196, 192);
             this.TBMedicine.Name = "TBMedicine";
             this.TBMedicine.Size = new System.Drawing.Size(280, 22);
             this.TBMedicine.TabIndex = 4;
@@ -379,7 +411,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(33, 118);
+            this.label9.Location = new System.Drawing.Point(33, 195);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 16);
             this.label9.TabIndex = 3;
@@ -387,7 +419,7 @@
             // 
             // TBDoctor
             // 
-            this.TBDoctor.Location = new System.Drawing.Point(196, 36);
+            this.TBDoctor.Location = new System.Drawing.Point(196, 113);
             this.TBDoctor.Name = "TBDoctor";
             this.TBDoctor.Size = new System.Drawing.Size(280, 22);
             this.TBDoctor.TabIndex = 2;
@@ -396,7 +428,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(33, 39);
+            this.label8.Location = new System.Drawing.Point(33, 116);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 16);
             this.label8.TabIndex = 1;
@@ -417,7 +449,7 @@
             this.Notes,
             this.medication_AdministratorID});
             this.dgvMedAdministration.DataSource = this.customMedAdmBindingSource;
-            this.dgvMedAdministration.Location = new System.Drawing.Point(36, 172);
+            this.dgvMedAdministration.Location = new System.Drawing.Point(36, 249);
             this.dgvMedAdministration.Name = "dgvMedAdministration";
             this.dgvMedAdministration.RowHeadersWidth = 51;
             this.dgvMedAdministration.RowTemplate.Height = 24;
@@ -449,6 +481,22 @@
             this.MedicineName.Name = "MedicineName";
             this.MedicineName.Width = 125;
             // 
+            // dosageGivenDataGridViewTextBoxColumn
+            // 
+            this.dosageGivenDataGridViewTextBoxColumn.DataPropertyName = "dosageGiven";
+            this.dosageGivenDataGridViewTextBoxColumn.HeaderText = "dosageGiven";
+            this.dosageGivenDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dosageGivenDataGridViewTextBoxColumn.Name = "dosageGivenDataGridViewTextBoxColumn";
+            this.dosageGivenDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // frequencyInstanceDataGridViewTextBoxColumn
+            // 
+            this.frequencyInstanceDataGridViewTextBoxColumn.DataPropertyName = "frequency_Instance";
+            this.frequencyInstanceDataGridViewTextBoxColumn.HeaderText = "Dose(#)";
+            this.frequencyInstanceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.frequencyInstanceDataGridViewTextBoxColumn.Name = "frequencyInstanceDataGridViewTextBoxColumn";
+            this.frequencyInstanceDataGridViewTextBoxColumn.Width = 125;
+            // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Admnistered_at";
@@ -456,6 +504,14 @@
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "status";
+            this.statusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.Width = 125;
             // 
             // Notes
             // 
@@ -474,8 +530,20 @@
             this.medication_AdministratorID.ReadOnly = true;
             this.medication_AdministratorID.Width = 125;
             // 
+            // customMedAdmBindingSource
+            // 
+            this.customMedAdmBindingSource.DataMember = "CustomMedAdm";
+            this.customMedAdmBindingSource.DataSource = this.dataSet11;
+            // 
+            // dataSet11
+            // 
+            this.dataSet11.DataSetName = "DataSet1";
+            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.panel2);
+            this.tabPage2.Controls.Add(this.panel3);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -500,9 +568,9 @@
             this.groupBox2.Controls.Add(this.TBDosage);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.lblDoctor2);
-            this.groupBox2.Location = new System.Drawing.Point(1034, 53);
+            this.groupBox2.Location = new System.Drawing.Point(1036, 116);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(666, 681);
+            this.groupBox2.Size = new System.Drawing.Size(666, 645);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Administration details";
@@ -534,7 +602,7 @@
             // 
             // Recordbutton
             // 
-            this.Recordbutton.Location = new System.Drawing.Point(311, 607);
+            this.Recordbutton.Location = new System.Drawing.Point(311, 593);
             this.Recordbutton.Name = "Recordbutton";
             this.Recordbutton.Size = new System.Drawing.Size(75, 23);
             this.Recordbutton.TabIndex = 14;
@@ -621,9 +689,9 @@
             this.groupBox1.Controls.Add(this.dgvPrescription);
             this.groupBox1.Controls.Add(this.TBPPatient);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(94, 53);
+            this.groupBox1.Location = new System.Drawing.Point(94, 116);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(812, 681);
+            this.groupBox1.Size = new System.Drawing.Size(812, 645);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Prescription";
@@ -634,6 +702,7 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(229, 22);
             this.dateTimePicker2.TabIndex = 14;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // label21
             // 
@@ -687,25 +756,60 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dateIssuedDataGridViewTextBoxColumn,
-            this.frequency_Instance,
-            this.nurseNameDataGridViewTextBoxColumn,
-            this.doctorNameDataGridViewTextBoxColumn,
-            this.medicineNameDataGridViewTextBoxColumn,
-            this.patientNameDataGridViewTextBoxColumn,
             this.doctorIDDataGridViewTextBoxColumn,
-            this.nurseIDDataGridViewTextBoxColumn,
-            this.prescriptionIDDataGridViewTextBoxColumn,
-            this.admnisteredatDataGridViewTextBoxColumn,
-            this.dosageGivenDataGridViewTextBoxColumn1,
-            this.statusDataGridViewTextBoxColumn1,
-            this.frequencyInstanceDataGridViewTextBoxColumn1});
+            this.prescriptionIDDataGridViewTextBoxColumn});
             this.dgvPrescription.DataSource = this.customMedAdmBindingSource1;
             this.dgvPrescription.Location = new System.Drawing.Point(28, 139);
             this.dgvPrescription.Name = "dgvPrescription";
             this.dgvPrescription.RowHeadersWidth = 51;
             this.dgvPrescription.RowTemplate.Height = 24;
-            this.dgvPrescription.Size = new System.Drawing.Size(751, 501);
+            this.dgvPrescription.Size = new System.Drawing.Size(751, 477);
             this.dgvPrescription.TabIndex = 8;
+            this.dgvPrescription.SelectionChanged += new System.EventHandler(this.dgvPrescription_SelectionChanged);
+            // 
+            // customMedAdmBindingSource1
+            // 
+            this.customMedAdmBindingSource1.DataMember = "CustomMedAdm";
+            this.customMedAdmBindingSource1.DataSource = this.dataSet11;
+            // 
+            // TBPPatient
+            // 
+            this.TBPPatient.Location = new System.Drawing.Point(158, 32);
+            this.TBPPatient.Name = "TBPPatient";
+            this.TBPPatient.Size = new System.Drawing.Size(229, 22);
+            this.TBPPatient.TabIndex = 7;
+            this.TBPPatient.TextChanged += new System.EventHandler(this.TBPPatient_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 16);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Patient Name:";
+            // 
+            // medicationAdministrationBindingSource
+            // 
+            this.medicationAdministrationBindingSource.DataMember = "MedicationAdministration";
+            this.medicationAdministrationBindingSource.DataSource = this.dataSet11;
+            // 
+            // prescriptionnBindingSource
+            // 
+            this.prescriptionnBindingSource.DataMember = "Prescriptionn_";
+            this.prescriptionnBindingSource.DataSource = this.dataSet11;
+            // 
+            // medicationAdministrationTableAdapter
+            // 
+            this.medicationAdministrationTableAdapter.ClearBeforeFill = true;
+            // 
+            // prescriptionn_TableAdapter
+            // 
+            this.prescriptionn_TableAdapter.ClearBeforeFill = true;
+            // 
+            // customMedAdmTableAdapter
+            // 
+            this.customMedAdmTableAdapter.ClearBeforeFill = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -731,65 +835,6 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Width = 125;
             // 
-            // frequency_Instance
-            // 
-            this.frequency_Instance.DataPropertyName = "frequency_Instance";
-            this.frequency_Instance.HeaderText = "frequency_Instance";
-            this.frequency_Instance.MinimumWidth = 6;
-            this.frequency_Instance.Name = "frequency_Instance";
-            this.frequency_Instance.Width = 125;
-            // 
-            // TBPPatient
-            // 
-            this.TBPPatient.Location = new System.Drawing.Point(158, 32);
-            this.TBPPatient.Name = "TBPPatient";
-            this.TBPPatient.Size = new System.Drawing.Size(229, 22);
-            this.TBPPatient.TabIndex = 7;
-            this.TBPPatient.TextChanged += new System.EventHandler(this.TBPPatient_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 16);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Patient Name:";
-            // 
-            // dosageGivenDataGridViewTextBoxColumn
-            // 
-            this.dosageGivenDataGridViewTextBoxColumn.DataPropertyName = "dosageGiven";
-            this.dosageGivenDataGridViewTextBoxColumn.HeaderText = "dosageGiven";
-            this.dosageGivenDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dosageGivenDataGridViewTextBoxColumn.Name = "dosageGivenDataGridViewTextBoxColumn";
-            this.dosageGivenDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // frequencyInstanceDataGridViewTextBoxColumn
-            // 
-            this.frequencyInstanceDataGridViewTextBoxColumn.DataPropertyName = "frequency_Instance";
-            this.frequencyInstanceDataGridViewTextBoxColumn.HeaderText = "Dose(#)";
-            this.frequencyInstanceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.frequencyInstanceDataGridViewTextBoxColumn.Name = "frequencyInstanceDataGridViewTextBoxColumn";
-            this.frequencyInstanceDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "status";
-            this.statusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // customMedAdmBindingSource
-            // 
-            this.customMedAdmBindingSource.DataMember = "CustomMedAdm";
-            this.customMedAdmBindingSource.DataSource = this.dataSet11;
-            // 
-            // dataSet11
-            // 
-            this.dataSet11.DataSetName = "DataSet1";
-            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // dateIssuedDataGridViewTextBoxColumn
             // 
             this.dateIssuedDataGridViewTextBoxColumn.DataPropertyName = "DateIssued";
@@ -797,38 +842,6 @@
             this.dateIssuedDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.dateIssuedDataGridViewTextBoxColumn.Name = "dateIssuedDataGridViewTextBoxColumn";
             this.dateIssuedDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // nurseNameDataGridViewTextBoxColumn
-            // 
-            this.nurseNameDataGridViewTextBoxColumn.DataPropertyName = "NurseName";
-            this.nurseNameDataGridViewTextBoxColumn.HeaderText = "NurseName";
-            this.nurseNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nurseNameDataGridViewTextBoxColumn.Name = "nurseNameDataGridViewTextBoxColumn";
-            this.nurseNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // doctorNameDataGridViewTextBoxColumn
-            // 
-            this.doctorNameDataGridViewTextBoxColumn.DataPropertyName = "DoctorName";
-            this.doctorNameDataGridViewTextBoxColumn.HeaderText = "DoctorName";
-            this.doctorNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.doctorNameDataGridViewTextBoxColumn.Name = "doctorNameDataGridViewTextBoxColumn";
-            this.doctorNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // medicineNameDataGridViewTextBoxColumn
-            // 
-            this.medicineNameDataGridViewTextBoxColumn.DataPropertyName = "MedicineName";
-            this.medicineNameDataGridViewTextBoxColumn.HeaderText = "MedicineName";
-            this.medicineNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.medicineNameDataGridViewTextBoxColumn.Name = "medicineNameDataGridViewTextBoxColumn";
-            this.medicineNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // patientNameDataGridViewTextBoxColumn
-            // 
-            this.patientNameDataGridViewTextBoxColumn.DataPropertyName = "PatientName";
-            this.patientNameDataGridViewTextBoxColumn.HeaderText = "PatientName";
-            this.patientNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.patientNameDataGridViewTextBoxColumn.Name = "patientNameDataGridViewTextBoxColumn";
-            this.patientNameDataGridViewTextBoxColumn.Width = 125;
             // 
             // doctorIDDataGridViewTextBoxColumn
             // 
@@ -839,15 +852,6 @@
             this.doctorIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.doctorIDDataGridViewTextBoxColumn.Width = 125;
             // 
-            // nurseIDDataGridViewTextBoxColumn
-            // 
-            this.nurseIDDataGridViewTextBoxColumn.DataPropertyName = "NurseID";
-            this.nurseIDDataGridViewTextBoxColumn.HeaderText = "NurseID";
-            this.nurseIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nurseIDDataGridViewTextBoxColumn.Name = "nurseIDDataGridViewTextBoxColumn";
-            this.nurseIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nurseIDDataGridViewTextBoxColumn.Width = 125;
-            // 
             // prescriptionIDDataGridViewTextBoxColumn
             // 
             this.prescriptionIDDataGridViewTextBoxColumn.DataPropertyName = "PrescriptionID";
@@ -856,89 +860,121 @@
             this.prescriptionIDDataGridViewTextBoxColumn.Name = "prescriptionIDDataGridViewTextBoxColumn";
             this.prescriptionIDDataGridViewTextBoxColumn.Width = 125;
             // 
-            // admnisteredatDataGridViewTextBoxColumn
+            // panel1
             // 
-            this.admnisteredatDataGridViewTextBoxColumn.DataPropertyName = "Admnistered_at";
-            this.admnisteredatDataGridViewTextBoxColumn.HeaderText = "Admnistered_at";
-            this.admnisteredatDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.admnisteredatDataGridViewTextBoxColumn.Name = "admnisteredatDataGridViewTextBoxColumn";
-            this.admnisteredatDataGridViewTextBoxColumn.Width = 125;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(59)))), ((int)(((byte)(26)))));
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Location = new System.Drawing.Point(-1, 39);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1899, 22);
+            this.panel1.TabIndex = 17;
             // 
-            // dosageGivenDataGridViewTextBoxColumn1
+            // label15
             // 
-            this.dosageGivenDataGridViewTextBoxColumn1.DataPropertyName = "dosageGiven";
-            this.dosageGivenDataGridViewTextBoxColumn1.HeaderText = "dosageGiven";
-            this.dosageGivenDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dosageGivenDataGridViewTextBoxColumn1.Name = "dosageGivenDataGridViewTextBoxColumn1";
-            this.dosageGivenDataGridViewTextBoxColumn1.Width = 125;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(119)))), ((int)(((byte)(102)))));
+            this.label15.Location = new System.Drawing.Point(270, 6);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(284, 15);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "AUTHORISED PERSONNEL ONLY — SECURE SYSTEM";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // statusDataGridViewTextBoxColumn1
+            // pnlTitleBar
             // 
-            this.statusDataGridViewTextBoxColumn1.DataPropertyName = "status";
-            this.statusDataGridViewTextBoxColumn1.HeaderText = "status";
-            this.statusDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.statusDataGridViewTextBoxColumn1.Name = "statusDataGridViewTextBoxColumn1";
-            this.statusDataGridViewTextBoxColumn1.Width = 125;
+            this.pnlTitleBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(82)))), ((int)(((byte)(39)))));
+            this.pnlTitleBar.Controls.Add(this.lblTitle);
+            this.pnlTitleBar.Controls.Add(this.lblKZN);
+            this.pnlTitleBar.Location = new System.Drawing.Point(-1, 1);
+            this.pnlTitleBar.Name = "pnlTitleBar";
+            this.pnlTitleBar.Size = new System.Drawing.Size(1899, 38);
+            this.pnlTitleBar.TabIndex = 16;
             // 
-            // frequencyInstanceDataGridViewTextBoxColumn1
+            // lblTitle
             // 
-            this.frequencyInstanceDataGridViewTextBoxColumn1.DataPropertyName = "frequency_Instance";
-            this.frequencyInstanceDataGridViewTextBoxColumn1.HeaderText = "frequency_Instance";
-            this.frequencyInstanceDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.frequencyInstanceDataGridViewTextBoxColumn1.Name = "frequencyInstanceDataGridViewTextBoxColumn1";
-            this.frequencyInstanceDataGridViewTextBoxColumn1.Width = 125;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(80, 10);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(354, 23);
+            this.lblTitle.TabIndex = 9;
+            this.lblTitle.Text = "Medication Administration— East Boom CHC";
             // 
-            // customMedAdmBindingSource1
+            // lblKZN
             // 
-            this.customMedAdmBindingSource1.DataMember = "CustomMedAdm";
-            this.customMedAdmBindingSource1.DataSource = this.dataSet11;
+            this.lblKZN.AutoSize = true;
+            this.lblKZN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(59)))), ((int)(((byte)(26)))));
+            this.lblKZN.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKZN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(203)))), ((int)(((byte)(164)))));
+            this.lblKZN.Location = new System.Drawing.Point(10, 9);
+            this.lblKZN.Name = "lblKZN";
+            this.lblKZN.Size = new System.Drawing.Size(74, 19);
+            this.lblKZN.TabIndex = 8;
+            this.lblKZN.Text = "KZN DOH";
             // 
-            // medicationAdministrationBindingSource
+            // panel2
             // 
-            this.medicationAdministrationBindingSource.DataMember = "MedicationAdministration";
-            this.medicationAdministrationBindingSource.DataSource = this.dataSet11;
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(59)))), ((int)(((byte)(26)))));
+            this.panel2.Controls.Add(this.label22);
+            this.panel2.Location = new System.Drawing.Point(-1, 39);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1899, 22);
+            this.panel2.TabIndex = 19;
             // 
-            // prescriptionnBindingSource
+            // label22
             // 
-            this.prescriptionnBindingSource.DataMember = "Prescriptionn_";
-            this.prescriptionnBindingSource.DataSource = this.dataSet11;
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(119)))), ((int)(((byte)(102)))));
+            this.label22.Location = new System.Drawing.Point(270, 6);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(284, 15);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "AUTHORISED PERSONNEL ONLY — SECURE SYSTEM";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // medicationAdministrationTableAdapter
+            // panel3
             // 
-            this.medicationAdministrationTableAdapter.ClearBeforeFill = true;
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(82)))), ((int)(((byte)(39)))));
+            this.panel3.Controls.Add(this.label23);
+            this.panel3.Controls.Add(this.label24);
+            this.panel3.Location = new System.Drawing.Point(-1, 1);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1899, 38);
+            this.panel3.TabIndex = 18;
             // 
-            // prescriptionn_TableAdapter
+            // label23
             // 
-            this.prescriptionn_TableAdapter.ClearBeforeFill = true;
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(80, 10);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(354, 23);
+            this.label23.TabIndex = 9;
+            this.label23.Text = "Medication Administration— East Boom CHC";
             // 
-            // customMedAdmTableAdapter
+            // label24
             // 
-            this.customMedAdmTableAdapter.ClearBeforeFill = true;
-            // 
-            // TBFrequency2
-            // 
-            this.TBFrequency2.Location = new System.Drawing.Point(156, 456);
-            this.TBFrequency2.Name = "TBFrequency2";
-            this.TBFrequency2.Size = new System.Drawing.Size(100, 22);
-            this.TBFrequency2.TabIndex = 16;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 459);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 16);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Frequency:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(262, 420);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 16);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "mg";
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(59)))), ((int)(((byte)(26)))));
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(203)))), ((int)(((byte)(164)))));
+            this.label24.Location = new System.Drawing.Point(10, 9);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(74, 19);
+            this.label24.TabIndex = 8;
+            this.label24.Text = "KZN DOH";
             // 
             // MedicationAdministrationForm
             // 
@@ -955,17 +991,25 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedAdministration)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customMedAdmBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrescription)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customMedAdmBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customMedAdmBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicationAdministrationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionnBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.pnlTitleBar.ResumeLayout(false);
+            this.pnlTitleBar.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1030,22 +1074,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox TBPDoctor;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateIssuedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn frequency_Instance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nurseNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doctorNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn medicineNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doctorIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nurseIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prescriptionIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn admnisteredatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dosageGivenDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn frequencyInstanceDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn DoctorName;
         private System.Windows.Forms.DataGridViewTextBoxColumn PatientName;
         private System.Windows.Forms.DataGridViewTextBoxColumn MedicineName;
@@ -1059,5 +1087,21 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TBFrequency2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateIssuedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doctorIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prescriptionIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel pnlTitleBar;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblKZN;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
     }
 }
