@@ -405,8 +405,8 @@ namespace MPM2.Business
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Report r = new Report();
-            r.Show();
+           // Report r = new Report();
+            //r.Show();
         }
     }
 }
