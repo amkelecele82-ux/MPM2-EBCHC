@@ -180,7 +180,7 @@ namespace MPM2.Business
             {
                 this.ActiveMdiChild.Close();
             }
-            AppointmentForm1 a = new AppointmentForm1();
+           AdminAppointment a = new AdminAppointment();
             a.MdiParent = this.MdiParent;
             a.WindowState = FormWindowState.Maximized;
             a.FormBorderStyle = FormBorderStyle.None;

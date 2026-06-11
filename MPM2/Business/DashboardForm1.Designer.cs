@@ -148,7 +148,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 734);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1410, 26);
+            this.panel3.Size = new System.Drawing.Size(1435, 26);
             this.panel3.TabIndex = 12;
             // 
             // label3
@@ -167,7 +167,7 @@
             this.Dashlabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Dashlabel2.AutoSize = true;
             this.Dashlabel2.ForeColor = System.Drawing.SystemColors.Control;
-            this.Dashlabel2.Location = new System.Drawing.Point(1308, 6);
+            this.Dashlabel2.Location = new System.Drawing.Point(1333, 6);
             this.Dashlabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Dashlabel2.Name = "Dashlabel2";
             this.Dashlabel2.Size = new System.Drawing.Size(113, 13);
@@ -392,7 +392,7 @@
             this.tmpanel.Location = new System.Drawing.Point(0, 0);
             this.tmpanel.Margin = new System.Windows.Forms.Padding(2);
             this.tmpanel.Name = "tmpanel";
-            this.tmpanel.Size = new System.Drawing.Size(1410, 60);
+            this.tmpanel.Size = new System.Drawing.Size(1435, 60);
             this.tmpanel.TabIndex = 14;
             // 
             // repbutton
@@ -470,7 +470,7 @@
             this.panel4.Location = new System.Drawing.Point(178, 60);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1243, 76);
+            this.panel4.Size = new System.Drawing.Size(1268, 76);
             this.panel4.TabIndex = 15;
             // 
             // Dashlabel
@@ -1149,7 +1149,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1410, 760);
+            this.ClientSize = new System.Drawing.Size(1435, 760);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel15);

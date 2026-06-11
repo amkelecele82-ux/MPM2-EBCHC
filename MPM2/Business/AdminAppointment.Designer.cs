@@ -140,6 +140,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proAppointmentBindingSource)).BeginInit();
@@ -151,6 +152,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(239)))), ((int)(((byte)(230)))));
             this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Controls.Add(this.panel4);
             this.tabPage2.Controls.Add(this.panel3);
@@ -161,29 +163,28 @@
             this.tabPage2.Size = new System.Drawing.Size(1512, 713);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Update Appointment";
-            this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // panel6
             // 
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel6.Controls.Add(this.label10);
             this.panel6.Location = new System.Drawing.Point(0, 83);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(448, 34);
+            this.panel6.Size = new System.Drawing.Size(429, 34);
             this.panel6.TabIndex = 40;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Yellow;
-            this.label10.Location = new System.Drawing.Point(98, 11);
+            this.label10.Location = new System.Drawing.Point(78, 10);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(163, 13);
+            this.label10.Size = new System.Drawing.Size(158, 13);
             this.label10.TabIndex = 41;
-            this.label10.Text = "List Of  Appointments In Progress";
+            this.label10.Text = "List of  appointments in progress";
             // 
             // panel4
             // 
@@ -193,12 +194,13 @@
             this.panel4.Controls.Add(this.button2);
             this.panel4.Location = new System.Drawing.Point(0, 674);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1514, 39);
+            this.panel4.Size = new System.Drawing.Size(1506, 39);
             this.panel4.TabIndex = 39;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel3.Controls.Add(this.label22);
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.label9);
@@ -259,9 +261,9 @@
             this.appointmentDateDataGridViewTextBoxColumn,
             this.timeSlotsDataGridViewTextBoxColumn});
             this.dataGridViewInnerJoin.DataSource = this.newApointmentsBindingSource;
-            this.dataGridViewInnerJoin.Location = new System.Drawing.Point(62, 150);
+            this.dataGridViewInnerJoin.Location = new System.Drawing.Point(62, 136);
             this.dataGridViewInnerJoin.Name = "dataGridViewInnerJoin";
-            this.dataGridViewInnerJoin.Size = new System.Drawing.Size(1285, 482);
+            this.dataGridViewInnerJoin.Size = new System.Drawing.Size(1285, 496);
             this.dataGridViewInnerJoin.TabIndex = 0;
             this.dataGridViewInnerJoin.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
@@ -722,6 +724,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(239)))), ((int)(((byte)(230)))));
             this.tabPage3.Controls.Add(this.panel8);
             this.tabPage3.Controls.Add(this.panel7);
             this.tabPage3.Controls.Add(this.panel5);
@@ -731,11 +734,10 @@
             this.tabPage3.Size = new System.Drawing.Size(1512, 713);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "View Appointments";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel8.Controls.Add(this.label14);
             this.panel8.Location = new System.Drawing.Point(3, 78);
             this.panel8.Name = "panel8";
@@ -755,7 +757,9 @@
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel7.Controls.Add(this.label20);
+            this.panel7.Controls.Add(this.label18);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel7.Location = new System.Drawing.Point(0, 665);
             this.panel7.Name = "panel7";
@@ -764,14 +768,15 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel5.Controls.Add(this.label21);
             this.panel5.Controls.Add(this.label16);
             this.panel5.Controls.Add(this.label15);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1512, 51);
+            this.panel5.Size = new System.Drawing.Size(1512, 55);
             this.panel5.TabIndex = 38;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -789,7 +794,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.Info;
-            this.label15.Location = new System.Drawing.Point(609, 7);
+            this.label15.Location = new System.Drawing.Point(693, 7);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(144, 25);
             this.label15.TabIndex = 1;
@@ -977,6 +982,8 @@
             this.tabPage3.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
