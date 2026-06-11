@@ -164,7 +164,7 @@ namespace MPM2.Business
             }
 
             this.newAppointmentsTableAdapter.Fill(this.dataSet1.NewApointments);
-         //   ApplyNurseFilter();
+           ApplyNurseFilter();
             this.nurseTableAdapter.Fill(this.dataSet1.Nurse);
             this.patientTableAdapter.Fill(this.dataSet1.Patient);
             this.vwUAppointmentsTableAdapter.Fill(this.dataSet1.vwUAppointments);
@@ -172,16 +172,17 @@ namespace MPM2.Business
             BindingSource vwAppointmentsBS = new BindingSource();
             vwAppointmentsBS.DataSource = dataSet1;
              vwAppointmentsBS.DataMember = "vwUAppointments";
-
+            ApplyNurseFilter();
+            ApplyDoctorFilter();
             dataGridViewInnerJoin.DataSource = vwAppointmentsBS;
             // Build in-memory booked slots per doctor from dataset so per-doctor availability is correct
             BuildBookedSlotsFromDataset();
 
             // Refresh combo boxes for the currently selected date and logged-in doctor
             RefreshAvailableStartTimesForSelectedDate();
-           // ApplyDoctorFilter();    
+           ApplyDoctorFilter();    
             // Ensure dataGridView3 shows filtered view for the logged-in role
-             ApplyRoleFilter();
+             //ApplyRoleFilter();
 
             txtStatus.Text = "Scheduled";
             ApplyTabPermissions();
@@ -1059,6 +1060,17 @@ namespace MPM2.Business
                  MessageBox.Show("Status Updated Successfully!");
                  BuildBookedSlotsFromDataset();
                  RefreshAvailableStartTimesForSelectedDate();*/
+        }
+
+        private void label17_Click_1(object sender, EventArgs e)
+        {
+       
+        }
+
+        private void txtSearchDoctor_TextChanged(object sender, EventArgs e)
+        {
+           newApointmentsBindingSource.Filter = "DoctorName LIKE '%"+txtSearchDoctor.Text+"%'";
+                       //     patientBindingSource.Filter = "FullName LIKE '%" + txtSP.Text + "%'";
         }
     }
 }
