@@ -343,5 +343,10 @@ namespace MPM2.Business
                 MessageBox.Show("Treatment recorded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void dgvRAppointment_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
