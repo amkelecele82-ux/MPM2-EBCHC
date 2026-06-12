@@ -258,10 +258,8 @@ namespace MPM2.Business
 
             try
             {
-                
                 string idNumber = txtIDNumber.Text.Trim();
 
-               
                 int existingPatients = (int)patientTableAdapter1.CheckIfPatientExist(idNumber);
 
                 if (existingPatients > 0)
@@ -270,11 +268,8 @@ namespace MPM2.Business
                                     "Duplicate Patient", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return; // Exit immediately if it's a duplicate
                 }
-
-            
                 string fullName = $"{txtFirstNames.Text.Trim()} {txtSurname.Text.Trim()}";
                 string address = $"{txtAddress.Text.Trim()}, {txtSub.Text.Trim()}, {txtTownCity.Text.Trim()}, {txtPostal.Text.Trim()}";
-
 
                 patientTableAdapter1.InsertPQ(
                     fullName,
@@ -293,20 +288,13 @@ namespace MPM2.Business
                     cmbGender.Text
                 );
 
-                // ==========================================
-                // 5. SUCCESS
-                // ==========================================
                 MessageBox.Show("Patient registered successfully!",
                                 "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Tip: You might want to call a method here to clear the form fields
-                // ClearFormFields(); 
             }
+
             catch (Exception ex)
             {
-                // ==========================================
-                // 6. ERROR HANDLING
-                // ==========================================
+
                 MessageBox.Show($"An error occurred while saving the patient:\n\n{ex.Message}",
                                 "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
