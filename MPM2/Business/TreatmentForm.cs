@@ -24,21 +24,25 @@ namespace MPM2.Business
             // TODO: This line of code loads data into the 'dataSet1.Doctor' table. You can move, or remove it, as needed.
             this.doctorTableAdapter.Fill(this.dataSet1.Doctor);
             // TODO: This line of code loads data into the 'dataSet1.AppointmentView' table. You can move, or remove it, as needed.
-            this.appointmentViewTableAdapter.Fill(this.dataSet1.AppointmentView);
+
+           
             if (this.MdiParent is MainForm mf)
             {
                 if (mf.CurrentRole == "Doctor")
                 {
                     int doctorID = Convert.ToInt32(mf.CurrentDataRow["DoctorID"]);
+                    this.appointmentViewTableAdapter.FillByDoctorID(this.dataSet1.AppointmentView, doctorID);
                     this.customTreatmentInfoTableAdapter.FillByDoctor(this.dataSet1.customTreatmentInfo, doctorID);
                 }
                 else if (mf.CurrentRole == "Nurse")
                 {
                     int nurseID = Convert.ToInt32(mf.CurrentDataRow["NurseID"]);
+                    this.appointmentViewTableAdapter.FillByNurse(this.dataSet1.AppointmentView, nurseID);
                     this.customTreatmentInfoTableAdapter.FillByNurse(this.dataSet1.customTreatmentInfo, nurseID);
                 }
                 else { 
                     this.customTreatmentInfoTableAdapter.Fill(this.dataSet1.customTreatmentInfo);
+                    this.appointmentViewTableAdapter.Fill(this.dataSet1.AppointmentView);
                 }
             }
             else {
@@ -51,6 +55,8 @@ namespace MPM2.Business
             lblCNurse.Text = "Nurse: " + dgvCNurse.CurrentRow.Cells["FullName"].Value.ToString();
             dgvCDoctor.Columns["doctorIDDataGridViewTextBoxColumn1"].Visible = false;
             dgvCNurse.Columns["nurseID"].Visible = false;
+            dgvRAppointment.Columns["appointmentIDDataGridViewTextBoxColumn"].Visible = false;
+            dgvRAppointment.Columns["appointmentDateDataGridViewTextBoxColumn"].Visible = false;
 
 
             var categories = dataSet1.Treatment.AsEnumerable()
@@ -64,6 +70,21 @@ namespace MPM2.Business
             {
                 CBCCategory.Items.Add(cat);
             }
+
+
+            var treatmentNames = dataSet1.Treatment.AsEnumerable()
+                .Select(r => r["FullName"].ToString())
+                .Where(name => !string.IsNullOrWhiteSpace(name))
+                .Distinct();
+
+            CBRTreatment.Items.Clear();
+
+            foreach (var name in treatmentNames)
+            {
+                CBRTreatment.Items.Add(name);
+            }
+
+
 
             dgvCustomTreatInfo.Columns["notesDataGridViewTextBoxColumn"].Visible = false;
             dgvCustomTreatInfo.Columns["diagnosisDataGridViewTextBoxColumn"].Visible = false;
@@ -260,7 +281,12 @@ namespace MPM2.Business
             var patientValue = row.Cells["patientNameDataGridViewTextBoxColumn"]?.Value;
             lblRPatient.Text = patientValue != null ? $"Patient: {patientValue}" : "Patient: None";
             var appointmentDateValue = row.Cells["appointmentDateDataGridViewTextBoxColumn"]?.Value;
-            lblRAppointmentDate.Text = appointmentDateValue != null ? $"Appointment Date: {appointmentDateValue}" : "Appointment Date: None";
+
+            lblRAppointmentDate.Text = appointmentDateValue != null
+                ? "Appointment Date: " + Convert.ToDateTime(appointmentDateValue).ToString("dd MMMM yyyy")
+                : "Appointment Date: None";
+            //var appointmentDateValue = row.Cells["appointmentDateDataGridViewTextBoxColumn"]?.Value;
+            //lblRAppointmentDate.Text = appointmentDateValue != null ? $"Appointment Date: {appointmentDateValue}" : "Appointment Date: None";
         }
         private void TBRPatient_TextChanged(object sender, EventArgs e)
         {
@@ -280,6 +306,47 @@ namespace MPM2.Business
         private void dgvRAppointment_SelectionChanged(object sender, EventArgs e)
         {
             ApplyFilter2();
+        }
+
+        private void RRecordButton_Click(object sender, EventArgs e)
+        {
+            if (dgvRAppointment.CurrentRow == null || dgvRAppointment.CurrentRow.IsNewRow)
+            {
+                MessageBox.Show("Please select an appointment to record the treatment.", "No Appointment Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (CBRTreatment.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a treatment.", "No Treatment Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            int aid = Convert.ToInt32(dgvRAppointment.CurrentRow.Cells["appointmentIDDataGridViewTextBoxColumn"].Value);
+
+            string selectedName = CBRTreatment.Text;
+
+            var row = dataSet1.Treatment.AsEnumerable()
+                .FirstOrDefault(r => r["FullName"].ToString() == selectedName);
+            int tid = Convert.ToInt32(row["treatmentID"]);
+            DateTime performedAt = DateTime.Now;
+            string notes = RTBRNotes.Text.ToString();
+            string diagnosis = RTBRDiagnosis.Text.ToString();
+            string results = RTBRResult.Text.ToString();
+            string performedBy = "";
+            if (this.MdiParent is MainForm mf)
+            {
+                performedBy = mf.CurrentDataRow["FullName"].ToString();
+            }
+            DialogResult result = MessageBox.Show($"Are you sure you want to record this treatment?\nTreatment: {selectedName}\nPatient: {lblRPatient.Text.Replace("Patient: ", "")}\nDoctor: {lblRDoctor.Text.Replace("Doctor: ", "")}\nPerformed At: {performedAt}\nNotes: {notes}\nDiagnosis: {diagnosis}\nResults: {results}\nPerformed By: {performedBy}", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.treatmentInformationTableAdapter1.InsertNewTreatmentInformation(aid, tid, performedAt, notes, diagnosis, results, performedBy);
+                MessageBox.Show("Treatment recorded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void dgvRAppointment_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

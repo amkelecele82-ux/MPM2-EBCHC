@@ -19,6 +19,8 @@ namespace MPM2.Business
 
         private void MedicationAdministrationForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSet11.customPrescription' table. You can move, or remove it, as needed.
+            this.customPrescriptionTableAdapter.Fill(this.dataSet11.customPrescription);
             // TODO: This line of code loads data into the 'dataSet11.CustomMedAdm' table. You can move, or remove it, as needed.
             this.customMedAdmTableAdapter.FillByMedAdmPrescripNurseDoctorPatient(this.dataSet11.CustomMedAdm);
             // TODO: This line of code loads data into the 'dataSet11.Prescriptionn_' table. You can move, or remove it, as needed.
@@ -40,7 +42,8 @@ namespace MPM2.Business
             CBStatus2.SelectedIndex = 0;
 
             dgvMedAdministration.Columns["medication_AdministratorID"].Visible = false;
-            dgvPrescription.Columns["doctorIDDataGridViewTextBoxColumn"].Visible = false;
+            dgvPrescription.Columns["DoctorID"].Visible = false;
+            dgvPrescription.Columns["PatientID"].Visible = false;
             dgvPrescription.Columns["prescriptionIDDataGridViewTextBoxColumn"].Visible = false;
         }
         public void SetTab(int tabIndex)
@@ -73,7 +76,6 @@ namespace MPM2.Business
                 filter += $"MedicineName LIKE '%{medicine}%'";
             }
 
-            // ✅ Status
             if (RBPending.Checked)
             {
                 if (filter != "") filter += " AND ";
@@ -316,7 +318,7 @@ namespace MPM2.Business
                 filter += $"DateIssued >= #{date:MM/dd/yyyy}# AND DateIssued < #{date.AddDays(1):MM/dd/yyyy}#";
             }
 
-            customMedAdmBindingSource1.Filter = filter;
+            customPrescriptionBindingSource.Filter = filter;
 
             ChangeValues2();
 
