@@ -1364,10 +1364,13 @@ namespace MPM2.Business
         {
             try
             {
-                selectedAppointmentIds = Convert.ToInt32(dataGridViewInnerJoin.CurrentRow.Cells[0].Value.ToString());
-            }catch(Exception ex)
+                selectedAppointmentIds = int.Parse(dataGridView4.CurrentRow.Cells[0].Value.ToString());
+                pro_AppointmentTableAdapter.DeleteAppointmentById(selectedAppointmentIds);
+
+            }
+            catch(Exception ex)
             {
-                MessageBox.Show("Please select the RowHeader"+ex.Message);
+                MessageBox.Show("Please select the RowHeader"+ex.Message); selectedAppointmentIds = -1;
             }
         }
         private void btnDeleteApp_Click(object sender, EventArgs e)
