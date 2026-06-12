@@ -1,4 +1,5 @@
 ﻿using MPM2.Database;
+using MPM2.Interface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -365,29 +366,29 @@ namespace MPM2.Business
             {
                 listBoxFullyBookedDoctors.DataSource = null;
 
-                lblDisplayFullyBooked.Text = "";
+                //lblFullyBookedDr.Text = "";
 
                 int count = dataSet11.Pro_Appointment.AsEnumerable()
                     .Count(r =>
                         Convert.ToInt32(r["DoctorID"]) == doctorId &&
                         Convert.ToDateTime(r["AppointmentDate"]).Date == DateTime.Today);
 
-                lblNumberOfAppointments.Text =  count+"\n Appointments \nFor Today";
-                lblNumberOfAppointments.Visible = true;
+              //  lblFullyBookedDr.Text =  count+"\n Appointments \nFor Today";
+                //lblFullyBookedDr.Visible = true;
 
                 return;
             }
 
             if (role == "Admin")
             {
-                lblNumberOfAppointments.Text="";
+               // lblNumberOfAppointments.Text="";
 
                 var names = dataSet11.FullyBookedDoctors
                     .AsEnumerable()
                     .Select(r => r["DoctorName"].ToString())
                     .ToList();
 
-                lblDisplayFullyBooked.Text = "Fully Booked Doctors Today: " + names.Count;
+               // label18.Text = "Fully Booked Doctors Today: " + names.Count;
 
                 listBoxFullyBookedDoctors.DataSource = names;
             }
@@ -455,27 +456,32 @@ namespace MPM2.Business
             }
             // Admin = no filter (sees all)
 
-            // -------------------------
-            // COMPLETED
-            // -------------------------
+         
             int completed = rows.Count(r =>
                 r["AppointmentStatus"] != DBNull.Value &&
                 r["AppointmentStatus"].ToString().Equals("Completed", StringComparison.OrdinalIgnoreCase));
 
             lblCompletedAppointment.Text = completed.ToString();
 
-            // -------------------------
-            // SCHEDULED
-            // -------------------------
+            if (dataSet11?.Pro_Appointment == null)
+                return;
+
+            var rowsa = dataSet11.Pro_Appointment.AsEnumerable();
+
+            int rescheduled = rowsa.Count(r =>
+                r["AppointmentStatus"] != DBNull.Value &&
+                r["AppointmentStatus"].ToString().Trim()
+                    .Equals("Re-Scheduled", StringComparison.OrdinalIgnoreCase));
+
+            lblRescheduledApp.Text = rescheduled.ToString();
+
+
             int scheduled = rows.Count(r =>
                 r["AppointmentStatus"] != DBNull.Value &&
                 r["AppointmentStatus"].ToString().Equals("Scheduled", StringComparison.OrdinalIgnoreCase));
 
             lblScheduledAppointment.Text = scheduled.ToString();
 
-            // -------------------------
-            // CANCELLED
-            // -------------------------
             int cancelled = rows.Count(r =>
                 r["AppointmentStatus"] != DBNull.Value &&
                 r["AppointmentStatus"].ToString().Equals("Cancelled", StringComparison.OrdinalIgnoreCase));
@@ -513,6 +519,20 @@ namespace MPM2.Business
         private void btnVitalsDashBoard_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Login2 p = new Login2();
+            p.MdiParent = this.MdiParent;
+            p.WindowState = FormWindowState.Maximized;
+            p.FormBorderStyle = FormBorderStyle.None;
+            p.Show();
         }
     }
     }
