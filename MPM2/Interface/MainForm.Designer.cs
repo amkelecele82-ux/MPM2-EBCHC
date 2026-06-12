@@ -54,9 +54,11 @@
             this.viewAllToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.recordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tempoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.appointmentTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.AppointmentTableAdapter();
+            this.treatmentReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -155,7 +157,7 @@
             // viewAllToolStripMenuItem
             // 
             this.viewAllToolStripMenuItem.Name = "viewAllToolStripMenuItem";
-            this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewAllToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.viewAllToolStripMenuItem.Text = "View All";
             this.viewAllToolStripMenuItem.Click += new System.EventHandler(this.viewAllToolStripMenuItem_Click_1);
             // 
@@ -242,7 +244,9 @@
             this.viewReportsToolStripMenuItem,
             this.viewAllToolStripMenuItem3,
             this.recordsToolStripMenuItem,
-            this.printToolStripMenuItem});
+            this.printToolStripMenuItem,
+            this.tempoToolStripMenuItem,
+            this.treatmentReportToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 19);
             this.reportsToolStripMenuItem.Text = "Reports";
@@ -250,14 +254,14 @@
             // viewReportsToolStripMenuItem
             // 
             this.viewReportsToolStripMenuItem.Name = "viewReportsToolStripMenuItem";
-            this.viewReportsToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.viewReportsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.viewReportsToolStripMenuItem.Text = "View Reports";
             this.viewReportsToolStripMenuItem.Click += new System.EventHandler(this.viewReportsToolStripMenuItem_Click);
             // 
             // viewAllToolStripMenuItem3
             // 
             this.viewAllToolStripMenuItem3.Name = "viewAllToolStripMenuItem3";
-            this.viewAllToolStripMenuItem3.Size = new System.Drawing.Size(142, 22);
+            this.viewAllToolStripMenuItem3.Size = new System.Drawing.Size(183, 22);
             this.viewAllToolStripMenuItem3.Text = "&View All";
             this.viewAllToolStripMenuItem3.ToolTipText = "Show all appointments without date filter";
             this.viewAllToolStripMenuItem3.Click += new System.EventHandler(this.viewAllToolStripMenuItem3_Click);
@@ -265,16 +269,23 @@
             // recordsToolStripMenuItem
             // 
             this.recordsToolStripMenuItem.Name = "recordsToolStripMenuItem";
-            this.recordsToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.recordsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.recordsToolStripMenuItem.Text = "Records";
             this.recordsToolStripMenuItem.Click += new System.EventHandler(this.recordsToolStripMenuItem_Click);
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.printToolStripMenuItem.Text = "&Print";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
+            // 
+            // tempoToolStripMenuItem
+            // 
+            this.tempoToolStripMenuItem.Name = "tempoToolStripMenuItem";
+            this.tempoToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.tempoToolStripMenuItem.Text = "Appointment Report";
+            this.tempoToolStripMenuItem.Click += new System.EventHandler(this.tempoToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -294,6 +305,13 @@
             // appointmentTableAdapter1
             // 
             this.appointmentTableAdapter1.ClearBeforeFill = true;
+            // 
+            // treatmentReportToolStripMenuItem
+            // 
+            this.treatmentReportToolStripMenuItem.Name = "treatmentReportToolStripMenuItem";
+            this.treatmentReportToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.treatmentReportToolStripMenuItem.Text = "Treatment Report";
+            this.treatmentReportToolStripMenuItem.Click += new System.EventHandler(this.treatmentReportToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -348,6 +366,8 @@
         private Database.DataSet1TableAdapters.AppointmentTableAdapter appointmentTableAdapter1;
         private System.Windows.Forms.ToolStripMenuItem recordsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tempoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem treatmentReportToolStripMenuItem;
     }
 }
 

@@ -1362,10 +1362,35 @@ namespace MPM2.Business
 
         private void dataGridView4_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            selectedAppointmentIds =Convert.ToInt32(    
-        dataGridViewInnerJoin.CurrentRow.Cells[0].Value.ToString()
-    );
+            try
+            {
+                selectedAppointmentIds = int.Parse(dataGridView4.CurrentRow.Cells[0].Value.ToString());
+                pro_AppointmentTableAdapter.DeleteAppointmentById(selectedAppointmentIds);
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Error selecting appointment: " + ex.Message);
+                selectedAppointmentIds = -1;
+            }
+                /*Check to ensure the clicked row index is valid (not a header label click)
+                if (e.RowIndex >= 0)
+                {
+                    // FIX: Pull directly from the row that was actually clicked in dataGridView4
+                    var clickedRow = dataGridView4.Rows[e.RowIndex];
+
+                    if (clickedRow.Cells[0].Value != null)
+                    {
+                        selectedAppointmentIds = Convert.ToInt32(clickedRow.Cells[0].Value.ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error selecting appointment: " + ex.Message);
+                selectedAppointmentIds = -1;
+            }*/
         }
+    
+        
         private void btnDeleteApp_Click(object sender, EventArgs e)
         {
             if (selectedAppointmentIds <= 0)

@@ -54,6 +54,7 @@ namespace MPM2.Business
         }
         private void DashboardForm1_Load(object sender, EventArgs e)
         {
+           
             // Fill dataset first
             this.newAppointmentsTableAdapter.Fill(this.dataSet11.NewApointments);
 
@@ -411,8 +412,7 @@ namespace MPM2.Business
 
         private void button5_Click(object sender, EventArgs e)
         {
-           // Report r = new Report();
-            //r.Show();
+       
         }
 
         private void lblCompletedAppointment_Click(object sender, EventArgs e)

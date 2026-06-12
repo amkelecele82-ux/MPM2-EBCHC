@@ -104,6 +104,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Report\AppointmentsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\AppointmentsReport.Designer.cs">
+      <DependentUpon>AppointmentsReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\AccountSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +199,12 @@
     <Compile Include="loadForm1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PrescriptionReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrescriptionReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report\reportViewFrm.cs">
@@ -227,6 +239,9 @@
     <Compile Include="RoundedTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <EmbeddedResource Include="Report\AppointmentsReport.resx">
+      <DependentUpon>AppointmentsReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Business\AccountSettingsForm.resx">
       <DependentUpon>AccountSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,6 +277,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="loadForm1.resx">
       <DependentUpon>loadForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrescriptionReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PrescriptionReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

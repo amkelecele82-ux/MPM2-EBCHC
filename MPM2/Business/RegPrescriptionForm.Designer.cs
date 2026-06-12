@@ -56,15 +56,15 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnSaveUpdate = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -330,16 +330,25 @@
             this.panel1.Size = new System.Drawing.Size(1215, 57);
             this.panel1.TabIndex = 8;
             // 
-            // panel3
+            // label16
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
-            this.panel3.Controls.Add(this.label15);
-            this.panel3.Controls.Add(this.label14);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 590);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1215, 74);
-            this.panel3.TabIndex = 10;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.Info;
+            this.label16.Location = new System.Drawing.Point(139, 9);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(226, 15);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "East Boom CHC · KwaZulu-Natal Province";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(32, 39);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(282, 13);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "AUTHORISED PERSONNEL ONLY — SECURE SYSTEM";
             // 
             // label10
             // 
@@ -352,21 +361,45 @@
             this.label10.TabIndex = 1;
             this.label10.Text = "KZN DOH";
             // 
-            // label11
+            // panel3
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(32, 39);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(282, 13);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "AUTHORISED PERSONNEL ONLY — SECURE SYSTEM";
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
+            this.panel3.Controls.Add(this.label15);
+            this.panel3.Controls.Add(this.label14);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 590);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1215, 74);
+            this.panel3.TabIndex = 10;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.SystemColors.Info;
+            this.label15.Location = new System.Drawing.Point(1046, 38);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(139, 13);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "East Boom CHC · KZN DoH";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.SystemColors.Info;
+            this.label14.Location = new System.Drawing.Point(9, 38);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(166, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Prescription Management · v2.1.4";
             // 
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(239)))), ((int)(((byte)(230)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel4.Controls.Add(this.groupBox4);
             this.panel4.Controls.Add(this.button2);
             this.panel4.Controls.Add(this.button1);
@@ -395,17 +428,6 @@
             this.panel4.TabIndex = 11;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label12.Location = new System.Drawing.Point(23, 17);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(151, 15);
-            this.label12.TabIndex = 10;
-            this.label12.Text = "Prescription Management";
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -417,44 +439,23 @@
             this.label13.TabIndex = 11;
             this.label13.Text = "Details";
             // 
-            // label14
+            // label12
             // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.SystemColors.Info;
-            this.label14.Location = new System.Drawing.Point(9, 38);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(166, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Prescription Management · v2.1.4";
-            // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.SystemColors.Info;
-            this.label15.Location = new System.Drawing.Point(1046, 38);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(139, 13);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "East Boom CHC · KZN DoH";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.Info;
-            this.label16.Location = new System.Drawing.Point(139, 9);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(226, 15);
-            this.label16.TabIndex = 3;
-            this.label16.Text = "East Boom CHC · KwaZulu-Natal Province";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.label12.Location = new System.Drawing.Point(23, 17);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(151, 15);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Prescription Management";
             // 
             // RegPrescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(239)))), ((int)(((byte)(230)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1215, 664);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);

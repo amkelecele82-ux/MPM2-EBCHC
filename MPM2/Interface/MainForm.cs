@@ -1,5 +1,6 @@
 ﻿using MPM2.Business;
 using MPM2.Interface;
+using MPM2.Report;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -294,7 +295,7 @@ namespace MPM2
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            reportViewFrm reportForm = Application.OpenForms.OfType<reportViewFrm>().FirstOrDefault();
+          /*  reportViewFrm reportForm = Application.OpenForms.OfType<reportViewFrm>().FirstOrDefault();
             if (reportForm != null)
             {
                 reportForm.PrintCurrentReport();
@@ -303,6 +304,23 @@ namespace MPM2
             {
                 MessageBox.Show("No report is currently open. Please open a report first.");
             }
+          */
+        }
+
+        private void tempoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+         /* AppointmentReportViewr reportViewer = new AppointmentReportViewr();
+          formSetup(reportViewer);*/
+         AppointmentsReport reportViewer = new AppointmentsReport();
+            formSetup(reportViewer);
+
+
+        }
+
+        private void treatmentReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /*TreatmentReportViewer reportViewer = new TreatmentReportViewer();
+            formSetup(reportViewer);*/
         }
     }
     }
