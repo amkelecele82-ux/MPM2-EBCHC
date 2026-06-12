@@ -149,48 +149,19 @@ namespace MPM2
 
         private void viewHelpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //string googleSitesUrl = "https://sites.google.com/view/eastboomchcmanual";
+            string helpUrl = "https://synergyseekers.netlify.app";
 
-            //try
-            //{
-            //    // 2. This command opens the link in the computer's default web browser
-            //    ProcessStartInfo psi = new ProcessStartInfo
-            //    {
-            //        FileName = googleSitesUrl,
-            //        UseShellExecute = true
-            //    };
-            //    Process.Start(psi);
-            //}
-            //catch (Exception ex)
-            //{
-            //    // 3. This catches errors, like if the computer doesn't have a web browser installed
-            //    MessageBox.Show("Could not open the help manual. Please check your internet connection.",
-            //                    "Help Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            //}
-
-            string helpFilePath = Path.Combine(Application.StartupPath,"HelpDocs","index.html");
-            if(File.Exists(helpFilePath))
+            try
             {
-                try
+                Process.Start(new ProcessStartInfo
                 {
-                    ProcessStartInfo psi = new ProcessStartInfo
-                    {
-                        FileName = helpFilePath,
-                        UseShellExecute = true
-                    };
-                    Process.Start(psi);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Could not open the help manual. Please check your file association settings.",
-                                    "Help Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    FileName = helpUrl,
+                    UseShellExecute = true // This forces Windows to open the default web browser
+                });
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Help manual not found. Please ensure the help files are in the correct location.",
-                                "Help Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Could not open the help page. Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

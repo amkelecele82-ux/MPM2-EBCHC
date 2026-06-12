@@ -245,22 +245,60 @@ namespace MPM2.Business
             return isValid;
         }
 
-        
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            if (ValidateForm())
+         
+            if (!ValidateForm())
             {
-                string fullName = txtFirstNames.Text.Trim() + " " + txtSurname.Text.Trim();
-                string address = $"{txtAddress.Text}, {txtSub.Text}, {txtTownCity.Text}, {txtPostal.Text}";
-                MessageBox.Show("Validation passed. Saving patient...", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // TODO: Insert into database
+                MessageBox.Show("Please correct the highlighted errors before registering the patient.",
+                                "Validation Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; 
             }
-            else
+
+            try
             {
-                MessageBox.Show("Please correct the errors marked in red.", "Validation Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string idNumber = txtIDNumber.Text.Trim();
+
+                int existingPatients = (int)patientTableAdapter1.CheckIfPatientExist(idNumber);
+
+                if (existingPatients > 0)
+                {
+                    MessageBox.Show("A patient with this ID Number/Passport is already registered in the system.",
+                                    "Duplicate Patient", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Exit immediately if it's a duplicate
+                }
+                string fullName = $"{txtFirstNames.Text.Trim()} {txtSurname.Text.Trim()}";
+                string address = $"{txtAddress.Text.Trim()}, {txtSub.Text.Trim()}, {txtTownCity.Text.Trim()}, {txtPostal.Text.Trim()}";
+
+                patientTableAdapter1.InsertPQ(
+                    fullName,
+                    dtpDOB.Text,
+                    txtPhone.Text.Trim(),
+                    address,
+                    txtEmail.Text.Trim(),
+                    null, // Alternative Phone Number (Allowed to be null)
+                    txtFolderNumber.Text.Trim(),
+                    idNumber,
+                    cmbReligion.Text,
+                    cmbLanguage.Text,
+                    cmbMarital.Text,
+                    txtNextofkinName.Text.Trim(),
+                    txtNextofkinPhoneNo.Text.Trim(),
+                    cmbGender.Text
+                );
+
+                MessageBox.Show("Patient registered successfully!",
+                                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"An error occurred while saving the patient:\n\n{ex.Message}",
+                                "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnClearForm_Click(object sender, EventArgs e)
         {
             foreach (Control ctrl in this.Controls)
