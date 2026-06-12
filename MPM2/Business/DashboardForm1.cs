@@ -65,6 +65,10 @@ namespace MPM2.Business
             {
                 dgvWidgetAppointment.DataSource = dataSet11.NewApointments;
             }
+            if (role == "Nurse")
+            {
+                ApplyNurseFilter();
+            }
 
             // Continue normal fills
             this.appointmentTableAdapter.Fill(this.dataSet11.Appointment);
@@ -89,6 +93,7 @@ namespace MPM2.Business
             medicationAdministrationTableAdapter1.Fill(dataSet11.MedicationAdministration);
 
             fullNameLabel.Text = fullName;
+            UpdateAppointmentStatusCounts();
         }
         private (DateTime start, DateTime end) ParseTimeSlot(string timeSlot, DateTime date)
         {
@@ -154,7 +159,7 @@ namespace MPM2.Business
             {
                 this.ActiveMdiChild.Close();
             }
-            RegPatientForm rp = new RegPatientForm();
+            RegPatientForm2 rp = new RegPatientForm2();
             rp.MdiParent = this.MdiParent;
             rp.WindowState = FormWindowState.Maximized;
             rp.FormBorderStyle = FormBorderStyle.None;
@@ -191,7 +196,7 @@ namespace MPM2.Business
         private void DashPresbutton_Click(object sender, EventArgs e)
         {
             if (role.Equals("Doctor")) {
-            PrescriptionForm pf = new PrescriptionForm();
+            RegPrescriptionForm pf = new RegPrescriptionForm();
             pf.MdiParent = this.MdiParent;
             pf.WindowState = FormWindowState.Maximized;
             pf.FormBorderStyle = FormBorderStyle.None;
@@ -408,5 +413,106 @@ namespace MPM2.Business
            // Report r = new Report();
             //r.Show();
         }
+
+        private void lblCompletedAppointment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblScheduledAppointment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCancelledAppointment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel15_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        public void UpdateAppointmentStatusCounts()
+        {
+            if (dataSet11 == null || dataSet11.Pro_Appointment == null)
+                return;
+
+            DateTime today = DateTime.Today;
+
+            // Start with today's appointments only
+            IEnumerable<DataRow> rows = dataSet11.Pro_Appointment.AsEnumerable()
+                .Where(r => Convert.ToDateTime(r["AppointmentDate"]).Date == today);
+
+            // ROLE FILTER
+            if (role == "Doctor")
+            {
+                rows = rows.Where(r => Convert.ToInt32(r["DoctorID"]) == medid);
+            }
+            else if (role == "Nurse")
+            {
+                rows = rows.Where(r => Convert.ToInt32(r["NurseID"]) == medid);
+            }
+            // Admin = no filter (sees all)
+
+            // -------------------------
+            // COMPLETED
+            // -------------------------
+            int completed = rows.Count(r =>
+                r["AppointmentStatus"] != DBNull.Value &&
+                r["AppointmentStatus"].ToString().Equals("Completed", StringComparison.OrdinalIgnoreCase));
+
+            lblCompletedAppointment.Text = completed.ToString();
+
+            // -------------------------
+            // SCHEDULED
+            // -------------------------
+            int scheduled = rows.Count(r =>
+                r["AppointmentStatus"] != DBNull.Value &&
+                r["AppointmentStatus"].ToString().Equals("Scheduled", StringComparison.OrdinalIgnoreCase));
+
+            lblScheduledAppointment.Text = scheduled.ToString();
+
+            // -------------------------
+            // CANCELLED
+            // -------------------------
+            int cancelled = rows.Count(r =>
+                r["AppointmentStatus"] != DBNull.Value &&
+                r["AppointmentStatus"].ToString().Equals("Cancelled", StringComparison.OrdinalIgnoreCase));
+
+            lblCancelledAppointment.Text = cancelled.ToString();
+        }
+        private void ApplyNurseFilter()
+        {
+            if (role != "Nurse")
+                return;
+
+            try
+            {
+                BindingSource bs = new BindingSource();
+                bs.DataSource = dataSet11.NewApointments;
+
+                // Use logged-in nurse full name for filtering
+                string nurseName = fullName.Replace("'", "''");
+
+                bs.Filter = $"NurseName = '{nurseName}'";
+
+                dgvWidgetAppointment.DataSource = bs;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nurse filter error: " + ex.Message);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVitalsDashBoard_Click(object sender, EventArgs e)
+        {
+
+        }
     }
-}
+    }

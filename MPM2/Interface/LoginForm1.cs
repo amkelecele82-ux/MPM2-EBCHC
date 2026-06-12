@@ -112,7 +112,7 @@ namespace MPM2.Interface
                     {
                         MessageBox.Show("Hello " + row["FullName"].ToString());
                         accessed = true;
-                        PatientAppointment pa = new PatientAppointment();
+                        AdminAppointment pa = new AdminAppointment();
                         pa.MdiParent = this.MdiParent;
                         pa.WindowState = FormWindowState.Maximized;
                         pa.FormBorderStyle = FormBorderStyle.None;

@@ -57,16 +57,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine">
-      <HintPath>..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportSource">
-      <HintPath>..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.Shared">
-      <HintPath>..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.Shared.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.Shared.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.Windows.Forms">
-      <HintPath>..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.Windows.Forms.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win64_x64\dotnet\CrystalDecisions.Windows.Forms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -128,29 +128,11 @@
     <Compile Include="Business\MedicationAdministrationForm.Designer.cs">
       <DependentUpon>MedicationAdministrationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Business\PatientAppointment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Business\PatientAppointment.Designer.cs">
-      <DependentUpon>PatientAppointment.cs</DependentUpon>
-    </Compile>
     <Compile Include="Business\PatientForm1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Business\PatientForm1.Designer.cs">
       <DependentUpon>PatientForm1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Business\PrescriptionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Business\PrescriptionForm.Designer.cs">
-      <DependentUpon>PrescriptionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Business\RegPatientForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Business\RegPatientForm.Designer.cs">
-      <DependentUpon>RegPatientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Business\RegPatientForm2.cs">
       <SubType>Form</SubType>
@@ -257,17 +239,8 @@
     <EmbeddedResource Include="Business\MedicationAdministrationForm.resx">
       <DependentUpon>MedicationAdministrationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Business\PatientAppointment.resx">
-      <DependentUpon>PatientAppointment.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Business\PatientForm1.resx">
       <DependentUpon>PatientForm1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Business\PrescriptionForm.resx">
-      <DependentUpon>PrescriptionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Business\RegPatientForm.resx">
-      <DependentUpon>RegPatientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\RegPatientForm2.resx">
       <DependentUpon>RegPatientForm2.cs</DependentUpon>
