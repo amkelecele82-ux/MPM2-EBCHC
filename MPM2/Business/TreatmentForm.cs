@@ -99,12 +99,16 @@ namespace MPM2.Business
 
         private void dgvCDoctor_SelectionChanged(object sender, EventArgs e)
         {
-            lblCDoctor.Text = "Doctor: " + dgvCDoctor.CurrentRow.Cells["fullNameDataGridViewTextBoxColumn1"].Value.ToString();
+            if (dgvCDoctor.CurrentRow != null)
+            {
+                lblCDoctor.Text = "Doctor: " + dgvCDoctor.CurrentRow.Cells["fullNameDataGridViewTextBoxColumn1"].Value.ToString();
+            }
         }
 
         private void dgvCNurse_SelectionChanged(object sender, EventArgs e)
         {
-            lblCNurse.Text = "Nurse: " + dgvCNurse.CurrentRow.Cells["FullName"].Value.ToString();
+            if (dgvCNurse.CurrentRow != null)
+                lblCNurse.Text = "Nurse: " + dgvCNurse.CurrentRow.Cells["FullName"].Value.ToString();
  
         }
 
@@ -209,6 +213,73 @@ namespace MPM2.Business
         private void dgvCustomTreatInfo_SelectionChanged(object sender, EventArgs e)
         {
             ApplyFilter();
+        }
+
+        private void ApplyFilter2()
+        {
+            string filter = "";
+
+            string patientname = TBRPatient.Text.Replace("'", "''");
+            string doctorname = TBRDoctor.Text.Replace("'", "''");
+
+            if (!string.IsNullOrWhiteSpace(patientname))
+                filter += $"PatientName LIKE '%{patientname}%'";
+
+            if (!string.IsNullOrWhiteSpace(doctorname))
+            {
+                if (filter != "") filter += " AND ";
+                filter += $"DoctorName LIKE '%{doctorname}%'";
+            }
+
+            DateTime date = dateTimePicker1.Value.Date;
+
+            if (filter != "") filter += " AND ";
+
+            filter += $"AppointmentDate >= #{date:MM/dd/yyyy}# AND AppointmentDate < #{date.AddDays(1):MM/dd/yyyy}#";
+
+            appointmentViewBindingSource.Filter = filter;
+
+
+            if (dgvRAppointment.CurrentRow == null)
+                return;
+
+            ChangeValues2();
+        }
+        private void ChangeValues2()
+        {
+            if (dgvRAppointment.CurrentRow == null || dgvRAppointment.CurrentRow.IsNewRow)
+            {
+                lblRDoctor.Text = "Doctor: None";
+                lblRPatient.Text = "Patient: None";
+                lblRAppointmentDate.Text = "Appointment Date: None";
+                return;
+            }
+            var row = dgvRAppointment.CurrentRow;
+            var doctorValue = row.Cells["doctorNameDataGridViewTextBoxColumn"]?.Value;
+            lblRDoctor.Text = doctorValue != null ? $"Doctor: {doctorValue}" : "Doctor: None";
+            var patientValue = row.Cells["patientNameDataGridViewTextBoxColumn"]?.Value;
+            lblRPatient.Text = patientValue != null ? $"Patient: {patientValue}" : "Patient: None";
+            var appointmentDateValue = row.Cells["appointmentDateDataGridViewTextBoxColumn"]?.Value;
+            lblRAppointmentDate.Text = appointmentDateValue != null ? $"Appointment Date: {appointmentDateValue}" : "Appointment Date: None";
+        }
+        private void TBRPatient_TextChanged(object sender, EventArgs e)
+        {
+            ApplyFilter2();
+        }
+
+        private void TBRDoctor_TextChanged(object sender, EventArgs e)
+        {
+            ApplyFilter2();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            ApplyFilter2();
+        }
+
+        private void dgvRAppointment_SelectionChanged(object sender, EventArgs e)
+        {
+            ApplyFilter2();
         }
     }
 }
