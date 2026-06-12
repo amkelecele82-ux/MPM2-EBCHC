@@ -39,9 +39,9 @@ namespace MPM2.Business
 
         private void btnNewPatient_Click(object sender, EventArgs e)
         {
-            RegPatientForm2 regPatientForm2 = new RegPatientForm2();
-            regPatientForm2.Show();
-            this.Hide();
+         //   RegPatientForm2 regPatientForm2 = new RegPatientForm2();
+        //    regPatientForm2.Show();
+         //   this.Hide();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
