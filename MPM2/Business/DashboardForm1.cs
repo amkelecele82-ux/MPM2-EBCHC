@@ -1,4 +1,5 @@
 ﻿using MPM2.Database;
+using MPM2.Interface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,6 +54,7 @@ namespace MPM2.Business
         }
         private void DashboardForm1_Load(object sender, EventArgs e)
         {
+            lblDate.Text = DateTime.Now.ToString("dddd dd MMMM yyyy") + " | East Boom CHC | KwaZulu Natal Province";
             // Fill dataset first
             this.newAppointmentsTableAdapter.Fill(this.dataSet11.NewApointments);
 
@@ -365,14 +367,14 @@ namespace MPM2.Business
             {
                 listBoxFullyBookedDoctors.DataSource = null;
 
-                lblDisplayFullyBooked.Text = "";
+                lblDisplayFullyBooked.Visible=false;
 
                 int count = dataSet11.Pro_Appointment.AsEnumerable()
                     .Count(r =>
                         Convert.ToInt32(r["DoctorID"]) == doctorId &&
                         Convert.ToDateTime(r["AppointmentDate"]).Date == DateTime.Today);
 
-                lblNumberOfAppointments.Text =  count+"\n Appointments \nFor Today";
+                lblNumberOfAppointments.Text =  count+"\n Appointments\nFor Today";
                 lblNumberOfAppointments.Visible = true;
 
                 return;
@@ -380,7 +382,7 @@ namespace MPM2.Business
 
             if (role == "Admin")
             {
-                lblNumberOfAppointments.Text="";
+               lblNumberOfAppointments.Visible=false;
 
                 var names = dataSet11.FullyBookedDoctors
                     .AsEnumerable()
@@ -511,6 +513,32 @@ namespace MPM2.Business
         }
 
         private void btnVitalsDashBoard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label31_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Login2 l2 = new Login2();
+            l2.MdiParent = this.MdiParent;
+            l2.WindowState = FormWindowState.Maximized;
+            l2.FormBorderStyle = FormBorderStyle.None;
+            l2.Show();
+
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblDate_Click(object sender, EventArgs e)
         {
 
         }

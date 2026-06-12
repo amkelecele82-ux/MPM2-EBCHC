@@ -94,6 +94,7 @@
             this.roundedPanel.Name = "roundedPanel";
             this.roundedPanel.Size = new System.Drawing.Size(778, 659);
             this.roundedPanel.TabIndex = 18;
+            this.roundedPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.roundedPanel_Paint);
             // 
             // roleNurse
             // 
@@ -169,7 +170,7 @@
             this.linkLabel1.Location = new System.Drawing.Point(190, 552);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(118, 19);
+            this.linkLabel1.Size = new System.Drawing.Size(100, 13);
             this.linkLabel1.TabIndex = 16;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Forgot password?";
@@ -192,7 +193,7 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             this.label6.Location = new System.Drawing.Point(191, 42);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(510, 20);
+            this.label6.Size = new System.Drawing.Size(408, 15);
             this.label6.TabIndex = 18;
             this.label6.Text = "Protected Under the National Health Act & POPIA. Authorized personnel only.";
             // 
@@ -203,7 +204,7 @@
             this.label5.Location = new System.Drawing.Point(614, 8);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(141, 19);
+            this.label5.Size = new System.Drawing.Size(113, 13);
             this.label5.TabIndex = 1;
             this.label5.Text = "🔒 Secure & encrypted";
             // 
@@ -215,7 +216,7 @@
             this.label4.Location = new System.Drawing.Point(10, 8);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(269, 19);
+            this.label4.Size = new System.Drawing.Size(213, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "East Boom CHC · KZN DoH · 11 May 2026";
             // 
@@ -227,7 +228,7 @@
             this.linkLabel2.Location = new System.Drawing.Point(444, 552);
             this.linkLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(37, 19);
+            this.linkLabel2.Size = new System.Drawing.Size(31, 13);
             this.linkLabel2.TabIndex = 17;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Help";
@@ -309,7 +310,7 @@
             this.checkBoxRemember.Location = new System.Drawing.Point(112, 453);
             this.checkBoxRemember.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.checkBoxRemember.Name = "checkBoxRemember";
-            this.checkBoxRemember.Size = new System.Drawing.Size(291, 24);
+            this.checkBoxRemember.Size = new System.Drawing.Size(235, 19);
             this.checkBoxRemember.TabIndex = 14;
             this.checkBoxRemember.Text = "Remember my username on this device";
             this.checkBoxRemember.UseVisualStyleBackColor = true;
@@ -322,7 +323,7 @@
             this.labelPassword.Location = new System.Drawing.Point(112, 382);
             this.labelPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(76, 20);
+            this.labelPassword.Size = new System.Drawing.Size(59, 15);
             this.labelPassword.TabIndex = 12;
             this.labelPassword.Text = "Password";
             // 
@@ -334,7 +335,7 @@
             this.labelUsername.Location = new System.Drawing.Point(112, 318);
             this.labelUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(80, 20);
+            this.labelUsername.Size = new System.Drawing.Size(64, 15);
             this.labelUsername.TabIndex = 10;
             this.labelUsername.Text = "Username";
             // 
@@ -394,7 +395,7 @@
             this.label2.Location = new System.Drawing.Point(14, 149);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 17);
+            this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Your role";
             // 
@@ -412,7 +413,7 @@
             // 
             // Login2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(107)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(1450, 852);

@@ -123,14 +123,63 @@
   <metadata name="newApointmentsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1100, 17</value>
   </metadata>
+  <metadata name="AppointmentStatus.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="newApointmentsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1100, 17</value>
+  </metadata>
   <metadata name="dataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="dataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        RK5CYII=
+</value>
+  </data>
   <metadata name="nurseBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>934, 17</value>
   </metadata>
   <metadata name="patientBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>116, 17</value>
+  </metadata>
+  <metadata name="proAppointmentBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>122, 54</value>
   </metadata>
   <metadata name="proAppointmentBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>122, 54</value>

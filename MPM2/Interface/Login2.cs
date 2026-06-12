@@ -224,5 +224,10 @@ namespace MPM2.Interface
         {
             roleSelection = 0;
         }
+
+        private void roundedPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
