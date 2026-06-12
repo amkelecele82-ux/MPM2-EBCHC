@@ -28,6 +28,10 @@ namespace MPM2.Business
                 MessageBox.Show(" Please ensure it is set to 100 characters.", "Initialization Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        private void dataGridViewInnerJoin_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.ThrowException = false;
+        }
         private int GetLoggedInDoctorId()
         {
             if (this.MdiParent is MainForm main && main.CurrentDataRow != null && main.CurrentRole == "Doctor")
@@ -72,7 +76,14 @@ namespace MPM2.Business
             RefreshAvailableStartTimesForSelectedDate();
 
         }
+        private void LoadAllTimeSlotsToReschedule()
+        {
+            comboBox1NewStart.Items.Clear();
+            comboBox2NewEnd.Items.Clear();
 
+            comboBox1NewStart.Items.AddRange(masterTimeSlots.ToArray());
+            comboBox2NewEnd.Items.AddRange(masterTimeSlots.ToArray());
+        }
         private void AdminAppointment_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dataSet1.vwUAppointments' table. You can move, or remove it, as needed.
@@ -92,11 +103,12 @@ namespace MPM2.Business
             // TODO: This line of code loads data into the 'dataSet13.NewApointments' table. You can move, or remove it, as needed.
             // this.newAppointmentsTableAdapter.Fill(this.dataSet13.NewApointments);
             // TODO: This line of code loads data into the 'dataSet12.NewApointments' table. You can move, or remove it, as needed.
+            dataGridViewInnerJoin.DataError += dataGridViewInnerJoin_DataError;
+            /*  AppointmentStatus.Items.Clear();
+              AppointmentStatus.Items.Add("Scheduled");
+              AppointmentStatus.Items.Add("Completed");
+              AppointmentStatus.Items.Add("Cancelled");*/
 
-          /*  AppointmentStatus.Items.Clear();
-            AppointmentStatus.Items.Add("Scheduled");
-            AppointmentStatus.Items.Add("Completed");
-            AppointmentStatus.Items.Add("Cancelled");*/
             var col = dataGridViewInnerJoin.Columns["AppointmentStatus"] as DataGridViewComboBoxColumn;
 
             col.DataSource = new List<string>
@@ -106,14 +118,24 @@ namespace MPM2.Business
     "Cancelled"
 };
 
+            col.ValueType = typeof(string);
             col.DataPropertyName = "AppointmentStatus";
-           // AppointmentStatus.SelectedItem = 0;
+            col.DefaultCellStyle.NullValue = "Scheduled";
+            // AppointmentStatus.SelectedItem = 0;
             this.newAppointmentsTableAdapter.Fill(this.dataSet1.NewApointments);
 
             // TODO: This line of code loads data into the 'dataSet12.Pro_Appointment' table. You can move, or remove it, as needed.
             this.pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment);
             // Fill datasets
-
+            foreach (DataRow row in dataSet1.Pro_Appointment.Rows)
+            {
+                if (row["AppointmentStatus"] != DBNull.Value)
+                {
+                    row["AppointmentStatus"] =
+                        row["AppointmentStatus"].ToString().Trim();
+                }
+            }
+         
             this.pro_AppointmentTableAdapter.Fill(this.dataSet1.Pro_Appointment);
             // this.pro_AppointmentTableAdapter.Fill(this.dataSet11.Pro_Appointment);
 
@@ -132,6 +154,8 @@ namespace MPM2.Business
             comboBoxSta.Items.Clear();
             comboBoxSta.Items.AddRange(masterTimeSlots.ToArray());
             comboBoxSta.SelectedIndexChanged += comboBoxSta_SelectedIndexChanged;
+            LoadAllTimeSlotsToReschedule();
+
             string doctorName = GetLoggedInDoctorName();
             if (!string.IsNullOrEmpty(doctorName))
             {
@@ -164,17 +188,15 @@ namespace MPM2.Business
             }
 
             this.newAppointmentsTableAdapter.Fill(this.dataSet1.NewApointments);
-           ApplyNurseFilter();
+            dataGridViewInnerJoin.DataSource = newApointmentsBindingSource;
+            ApplyRoleFilter();
             this.nurseTableAdapter.Fill(this.dataSet1.Nurse);
             this.patientTableAdapter.Fill(this.dataSet1.Patient);
             this.vwUAppointmentsTableAdapter.Fill(this.dataSet1.vwUAppointments);
 
-            BindingSource vwAppointmentsBS = new BindingSource();
-            vwAppointmentsBS.DataSource = dataSet1;
-             vwAppointmentsBS.DataMember = "vwUAppointments";
-            ApplyNurseFilter();
-            ApplyDoctorFilter();
-            dataGridViewInnerJoin.DataSource = vwAppointmentsBS;
+     
+         
+        
             // Build in-memory booked slots per doctor from dataset so per-doctor availability is correct
             BuildBookedSlotsFromDataset();
 
@@ -186,6 +208,12 @@ namespace MPM2.Business
 
             txtStatus.Text = "Scheduled";
             ApplyTabPermissions();
+
+
+          //  dataGridViewInnerJoin.ClearSelection();
+            dataGridViewInnerJoin.CurrentCell = null;
+            selectedAppointmentId = -1;
+            btnVerifyReschedule.Enabled = false;
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -718,38 +746,25 @@ namespace MPM2.Business
             if (!(this.MdiParent is MainForm main))
                 return;
 
-            // ADMIN: see all records
-            if (main.CurrentRole == "Admin")
+            string filter = "";
+
+            if (main.CurrentRole == "Doctor")
+            {
+                string doctorName = GetLoggedInDoctorName();
+                filter = $"DoctorName = '{doctorName.Replace("'", "''")}'";
+            }
+            else if (main.CurrentRole == "Nurse")
+            {
+                string nurseName = GetLoggedInNurseName();
+                filter = $"NurseName = '{nurseName.Replace("'", "''")}'";
+            }
+            else
             {
                 newApointmentsBindingSource.RemoveFilter();
                 return;
             }
 
-            // DOCTOR: see only own appointments
-            if (main.CurrentRole == "Doctor")
-            {
-                string doctorName = GetLoggedInDoctorName();
-
-                if (!string.IsNullOrWhiteSpace(doctorName))
-                {
-                    newApointmentsBindingSource.Filter =
-                        $"DoctorName = '{doctorName.Replace("'", "''")}'";
-                }
-
-                return;
-            }
-
-            // NURSE: see only own appointments
-            if (main.CurrentRole == "Nurse")
-            {
-                string nurseName = GetLoggedInNurseName();
-
-                if (!string.IsNullOrWhiteSpace(nurseName))
-                {
-                    newApointmentsBindingSource.Filter =
-                        $"NurseName = '{nurseName.Replace("'", "''")}'";
-                }
-            }
+            newApointmentsBindingSource.Filter = filter;
         }
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -828,7 +843,7 @@ namespace MPM2.Business
             {
                 // Doctor only sees TabPage3
                 tabControl1.TabPages.Remove(tabPage1);
-                tabControl1.TabPages.Remove(tabPage3);
+                tabControl1.SelectedTab = tabPage3;
                 tabControl1.SelectedTab = tabPage2;
                 ApplyDoctorFilter();
             }
@@ -838,7 +853,7 @@ namespace MPM2.Business
             }else if (main.CurrentRole == "Nurse")
             {
                 tabControl1.TabPages.Remove(tabPage1);
-                tabControl1.TabPages.Remove(tabPage3);
+                tabControl1.SelectedTab = tabPage3;
                 tabControl1.SelectedTab = tabPage2;
             }
         }
@@ -986,52 +1001,77 @@ namespace MPM2.Business
             }
         }
 
-        private void dataGridViewInnerJoin_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridViewInnerJoin_RowHeaderMouseClick(
+       object sender,
+       DataGridViewCellMouseEventArgs e)
         {
+            // Reset all row colors
+            foreach (DataGridViewRow row in dataGridViewInnerJoin.Rows)
+            {
+                row.DefaultCellStyle.BackColor = Color.White;
+            }
+
             if (dataGridViewInnerJoin.CurrentRow == null)
                 return;
-            dataGridViewInnerJoin.CurrentRow.DefaultCellStyle.BackColor = Color.LightYellow;
-            selectedAppointmentId =
-                Convert.ToInt32(dataGridViewInnerJoin.CurrentRow.Cells[0].Value);
 
-            MessageBox.Show("Selected Appointment ID: " + selectedAppointmentId);
+            // Highlight selected row
+            dataGridViewInnerJoin.CurrentRow.DefaultCellStyle.BackColor =
+                Color.LightYellow;
+
+            selectedAppointmentId =
+                Convert.ToInt32(
+                    dataGridViewInnerJoin.CurrentRow.Cells[0].Value);
+
+            MessageBox.Show(
+                "Selected Appointment ID: " + selectedAppointmentId);
         }
         private string GetLoggedInNurseName()
         {
-            if (this.MdiParent is MainForm main && main.CurrentDataRow != null && main.CurrentRole == "Nurse")
-            {
-                var dr = main.CurrentDataRow;
+            if (!(this.MdiParent is MainForm main))
+                return string.Empty;
 
-                if (dr.Table.Columns.Contains("FullName") && dr["FullName"] != DBNull.Value)
-                {
-                    return dr["FullName"].ToString();
-                }
-            }
+            if (main.CurrentRole != "Nurse")
+                return string.Empty;
 
-            return string.Empty;
+            if (main.CurrentDataRow == null)
+                return string.Empty;
+
+            var dr = main.CurrentDataRow;
+
+            if (!dr.Table.Columns.Contains("FullName"))
+                return string.Empty;
+
+            if (dr["FullName"] == DBNull.Value)
+                return string.Empty;
+
+            return dr["FullName"].ToString().Trim();
         }
         private int selectedAppointmentId = -1;
+        //   private int selectedStatusAppointmentId = -1;
         private void btnUpdateStatus_Click(object sender, EventArgs e)
         {
-            if(selectedAppointmentId == -1)
-    {
-                MessageBox.Show("Please select an appointment first.");
-                return;
-            }
-
-            // Enable editing mode
-            dataGridViewInnerJoin.ReadOnly = false;
-
-            // Lock everything
-            foreach (DataGridViewColumn col in dataGridViewInnerJoin.Columns)
+            try
             {
-                col.ReadOnly = true;
+                this.Validate();
+                proAppointmentBindingSource.EndEdit();
+
+                string newStatus =
+                    dataGridViewInnerJoin.CurrentRow.Cells["AppointmentStatus"].Value.ToString();
+
+                pro_AppointmentTableAdapter.UpdateAppointmentStatus(
+                    newStatus,
+                    selectedAppointmentId
+                );
+
+                pro_AppointmentTableAdapter.Fill(dataSet1.Pro_Appointment);
+                newAppointmentsTableAdapter.Fill(this.dataSet1.NewApointments);
+
+                MessageBox.Show("Status updated successfully!");
             }
-
-            // Unlock ONLY Status column
-            dataGridViewInnerJoin.Columns["AppointmentStatus"].ReadOnly = false;
-
-            MessageBox.Show("You can now update Appointment Status only.");
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnConfirmUpdate_Click(object sender, EventArgs e)
@@ -1058,6 +1098,7 @@ namespace MPM2.Business
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
             /* this.Validate();
              proAppointmentBindingSource.EndEdit();
              pro_AppointmentTableAdapter.Update(dataSet1.Pro_Appointment);
@@ -1065,7 +1106,7 @@ namespace MPM2.Business
                  MessageBox.Show("Status Updated Successfully!");
                  BuildBookedSlotsFromDataset();
                  RefreshAvailableStartTimesForSelectedDate();*/
-        }
+        
 
         private void label17_Click_1(object sender, EventArgs e)
         {
@@ -1074,8 +1115,271 @@ namespace MPM2.Business
 
         private void txtSearchDoctor_TextChanged(object sender, EventArgs e)
         {
-           newApointmentsBindingSource.Filter = "DoctorName LIKE '%"+txtSearchDoctor.Text+"%'";
-                       //     patientBindingSource.Filter = "FullName LIKE '%" + txtSP.Text + "%'";
+          //newAppointmentsTableAdapter.SearchByDoctorName(dataSet1.NewApointments, "%" + txtSearchDoctor.Text + "%");
+           // newApointmentsBindingSource.Filter = $"DoctorName LIKE '%{txtSearchDoctor.Text.Replace("'", "''")}%'";
         }
+
+        private void monthCalendar2Reschedule_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            comboBox1NewStart.Items.Clear();
+            comboBox2NewEnd.Items.Clear();
+
+            comboBox1NewStart.Items.AddRange(masterTimeSlots.ToArray());
+        }
+        private void LoadAvailableNewEndTimes(DateTime selectedDate, TimeSpan selectedStartTs)
+        {
+            comboBox2NewEnd.Items.Clear();
+
+            var unavailable = new List<Tuple<TimeSpan, TimeSpan>>();
+
+            int doctorId = GetActiveDoctorId();
+
+            if (doctorId != 0 &&
+                bookedSlotsByDoctor.TryGetValue(doctorId, out var dict) &&
+                dict.TryGetValue(selectedDate, out var list))
+            {
+                unavailable.AddRange(list);
+            }
+
+            DateTime limit = DateTime.ParseExact("16:30", "HH:mm", CultureInfo.InvariantCulture);
+            DateTime next = DateTime.Today.Add(selectedStartTs).AddMinutes(30);
+
+            var blockedStart = TimeSpan.Parse("12:00");
+            var blockedEnd = TimeSpan.Parse("13:00");
+
+            while (next.TimeOfDay <= limit.TimeOfDay)
+            {
+                TimeSpan ts = next.TimeOfDay;
+                string formatted = next.ToString("hh:mm tt", CultureInfo.InvariantCulture);
+                if (ts >= blockedStart && ts < blockedEnd)
+                {
+                    next = next.AddMinutes(30);
+                    continue;
+                }
+                bool overlaps = unavailable.Any(b => !(ts <= b.Item1 || selectedStartTs >= b.Item2));
+
+                if (!overlaps)
+                    comboBox2NewEnd.Items.Add(formatted);
+
+                next = next.AddMinutes(30);
+            }
+
+            if (comboBox2NewEnd.Items.Count > 0)
+                comboBox2NewEnd.SelectedIndex = 0;
+            else
+                comboBox2NewEnd.Text = "";
+        }
+
+        private void comboBox1NewStart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox1NewStart.SelectedItem == null)
+        return;
+
+            DateTime selectedStart = DateTime.ParseExact(
+                comboBox1NewStart.SelectedItem.ToString(),
+                "hh:mm tt",
+                CultureInfo.InvariantCulture);
+
+            LoadAvailableNewEndTimes(
+                monthCalendar2Reschedule.SelectionStart.Date,
+                selectedStart.TimeOfDay);
+        }
+
+        private void comboBox2NewEnd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVerifyReschedule_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewInnerJoin.CurrentRow == null)
+            {
+                MessageBox.Show("Please select an appointment first.");
+                return;
+            }
+
+            int appointmentId = selectedAppointmentId; ; // AppointmentID
+
+            DataRow row =
+                dataSet1.Pro_Appointment.AsEnumerable()
+                .FirstOrDefault(r => Convert.ToInt32(r["AppointmentID"]) == appointmentId);
+
+            if (row == null)
+            {
+                MessageBox.Show("Appointment not found.");
+                return;
+            }
+
+            int resolvedDoctorId = Convert.ToInt32(row["DoctorID"]);
+
+            DateTime newDate =
+                monthCalendar2Reschedule.SelectionStart.Date;
+
+            if (comboBox1NewStart.SelectedItem == null || comboBox2NewEnd.SelectedItem == null)
+            {
+                MessageBox.Show("Please select both start and end times.");
+                return;
+            }
+
+            TimeSpan newStart = DateTime
+                .ParseExact(comboBox1NewStart.SelectedItem.ToString(), "hh:mm tt", CultureInfo.InvariantCulture)
+                .TimeOfDay;
+
+            TimeSpan newEnd = DateTime
+                .ParseExact(comboBox2NewEnd.SelectedItem.ToString(), "hh:mm tt", CultureInfo.InvariantCulture)
+                .TimeOfDay;
+            bool conflict = IsTimeSlotBooked(
+                resolvedDoctorId,
+                newDate,
+                newStart,
+                newEnd
+            );
+
+            if (conflict)
+            {
+                MessageBox.Show("Please select another timeslot");
+                return;
+            }
+
+            MessageBox.Show("Verification Completed, You may reschedule");
+
+            foreach (DataGridViewColumn col in dataGridViewInnerJoin.Columns)
+                col.ReadOnly = true;
+            if (dataGridViewInnerJoin.Columns.Contains("AppointmentDate"))
+                dataGridViewInnerJoin.Columns["AppointmentDate"].ReadOnly = false;
+
+            if (dataGridViewInnerJoin.Columns.Contains("TimeSlots"))
+                dataGridViewInnerJoin.Columns["TimeSlots"].ReadOnly = false;
+
+            btnConfirmReschedule.Enabled = true;
+        }
+
+        private void btnConfirmReschedule_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridViewInnerJoin.CurrentRow == null)
+                {
+                    MessageBox.Show("Please select an appointment first.");
+                    return;
+                }
+
+                if (comboBox1NewStart.SelectedItem == null ||
+                    comboBox2NewEnd.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select new start and end times.");
+                    return;
+                }
+                TimeSpan newStart = DateTime.ParseExact(
+    comboBox1NewStart.SelectedItem.ToString(),
+    "hh:mm tt",
+    CultureInfo.InvariantCulture).TimeOfDay;
+
+                TimeSpan newEnd = DateTime.ParseExact(
+                    comboBox2NewEnd.SelectedItem.ToString(),
+                    "hh:mm tt",
+                    CultureInfo.InvariantCulture).TimeOfDay;
+
+                // LUNCH BLOCK
+                var blockedStart = TimeSpan.Parse("12:00");
+                var blockedEnd = TimeSpan.Parse("13:00");
+
+                if ((newStart >= blockedStart && newStart < blockedEnd) ||
+                    (newEnd > blockedStart && newEnd <= blockedEnd))
+                {
+                    MessageBox.Show("Appointments cannot be scheduled between 12:00 PM and 1:00 PM.");
+                    return;
+                }
+                int appointmentId =
+                    Convert.ToInt32(dataGridViewInnerJoin.CurrentRow.Cells[0].Value);
+
+                DateTime newDate =
+                    monthCalendar2Reschedule.SelectionStart.Date;
+
+                string newTimeSlot =
+                    comboBox1NewStart.Text + " - " + comboBox2NewEnd.Text;
+                pro_AppointmentTableAdapter.RescheduleAppointment(
+                    newDate,
+                    newTimeSlot,
+                    appointmentId
+                );
+                pro_AppointmentTableAdapter.Fill(dataSet1.Pro_Appointment);
+                newAppointmentsTableAdapter.Fill(dataSet1.NewApointments);
+                BuildBookedSlotsFromDataset();
+                RefreshAvailableStartTimesForSelectedDate();
+                dashboardForm?.UpdateAppointmentStatusCounts();
+                foreach (DataGridViewColumn col in dataGridViewInnerJoin.Columns)
+                {
+                    col.ReadOnly = true;
+                }
+                btnConfirmReschedule.Enabled = false;
+
+                MessageBox.Show("Reschedule completed successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error during reschedule: " + ex.Message);
+            }
+        }
+
+        private void dataGridViewInnerJoin_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex < 0) return;
+
+            selectedAppointmentId =
+                Convert.ToInt32(dataGridViewInnerJoin.Rows[e.RowIndex].Cells[0].Value);
+
+            btnVerifyReschedule.Enabled = true;
+
+            dataGridViewInnerJoin.ClearSelection();
+            dataGridViewInnerJoin.Rows[e.RowIndex].Selected = true;
+
+        }
+
+        private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        public int GetRescheduledCount()
+        {
+            if (dataSet1?.Pro_Appointment == null)
+                return 0;
+
+            return dataSet1.Pro_Appointment.AsEnumerable().Count(r =>
+                r["AppointmentStatus"] != DBNull.Value &&
+                r["AppointmentStatus"].ToString().Trim()
+                    .Equals("Re-Scheduled", StringComparison.OrdinalIgnoreCase));
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            txtPatients.Text = "";
+            txtNurse.Text="";
+            txtReason.Text="";  
+        }
+        private int selectedAppointmentIds;
+
+        private void dataGridView4_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            selectedAppointmentIds =Convert.ToInt32(    
+        dataGridViewInnerJoin.CurrentRow.Cells[0].Value.ToString()
+    );
+        }
+        private void btnDeleteApp_Click(object sender, EventArgs e)
+        {
+            if (selectedAppointmentIds <= 0)
+            {
+                MessageBox.Show("Please select an appointment first.");
+                return;
+            }
+
+            pro_AppointmentTableAdapter.DeleteAppointmentById(selectedAppointmentIds);
+
+            pro_AppointmentTableAdapter.Fill(dataSet1.Pro_Appointment);
+
+            MessageBox.Show("Appointment deleted successfully!");
+        }
+
     }
 }
