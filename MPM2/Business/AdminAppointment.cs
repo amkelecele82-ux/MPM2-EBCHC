@@ -1362,9 +1362,13 @@ namespace MPM2.Business
 
         private void dataGridView4_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            selectedAppointmentIds =Convert.ToInt32(    
-        dataGridViewInnerJoin.CurrentRow.Cells[0].Value.ToString()
-    );
+            try
+            {
+                selectedAppointmentIds = Convert.ToInt32(dataGridViewInnerJoin.CurrentRow.Cells[0].Value.ToString());
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Please select the RowHeader"+ex.Message);
+            }
         }
         private void btnDeleteApp_Click(object sender, EventArgs e)
         {
