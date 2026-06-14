@@ -65,6 +65,7 @@ namespace MPM2.Business
             dgvTTreatment.Columns["isActiveDataGridViewTextBoxColumn"].Visible = false;
             dgvTTreatment.Columns["descriptionDataGridViewTextBoxColumn"].Visible = false;
             dgvTTreatment.Columns["instructionsDataGridViewTextBoxColumn"].Visible = false;
+            dgvTTreatment.Columns["treatmentID"].Visible = false;
 
             var categories = dataSet1.Treatment.AsEnumerable()
                 .Select(r => r["Category"].ToString())
@@ -170,6 +171,33 @@ namespace MPM2.Business
             {
                 this.treatmentTableAdapter.InsertTreatment(doctorID, nurseID, treatname, description, category, instructions, rd, rn, active);
                 MessageBox.Show("Treatment created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                if (this.MdiParent is MainForm mf)
+                {
+                    if (mf.CurrentRole == "Doctor")
+                    {
+                        int did = Convert.ToInt32(mf.CurrentDataRow["DoctorID"]);
+                        this.appointmentViewTableAdapter.FillByDoctorID(this.dataSet1.AppointmentView, did);
+                        this.customTreatmentInfoTableAdapter.FillByDoctor(this.dataSet1.customTreatmentInfo, did);
+                    }
+                    else if (mf.CurrentRole == "Nurse")
+                    {
+                        int nid = Convert.ToInt32(mf.CurrentDataRow["NurseID"]);
+                        this.appointmentViewTableAdapter.FillByNurse(this.dataSet1.AppointmentView, nid);
+                        this.customTreatmentInfoTableAdapter.FillByNurse(this.dataSet1.customTreatmentInfo, nid);
+                    }
+                    else
+                    {
+                        this.customTreatmentInfoTableAdapter.Fill(this.dataSet1.customTreatmentInfo);
+                        this.appointmentViewTableAdapter.Fill(this.dataSet1.AppointmentView);
+                    }
+                }
+                else
+                {
+                    this.customTreatmentInfoTableAdapter.Fill(this.dataSet1.customTreatmentInfo);
+                }
+                // TODO: This line of code loads data into the 'dataSet1.Treatment' table. You can move, or remove it, as needed.
+                this.treatmentTableAdapter.Fill(this.dataSet1.Treatment);
 
             }
         }
@@ -339,16 +367,52 @@ namespace MPM2.Business
             string diagnosis = RTBRDiagnosis.Text.ToString();
             string results = RTBRResult.Text.ToString();
             string performedBy = "";
+            string role = "";
+            int medid = 0;
             if (this.MdiParent is MainForm mf)
             {
                 performedBy = mf.CurrentDataRow["FullName"].ToString();
+                role = mf.CurrentRole;
+                if (role == "Doctor")
+                {
+                    medid = Convert.ToInt32(mf.CurrentDataRow["DoctorID"]);
+                }
+                else if (role == "Nurse")
+                {
+                    medid = Convert.ToInt32(mf.CurrentDataRow["NurseID"]);
+                }
             }
             DialogResult result = MessageBox.Show($"Are you sure you want to record this treatment?\nTreatment: {selectedName}\nPatient: {lblRPatient.Text.Replace("Patient: ", "")}\nDoctor: {lblRDoctor.Text.Replace("Doctor: ", "")}\nPerformed At: {performedAt}\nNotes: {notes}\nDiagnosis: {diagnosis}\nResults: {results}\nPerformed By: {performedBy}", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 this.treatmentInformationTableAdapter1.InsertNewTreatmentInformation(aid, tid, performedAt, notes, diagnosis, results, performedBy);
                 MessageBox.Show("Treatment recorded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+
+
+                    if (role == "Doctor")
+                    {
+                        int did = medid;
+                        this.appointmentViewTableAdapter.FillByDoctorID(this.dataSet1.AppointmentView, did);
+                        this.customTreatmentInfoTableAdapter.FillByDoctor(this.dataSet1.customTreatmentInfo, did);
+                    }
+                    else if (role == "Nurse")
+                    {
+                        int nid = medid;
+                        this.appointmentViewTableAdapter.FillByNurse(this.dataSet1.AppointmentView, nid);
+                        this.customTreatmentInfoTableAdapter.FillByNurse(this.dataSet1.customTreatmentInfo, nid);
+                    }
+                    else
+                    {
+                        this.customTreatmentInfoTableAdapter.Fill(this.dataSet1.customTreatmentInfo);
+                        this.appointmentViewTableAdapter.Fill(this.dataSet1.AppointmentView);
+                    }
+                }
+                else
+                {
+                    this.customTreatmentInfoTableAdapter.Fill(this.dataSet1.customTreatmentInfo);
+                }
+                // TODO: This line of code loads data into the 'dataSet1.Treatment' table. You can move, or remove it, as needed.
+                this.treatmentTableAdapter.Fill(this.dataSet1.Treatment);
         }
 
         private void dgvRAppointment_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -395,11 +459,15 @@ namespace MPM2.Business
             active = Convert.ToInt32(dgvTTreatment.CurrentRow.Cells["isActiveDataGridViewTextBoxColumn"].Value);
             if (active == 0)
             {
-                lblTActive.Text = "Active: No";
+                //lblTActive.Text = "Active: No";
+                RTBTActive.Checked = false;
+                RTBTInactive.Checked = true;
             }
             else
             {
-                lblTActive.Text = "Active: Yes";
+                //lblTActive.Text = "Active: Yes";
+                RTBTInactive.Checked = false;
+                RTBTActive.Checked = true;
             }
 
             var row = dgvTTreatment.CurrentRow;
@@ -412,6 +480,26 @@ namespace MPM2.Business
         private void dgvTTreatment_SelectionChanged(object sender, EventArgs e)
         {
             ChangeValues3();
+        }
+
+        private void ActiveChangeButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to change the active status of this treatment?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                int treatmentID = Convert.ToInt32(dgvTTreatment.CurrentRow.Cells["treatmentID"].Value);
+                if (RTBTActive.Checked)
+                {
+                    this.treatmentTableAdapter.UpdateState(1, treatmentID);
+                    MessageBox.Show("Treatment activated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if(RTBTInactive.Checked)
+                {
+                    this.treatmentTableAdapter.UpdateState(0, treatmentID);
+                    MessageBox.Show("Treatment deactivated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                this.customTreatmentTableAdapter1.Fill(this.dataSet1.customTreatment);
+            }
         }
     }
 }

@@ -269,6 +269,10 @@ namespace MPM2.Business
             if (result == DialogResult.Yes)
             {
                 this.medicationAdministrationTableAdapter.InsertMedAdministration(nid, prid, adminAt, dosage, status, frequency,notes);
+                MessageBox.Show("Medication recorded successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Refresh the data grid view to show the newly added record
+                this.customMedAdmTableAdapter.FillByMedAdmPrescripNurseDoctorPatient(this.dataSet11.CustomMedAdm);
+
             }
         }
 
@@ -345,20 +349,53 @@ namespace MPM2.Business
 
         private void ChangeButton_Click(object sender, EventArgs e)
         {
+
+
             if (dgvMedAdministration.CurrentRow == null || dgvMedAdministration.CurrentRow.IsNewRow)
             {
                 MessageBox.Show("Please select a valid medication administration record to update.", "No Record Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            string currentStatus = dgvMedAdministration.CurrentRow
+                .Cells["statusDataGridViewTextBoxColumn"].Value?.ToString();
+
+            var adminValue = dgvMedAdministration.CurrentRow
+                .Cells["dataGridViewTextBoxColumn4"].Value;
+
+            if (currentStatus == "Completed")
+            {
+                MessageBox.Show("This record is locked and cannot be edited.",
+                                "Update Not Allowed",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (adminValue != null && adminValue != DBNull.Value)
+            {
+                DateTime administeredAt = Convert.ToDateTime(adminValue);
+
+                if (administeredAt.Date != DateTime.Today)
+                {
+                    MessageBox.Show("You can only modify today's medication records.",
+                                    "Update Not Allowed",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
             DialogResult result = MessageBox.Show("Are you sure you want to update this medication administration record?", "Confirm Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                int selectedId = Convert.ToInt32(dgvMedAdministration.CurrentRow.Cells["medicationAdministrationIDDataGridViewTextBoxColumn"].Value);
+                int selectedId = Convert.ToInt32(dgvMedAdministration.CurrentRow.Cells["medication_AdministratorID"].Value);
                 string newNotes = RTBNotes.Text;
                 string newDosage = TBDosageAmount.Text;
                 string newStatus = CBStatus.SelectedItem?.ToString() ?? "Pending";
                 this.medicationAdministrationTableAdapter.UpdateQuery(newDosage, newStatus, Convert.ToInt32(TBFrequency2.Text), newNotes, selectedId);
                 MessageBox.Show("Medication administration record updated successfully.", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.customMedAdmTableAdapter.FillByMedAdmPrescripNurseDoctorPatient(this.dataSet11.CustomMedAdm);
             }
         }
 
