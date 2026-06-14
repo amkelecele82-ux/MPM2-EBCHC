@@ -15,6 +15,7 @@ namespace MPM2.Business
         string userName;
         string fullName;
         string role;
+        string password;
         int pk;
         private TextBox tbPassword;
         private TextBox txtNew;
@@ -42,9 +43,9 @@ namespace MPM2.Business
             this.userName = dataRow["Username"].ToString();
             this.fullName = dataRow["FullName"].ToString();
             this.role = role;
-            if (role == "Patient")
+            if (role == "Administrator")
             {
-                pk = Convert.ToInt32(dataRow["PatientID"]);
+                pk = Convert.ToInt32(dataRow["AdministratorID"]);
             }
             if (role == "Doctor")
             {
@@ -67,16 +68,16 @@ namespace MPM2.Business
             pnlAvatar.Region = new Region(gp);
 
             // Load logged in user details
-            lblProfileName.Text = CurrentUser.FullName;    // replace with your session variable
-            lblProfileRole.Text = CurrentUser.Role;
-        
-            txtFullName.Text = CurrentUser.FullName;
-            txtUserName.Text = CurrentUser.Username;
+            lblProfileName.Text = fullName;//CurrentUser.FullName;    // replace with your session variable
+            lblProfileRole.Text = role;//CurrentUser.Role;
+
+            txtFullName.Text = fullName;//CurrentUser.FullName;
+            txtUserName.Text = userName;// CurrentUser.Username;
            
            
 
             // Set initials in avatar
-            string[] parts = CurrentUser.FullName.Split(' ');
+            string[] parts = fullName.Split(' ');
             lblInitials.Text = parts.Length >= 2
                 ? $"{parts[0][0]}{parts[1][0]}"
                 : $"{parts[0][0]}";
@@ -84,7 +85,28 @@ namespace MPM2.Business
 
         private void ChangePassButton_Click(object sender, EventArgs e)
         {
-            doctorTableAdapter1.UpdatePassword(TBPassword.Text,1);
+            if (role == "Doctor") {
+                doctorTableAdapter1.UpdatePassword(roundedTextBox3.Text, pk);
+                MessageBox.Show("Password changed successfully."+"\nNew Password: " + roundedTextBox3.Text, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                roundedTextBox3.Text = "";
+            }
+            else if (role == "Nurse")
+            {
+                nurseTableAdapter1.UpdatePassword(roundedTextBox3.Text, pk);
+                MessageBox.Show("Password changed successfully."+"\nNew Password: " + roundedTextBox3.Text, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                roundedTextBox3.Text = "";
+            }
+            else if(role == "Administrator")
+            {
+                administratorTableAdapter1.UpdatePassword(roundedTextBox3.Text, pk);
+                MessageBox.Show("Password changed successfully."+"\nNew Password: " + roundedTextBox3.Text, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                roundedTextBox3.Text = "";  
+            }
+            else
+            {
+                MessageBox.Show("Password change functionality is not implemented for this role.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void TBPassword_TextChanged(object sender, EventArgs e)
