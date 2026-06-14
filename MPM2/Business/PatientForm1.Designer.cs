@@ -46,7 +46,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSearch = new RoundedButton();
             this.lblSearch = new System.Windows.Forms.Label();
             this.lblPageTitle = new System.Windows.Forms.Label();
             this.TBPName = new System.Windows.Forms.TextBox();
@@ -57,6 +56,7 @@
             this.pnlStatusBar = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnSearch = new RoundedButton();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatient)).BeginInit();
@@ -109,7 +109,7 @@
             this.dgvPatient.RowTemplate.Height = 24;
             this.dgvPatient.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvPatient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvPatient.Size = new System.Drawing.Size(1034, 368);
+            this.dgvPatient.Size = new System.Drawing.Size(973, 368);
             this.dgvPatient.TabIndex = 1;
             // 
             // patientIDDataGridViewTextBoxColumn
@@ -164,7 +164,7 @@
             this.pnlTitleBar.Controls.Add(this.lblKZN);
             this.pnlTitleBar.Location = new System.Drawing.Point(0, 0);
             this.pnlTitleBar.Name = "pnlTitleBar";
-            this.pnlTitleBar.Size = new System.Drawing.Size(1790, 38);
+            this.pnlTitleBar.Size = new System.Drawing.Size(1662, 38);
             this.pnlTitleBar.TabIndex = 7;
             // 
             // lblTitle
@@ -198,7 +198,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(0, 38);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1790, 22);
+            this.panel1.Size = new System.Drawing.Size(1662, 22);
             this.panel1.TabIndex = 8;
             // 
             // label2
@@ -225,26 +225,8 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.panel2.Location = new System.Drawing.Point(1, 60);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1789, 52);
+            this.panel2.Size = new System.Drawing.Size(1661, 52);
             this.panel2.TabIndex = 9;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(82)))), ((int)(((byte)(39)))));
-            this.btnSearch.CornerRadius = 8;
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(59)))), ((int)(((byte)(26)))));
-            this.btnSearch.Location = new System.Drawing.Point(533, 14);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(82)))), ((int)(((byte)(39)))));
-            this.btnSearch.Size = new System.Drawing.Size(80, 28);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // lblSearch
             // 
@@ -284,7 +266,7 @@
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(0, 112);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1790, 30);
+            this.panel3.Size = new System.Drawing.Size(1662, 30);
             this.panel3.TabIndex = 11;
             // 
             // label1
@@ -305,7 +287,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 641);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1790, 48);
+            this.panel4.Size = new System.Drawing.Size(1662, 48);
             this.panel4.TabIndex = 12;
             // 
             // btnEdit
@@ -331,7 +313,7 @@
             this.pnlStatusBar.Controls.Add(this.label3);
             this.pnlStatusBar.Location = new System.Drawing.Point(2, 852);
             this.pnlStatusBar.Name = "pnlStatusBar";
-            this.pnlStatusBar.Size = new System.Drawing.Size(1790, 25);
+            this.pnlStatusBar.Size = new System.Drawing.Size(1662, 25);
             this.pnlStatusBar.TabIndex = 13;
             // 
             // label4
@@ -356,12 +338,30 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Patient Management System · v2.1.4";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(82)))), ((int)(((byte)(39)))));
+            this.btnSearch.CornerRadius = 8;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(59)))), ((int)(((byte)(26)))));
+            this.btnSearch.Location = new System.Drawing.Point(533, 14);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(82)))), ((int)(((byte)(39)))));
+            this.btnSearch.Size = new System.Drawing.Size(80, 28);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            // 
             // PatientForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(107)))), ((int)(((byte)(52)))));
-            this.ClientSize = new System.Drawing.Size(1790, 689);
+            this.ClientSize = new System.Drawing.Size(1662, 689);
             this.Controls.Add(this.pnlStatusBar);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);

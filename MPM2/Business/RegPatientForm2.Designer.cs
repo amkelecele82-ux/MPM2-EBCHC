@@ -175,7 +175,7 @@
             // 
             this.lblFolderNumber.AutoSize = true;
             this.lblFolderNumber.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFolderNumber.Location = new System.Drawing.Point(12, 92);
+            this.lblFolderNumber.Location = new System.Drawing.Point(42, 89);
             this.lblFolderNumber.Name = "lblFolderNumber";
             this.lblFolderNumber.Size = new System.Drawing.Size(130, 13);
             this.lblFolderNumber.TabIndex = 4;
@@ -199,7 +199,7 @@
             this.txtFolderNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.txtFolderNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFolderNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.txtFolderNumber.Location = new System.Drawing.Point(15, 114);
+            this.txtFolderNumber.Location = new System.Drawing.Point(45, 111);
             this.txtFolderNumber.Name = "txtFolderNumber";
             this.txtFolderNumber.Size = new System.Drawing.Size(532, 23);
             this.txtFolderNumber.TabIndex = 6;
@@ -232,7 +232,7 @@
             // 
             this.lblSurname.AutoSize = true;
             this.lblSurname.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSurname.Location = new System.Drawing.Point(12, 140);
+            this.lblSurname.Location = new System.Drawing.Point(42, 137);
             this.lblSurname.Name = "lblSurname";
             this.lblSurname.Size = new System.Drawing.Size(60, 13);
             this.lblSurname.TabIndex = 9;
@@ -257,7 +257,7 @@
             this.txtSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.txtSurname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSurname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.txtSurname.Location = new System.Drawing.Point(12, 157);
+            this.txtSurname.Location = new System.Drawing.Point(42, 154);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(535, 23);
             this.txtSurname.TabIndex = 11;
@@ -277,7 +277,7 @@
             // 
             this.lblDOB.AutoSize = true;
             this.lblDOB.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDOB.Location = new System.Drawing.Point(12, 188);
+            this.lblDOB.Location = new System.Drawing.Point(42, 185);
             this.lblDOB.Name = "lblDOB";
             this.lblDOB.Size = new System.Drawing.Size(81, 13);
             this.lblDOB.TabIndex = 13;
@@ -289,7 +289,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dtpDOB.CustomFormat = "yyyy/MM/dd";
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDOB.Location = new System.Drawing.Point(14, 210);
+            this.dtpDOB.Location = new System.Drawing.Point(44, 207);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(533, 23);
             this.dtpDOB.TabIndex = 14;
@@ -316,7 +316,7 @@
             // 
             this.lblLanguage.AutoSize = true;
             this.lblLanguage.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLanguage.Location = new System.Drawing.Point(12, 236);
+            this.lblLanguage.Location = new System.Drawing.Point(42, 233);
             this.lblLanguage.Name = "lblLanguage";
             this.lblLanguage.Size = new System.Drawing.Size(89, 13);
             this.lblLanguage.TabIndex = 16;
@@ -376,7 +376,7 @@
             "Setswana",
             "",
             "Other"});
-            this.cmbLanguage.Location = new System.Drawing.Point(11, 253);
+            this.cmbLanguage.Location = new System.Drawing.Point(41, 250);
             this.cmbLanguage.Name = "cmbLanguage";
             this.cmbLanguage.Size = new System.Drawing.Size(536, 23);
             this.cmbLanguage.TabIndex = 19;
@@ -385,7 +385,7 @@
             // 
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.Location = new System.Drawing.Point(10, 368);
+            this.lblAddress.Location = new System.Drawing.Point(40, 365);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(175, 13);
             this.lblAddress.TabIndex = 20;
@@ -398,7 +398,7 @@
             this.txtAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.txtAddress.Location = new System.Drawing.Point(13, 393);
+            this.txtAddress.Location = new System.Drawing.Point(43, 390);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(537, 23);
             this.txtAddress.TabIndex = 21;
@@ -407,7 +407,7 @@
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(11, 279);
+            this.lblPhone.Location = new System.Drawing.Point(41, 276);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(111, 13);
             this.lblPhone.TabIndex = 22;
@@ -430,7 +430,7 @@
             this.txtPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.txtPhone.Location = new System.Drawing.Point(11, 295);
+            this.txtPhone.Location = new System.Drawing.Point(41, 292);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(536, 23);
             this.txtPhone.TabIndex = 24;
@@ -478,7 +478,7 @@
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(912, 8);
+            this.btnRegister.Location = new System.Drawing.Point(843, 20);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(120, 28);
             this.btnRegister.TabIndex = 1;
@@ -493,7 +493,7 @@
             this.btnClearForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearForm.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btnClearForm.Location = new System.Drawing.Point(754, 8);
+            this.btnClearForm.Location = new System.Drawing.Point(543, 8);
             this.btnClearForm.Name = "btnClearForm";
             this.btnClearForm.Size = new System.Drawing.Size(90, 28);
             this.btnClearForm.TabIndex = 0;
@@ -540,7 +540,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 431);
+            this.label1.Location = new System.Drawing.Point(42, 428);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 31;
@@ -553,7 +553,7 @@
             this.txtSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.txtSub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.txtSub.Location = new System.Drawing.Point(13, 447);
+            this.txtSub.Location = new System.Drawing.Point(43, 444);
             this.txtSub.Name = "txtSub";
             this.txtSub.Size = new System.Drawing.Size(537, 23);
             this.txtSub.TabIndex = 32;
@@ -562,7 +562,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 495);
+            this.label2.Location = new System.Drawing.Point(44, 492);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 34;
@@ -576,7 +576,7 @@
             this.txtTownCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.txtTownCity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTownCity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.txtTownCity.Location = new System.Drawing.Point(13, 511);
+            this.txtTownCity.Location = new System.Drawing.Point(43, 508);
             this.txtTownCity.Name = "txtTownCity";
             this.txtTownCity.Size = new System.Drawing.Size(537, 23);
             this.txtTownCity.TabIndex = 33;
@@ -586,7 +586,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 557);
+            this.label3.Location = new System.Drawing.Point(41, 554);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 13);
             this.label3.TabIndex = 36;
@@ -599,7 +599,7 @@
             this.txtPostal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.txtPostal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPostal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.txtPostal.Location = new System.Drawing.Point(13, 573);
+            this.txtPostal.Location = new System.Drawing.Point(43, 570);
             this.txtPostal.Name = "txtPostal";
             this.txtPostal.Size = new System.Drawing.Size(537, 23);
             this.txtPostal.TabIndex = 35;
@@ -701,7 +701,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtaltPhonenumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.txtaltPhonenumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtaltPhonenumber.Location = new System.Drawing.Point(11, 342);
+            this.txtaltPhonenumber.Location = new System.Drawing.Point(41, 339);
             this.txtaltPhonenumber.Name = "txtaltPhonenumber";
             this.txtaltPhonenumber.Size = new System.Drawing.Size(536, 23);
             this.txtaltPhonenumber.TabIndex = 45;
@@ -709,7 +709,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(14, 321);
+            this.label8.Location = new System.Drawing.Point(44, 318);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(127, 15);
             this.label8.TabIndex = 46;

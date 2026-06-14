@@ -313,7 +313,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1215, 57);
+            this.panel1.Size = new System.Drawing.Size(1213, 57);
             this.panel1.TabIndex = 8;
             // 
             // label16
@@ -355,7 +355,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 590);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1215, 74);
+            this.panel3.Size = new System.Drawing.Size(1213, 74);
             this.panel3.TabIndex = 10;
             // 
             // label15
@@ -364,7 +364,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.SystemColors.Info;
-            this.label15.Location = new System.Drawing.Point(1046, 38);
+            this.label15.Location = new System.Drawing.Point(1044, 38);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(139, 13);
             this.label15.TabIndex = 1;
@@ -409,7 +409,7 @@
             this.panel4.Controls.Add(this.textBox1);
             this.panel4.Location = new System.Drawing.Point(229, 63);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(743, 521);
+            this.panel4.Size = new System.Drawing.Size(741, 521);
             this.panel4.TabIndex = 11;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
@@ -455,7 +455,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(239)))), ((int)(((byte)(230)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1215, 664);
+            this.ClientSize = new System.Drawing.Size(1213, 664);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
