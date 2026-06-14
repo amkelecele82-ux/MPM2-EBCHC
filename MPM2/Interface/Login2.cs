@@ -37,12 +37,12 @@ namespace MPM2.Interface
 
                 roleDoctor.Icon = ResizeImage(Image.FromFile(Path.Combine(basePath, "stethoscope.png")), 30, 30);
                 roleNurse.Icon = ResizeImage(Image.FromFile(Path.Combine(basePath, "monitor.png")), 30, 30);
-                rolePatient.Icon = ResizeImage(Image.FromFile(Path.Combine(basePath, "calendar.png")), 30, 30);
+             //   rolePatient.Icon = ResizeImage(Image.FromFile(Path.Combine(basePath, "calendar.png")), 30, 30);
                 roleAdmin.Icon = ResizeImage(Image.FromFile(Path.Combine(basePath, "settings.png")), 30, 30);
 
                 roleDoctor.Refresh();
                 roleNurse.Refresh();
-                rolePatient.Refresh();
+               // rolePatient.Refresh();
                 roleAdmin.Refresh();
 
                 // Set Doctor selected by default
@@ -52,7 +52,7 @@ namespace MPM2.Interface
                 // Wire card click events
                 roleDoctor.CardClicked += RoleCard_Clicked;
                 roleNurse.CardClicked += RoleCard_Clicked;
-                rolePatient.CardClicked += RoleCard_Clicked;
+            //    rolePatient.CardClicked += RoleCard_Clicked;
                 roleAdmin.CardClicked += RoleCard_Clicked;
             }
             catch (Exception ex)
@@ -64,7 +64,7 @@ namespace MPM2.Interface
         private void RoleCard_Clicked(object sender, EventArgs e)
         {
             // Deselect all cards
-            foreach (var card in new[] { roleDoctor, roleNurse, rolePatient, roleAdmin })
+            foreach (var card in new[] { roleDoctor, roleNurse, roleAdmin })
                 card.Selected = false;
 
             // Select the clicked card

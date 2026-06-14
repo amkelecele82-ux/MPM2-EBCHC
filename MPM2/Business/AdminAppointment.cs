@@ -1296,13 +1296,13 @@ namespace MPM2.Business
                 DateTime newDate =
                     monthCalendar2Reschedule.SelectionStart.Date;
 
-                string newTimeSlot =
-                    comboBox1NewStart.Text + " - " + comboBox2NewEnd.Text;
-                pro_AppointmentTableAdapter.RescheduleAppointment(
-                    newDate,
-                    newTimeSlot,
-                    appointmentId
-                );
+             //   string newTimeSlot =
+                 //   comboBox1NewStart.Text + " - " + comboBox2NewEnd.Text;
+         //       pro_AppointmentTableAdapter.RescheduleAppointment(
+            //        newDate,
+            //        newTimeSlot,
+            //        appointmentId
+             //    );
                 pro_AppointmentTableAdapter.Fill(dataSet1.Pro_Appointment);
                 newAppointmentsTableAdapter.Fill(dataSet1.NewApointments);
                 BuildBookedSlotsFromDataset();

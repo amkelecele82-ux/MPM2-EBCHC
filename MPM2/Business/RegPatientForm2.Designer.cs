@@ -58,7 +58,6 @@
             this.lblMedicalAid = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.cmbMedicalAid = new System.Windows.Forms.ComboBox();
-            this.pnlButtons = new System.Windows.Forms.Panel();
             this.pnlButtons2 = new System.Windows.Forms.Panel();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnClearForm = new System.Windows.Forms.Button();
@@ -461,21 +460,13 @@
             this.cmbMedicalAid.Size = new System.Drawing.Size(463, 23);
             this.cmbMedicalAid.TabIndex = 26;
             // 
-            // pnlButtons
-            // 
-            this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButtons.Location = new System.Drawing.Point(0, 692);
-            this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(1521, 44);
-            this.pnlButtons.TabIndex = 28;
-            // 
             // pnlButtons2
             // 
             this.pnlButtons2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(245)))));
             this.pnlButtons2.Controls.Add(this.btnRegister);
             this.pnlButtons2.Controls.Add(this.btnClearForm);
             this.pnlButtons2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButtons2.Location = new System.Drawing.Point(0, 632);
+            this.pnlButtons2.Location = new System.Drawing.Point(0, 676);
             this.pnlButtons2.Name = "pnlButtons2";
             this.pnlButtons2.Size = new System.Drawing.Size(1521, 60);
             this.pnlButtons2.TabIndex = 29;
@@ -516,7 +507,7 @@
             this.pnlStatusBar.Controls.Add(this.lblStatusRight);
             this.pnlStatusBar.Controls.Add(this.lblStatusLeft);
             this.pnlStatusBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlStatusBar.Location = new System.Drawing.Point(0, 610);
+            this.pnlStatusBar.Location = new System.Drawing.Point(0, 654);
             this.pnlStatusBar.Name = "pnlStatusBar";
             this.pnlStatusBar.Size = new System.Drawing.Size(1521, 22);
             this.pnlStatusBar.TabIndex = 30;
@@ -752,7 +743,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pnlStatusBar);
             this.Controls.Add(this.pnlButtons2);
-            this.Controls.Add(this.pnlButtons);
             this.Controls.Add(this.cmbMedicalAid);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.lblMedicalAid);
@@ -828,7 +818,6 @@
         private System.Windows.Forms.Label lblMedicalAid;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.ComboBox cmbMedicalAid;
-        private System.Windows.Forms.Panel pnlButtons;
         private System.Windows.Forms.Panel pnlButtons2;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnClearForm;
