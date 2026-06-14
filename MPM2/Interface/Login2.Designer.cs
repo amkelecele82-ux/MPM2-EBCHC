@@ -224,7 +224,7 @@
             this.ButtonSignIn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonSignIn.ForeColor = System.Drawing.Color.White;
             this.ButtonSignIn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(82)))), ((int)(((byte)(39)))));
-            this.ButtonSignIn.Location = new System.Drawing.Point(115, 495);
+            this.ButtonSignIn.Location = new System.Drawing.Point(148, 493);
             this.ButtonSignIn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ButtonSignIn.Name = "ButtonSignIn";
             this.ButtonSignIn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(82)))), ((int)(((byte)(39)))));
@@ -336,7 +336,7 @@
             // 
             this.titlelbl.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titlelbl.ForeColor = System.Drawing.Color.White;
-            this.titlelbl.Location = new System.Drawing.Point(175, 29);
+            this.titlelbl.Location = new System.Drawing.Point(190, 30);
             this.titlelbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.titlelbl.Name = "titlelbl";
             this.titlelbl.Size = new System.Drawing.Size(450, 30);
@@ -397,7 +397,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(107)))), ((int)(((byte)(52)))));
-            this.ClientSize = new System.Drawing.Size(1450, 852);
+            this.ClientSize = new System.Drawing.Size(1476, 732);
             this.Controls.Add(this.roundedPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(107)))), ((int)(((byte)(52)))));

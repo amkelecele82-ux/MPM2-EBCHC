@@ -186,7 +186,7 @@
             // 
             this.lblIDNumber.AutoSize = true;
             this.lblIDNumber.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIDNumber.Location = new System.Drawing.Point(947, 92);
+            this.lblIDNumber.Location = new System.Drawing.Point(850, 122);
             this.lblIDNumber.Name = "lblIDNumber";
             this.lblIDNumber.Size = new System.Drawing.Size(124, 13);
             this.lblIDNumber.TabIndex = 5;
@@ -211,10 +211,10 @@
             this.txtIDNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.txtIDNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIDNumber.ForeColor = System.Drawing.Color.Gray;
-            this.txtIDNumber.Location = new System.Drawing.Point(950, 109);
+            this.txtIDNumber.Location = new System.Drawing.Point(853, 139);
             this.txtIDNumber.MaxLength = 13;
             this.txtIDNumber.Name = "txtIDNumber";
-            this.txtIDNumber.Size = new System.Drawing.Size(462, 23);
+            this.txtIDNumber.Size = new System.Drawing.Size(508, 23);
             this.txtIDNumber.TabIndex = 7;
             this.txtIDNumber.TextChanged += new System.EventHandler(this.txtIDNumber_TextChanged);
             // 
@@ -222,7 +222,7 @@
             // 
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.Location = new System.Drawing.Point(947, 140);
+            this.lblFirstName.Location = new System.Drawing.Point(850, 170);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(79, 13);
             this.lblFirstName.TabIndex = 8;
@@ -245,9 +245,9 @@
             this.txtFirstNames.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.txtFirstNames.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFirstNames.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.txtFirstNames.Location = new System.Drawing.Point(950, 157);
+            this.txtFirstNames.Location = new System.Drawing.Point(853, 187);
             this.txtFirstNames.Name = "txtFirstNames";
-            this.txtFirstNames.Size = new System.Drawing.Size(462, 23);
+            this.txtFirstNames.Size = new System.Drawing.Size(508, 23);
             this.txtFirstNames.TabIndex = 10;
             // 
             // txtSurname
@@ -267,7 +267,7 @@
             // 
             this.lblGender.AutoSize = true;
             this.lblGender.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(946, 240);
+            this.lblGender.Location = new System.Drawing.Point(849, 270);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(53, 13);
             this.lblGender.TabIndex = 12;
@@ -307,9 +307,9 @@
             "Female",
             "Male",
             "Other / Not specified"});
-            this.cmbGender.Location = new System.Drawing.Point(950, 262);
+            this.cmbGender.Location = new System.Drawing.Point(853, 292);
             this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(462, 23);
+            this.cmbGender.Size = new System.Drawing.Size(508, 23);
             this.cmbGender.TabIndex = 15;
             // 
             // lblLanguage
@@ -326,7 +326,7 @@
             // 
             this.lblMarital.AutoSize = true;
             this.lblMarital.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarital.Location = new System.Drawing.Point(946, 288);
+            this.lblMarital.Location = new System.Drawing.Point(849, 318);
             this.lblMarital.Name = "lblMarital";
             this.lblMarital.Size = new System.Drawing.Size(77, 13);
             this.lblMarital.TabIndex = 17;
@@ -349,9 +349,9 @@
             "Divorced",
             "",
             "Widowed"});
-            this.cmbMarital.Location = new System.Drawing.Point(950, 310);
+            this.cmbMarital.Location = new System.Drawing.Point(853, 340);
             this.cmbMarital.Name = "cmbMarital";
-            this.cmbMarital.Size = new System.Drawing.Size(462, 23);
+            this.cmbMarital.Size = new System.Drawing.Size(508, 23);
             this.cmbMarital.TabIndex = 18;
             // 
             // cmbLanguage
@@ -417,7 +417,7 @@
             // 
             this.lblMedicalAid.AutoSize = true;
             this.lblMedicalAid.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMedicalAid.Location = new System.Drawing.Point(946, 347);
+            this.lblMedicalAid.Location = new System.Drawing.Point(849, 377);
             this.lblMedicalAid.Name = "lblMedicalAid";
             this.lblMedicalAid.Size = new System.Drawing.Size(114, 13);
             this.lblMedicalAid.TabIndex = 23;
@@ -455,9 +455,9 @@
             "Momentum",
             "",
             "Other"});
-            this.cmbMedicalAid.Location = new System.Drawing.Point(949, 363);
+            this.cmbMedicalAid.Location = new System.Drawing.Point(852, 393);
             this.cmbMedicalAid.Name = "cmbMedicalAid";
-            this.cmbMedicalAid.Size = new System.Drawing.Size(463, 23);
+            this.cmbMedicalAid.Size = new System.Drawing.Size(509, 23);
             this.cmbMedicalAid.TabIndex = 26;
             // 
             // pnlButtons2
@@ -614,9 +614,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtNextofkinName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.txtNextofkinName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNextofkinName.Location = new System.Drawing.Point(949, 478);
+            this.txtNextofkinName.Location = new System.Drawing.Point(852, 495);
             this.txtNextofkinName.Name = "txtNextofkinName";
-            this.txtNextofkinName.Size = new System.Drawing.Size(463, 23);
+            this.txtNextofkinName.Size = new System.Drawing.Size(509, 23);
             this.txtNextofkinName.TabIndex = 37;
             // 
             // txtNextofkinPhoneNo
@@ -625,9 +625,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtNextofkinPhoneNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.txtNextofkinPhoneNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNextofkinPhoneNo.Location = new System.Drawing.Point(950, 525);
+            this.txtNextofkinPhoneNo.Location = new System.Drawing.Point(853, 555);
             this.txtNextofkinPhoneNo.Name = "txtNextofkinPhoneNo";
-            this.txtNextofkinPhoneNo.Size = new System.Drawing.Size(462, 23);
+            this.txtNextofkinPhoneNo.Size = new System.Drawing.Size(508, 23);
             this.txtNextofkinPhoneNo.TabIndex = 38;
             // 
             // cmbReligion
@@ -642,15 +642,15 @@
             "Hiduism",
             "Islam",
             "other"});
-            this.cmbReligion.Location = new System.Drawing.Point(950, 416);
+            this.cmbReligion.Location = new System.Drawing.Point(853, 446);
             this.cmbReligion.Name = "cmbReligion";
-            this.cmbReligion.Size = new System.Drawing.Size(462, 23);
+            this.cmbReligion.Size = new System.Drawing.Size(508, 23);
             this.cmbReligion.TabIndex = 39;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(949, 398);
+            this.label4.Location = new System.Drawing.Point(852, 428);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 15);
             this.label4.TabIndex = 40;
@@ -659,7 +659,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(949, 461);
+            this.label5.Location = new System.Drawing.Point(852, 478);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 15);
             this.label5.TabIndex = 41;
@@ -668,7 +668,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(949, 507);
+            this.label6.Location = new System.Drawing.Point(852, 537);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(167, 15);
             this.label6.TabIndex = 42;
@@ -678,7 +678,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(949, 186);
+            this.label7.Location = new System.Drawing.Point(852, 216);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 13);
             this.label7.TabIndex = 43;
@@ -690,9 +690,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEmail.Location = new System.Drawing.Point(949, 208);
+            this.txtEmail.Location = new System.Drawing.Point(852, 238);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(463, 23);
+            this.txtEmail.Size = new System.Drawing.Size(509, 23);
             this.txtEmail.TabIndex = 44;
             // 
             // txtaltPhonenumber

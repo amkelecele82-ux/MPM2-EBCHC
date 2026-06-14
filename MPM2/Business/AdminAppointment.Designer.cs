@@ -488,7 +488,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1527, 747);
+            this.tabPage1.Size = new System.Drawing.Size(1527, 753);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Book Appointment";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
@@ -904,9 +904,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.panel1.Location = new System.Drawing.Point(0, 719);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(3, 711);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1508, 28);
+            this.panel1.Size = new System.Drawing.Size(1521, 39);
             this.panel1.TabIndex = 0;
             // 
             // tabControl1
@@ -917,7 +918,7 @@
             this.tabControl1.Location = new System.Drawing.Point(1, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1535, 773);
+            this.tabControl1.Size = new System.Drawing.Size(1535, 779);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage3

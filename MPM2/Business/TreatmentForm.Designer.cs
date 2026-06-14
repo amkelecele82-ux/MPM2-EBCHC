@@ -165,6 +165,14 @@
             this.TBTTreatmentName = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.dgvTTreatment = new System.Windows.Forms.DataGridView();
+            this.treatmentNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doctorNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.requiresDoctorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.requiresNurseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isActiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customTreatmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.treatmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.treatmentTableAdapter = new MPM2.Database.DataSet1TableAdapters.TreatmentTableAdapter();
@@ -174,14 +182,7 @@
             this.nurseTableAdapter = new MPM2.Database.DataSet1TableAdapters.NurseTableAdapter();
             this.treatmentInformationTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.TreatmentInformationTableAdapter();
             this.customTreatmentTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.customTreatmentTableAdapter();
-            this.treatmentNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doctorNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.requiresDoctorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.requiresNurseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isActiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tpRecord.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -225,10 +226,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1901, 914);
+            this.tabControl1.Size = new System.Drawing.Size(1426, 709);
             this.tabControl1.TabIndex = 9;
             // 
             // tpRecord
@@ -239,11 +240,11 @@
             this.tpRecord.Controls.Add(this.pnlTitleBar);
             this.tpRecord.Controls.Add(this.groupBox2);
             this.tpRecord.Controls.Add(this.groupBox1);
-            this.tpRecord.Location = new System.Drawing.Point(4, 25);
-            this.tpRecord.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpRecord.Location = new System.Drawing.Point(4, 22);
+            this.tpRecord.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tpRecord.Name = "tpRecord";
-            this.tpRecord.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpRecord.Size = new System.Drawing.Size(1893, 885);
+            this.tpRecord.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpRecord.Size = new System.Drawing.Size(1418, 683);
             this.tpRecord.TabIndex = 0;
             this.tpRecord.Text = "Record";
             // 
@@ -252,19 +253,17 @@
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel8.Controls.Add(this.label1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(3, 826);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4);
+            this.panel8.Location = new System.Drawing.Point(2, 635);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1887, 57);
+            this.panel8.Size = new System.Drawing.Size(1414, 46);
             this.panel8.TabIndex = 20;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(507, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(380, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
@@ -274,10 +273,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(59)))), ((int)(((byte)(26)))));
             this.panel1.Controls.Add(this.label15);
-            this.panel1.Location = new System.Drawing.Point(1, 39);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(1, 32);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1899, 22);
+            this.panel1.Size = new System.Drawing.Size(1424, 18);
             this.panel1.TabIndex = 19;
             // 
             // label15
@@ -285,9 +284,10 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(119)))), ((int)(((byte)(102)))));
-            this.label15.Location = new System.Drawing.Point(269, 6);
+            this.label15.Location = new System.Drawing.Point(202, 5);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(284, 15);
+            this.label15.Size = new System.Drawing.Size(214, 12);
             this.label15.TabIndex = 0;
             this.label15.Text = "AUTHORISED PERSONNEL ONLY — SECURE SYSTEM";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -300,9 +300,9 @@
             this.pnlTitleBar.Controls.Add(this.lblTitle);
             this.pnlTitleBar.Controls.Add(this.lblKZN);
             this.pnlTitleBar.Location = new System.Drawing.Point(1, 1);
-            this.pnlTitleBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlTitleBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlTitleBar.Name = "pnlTitleBar";
-            this.pnlTitleBar.Size = new System.Drawing.Size(1899, 38);
+            this.pnlTitleBar.Size = new System.Drawing.Size(1424, 31);
             this.pnlTitleBar.TabIndex = 18;
             // 
             // lblTitle
@@ -310,9 +310,10 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.Info;
-            this.lblTitle.Location = new System.Drawing.Point(723, 5);
+            this.lblTitle.Location = new System.Drawing.Point(542, 4);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(352, 28);
+            this.lblTitle.Size = new System.Drawing.Size(281, 21);
             this.lblTitle.TabIndex = 9;
             this.lblTitle.Text = "Record Treatment— East Boom CHC";
             // 
@@ -322,9 +323,10 @@
             this.lblKZN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(59)))), ((int)(((byte)(26)))));
             this.lblKZN.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKZN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(203)))), ((int)(((byte)(164)))));
-            this.lblKZN.Location = new System.Drawing.Point(11, 9);
+            this.lblKZN.Location = new System.Drawing.Point(8, 7);
+            this.lblKZN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKZN.Name = "lblKZN";
-            this.lblKZN.Size = new System.Drawing.Size(74, 19);
+            this.lblKZN.Size = new System.Drawing.Size(57, 13);
             this.lblKZN.TabIndex = 8;
             this.lblKZN.Text = "KZN DOH";
             // 
@@ -339,11 +341,11 @@
             this.groupBox2.Controls.Add(this.dgvRAppointment);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox2.Location = new System.Drawing.Point(16, 121);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Location = new System.Drawing.Point(12, 98);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(1083, 590);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(812, 479);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Appointments";
@@ -351,10 +353,10 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(581, 43);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker1.Location = new System.Drawing.Point(436, 35);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(300, 27);
+            this.dateTimePicker1.Size = new System.Drawing.Size(226, 23);
             this.dateTimePicker1.TabIndex = 6;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -362,18 +364,19 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(527, 50);
+            this.label14.Location = new System.Drawing.Point(395, 41);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(46, 20);
+            this.label14.Size = new System.Drawing.Size(37, 15);
             this.label14.TabIndex = 5;
             this.label14.Text = "Date:";
             // 
             // TBRDoctor
             // 
-            this.TBRDoctor.Location = new System.Drawing.Point(155, 103);
-            this.TBRDoctor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TBRDoctor.Location = new System.Drawing.Point(116, 84);
+            this.TBRDoctor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBRDoctor.Name = "TBRDoctor";
-            this.TBRDoctor.Size = new System.Drawing.Size(223, 27);
+            this.TBRDoctor.Size = new System.Drawing.Size(168, 23);
             this.TBRDoctor.TabIndex = 4;
             this.TBRDoctor.TextChanged += new System.EventHandler(this.TBRDoctor_TextChanged);
             // 
@@ -381,18 +384,19 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(33, 103);
+            this.label13.Location = new System.Drawing.Point(25, 84);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(62, 20);
+            this.label13.Size = new System.Drawing.Size(49, 15);
             this.label13.TabIndex = 3;
             this.label13.Text = "Doctor:";
             // 
             // TBRPatient
             // 
-            this.TBRPatient.Location = new System.Drawing.Point(155, 47);
-            this.TBRPatient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TBRPatient.Location = new System.Drawing.Point(116, 38);
+            this.TBRPatient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBRPatient.Name = "TBRPatient";
-            this.TBRPatient.Size = new System.Drawing.Size(223, 27);
+            this.TBRPatient.Size = new System.Drawing.Size(168, 23);
             this.TBRPatient.TabIndex = 2;
             this.TBRPatient.TextChanged += new System.EventHandler(this.TBRPatient_TextChanged);
             // 
@@ -400,9 +404,10 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(33, 47);
+            this.label12.Location = new System.Drawing.Point(25, 38);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(63, 20);
+            this.label12.Size = new System.Drawing.Size(50, 15);
             this.label12.TabIndex = 1;
             this.label12.Text = "Patient:";
             // 
@@ -424,12 +429,12 @@
             this.appointmentDateDataGridViewTextBoxColumn,
             this.appointmentIDDataGridViewTextBoxColumn});
             this.dgvRAppointment.DataSource = this.appointmentViewBindingSource;
-            this.dgvRAppointment.Location = new System.Drawing.Point(25, 137);
-            this.dgvRAppointment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvRAppointment.Location = new System.Drawing.Point(19, 111);
+            this.dgvRAppointment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvRAppointment.Name = "dgvRAppointment";
             this.dgvRAppointment.RowHeadersWidth = 51;
             this.dgvRAppointment.RowTemplate.Height = 24;
-            this.dgvRAppointment.Size = new System.Drawing.Size(1040, 409);
+            this.dgvRAppointment.Size = new System.Drawing.Size(780, 332);
             this.dgvRAppointment.TabIndex = 0;
             this.dgvRAppointment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRAppointment_CellContentClick);
             this.dgvRAppointment.SelectionChanged += new System.EventHandler(this.dgvRAppointment_SelectionChanged);
@@ -511,11 +516,11 @@
             this.groupBox1.Controls.Add(this.RTBRResult);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox1.Location = new System.Drawing.Point(1148, 105);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(861, 85);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(700, 626);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(525, 509);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Record Treatment Information";
@@ -524,18 +529,19 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(41, 464);
+            this.label31.Location = new System.Drawing.Point(31, 377);
+            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(55, 23);
+            this.label31.Size = new System.Drawing.Size(44, 17);
             this.label31.TabIndex = 21;
             this.label31.Text = "Notes";
             // 
             // RTBRNotes
             // 
-            this.RTBRNotes.Location = new System.Drawing.Point(128, 450);
-            this.RTBRNotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RTBRNotes.Location = new System.Drawing.Point(96, 366);
+            this.RTBRNotes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RTBRNotes.Name = "RTBRNotes";
-            this.RTBRNotes.Size = new System.Drawing.Size(519, 75);
+            this.RTBRNotes.Size = new System.Drawing.Size(390, 62);
             this.RTBRNotes.TabIndex = 22;
             this.RTBRNotes.Text = "";
             // 
@@ -543,10 +549,10 @@
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(532, 65);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(399, 53);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 44);
+            this.button1.Size = new System.Drawing.Size(87, 36);
             this.button1.TabIndex = 20;
             this.button1.Text = "Appointments";
             this.button1.UseVisualStyleBackColor = true;
@@ -555,9 +561,10 @@
             // 
             this.lblRDoctor.AutoSize = true;
             this.lblRDoctor.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRDoctor.Location = new System.Drawing.Point(43, 68);
+            this.lblRDoctor.Location = new System.Drawing.Point(32, 55);
+            this.lblRDoctor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRDoctor.Name = "lblRDoctor";
-            this.lblRDoctor.Size = new System.Drawing.Size(114, 23);
+            this.lblRDoctor.Size = new System.Drawing.Size(90, 17);
             this.lblRDoctor.TabIndex = 19;
             this.lblRDoctor.Text = "Doctor: None";
             // 
@@ -565,9 +572,10 @@
             // 
             this.lblRPatient.AutoSize = true;
             this.lblRPatient.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRPatient.Location = new System.Drawing.Point(41, 41);
+            this.lblRPatient.Location = new System.Drawing.Point(31, 33);
+            this.lblRPatient.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRPatient.Name = "lblRPatient";
-            this.lblRPatient.Size = new System.Drawing.Size(115, 23);
+            this.lblRPatient.Size = new System.Drawing.Size(91, 17);
             this.lblRPatient.TabIndex = 18;
             this.lblRPatient.Text = "Patient: None";
             // 
@@ -575,9 +583,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(43, 342);
+            this.label4.Location = new System.Drawing.Point(32, 278);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 23);
+            this.label4.Size = new System.Drawing.Size(66, 17);
             this.label4.TabIndex = 12;
             this.label4.Text = "Diagnosis";
             // 
@@ -585,10 +594,10 @@
             // 
             this.RRecordButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RRecordButton.ForeColor = System.Drawing.Color.Red;
-            this.RRecordButton.Location = new System.Drawing.Point(229, 567);
-            this.RRecordButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RRecordButton.Location = new System.Drawing.Point(172, 461);
+            this.RRecordButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RRecordButton.Name = "RRecordButton";
-            this.RRecordButton.Size = new System.Drawing.Size(249, 38);
+            this.RRecordButton.Size = new System.Drawing.Size(187, 31);
             this.RRecordButton.TabIndex = 17;
             this.RRecordButton.Text = "Record Treatment Session";
             this.RRecordButton.UseVisualStyleBackColor = true;
@@ -598,37 +607,39 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(43, 222);
+            this.label3.Location = new System.Drawing.Point(32, 180);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 23);
+            this.label3.Size = new System.Drawing.Size(45, 17);
             this.label3.TabIndex = 11;
             this.label3.Text = "Result";
             // 
             // CBRTreatment
             // 
             this.CBRTreatment.FormattingEnabled = true;
-            this.CBRTreatment.Location = new System.Drawing.Point(129, 144);
-            this.CBRTreatment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CBRTreatment.Location = new System.Drawing.Point(97, 117);
+            this.CBRTreatment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CBRTreatment.Name = "CBRTreatment";
-            this.CBRTreatment.Size = new System.Drawing.Size(249, 28);
+            this.CBRTreatment.Size = new System.Drawing.Size(188, 23);
             this.CBRTreatment.TabIndex = 14;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(41, 146);
+            this.label2.Location = new System.Drawing.Point(31, 119);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 23);
+            this.label2.Size = new System.Drawing.Size(70, 17);
             this.label2.TabIndex = 10;
             this.label2.Text = "Treatment";
             // 
             // RTBRDiagnosis
             // 
-            this.RTBRDiagnosis.Location = new System.Drawing.Point(129, 329);
-            this.RTBRDiagnosis.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RTBRDiagnosis.Location = new System.Drawing.Point(97, 267);
+            this.RTBRDiagnosis.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RTBRDiagnosis.Name = "RTBRDiagnosis";
-            this.RTBRDiagnosis.Size = new System.Drawing.Size(519, 75);
+            this.RTBRDiagnosis.Size = new System.Drawing.Size(390, 62);
             this.RTBRDiagnosis.TabIndex = 16;
             this.RTBRDiagnosis.Text = "";
             // 
@@ -636,18 +647,19 @@
             // 
             this.lblRAppointmentDate.AutoSize = true;
             this.lblRAppointmentDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRAppointmentDate.Location = new System.Drawing.Point(43, 94);
+            this.lblRAppointmentDate.Location = new System.Drawing.Point(32, 76);
+            this.lblRAppointmentDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRAppointmentDate.Name = "lblRAppointmentDate";
-            this.lblRAppointmentDate.Size = new System.Drawing.Size(156, 23);
+            this.lblRAppointmentDate.Size = new System.Drawing.Size(124, 17);
             this.lblRAppointmentDate.TabIndex = 9;
             this.lblRAppointmentDate.Text = "Appointment Date:";
             // 
             // RTBRResult
             // 
-            this.RTBRResult.Location = new System.Drawing.Point(129, 219);
-            this.RTBRResult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RTBRResult.Location = new System.Drawing.Point(97, 178);
+            this.RTBRResult.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RTBRResult.Name = "RTBRResult";
-            this.RTBRResult.Size = new System.Drawing.Size(519, 75);
+            this.RTBRResult.Size = new System.Drawing.Size(390, 62);
             this.RTBRResult.TabIndex = 15;
             this.RTBRResult.Text = "";
             // 
@@ -659,11 +671,11 @@
             this.tpView.Controls.Add(this.panel2);
             this.tpView.Controls.Add(this.panel3);
             this.tpView.Controls.Add(this.groupBox3);
-            this.tpView.Location = new System.Drawing.Point(4, 25);
-            this.tpView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpView.Location = new System.Drawing.Point(4, 22);
+            this.tpView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tpView.Name = "tpView";
-            this.tpView.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpView.Size = new System.Drawing.Size(1893, 885);
+            this.tpView.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpView.Size = new System.Drawing.Size(1418, 683);
             this.tpView.TabIndex = 1;
             this.tpView.Text = "View";
             // 
@@ -672,19 +684,17 @@
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel7.Controls.Add(this.label24);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(3, 825);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4);
+            this.panel7.Location = new System.Drawing.Point(2, 634);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1887, 58);
+            this.panel7.Size = new System.Drawing.Size(1414, 47);
             this.panel7.TabIndex = 23;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(327, 23);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Location = new System.Drawing.Point(245, 19);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(51, 16);
+            this.label24.Size = new System.Drawing.Size(41, 13);
             this.label24.TabIndex = 0;
             this.label24.Text = "label24";
             // 
@@ -697,66 +707,69 @@
             this.groupBox7.Controls.Add(this.RTBVDiagnosis);
             this.groupBox7.Controls.Add(this.label28);
             this.groupBox7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(1221, 114);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox7.Location = new System.Drawing.Point(916, 93);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox7.Size = new System.Drawing.Size(572, 645);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox7.Size = new System.Drawing.Size(429, 524);
             this.groupBox7.TabIndex = 22;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Additional Treatment Information";
             // 
             // RTBVNotes
             // 
-            this.RTBVNotes.Location = new System.Drawing.Point(40, 473);
-            this.RTBVNotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RTBVNotes.Location = new System.Drawing.Point(30, 384);
+            this.RTBVNotes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RTBVNotes.Name = "RTBVNotes";
-            this.RTBVNotes.Size = new System.Drawing.Size(477, 102);
+            this.RTBVNotes.Size = new System.Drawing.Size(359, 84);
             this.RTBVNotes.TabIndex = 5;
             this.RTBVNotes.Text = "";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(37, 431);
+            this.label25.Location = new System.Drawing.Point(28, 350);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(49, 20);
+            this.label25.Size = new System.Drawing.Size(38, 15);
             this.label25.TabIndex = 4;
             this.label25.Text = "Notes";
             // 
             // RTBVResults
             // 
-            this.RTBVResults.Location = new System.Drawing.Point(40, 294);
-            this.RTBVResults.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RTBVResults.Location = new System.Drawing.Point(30, 239);
+            this.RTBVResults.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RTBVResults.Name = "RTBVResults";
-            this.RTBVResults.Size = new System.Drawing.Size(477, 102);
+            this.RTBVResults.Size = new System.Drawing.Size(359, 84);
             this.RTBVResults.TabIndex = 3;
             this.RTBVResults.Text = "";
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(37, 252);
+            this.label29.Location = new System.Drawing.Point(28, 205);
+            this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(56, 20);
+            this.label29.Size = new System.Drawing.Size(44, 15);
             this.label29.TabIndex = 2;
             this.label29.Text = "Results";
             // 
             // RTBVDiagnosis
             // 
-            this.RTBVDiagnosis.Location = new System.Drawing.Point(40, 110);
-            this.RTBVDiagnosis.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RTBVDiagnosis.Location = new System.Drawing.Point(30, 89);
+            this.RTBVDiagnosis.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RTBVDiagnosis.Name = "RTBVDiagnosis";
-            this.RTBVDiagnosis.Size = new System.Drawing.Size(477, 102);
+            this.RTBVDiagnosis.Size = new System.Drawing.Size(359, 84);
             this.RTBVDiagnosis.TabIndex = 1;
             this.RTBVDiagnosis.Text = "";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(37, 73);
+            this.label28.Location = new System.Drawing.Point(28, 59);
+            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(75, 20);
+            this.label28.Size = new System.Drawing.Size(59, 15);
             this.label28.TabIndex = 0;
             this.label28.Text = "Diagnosis";
             // 
@@ -766,10 +779,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(59)))), ((int)(((byte)(26)))));
             this.panel2.Controls.Add(this.label16);
-            this.panel2.Location = new System.Drawing.Point(1, 39);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(1, 32);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1899, 22);
+            this.panel2.Size = new System.Drawing.Size(1424, 18);
             this.panel2.TabIndex = 21;
             // 
             // label16
@@ -777,9 +790,10 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(119)))), ((int)(((byte)(102)))));
-            this.label16.Location = new System.Drawing.Point(269, 6);
+            this.label16.Location = new System.Drawing.Point(202, 5);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(284, 15);
+            this.label16.Size = new System.Drawing.Size(214, 12);
             this.label16.TabIndex = 0;
             this.label16.Text = "AUTHORISED PERSONNEL ONLY — SECURE SYSTEM";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -792,9 +806,9 @@
             this.panel3.Controls.Add(this.label17);
             this.panel3.Controls.Add(this.label18);
             this.panel3.Location = new System.Drawing.Point(1, 1);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1899, 38);
+            this.panel3.Size = new System.Drawing.Size(1424, 31);
             this.panel3.TabIndex = 20;
             // 
             // label17
@@ -802,9 +816,10 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.SystemColors.Info;
-            this.label17.Location = new System.Drawing.Point(739, 5);
+            this.label17.Location = new System.Drawing.Point(554, 4);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(332, 28);
+            this.label17.Size = new System.Drawing.Size(266, 21);
             this.label17.TabIndex = 9;
             this.label17.Text = "View Treatment— East Boom CHC";
             // 
@@ -814,9 +829,10 @@
             this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(59)))), ((int)(((byte)(26)))));
             this.label18.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(203)))), ((int)(((byte)(164)))));
-            this.label18.Location = new System.Drawing.Point(11, 9);
+            this.label18.Location = new System.Drawing.Point(8, 7);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(74, 19);
+            this.label18.Size = new System.Drawing.Size(57, 13);
             this.label18.TabIndex = 8;
             this.label18.Text = "KZN DOH";
             // 
@@ -830,48 +846,50 @@
             this.groupBox3.Controls.Add(this.TBVTreatName);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(36, 114);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Location = new System.Drawing.Point(27, 93);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(1180, 645);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Size = new System.Drawing.Size(885, 524);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Treatment Records";
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(572, 62);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker2.Location = new System.Drawing.Point(429, 50);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(268, 27);
+            this.dateTimePicker2.Size = new System.Drawing.Size(202, 23);
             this.dateTimePicker2.TabIndex = 9;
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(497, 66);
+            this.label27.Location = new System.Drawing.Point(373, 54);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(45, 20);
+            this.label27.Size = new System.Drawing.Size(35, 15);
             this.label27.TabIndex = 8;
             this.label27.Text = "Date:";
             // 
             // TBVPatientName
             // 
-            this.TBVPatientName.Location = new System.Drawing.Point(181, 121);
-            this.TBVPatientName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TBVPatientName.Location = new System.Drawing.Point(136, 98);
+            this.TBVPatientName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBVPatientName.Name = "TBVPatientName";
-            this.TBVPatientName.Size = new System.Drawing.Size(207, 27);
+            this.TBVPatientName.Size = new System.Drawing.Size(156, 23);
             this.TBVPatientName.TabIndex = 7;
             this.TBVPatientName.TextChanged += new System.EventHandler(this.TBVPatientName_TextChanged);
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(36, 123);
+            this.label26.Location = new System.Drawing.Point(27, 100);
+            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(102, 20);
+            this.label26.Size = new System.Drawing.Size(79, 15);
             this.label26.TabIndex = 6;
             this.label26.Text = "Patient Name";
             // 
@@ -893,12 +911,12 @@
             this.perfomedByDataGridViewTextBoxColumn,
             this.treatmentInformationIDDataGridViewTextBoxColumn});
             this.dgvCustomTreatInfo.DataSource = this.customTreatmentInfoBindingSource;
-            this.dgvCustomTreatInfo.Location = new System.Drawing.Point(17, 177);
-            this.dgvCustomTreatInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvCustomTreatInfo.Location = new System.Drawing.Point(13, 144);
+            this.dgvCustomTreatInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvCustomTreatInfo.Name = "dgvCustomTreatInfo";
             this.dgvCustomTreatInfo.RowHeadersWidth = 51;
             this.dgvCustomTreatInfo.RowTemplate.Height = 24;
-            this.dgvCustomTreatInfo.Size = new System.Drawing.Size(1052, 356);
+            this.dgvCustomTreatInfo.Size = new System.Drawing.Size(789, 289);
             this.dgvCustomTreatInfo.TabIndex = 5;
             this.dgvCustomTreatInfo.SelectionChanged += new System.EventHandler(this.dgvCustomTreatInfo_SelectionChanged);
             // 
@@ -982,19 +1000,20 @@
             // 
             // TBVTreatName
             // 
-            this.TBVTreatName.Location = new System.Drawing.Point(181, 62);
-            this.TBVTreatName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TBVTreatName.Location = new System.Drawing.Point(136, 50);
+            this.TBVTreatName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBVTreatName.Name = "TBVTreatName";
-            this.TBVTreatName.Size = new System.Drawing.Size(207, 27);
+            this.TBVTreatName.Size = new System.Drawing.Size(156, 23);
             this.TBVTreatName.TabIndex = 4;
             this.TBVTreatName.TextChanged += new System.EventHandler(this.TBVTreatName_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(36, 64);
+            this.label5.Location = new System.Drawing.Point(27, 52);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 20);
+            this.label5.Size = new System.Drawing.Size(96, 15);
             this.label5.TabIndex = 3;
             this.label5.Text = "Treatment Name";
             // 
@@ -1007,11 +1026,11 @@
             this.tpCreate.Controls.Add(this.groupBox4);
             this.tpCreate.Controls.Add(this.panel4);
             this.tpCreate.Controls.Add(this.panel5);
-            this.tpCreate.Location = new System.Drawing.Point(4, 25);
-            this.tpCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpCreate.Location = new System.Drawing.Point(4, 22);
+            this.tpCreate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tpCreate.Name = "tpCreate";
-            this.tpCreate.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpCreate.Size = new System.Drawing.Size(1893, 885);
+            this.tpCreate.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpCreate.Size = new System.Drawing.Size(1418, 683);
             this.tpCreate.TabIndex = 2;
             this.tpCreate.Text = "Create";
             this.tpCreate.Click += new System.EventHandler(this.tpCreate_Click);
@@ -1020,10 +1039,9 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(3, 819);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Location = new System.Drawing.Point(2, 629);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1887, 64);
+            this.panel6.Size = new System.Drawing.Size(1414, 52);
             this.panel6.TabIndex = 25;
             // 
             // groupBox6
@@ -1032,11 +1050,11 @@
             this.groupBox6.Controls.Add(this.TBCNurse);
             this.groupBox6.Controls.Add(this.label23);
             this.groupBox6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(47, 439);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox6.Location = new System.Drawing.Point(35, 357);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox6.Size = new System.Drawing.Size(1113, 329);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox6.Size = new System.Drawing.Size(835, 267);
             this.groupBox6.TabIndex = 24;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Nurse";
@@ -1062,12 +1080,12 @@
             this.passwordDataGridViewTextBoxColumn,
             this.emailAddressDataGridViewTextBoxColumn1});
             this.dgvCNurse.DataSource = this.nurseBindingSource;
-            this.dgvCNurse.Location = new System.Drawing.Point(29, 71);
-            this.dgvCNurse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvCNurse.Location = new System.Drawing.Point(22, 58);
+            this.dgvCNurse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvCNurse.Name = "dgvCNurse";
             this.dgvCNurse.RowHeadersWidth = 51;
             this.dgvCNurse.RowTemplate.Height = 24;
-            this.dgvCNurse.Size = new System.Drawing.Size(1061, 222);
+            this.dgvCNurse.Size = new System.Drawing.Size(796, 180);
             this.dgvCNurse.TabIndex = 2;
             this.dgvCNurse.SelectionChanged += new System.EventHandler(this.dgvCNurse_SelectionChanged);
             // 
@@ -1166,19 +1184,20 @@
             // 
             // TBCNurse
             // 
-            this.TBCNurse.Location = new System.Drawing.Point(83, 34);
-            this.TBCNurse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TBCNurse.Location = new System.Drawing.Point(62, 28);
+            this.TBCNurse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBCNurse.Name = "TBCNurse";
-            this.TBCNurse.Size = new System.Drawing.Size(191, 27);
+            this.TBCNurse.Size = new System.Drawing.Size(144, 23);
             this.TBCNurse.TabIndex = 1;
             this.TBCNurse.TextChanged += new System.EventHandler(this.TBCNurse_TextChanged);
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(27, 37);
+            this.label23.Location = new System.Drawing.Point(20, 30);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(54, 20);
+            this.label23.Size = new System.Drawing.Size(41, 15);
             this.label23.TabIndex = 0;
             this.label23.Text = "Nurse:";
             // 
@@ -1188,11 +1207,11 @@
             this.groupBox5.Controls.Add(this.TBCDoctor);
             this.groupBox5.Controls.Add(this.label22);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(47, 98);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox5.Location = new System.Drawing.Point(35, 80);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(1113, 329);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Size = new System.Drawing.Size(835, 267);
             this.groupBox5.TabIndex = 23;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Doctor";
@@ -1213,12 +1232,12 @@
             this.cellphoneNumberDataGridViewTextBoxColumn,
             this.doctorIDDataGridViewTextBoxColumn1});
             this.dgvCDoctor.DataSource = this.doctorBindingSource;
-            this.dgvCDoctor.Location = new System.Drawing.Point(31, 84);
-            this.dgvCDoctor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvCDoctor.Location = new System.Drawing.Point(23, 68);
+            this.dgvCDoctor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvCDoctor.Name = "dgvCDoctor";
             this.dgvCDoctor.RowHeadersWidth = 51;
             this.dgvCDoctor.RowTemplate.Height = 24;
-            this.dgvCDoctor.Size = new System.Drawing.Size(1061, 222);
+            this.dgvCDoctor.Size = new System.Drawing.Size(796, 180);
             this.dgvCDoctor.TabIndex = 2;
             this.dgvCDoctor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCDoctor_CellContentClick);
             this.dgvCDoctor.SelectionChanged += new System.EventHandler(this.dgvCDoctor_SelectionChanged);
@@ -1278,19 +1297,20 @@
             // 
             // TBCDoctor
             // 
-            this.TBCDoctor.Location = new System.Drawing.Point(83, 34);
-            this.TBCDoctor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TBCDoctor.Location = new System.Drawing.Point(62, 28);
+            this.TBCDoctor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBCDoctor.Name = "TBCDoctor";
-            this.TBCDoctor.Size = new System.Drawing.Size(191, 27);
+            this.TBCDoctor.Size = new System.Drawing.Size(144, 23);
             this.TBCDoctor.TabIndex = 1;
             this.TBCDoctor.TextChanged += new System.EventHandler(this.TBCDoctor_TextChanged);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(27, 37);
+            this.label22.Location = new System.Drawing.Point(20, 30);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(61, 20);
+            this.label22.Size = new System.Drawing.Size(47, 15);
             this.label22.TabIndex = 0;
             this.label22.Text = "Doctor:";
             // 
@@ -1313,11 +1333,11 @@
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(1224, 98);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Location = new System.Drawing.Point(918, 80);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(563, 670);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Size = new System.Drawing.Size(422, 544);
             this.groupBox4.TabIndex = 22;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "New Treatment Type";
@@ -1325,10 +1345,10 @@
             // CBCNurse
             // 
             this.CBCNurse.AutoSize = true;
-            this.CBCNurse.Location = new System.Drawing.Point(317, 501);
-            this.CBCNurse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CBCNurse.Location = new System.Drawing.Point(238, 407);
+            this.CBCNurse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CBCNurse.Name = "CBCNurse";
-            this.CBCNurse.Size = new System.Drawing.Size(72, 24);
+            this.CBCNurse.Size = new System.Drawing.Size(57, 19);
             this.CBCNurse.TabIndex = 33;
             this.CBCNurse.Text = "Nurse";
             this.CBCNurse.UseVisualStyleBackColor = true;
@@ -1336,10 +1356,10 @@
             // CBCDoctor
             // 
             this.CBCDoctor.AutoSize = true;
-            this.CBCDoctor.Location = new System.Drawing.Point(179, 501);
-            this.CBCDoctor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CBCDoctor.Location = new System.Drawing.Point(134, 407);
+            this.CBCDoctor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CBCDoctor.Name = "CBCDoctor";
-            this.CBCDoctor.Size = new System.Drawing.Size(78, 24);
+            this.CBCDoctor.Size = new System.Drawing.Size(63, 19);
             this.CBCDoctor.TabIndex = 32;
             this.CBCDoctor.Text = "Doctor";
             this.CBCDoctor.UseVisualStyleBackColor = true;
@@ -1347,10 +1367,10 @@
             // CBCActive
             // 
             this.CBCActive.AutoSize = true;
-            this.CBCActive.Location = new System.Drawing.Point(179, 558);
-            this.CBCActive.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CBCActive.Location = new System.Drawing.Point(134, 453);
+            this.CBCActive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CBCActive.Name = "CBCActive";
-            this.CBCActive.Size = new System.Drawing.Size(73, 24);
+            this.CBCActive.Size = new System.Drawing.Size(59, 19);
             this.CBCActive.TabIndex = 31;
             this.CBCActive.Text = "Active";
             this.CBCActive.UseVisualStyleBackColor = true;
@@ -1358,27 +1378,30 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(51, 558);
+            this.label8.Location = new System.Drawing.Point(38, 453);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 20);
+            this.label8.Size = new System.Drawing.Size(43, 15);
             this.label8.TabIndex = 30;
             this.label8.Text = "Status:";
             // 
             // lblCNurse
             // 
             this.lblCNurse.AutoSize = true;
-            this.lblCNurse.Location = new System.Drawing.Point(37, 68);
+            this.lblCNurse.Location = new System.Drawing.Point(28, 55);
+            this.lblCNurse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCNurse.Name = "lblCNurse";
-            this.lblCNurse.Size = new System.Drawing.Size(169, 20);
+            this.lblCNurse.Size = new System.Drawing.Size(131, 15);
             this.lblCNurse.TabIndex = 29;
             this.lblCNurse.Text = "Nurse Selected: Default";
             // 
             // lblCDoctor
             // 
             this.lblCDoctor.AutoSize = true;
-            this.lblCDoctor.Location = new System.Drawing.Point(37, 38);
+            this.lblCDoctor.Location = new System.Drawing.Point(28, 31);
+            this.lblCDoctor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCDoctor.Name = "lblCDoctor";
-            this.lblCDoctor.Size = new System.Drawing.Size(181, 20);
+            this.lblCDoctor.Size = new System.Drawing.Size(142, 15);
             this.lblCDoctor.TabIndex = 28;
             this.lblCDoctor.Text = "Doctors Selected: Default";
             // 
@@ -1386,10 +1409,10 @@
             // 
             this.CNewTreatButton.BackColor = System.Drawing.Color.White;
             this.CNewTreatButton.ForeColor = System.Drawing.Color.Red;
-            this.CNewTreatButton.Location = new System.Drawing.Point(179, 613);
-            this.CNewTreatButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CNewTreatButton.Location = new System.Drawing.Point(134, 498);
+            this.CNewTreatButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CNewTreatButton.Name = "CNewTreatButton";
-            this.CNewTreatButton.Size = new System.Drawing.Size(220, 33);
+            this.CNewTreatButton.Size = new System.Drawing.Size(165, 27);
             this.CNewTreatButton.TabIndex = 27;
             this.CNewTreatButton.Text = "Create New Treatment";
             this.CNewTreatButton.UseVisualStyleBackColor = false;
@@ -1397,81 +1420,86 @@
             // 
             // RTBCInstruction
             // 
-            this.RTBCInstruction.Location = new System.Drawing.Point(179, 350);
-            this.RTBCInstruction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RTBCInstruction.Location = new System.Drawing.Point(134, 284);
+            this.RTBCInstruction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RTBCInstruction.Name = "RTBCInstruction";
-            this.RTBCInstruction.Size = new System.Drawing.Size(336, 96);
+            this.RTBCInstruction.Size = new System.Drawing.Size(253, 79);
             this.RTBCInstruction.TabIndex = 24;
             this.RTBCInstruction.Text = "";
             // 
             // RTBCDescription
             // 
-            this.RTBCDescription.Location = new System.Drawing.Point(179, 169);
-            this.RTBCDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RTBCDescription.Location = new System.Drawing.Point(134, 137);
+            this.RTBCDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RTBCDescription.Name = "RTBCDescription";
-            this.RTBCDescription.Size = new System.Drawing.Size(336, 75);
+            this.RTBCDescription.Size = new System.Drawing.Size(253, 62);
             this.RTBCDescription.TabIndex = 23;
             this.RTBCDescription.Text = "";
             // 
             // CBCCategory
             // 
             this.CBCCategory.FormattingEnabled = true;
-            this.CBCCategory.Location = new System.Drawing.Point(179, 277);
-            this.CBCCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CBCCategory.Location = new System.Drawing.Point(134, 225);
+            this.CBCCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CBCCategory.Name = "CBCCategory";
-            this.CBCCategory.Size = new System.Drawing.Size(220, 28);
+            this.CBCCategory.Size = new System.Drawing.Size(166, 23);
             this.CBCCategory.TabIndex = 21;
             // 
             // TBCTreatName
             // 
-            this.TBCTreatName.Location = new System.Drawing.Point(179, 107);
-            this.TBCTreatName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TBCTreatName.Location = new System.Drawing.Point(134, 87);
+            this.TBCTreatName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBCTreatName.Name = "TBCTreatName";
-            this.TBCTreatName.Size = new System.Drawing.Size(336, 27);
+            this.TBCTreatName.Size = new System.Drawing.Size(253, 23);
             this.TBCTreatName.TabIndex = 20;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(51, 500);
+            this.label11.Location = new System.Drawing.Point(38, 406);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 20);
+            this.label11.Size = new System.Drawing.Size(55, 15);
             this.label11.TabIndex = 19;
             this.label11.Text = "Requires:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(51, 350);
+            this.label10.Location = new System.Drawing.Point(38, 284);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(82, 20);
+            this.label10.Size = new System.Drawing.Size(65, 15);
             this.label10.TabIndex = 18;
             this.label10.Text = "Instruction";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(51, 286);
+            this.label9.Location = new System.Drawing.Point(38, 232);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(72, 20);
+            this.label9.Size = new System.Drawing.Size(54, 15);
             this.label9.TabIndex = 17;
             this.label9.Text = "Category";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(51, 172);
+            this.label7.Location = new System.Drawing.Point(38, 140);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(87, 20);
+            this.label7.Size = new System.Drawing.Size(68, 15);
             this.label7.TabIndex = 15;
             this.label7.Text = "Description";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(37, 117);
+            this.label6.Location = new System.Drawing.Point(28, 95);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(123, 20);
+            this.label6.Size = new System.Drawing.Size(96, 15);
             this.label6.TabIndex = 14;
             this.label6.Text = "Treatment Name";
             // 
@@ -1481,10 +1509,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(59)))), ((int)(((byte)(26)))));
             this.panel4.Controls.Add(this.label19);
-            this.panel4.Location = new System.Drawing.Point(1, 39);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Location = new System.Drawing.Point(1, 32);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1899, 22);
+            this.panel4.Size = new System.Drawing.Size(1424, 18);
             this.panel4.TabIndex = 21;
             // 
             // label19
@@ -1492,9 +1520,10 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(119)))), ((int)(((byte)(102)))));
-            this.label19.Location = new System.Drawing.Point(269, 6);
+            this.label19.Location = new System.Drawing.Point(202, 5);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(284, 15);
+            this.label19.Size = new System.Drawing.Size(214, 12);
             this.label19.TabIndex = 0;
             this.label19.Text = "AUTHORISED PERSONNEL ONLY — SECURE SYSTEM";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1507,9 +1536,9 @@
             this.panel5.Controls.Add(this.label20);
             this.panel5.Controls.Add(this.label21);
             this.panel5.Location = new System.Drawing.Point(1, 1);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1899, 38);
+            this.panel5.Size = new System.Drawing.Size(1424, 31);
             this.panel5.TabIndex = 20;
             // 
             // label20
@@ -1517,9 +1546,10 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.SystemColors.Info;
-            this.label20.Location = new System.Drawing.Point(713, 9);
+            this.label20.Location = new System.Drawing.Point(535, 7);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(398, 28);
+            this.label20.Size = new System.Drawing.Size(317, 21);
             this.label20.TabIndex = 9;
             this.label20.Text = "Create Treatment Type— East Boom CHC";
             // 
@@ -1529,22 +1559,25 @@
             this.label21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(59)))), ((int)(((byte)(26)))));
             this.label21.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(203)))), ((int)(((byte)(164)))));
-            this.label21.Location = new System.Drawing.Point(11, 9);
+            this.label21.Location = new System.Drawing.Point(8, 7);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(74, 19);
+            this.label21.Size = new System.Drawing.Size(57, 13);
             this.label21.TabIndex = 8;
             this.label21.Text = "KZN DOH";
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(239)))), ((int)(((byte)(230)))));
+            this.tabPage1.Controls.Add(this.panel9);
             this.tabPage1.Controls.Add(this.groupBox8);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1893, 885);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Size = new System.Drawing.Size(1418, 683);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "View Treatment";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox8
             // 
@@ -1558,9 +1591,11 @@
             this.groupBox8.Controls.Add(this.TBTTreatmentName);
             this.groupBox8.Controls.Add(this.label30);
             this.groupBox8.Controls.Add(this.dgvTTreatment);
-            this.groupBox8.Location = new System.Drawing.Point(38, 62);
+            this.groupBox8.Location = new System.Drawing.Point(28, 50);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(1607, 768);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox8.Size = new System.Drawing.Size(1205, 536);
             this.groupBox8.TabIndex = 0;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "View Treatments";
@@ -1568,78 +1603,87 @@
             // lblTRNurse
             // 
             this.lblTRNurse.AutoSize = true;
-            this.lblTRNurse.Location = new System.Drawing.Point(1083, 550);
+            this.lblTRNurse.Location = new System.Drawing.Point(812, 447);
+            this.lblTRNurse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTRNurse.Name = "lblTRNurse";
-            this.lblTRNurse.Size = new System.Drawing.Size(104, 16);
+            this.lblTRNurse.Size = new System.Drawing.Size(83, 13);
             this.lblTRNurse.TabIndex = 9;
             this.lblTRNurse.Text = "Requires Nurse:";
             // 
             // lblTRDoctor
             // 
             this.lblTRDoctor.AutoSize = true;
-            this.lblTRDoctor.Location = new System.Drawing.Point(1083, 505);
+            this.lblTRDoctor.Location = new System.Drawing.Point(812, 410);
+            this.lblTRDoctor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTRDoctor.Name = "lblTRDoctor";
-            this.lblTRDoctor.Size = new System.Drawing.Size(108, 16);
+            this.lblTRDoctor.Size = new System.Drawing.Size(87, 13);
             this.lblTRDoctor.TabIndex = 8;
             this.lblTRDoctor.Text = "Requires Doctor:";
             // 
             // lblTActive
             // 
             this.lblTActive.AutoSize = true;
-            this.lblTActive.Location = new System.Drawing.Point(1083, 452);
+            this.lblTActive.Location = new System.Drawing.Point(812, 367);
+            this.lblTActive.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTActive.Name = "lblTActive";
-            this.lblTActive.Size = new System.Drawing.Size(47, 16);
+            this.lblTActive.Size = new System.Drawing.Size(40, 13);
             this.lblTActive.TabIndex = 7;
             this.lblTActive.Text = "Active:";
             // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(1083, 251);
+            this.label33.Location = new System.Drawing.Point(812, 204);
+            this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(73, 16);
+            this.label33.Size = new System.Drawing.Size(61, 13);
             this.label33.TabIndex = 6;
             this.label33.Text = "Instructions";
             // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(1083, 46);
+            this.label32.Location = new System.Drawing.Point(812, 37);
+            this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(75, 16);
+            this.label32.Size = new System.Drawing.Size(60, 13);
             this.label32.TabIndex = 5;
             this.label32.Text = "Description";
             // 
             // RTBTInstruction
             // 
-            this.RTBTInstruction.Location = new System.Drawing.Point(1086, 289);
+            this.RTBTInstruction.Location = new System.Drawing.Point(814, 235);
+            this.RTBTInstruction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RTBTInstruction.Name = "RTBTInstruction";
-            this.RTBTInstruction.Size = new System.Drawing.Size(325, 96);
+            this.RTBTInstruction.Size = new System.Drawing.Size(245, 79);
             this.RTBTInstruction.TabIndex = 4;
             this.RTBTInstruction.Text = "";
             // 
             // RTBTDescription
             // 
-            this.RTBTDescription.Location = new System.Drawing.Point(1086, 106);
+            this.RTBTDescription.Location = new System.Drawing.Point(814, 86);
+            this.RTBTDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RTBTDescription.Name = "RTBTDescription";
-            this.RTBTDescription.Size = new System.Drawing.Size(325, 96);
+            this.RTBTDescription.Size = new System.Drawing.Size(245, 79);
             this.RTBTDescription.TabIndex = 3;
             this.RTBTDescription.Text = "";
             // 
             // TBTTreatmentName
             // 
-            this.TBTTreatmentName.Location = new System.Drawing.Point(182, 37);
+            this.TBTTreatmentName.Location = new System.Drawing.Point(136, 30);
+            this.TBTTreatmentName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TBTTreatmentName.Name = "TBTTreatmentName";
-            this.TBTTreatmentName.Size = new System.Drawing.Size(224, 22);
+            this.TBTTreatmentName.Size = new System.Drawing.Size(169, 20);
             this.TBTTreatmentName.TabIndex = 2;
             this.TBTTreatmentName.TextChanged += new System.EventHandler(this.TBTTreatmentName_TextChanged);
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(54, 40);
+            this.label30.Location = new System.Drawing.Point(40, 32);
+            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(111, 16);
+            this.label30.Size = new System.Drawing.Size(89, 13);
             this.label30.TabIndex = 1;
             this.label30.Text = "Treatment Name:";
             // 
@@ -1658,51 +1702,14 @@
             this.requiresNurseDataGridViewTextBoxColumn,
             this.isActiveDataGridViewTextBoxColumn});
             this.dgvTTreatment.DataSource = this.customTreatmentBindingSource;
-            this.dgvTTreatment.Location = new System.Drawing.Point(57, 89);
+            this.dgvTTreatment.Location = new System.Drawing.Point(43, 72);
+            this.dgvTTreatment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvTTreatment.Name = "dgvTTreatment";
             this.dgvTTreatment.RowHeadersWidth = 51;
             this.dgvTTreatment.RowTemplate.Height = 24;
-            this.dgvTTreatment.Size = new System.Drawing.Size(577, 477);
+            this.dgvTTreatment.Size = new System.Drawing.Size(742, 388);
             this.dgvTTreatment.TabIndex = 0;
             this.dgvTTreatment.SelectionChanged += new System.EventHandler(this.dgvTTreatment_SelectionChanged);
-            // 
-            // customTreatmentBindingSource
-            // 
-            this.customTreatmentBindingSource.DataMember = "customTreatment";
-            this.customTreatmentBindingSource.DataSource = this.dataSet1;
-            // 
-            // treatmentBindingSource
-            // 
-            this.treatmentBindingSource.DataMember = "Treatment";
-            this.treatmentBindingSource.DataSource = this.dataSet1;
-            // 
-            // treatmentTableAdapter
-            // 
-            this.treatmentTableAdapter.ClearBeforeFill = true;
-            // 
-            // customTreatmentInfoTableAdapter
-            // 
-            this.customTreatmentInfoTableAdapter.ClearBeforeFill = true;
-            // 
-            // appointmentViewTableAdapter
-            // 
-            this.appointmentViewTableAdapter.ClearBeforeFill = true;
-            // 
-            // doctorTableAdapter
-            // 
-            this.doctorTableAdapter.ClearBeforeFill = true;
-            // 
-            // nurseTableAdapter
-            // 
-            this.nurseTableAdapter.ClearBeforeFill = true;
-            // 
-            // treatmentInformationTableAdapter1
-            // 
-            this.treatmentInformationTableAdapter1.ClearBeforeFill = true;
-            // 
-            // customTreatmentTableAdapter1
-            // 
-            this.customTreatmentTableAdapter1.ClearBeforeFill = true;
             // 
             // treatmentNameDataGridViewTextBoxColumn1
             // 
@@ -1768,13 +1775,60 @@
             this.isActiveDataGridViewTextBoxColumn.Name = "isActiveDataGridViewTextBoxColumn";
             this.isActiveDataGridViewTextBoxColumn.Width = 125;
             // 
+            // customTreatmentBindingSource
+            // 
+            this.customTreatmentBindingSource.DataMember = "customTreatment";
+            this.customTreatmentBindingSource.DataSource = this.dataSet1;
+            // 
+            // treatmentBindingSource
+            // 
+            this.treatmentBindingSource.DataMember = "Treatment";
+            this.treatmentBindingSource.DataSource = this.dataSet1;
+            // 
+            // treatmentTableAdapter
+            // 
+            this.treatmentTableAdapter.ClearBeforeFill = true;
+            // 
+            // customTreatmentInfoTableAdapter
+            // 
+            this.customTreatmentInfoTableAdapter.ClearBeforeFill = true;
+            // 
+            // appointmentViewTableAdapter
+            // 
+            this.appointmentViewTableAdapter.ClearBeforeFill = true;
+            // 
+            // doctorTableAdapter
+            // 
+            this.doctorTableAdapter.ClearBeforeFill = true;
+            // 
+            // nurseTableAdapter
+            // 
+            this.nurseTableAdapter.ClearBeforeFill = true;
+            // 
+            // treatmentInformationTableAdapter1
+            // 
+            this.treatmentInformationTableAdapter1.ClearBeforeFill = true;
+            // 
+            // customTreatmentTableAdapter1
+            // 
+            this.customTreatmentTableAdapter1.ClearBeforeFill = true;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel9.Location = new System.Drawing.Point(2, 639);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1414, 42);
+            this.panel9.TabIndex = 1;
+            // 
             // TreatmentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1901, 914);
+            this.ClientSize = new System.Drawing.Size(1426, 709);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "TreatmentForm";
             this.Text = "TreatmentForm";
             this.Load += new System.EventHandler(this.TreatmentForm_Load);
@@ -1986,5 +2040,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn requiresDoctorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn requiresNurseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn isActiveDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Panel panel9;
     }
 }
