@@ -24,6 +24,7 @@ namespace MPM2.Business
             // TODO: This line of code loads data into the 'dataSet1.Doctor' table. You can move, or remove it, as needed.
             this.doctorTableAdapter.Fill(this.dataSet1.Doctor);
             // TODO: This line of code loads data into the 'dataSet1.AppointmentView' table. You can move, or remove it, as needed.
+            this.customTreatmentTableAdapter1.Fill(this.dataSet1.customTreatment);
 
            
             if (this.MdiParent is MainForm mf)
@@ -58,6 +59,12 @@ namespace MPM2.Business
             dgvRAppointment.Columns["appointmentIDDataGridViewTextBoxColumn"].Visible = false;
             dgvRAppointment.Columns["appointmentDateDataGridViewTextBoxColumn"].Visible = false;
 
+
+            dgvTTreatment.Columns["requiresDoctorDataGridViewTextBoxColumn"].Visible = false;
+            dgvTTreatment.Columns["requiresNurseDataGridViewTextBoxColumn"].Visible = false;
+            dgvTTreatment.Columns["isActiveDataGridViewTextBoxColumn"].Visible = false;
+            dgvTTreatment.Columns["descriptionDataGridViewTextBoxColumn"].Visible = false;
+            dgvTTreatment.Columns["instructionsDataGridViewTextBoxColumn"].Visible = false;
 
             var categories = dataSet1.Treatment.AsEnumerable()
                 .Select(r => r["Category"].ToString())
@@ -347,6 +354,64 @@ namespace MPM2.Business
         private void dgvRAppointment_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        private void TBTTreatmentName_TextChanged(object sender, EventArgs e)
+        {
+            this.customTreatmentTableAdapter1.FillByTreatmentName(this.dataSet1.customTreatment, TBTTreatmentName.Text.ToString());
+            ChangeValues3();
+        }
+        private void ChangeValues3()
+        {
+            if (dgvTTreatment.CurrentRow == null || dgvTTreatment.CurrentRow.IsNewRow)
+            {
+                lblTActive.Text = "Active: -";
+                lblTRDoctor.Text = "Doctor: None";
+                lblTRNurse.Text = "Nurse: None";
+                RTBTDescription.Clear();
+                RTBTInstruction.Clear();
+                return;
+            }
+            int requiresdoctor = 0;
+            requiresdoctor = Convert.ToInt32(dgvTTreatment.CurrentRow.Cells["requiresDoctorDataGridViewTextBoxColumn"].Value);
+            if (requiresdoctor == 0)
+            {
+                lblTRDoctor.Text = "Doctor: No";
+            }
+            else
+            {
+                lblTRDoctor.Text = "Doctor: Yes";
+            }
+            int requiresnurse = 0;
+            requiresnurse = Convert.ToInt32(dgvTTreatment.CurrentRow.Cells["requiresNurseDataGridViewTextBoxColumn"].Value);
+            if (requiresnurse == 0)
+            {
+                lblTRNurse.Text = "Nurse: No";
+            }
+            else
+            {
+                lblTRNurse.Text = "Nurse: Yes";
+            }
+            int active = 0;
+            active = Convert.ToInt32(dgvTTreatment.CurrentRow.Cells["isActiveDataGridViewTextBoxColumn"].Value);
+            if (active == 0)
+            {
+                lblTActive.Text = "Active: No";
+            }
+            else
+            {
+                lblTActive.Text = "Active: Yes";
+            }
+
+            var row = dgvTTreatment.CurrentRow;
+            var description = row.Cells["descriptionDataGridViewTextBoxColumn"]?.Value;
+            RTBTDescription.Text = description != null ? $"{description}" : "";
+            var instruction = row.Cells["instructionsDataGridViewTextBoxColumn"]?.Value;
+            RTBTInstruction.Text = instruction != null ? $"{instruction}" : "";
+        }
+
+        private void dgvTTreatment_SelectionChanged(object sender, EventArgs e)
+        {
+            ChangeValues3();
         }
     }
 }
