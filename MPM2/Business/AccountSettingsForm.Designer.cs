@@ -51,6 +51,8 @@
             this.pnlStatusBar = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.nurseTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.NurseTableAdapter();
+            this.administratorTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.AdministratorTableAdapter();
             this.roundedTextBox3 = new RoundedTextBox();
             this.txtUserName = new RoundedTextBox();
             this.txtFullName = new RoundedTextBox();
@@ -67,8 +69,6 @@
             this.lblProfileName = new System.Windows.Forms.Label();
             this.pnlAvatar = new System.Windows.Forms.Panel();
             this.lblInitials = new System.Windows.Forms.Label();
-            this.nurseTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.NurseTableAdapter();
-            this.administratorTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.AdministratorTableAdapter();
             this.pnlTitleBar.SuspendLayout();
             this.pnlSecureBar.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -96,7 +96,7 @@
             this.lblUsername.Location = new System.Drawing.Point(410, 222);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(87, 23);
+            this.lblUsername.Size = new System.Drawing.Size(75, 20);
             this.lblUsername.TabIndex = 15;
             this.lblUsername.Text = "Username";
             // 
@@ -107,7 +107,7 @@
             this.label3.Location = new System.Drawing.Point(410, 295);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 23);
+            this.label3.Size = new System.Drawing.Size(73, 20);
             this.label3.TabIndex = 11;
             this.label3.Text = "Password:";
             // 
@@ -118,7 +118,7 @@
             this.lblName.Location = new System.Drawing.Point(410, 146);
             this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(56, 23);
+            this.lblName.Size = new System.Drawing.Size(49, 20);
             this.lblName.TabIndex = 9;
             this.lblName.Text = "Name";
             // 
@@ -133,7 +133,7 @@
             this.pnlTitleBar.Controls.Add(this.lblKZN);
             this.pnlTitleBar.Location = new System.Drawing.Point(1, 1);
             this.pnlTitleBar.Name = "pnlTitleBar";
-            this.pnlTitleBar.Size = new System.Drawing.Size(1651, 38);
+            this.pnlTitleBar.Size = new System.Drawing.Size(2008, 38);
             this.pnlTitleBar.TabIndex = 10;
             // 
             // lblTitle
@@ -143,7 +143,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(87, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(286, 23);
+            this.lblTitle.Size = new System.Drawing.Size(247, 20);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Account Settings — East Boom CHC";
             // 
@@ -155,7 +155,7 @@
             this.lblKZN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(203)))), ((int)(((byte)(164)))));
             this.lblKZN.Location = new System.Drawing.Point(10, 9);
             this.lblKZN.Name = "lblKZN";
-            this.lblKZN.Size = new System.Drawing.Size(74, 19);
+            this.lblKZN.Size = new System.Drawing.Size(68, 17);
             this.lblKZN.TabIndex = 0;
             this.lblKZN.Text = "KZN DOH";
             // 
@@ -165,7 +165,7 @@
             this.pnlSecureBar.Controls.Add(this.label7);
             this.pnlSecureBar.Location = new System.Drawing.Point(1, 38);
             this.pnlSecureBar.Name = "pnlSecureBar";
-            this.pnlSecureBar.Size = new System.Drawing.Size(1651, 22);
+            this.pnlSecureBar.Size = new System.Drawing.Size(2079, 22);
             this.pnlSecureBar.TabIndex = 11;
             // 
             // label7
@@ -175,7 +175,7 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(119)))), ((int)(((byte)(102)))));
             this.label7.Location = new System.Drawing.Point(705, 6);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(284, 15);
+            this.label7.Size = new System.Drawing.Size(237, 12);
             this.label7.TabIndex = 0;
             this.label7.Text = "AUTHORISED PERSONNEL ONLY — SECURE SYSTEM";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -187,7 +187,7 @@
             this.panel2.Controls.Add(this.label8);
             this.panel2.Location = new System.Drawing.Point(1, 59);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1661, 29);
+            this.panel2.Size = new System.Drawing.Size(2008, 29);
             this.panel2.TabIndex = 12;
             // 
             // label9
@@ -197,7 +197,7 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             this.label9.Location = new System.Drawing.Point(1264, 11);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(416, 19);
+            this.label9.Size = new System.Drawing.Size(389, 17);
             this.label9.TabIndex = 1;
             this.label9.Text = "Clinic Management System · East Boom Community Health Centre";
             this.label9.Click += new System.EventHandler(this.label9_Click);
@@ -209,7 +209,7 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(82)))), ((int)(((byte)(39)))));
             this.label8.Location = new System.Drawing.Point(16, 8);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(146, 23);
+            this.label8.Size = new System.Drawing.Size(128, 20);
             this.label8.TabIndex = 0;
             this.label8.Text = "Account Settings";
             // 
@@ -220,7 +220,7 @@
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(410, 110);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(183, 19);
+            this.label10.Size = new System.Drawing.Size(169, 17);
             this.label10.TabIndex = 14;
             this.label10.Text = "PERSONAL INFORMATION";
             this.label10.Click += new System.EventHandler(this.label10_Click);
@@ -240,9 +240,9 @@
             this.pnlFooter.Controls.Add(this.btnLogout);
             this.pnlFooter.Controls.Add(this.btnCancel);
             this.pnlFooter.Controls.Add(this.btnSave);
-            this.pnlFooter.Location = new System.Drawing.Point(1, 775);
+            this.pnlFooter.Location = new System.Drawing.Point(1, 898);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(1698, 48);
+            this.pnlFooter.Size = new System.Drawing.Size(2098, 48);
             this.pnlFooter.TabIndex = 19;
             // 
             // label1
@@ -252,7 +252,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.label1.Location = new System.Drawing.Point(409, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(268, 19);
+            this.label1.Size = new System.Drawing.Size(253, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = " M2 Version · June 2026 · Synergy Seekers";
             // 
@@ -300,9 +300,9 @@
             this.pnlStatusBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(82)))), ((int)(((byte)(39)))));
             this.pnlStatusBar.Controls.Add(this.label4);
             this.pnlStatusBar.Controls.Add(this.label2);
-            this.pnlStatusBar.Location = new System.Drawing.Point(1, 822);
+            this.pnlStatusBar.Location = new System.Drawing.Point(1, 945);
             this.pnlStatusBar.Name = "pnlStatusBar";
-            this.pnlStatusBar.Size = new System.Drawing.Size(1651, 24);
+            this.pnlStatusBar.Size = new System.Drawing.Size(2051, 24);
             this.pnlStatusBar.TabIndex = 20;
             // 
             // label4
@@ -312,7 +312,7 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.label4.Location = new System.Drawing.Point(384, 4);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(269, 19);
+            this.label4.Size = new System.Drawing.Size(251, 17);
             this.label4.TabIndex = 22;
             this.label4.Text = "East Boom CHC · KZN DoH · 11 May 2026";
             // 
@@ -323,9 +323,17 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.label2.Location = new System.Drawing.Point(33, 4);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(341, 19);
+            this.label2.Size = new System.Drawing.Size(317, 17);
             this.label2.TabIndex = 21;
             this.label2.Text = "Account Settings · Patient Management System v2.1.4";
+            // 
+            // nurseTableAdapter1
+            // 
+            this.nurseTableAdapter1.ClearBeforeFill = true;
+            // 
+            // administratorTableAdapter1
+            // 
+            this.administratorTableAdapter1.ClearBeforeFill = true;
             // 
             // roundedTextBox3
             // 
@@ -394,7 +402,7 @@
             this.lblTeamVal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(51)))));
             this.lblTeamVal.Location = new System.Drawing.Point(103, 280);
             this.lblTeamVal.Name = "lblTeamVal";
-            this.lblTeamVal.Size = new System.Drawing.Size(115, 20);
+            this.lblTeamVal.Size = new System.Drawing.Size(108, 19);
             this.lblTeamVal.TabIndex = 10;
             this.lblTeamVal.Text = "Synergy Seekers";
             // 
@@ -404,7 +412,7 @@
             this.lblTeamKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(8)))), ((int)(((byte)(136)))));
             this.lblTeamKey.Location = new System.Drawing.Point(15, 280);
             this.lblTeamKey.Name = "lblTeamKey";
-            this.lblTeamKey.Size = new System.Drawing.Size(45, 20);
+            this.lblTeamKey.Size = new System.Drawing.Size(41, 19);
             this.lblTeamKey.TabIndex = 9;
             this.lblTeamKey.Text = "Team";
             this.lblTeamKey.Click += new System.EventHandler(this.lblTeamKey_Click);
@@ -415,7 +423,7 @@
             this.lblLoginVal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(51)))));
             this.lblLoginVal.Location = new System.Drawing.Point(103, 243);
             this.lblLoginVal.Name = "lblLoginVal";
-            this.lblLoginVal.Size = new System.Drawing.Size(93, 20);
+            this.lblLoginVal.Size = new System.Drawing.Size(92, 19);
             this.lblLoginVal.TabIndex = 8;
             this.lblLoginVal.Text = "11 May 2026";
             // 
@@ -425,7 +433,7 @@
             this.lblLoginKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(8)))), ((int)(((byte)(136)))));
             this.lblLoginKey.Location = new System.Drawing.Point(15, 243);
             this.lblLoginKey.Name = "lblLoginKey";
-            this.lblLoginKey.Size = new System.Drawing.Size(73, 20);
+            this.lblLoginKey.Size = new System.Drawing.Size(68, 19);
             this.lblLoginKey.TabIndex = 7;
             this.lblLoginKey.Text = "Last login";
             // 
@@ -435,7 +443,7 @@
             this.lblStatusVal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(82)))), ((int)(((byte)(39)))));
             this.lblStatusVal.Location = new System.Drawing.Point(108, 206);
             this.lblStatusVal.Name = "lblStatusVal";
-            this.lblStatusVal.Size = new System.Drawing.Size(63, 20);
+            this.lblStatusVal.Size = new System.Drawing.Size(58, 19);
             this.lblStatusVal.TabIndex = 6;
             this.lblStatusVal.Text = "● Active";
             // 
@@ -445,7 +453,7 @@
             this.lblStatusKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(8)))), ((int)(((byte)(136)))));
             this.lblStatusKey.Location = new System.Drawing.Point(15, 206);
             this.lblStatusKey.Name = "lblStatusKey";
-            this.lblStatusKey.Size = new System.Drawing.Size(49, 20);
+            this.lblStatusKey.Size = new System.Drawing.Size(47, 19);
             this.lblStatusKey.TabIndex = 5;
             this.lblStatusKey.Text = "Status";
             // 
@@ -464,7 +472,7 @@
             this.lblStaffNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             this.lblStaffNo.Location = new System.Drawing.Point(62, 160);
             this.lblStaffNo.Name = "lblStaffNo";
-            this.lblStaffNo.Size = new System.Drawing.Size(123, 20);
+            this.lblStaffNo.Size = new System.Drawing.Size(118, 19);
             this.lblStaffNo.TabIndex = 3;
             this.lblStaffNo.Text = "KZN-DOH-00412\n";
             // 
@@ -476,7 +484,7 @@
             this.lblProfileRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(122)))), ((int)(((byte)(63)))));
             this.lblProfileRole.Location = new System.Drawing.Point(62, 139);
             this.lblProfileRole.Name = "lblProfileRole";
-            this.lblProfileRole.Size = new System.Drawing.Size(114, 19);
+            this.lblProfileRole.Size = new System.Drawing.Size(108, 17);
             this.lblProfileRole.TabIndex = 2;
             this.lblProfileRole.Text = "Doctor / Clinician";
             // 
@@ -487,7 +495,7 @@
             this.lblProfileName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(59)))), ((int)(((byte)(26)))));
             this.lblProfileName.Location = new System.Drawing.Point(62, 109);
             this.lblProfileName.Name = "lblProfileName";
-            this.lblProfileName.Size = new System.Drawing.Size(178, 23);
+            this.lblProfileName.Size = new System.Drawing.Size(155, 20);
             this.lblProfileName.TabIndex = 1;
             this.lblProfileName.Text = "Nokukhanya Dlamini";
             this.lblProfileName.Click += new System.EventHandler(this.lblProfileName_Click);
@@ -509,23 +517,15 @@
             this.lblInitials.ForeColor = System.Drawing.Color.White;
             this.lblInitials.Location = new System.Drawing.Point(7, 19);
             this.lblInitials.Name = "lblInitials";
-            this.lblInitials.Size = new System.Drawing.Size(64, 41);
+            this.lblInitials.Size = new System.Drawing.Size(58, 37);
             this.lblInitials.TabIndex = 1;
             this.lblInitials.Text = "ND";
             this.lblInitials.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblInitials.Click += new System.EventHandler(this.lblInitials_Click);
             // 
-            // nurseTableAdapter1
-            // 
-            this.nurseTableAdapter1.ClearBeforeFill = true;
-            // 
-            // administratorTableAdapter1
-            // 
-            this.administratorTableAdapter1.ClearBeforeFill = true;
-            // 
             // AccountSettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(107)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(1664, 968);

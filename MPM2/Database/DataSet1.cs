@@ -20,6 +20,10 @@
 
 namespace MPM2.Database.DataSet1TableAdapters
 {
+    partial class customTreatmentInfoTableAdapter
+    {
+    }
+
     partial class DoctorTableAdapter
     {
     }

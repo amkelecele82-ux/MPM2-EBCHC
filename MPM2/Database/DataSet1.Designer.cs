@@ -17941,7 +17941,7 @@ FROM            LiteAppointment INNER JOIN
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT n.FullName AS NurseName, d.FullName AS DoctorName, p.MedicationName AS MedicineName, pt.FullName AS PatientName, d.DoctorID, n.NurseID, m.medication_AdministratorID, m.NurseID AS Expr1, m.PrescriptionID, m.Admnistered_at, 
@@ -17952,6 +17952,18 @@ FROM     MedicationAdministration AS m INNER JOIN
                   Doctor AS d ON p.DoctorID = d.DoctorID INNER JOIN
                   Patient AS pt ON p.PatientID = pt.PatientID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT   n.FullName AS NurseName, d.FullName AS DoctorName, p.MedicationName AS MedicineName, pt.FullName AS PatientName, d.DoctorID, n.NurseID, m.medication_AdministratorID, m.NurseID AS Expr1, m.PrescriptionID, m.Admnistered_at, 
+                m.dosageGiven, m.status, m.frequency_Instance, m.Notes, p.DateIssued
+FROM      MedicationAdministration AS m INNER JOIN
+                Nurse AS n ON m.NurseID = n.NurseID INNER JOIN
+                Prescription AS p ON m.PrescriptionID = p.PrescriptionID INNER JOIN
+                Doctor AS d ON p.DoctorID = d.DoctorID INNER JOIN
+                Patient AS pt ON p.PatientID = pt.PatientID
+WHERE   (m.NurseID = @NurseID)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NurseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Expr1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17973,6 +17985,32 @@ FROM     MedicationAdministration AS m INNER JOIN
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSet1.CustomMedAdmDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSet1.CustomMedAdmDataTable dataTable = new DataSet1.CustomMedAdmDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByNurseID(DataSet1.CustomMedAdmDataTable dataTable, int NurseID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(NurseID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet1.CustomMedAdmDataTable GetDataBy(int NurseID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(NurseID));
             DataSet1.CustomMedAdmDataTable dataTable = new DataSet1.CustomMedAdmDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

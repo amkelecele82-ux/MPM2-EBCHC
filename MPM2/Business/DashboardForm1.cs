@@ -513,7 +513,11 @@ namespace MPM2.Business
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            TreatmentForm t = new TreatmentForm();
+            t.MdiParent = this.MdiParent;
+            t.WindowState = FormWindowState.Maximized;
+            t.FormBorderStyle = FormBorderStyle.None;
+            t.Show();
         }
 
         private void btnVitalsDashBoard_Click(object sender, EventArgs e)

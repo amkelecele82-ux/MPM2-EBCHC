@@ -12,6 +12,7 @@ namespace MPM2.Business
 {
     public partial class MedicationAdministrationForm : Form
     {
+        int nid;
         public MedicationAdministrationForm()
         {
             InitializeComponent();
@@ -19,10 +20,33 @@ namespace MPM2.Business
 
         private void MedicationAdministrationForm_Load(object sender, EventArgs e)
         {
+            if(this.MdiParent is MainForm mf)
+            {
+                if (mf != null)
+                {
+                    if (mf.CurrentRole != "Nurse")
+                    {
+                        MessageBox.Show("Access Denied. Only Nurses can access this form.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Close();
+                        return;
+                    }
+                    else
+                    {
+                        nid = Convert.ToInt32(mf.CurrentDataRow["NurseID"]);
+                    }
+                }
+            }
             // TODO: This line of code loads data into the 'dataSet11.customPrescription' table. You can move, or remove it, as needed.
             this.customPrescriptionTableAdapter.Fill(this.dataSet11.customPrescription);
             // TODO: This line of code loads data into the 'dataSet11.CustomMedAdm' table. You can move, or remove it, as needed.
-            this.customMedAdmTableAdapter.FillByMedAdmPrescripNurseDoctorPatient(this.dataSet11.CustomMedAdm);
+            if (nid != 0)
+            {
+                this.customMedAdmTableAdapter.FillByNurseID(this.dataSet11.CustomMedAdm, nid);
+            }
+            else
+            {
+                this.customMedAdmTableAdapter.FillByMedAdmPrescripNurseDoctorPatient(this.dataSet11.CustomMedAdm);
+            }
             // TODO: This line of code loads data into the 'dataSet11.Prescriptionn_' table. You can move, or remove it, as needed.
             this.prescriptionn_TableAdapter.Fill(this.dataSet11.Prescriptionn_);
             // TODO: This line of code loads data into the 'dataSet11.MedicationAdministration' table. You can move, or remove it, as needed.
@@ -310,7 +334,7 @@ namespace MPM2.Business
             if (!string.IsNullOrWhiteSpace(medicine))
             {
                 if (filter != "") filter += " AND ";
-                filter += $"MedicineName LIKE '%{medicine}%'";
+                filter += $"MedicationName LIKE '%{medicine}%'";
             }
 
             if (dateTimePicker2.Checked)
