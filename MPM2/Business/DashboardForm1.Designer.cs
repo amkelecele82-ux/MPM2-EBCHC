@@ -108,6 +108,7 @@
             this.pro_AppointmentTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.Pro_AppointmentTableAdapter();
             this.newAppointmentsTableAdapter = new MPM2.Database.DataSet1TableAdapters.newAppointmentsTableAdapter();
             this.doctorTableAdapter1 = new MPM2.Database.DataSet1TableAdapters.DoctorTableAdapter();
+            this.txtDoctorAvailability = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -823,6 +824,7 @@
             // 
             this.panel15.BackColor = System.Drawing.Color.White;
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel15.Controls.Add(this.txtDoctorAvailability);
             this.panel15.Controls.Add(this.listBoxFullyBookedDoctors);
             this.panel15.Controls.Add(this.panel16);
             this.panel15.Location = new System.Drawing.Point(1164, 358);
@@ -837,8 +839,9 @@
             this.listBoxFullyBookedDoctors.FormattingEnabled = true;
             this.listBoxFullyBookedDoctors.Location = new System.Drawing.Point(-1, 38);
             this.listBoxFullyBookedDoctors.Name = "listBoxFullyBookedDoctors";
-            this.listBoxFullyBookedDoctors.Size = new System.Drawing.Size(237, 225);
+            this.listBoxFullyBookedDoctors.Size = new System.Drawing.Size(237, 186);
             this.listBoxFullyBookedDoctors.TabIndex = 7;
+            this.listBoxFullyBookedDoctors.SelectedIndexChanged += new System.EventHandler(this.listBoxFullyBookedDoctors_SelectedIndexChanged);
             // 
             // panel16
             // 
@@ -884,7 +887,7 @@
             this.button5.Location = new System.Drawing.Point(1218, 326);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(126, 24);
+            this.button5.Size = new System.Drawing.Size(10, 14);
             this.button5.TabIndex = 23;
             this.button5.Text = "Try Report";
             this.button5.UseVisualStyleBackColor = false;
@@ -1002,6 +1005,16 @@
             // 
             this.doctorTableAdapter1.ClearBeforeFill = true;
             // 
+            // txtDoctorAvailability
+            // 
+            this.txtDoctorAvailability.AutoSize = true;
+            this.txtDoctorAvailability.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.30189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDoctorAvailability.Location = new System.Drawing.Point(15, 114);
+            this.txtDoctorAvailability.Name = "txtDoctorAvailability";
+            this.txtDoctorAvailability.Size = new System.Drawing.Size(81, 29);
+            this.txtDoctorAvailability.TabIndex = 24;
+            this.txtDoctorAvailability.Text = "label1";
+            // 
             // DashboardForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1049,6 +1062,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.newApointmentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             this.NAPanel.ResumeLayout(false);
@@ -1141,5 +1155,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label txtDoctorAvailability;
     }
 }

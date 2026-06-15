@@ -377,6 +377,7 @@ namespace MPM2.Business
                     dashboardForm.LoadNAPanelFullyBookedDoctors("Admin");
 
                     dashboardForm.UpdateAppointmentStatusCounts();
+                    dashboardForm.UpdateDoctorAvailabilityStatus(doctorId);
                 }
 
                 pro_AppointmentTableAdapter.Fill(dataSet1.Pro_Appointment);

@@ -62,6 +62,7 @@ namespace MPM2.Business
             if (role == "Doctor")
             {
                 ApplyDoctorFilter(); // this will set filtered BindingSource
+                UpdateDoctorAvailabilityStatus(medid);
             }
             else
             {
@@ -70,9 +71,12 @@ namespace MPM2.Business
             if (role == "Nurse")
             {
                 ApplyNurseFilter();
+                txtDoctorAvailability.Visible = false; // Hide the availability textbox for nurses
             }
-
-            // Continue normal fills
+           else if(role == "Admin")
+                txtDoctorAvailability.Visible = false; // Hide the availability textbox for admins
+                                                       // txtDoctorAvailability.Visible = role == "Doctor"; // Show only for doctors
+                                                       // Continue normal fills
             this.appointmentTableAdapter.Fill(this.dataSet11.Appointment);
             this.pro_AppointmentTableAdapter1.Fill(this.dataSet11.Pro_Appointment);
             dataSet11.FullyBookedDoctors.Clear();
@@ -538,5 +542,60 @@ namespace MPM2.Business
             p.FormBorderStyle = FormBorderStyle.None;
             p.Show();
         }
+
+        private void listBoxFullyBookedDoctors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        public void UpdateDoctorAvailabilityStatus(int doctorId)
+        {
+            if (doctorId <= 0)
+            {
+                txtDoctorAvailability.Text = "";
+                return;
+            }
+             this.pro_AppointmentTableAdapter1.Fill(dataSet11.Pro_Appointment);
+            DateTime today = DateTime.Today;
+
+            int count = dataSet11.Pro_Appointment.AsEnumerable()
+                .Count(r =>
+                    Convert.ToInt32(r["DoctorID"]) == doctorId &&
+                    Convert.ToDateTime(r["AppointmentDate"]).Date == today);
+
+            if (count >= 6)
+            {
+                txtDoctorAvailability.Text = "Fully Booked";
+                txtDoctorAvailability.ForeColor = Color.Red;
+            }
+            else
+            {
+                int remaining = 6 - count;
+                txtDoctorAvailability.Text = $"Available ({remaining} slots left)";
+                txtDoctorAvailability.ForeColor = Color.Green;
+            }
+        }
+        /*
+         * 
+{
+    if (doctorId <= 0)
+    {
+        txtDoctorAvailability.Text = "";
+        return;
     }
+
+    // ✅ REFRESH DATA FIRST
+  
+
+    DateTime today = DateTime.Today;
+
+    int count = dataSet11.Pro_Appointment.AsEnumerable()
+        .Count(r =>
+            Convert.ToInt32(r["DoctorID"]) == doctorId &&
+            Convert.ToDateTime(r["AppointmentDate"]).Date == today);
+
+    ...
+}
+
+         */
     }
+}
