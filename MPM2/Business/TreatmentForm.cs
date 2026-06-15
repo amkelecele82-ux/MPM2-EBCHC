@@ -24,30 +24,36 @@ namespace MPM2.Business
             // TODO: This line of code loads data into the 'dataSet1.Doctor' table. You can move, or remove it, as needed.
             this.doctorTableAdapter.Fill(this.dataSet1.Doctor);
             // TODO: This line of code loads data into the 'dataSet1.AppointmentView' table. You can move, or remove it, as needed.
-            this.customTreatmentTableAdapter1.Fill(this.dataSet1.customTreatment);
+            //this.customTreatmentTableAdapter1.Fill(this.dataSet1.customTreatment);
+            this.customTreatmentInfoTableAdapter.Fill(this.dataSet1.customTreatmentInfo);
+            dateTimePicker2.Value = DateTime.Today;
 
-           
+            ApplyFilter();
+
             if (this.MdiParent is MainForm mf)
             {
                 if (mf.CurrentRole == "Doctor")
                 {
                     int doctorID = Convert.ToInt32(mf.CurrentDataRow["DoctorID"]);
+                    string doctorName = mf.CurrentDataRow["FullName"].ToString();
                     this.appointmentViewTableAdapter.FillByDoctorID(this.dataSet1.AppointmentView, doctorID);
-                    this.customTreatmentInfoTableAdapter.FillByDoctor(this.dataSet1.customTreatmentInfo, doctorID);
+                    //this.customTreatmentInfoTableAdapter.FillByDoctor(this.dataSet1.customTreatmentInfo, doctorID, doctorName);
                 }
                 else if (mf.CurrentRole == "Nurse")
                 {
                     int nurseID = Convert.ToInt32(mf.CurrentDataRow["NurseID"]);
                     this.appointmentViewTableAdapter.FillByNurse(this.dataSet1.AppointmentView, nurseID);
-                    this.customTreatmentInfoTableAdapter.FillByNurse(this.dataSet1.customTreatmentInfo, nurseID);
+                    //this.customTreatmentInfoTableAdapter.FillByNurse(this.dataSet1.customTreatmentInfo, nurseID);
                 }
-                else { 
+                else
+                {
                     this.customTreatmentInfoTableAdapter.Fill(this.dataSet1.customTreatmentInfo);
-                    this.appointmentViewTableAdapter.Fill(this.dataSet1.AppointmentView);
+                    //this.appointmentViewTableAdapter.Fill(this.dataSet1.AppointmentView);
                 }
             }
-            else {
-            this.customTreatmentInfoTableAdapter.Fill(this.dataSet1.customTreatmentInfo);
+            else
+            {
+                this.customTreatmentInfoTableAdapter.Fill(this.dataSet1.customTreatmentInfo);
             }
             // TODO: This line of code loads data into the 'dataSet1.Treatment' table. You can move, or remove it, as needed.
             this.treatmentTableAdapter.Fill(this.dataSet1.Treatment);
@@ -177,12 +183,14 @@ namespace MPM2.Business
                     if (mf.CurrentRole == "Doctor")
                     {
                         int did = Convert.ToInt32(mf.CurrentDataRow["DoctorID"]);
+                        string name = mf.CurrentDataRow["FullName"].ToString();
                         this.appointmentViewTableAdapter.FillByDoctorID(this.dataSet1.AppointmentView, did);
-                        this.customTreatmentInfoTableAdapter.FillByDoctor(this.dataSet1.customTreatmentInfo, did);
+                        this.customTreatmentInfoTableAdapter.FillByDoctor(this.dataSet1.customTreatmentInfo, did,name);
                     }
                     else if (mf.CurrentRole == "Nurse")
                     {
                         int nid = Convert.ToInt32(mf.CurrentDataRow["NurseID"]);
+                        string name = mf.CurrentDataRow["FullName"].ToString();
                         this.appointmentViewTableAdapter.FillByNurse(this.dataSet1.AppointmentView, nid);
                         this.customTreatmentInfoTableAdapter.FillByNurse(this.dataSet1.customTreatmentInfo, nid);
                     }
@@ -206,22 +214,22 @@ namespace MPM2.Business
             string filter = "";
 
             string treatmentname = TBVTreatName.Text.Replace("'", "''");
-            string patient = TBVPatientName.Text.Replace("'", "''");
+            string performedBy = TBVPatientName.Text.Replace("'", "''");
 
             if (!string.IsNullOrWhiteSpace(treatmentname))
                 filter += $"TreatmentName LIKE '%{treatmentname}%'";
 
-            if (!string.IsNullOrWhiteSpace(patient))
-            {
-                if (filter != "") filter += " AND ";
-                filter += $"PatientName LIKE '%{patient}%'";
-            }
+            //if (!string.IsNullOrWhiteSpace(performedBy))
+            //{
+            //    if (filter != "") filter += " AND ";
+            //    filter += $"performedBy LIKE '%{performedBy}%'";
+            //}
 
             DateTime date = dateTimePicker2.Value.Date;
 
             if (filter != "") filter += " AND ";
 
-            filter += $"perfomed_at >= #{date:MM/dd/yyyy}# AND perfomed_at < #{date.AddDays(1):MM/dd/yyyy}#";
+            filter += $"perfomed_at >= #{date:yyyy-MM-dd}# AND perfomed_at < #{date.AddDays(1):yyyy-MM-dd}#";
 
             customTreatmentInfoBindingSource.Filter = filter;
 
@@ -258,7 +266,8 @@ namespace MPM2.Business
 
         private void TBVPatientName_TextChanged(object sender, EventArgs e)
         {
-            ApplyFilter();
+            this.customTreatmentInfoTableAdapter.FillByPerformed(this.dataSet1.customTreatmentInfo, TBVPatientName.Text.ToString());
+            //ApplyFilter();
         }
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
@@ -392,25 +401,30 @@ namespace MPM2.Business
                     if (role == "Doctor")
                     {
                         int did = medid;
+                        string doctorName = performedBy;
                         this.appointmentViewTableAdapter.FillByDoctorID(this.dataSet1.AppointmentView, did);
-                        this.customTreatmentInfoTableAdapter.FillByDoctor(this.dataSet1.customTreatmentInfo, did);
+                        this.customTreatmentInfoTableAdapter.FillByDoctor(this.dataSet1.customTreatmentInfo, did, doctorName);
+                        ApplyFilter();
                     }
                     else if (role == "Nurse")
                     {
                         int nid = medid;
                         this.appointmentViewTableAdapter.FillByNurse(this.dataSet1.AppointmentView, nid);
                         this.customTreatmentInfoTableAdapter.FillByNurse(this.dataSet1.customTreatmentInfo, nid);
+                        ApplyFilter();
                     }
                     else
                     {
                         this.customTreatmentInfoTableAdapter.Fill(this.dataSet1.customTreatmentInfo);
                         this.appointmentViewTableAdapter.Fill(this.dataSet1.AppointmentView);
-                    }
+                    ApplyFilter();
+                }
                 }
                 else
                 {
                     this.customTreatmentInfoTableAdapter.Fill(this.dataSet1.customTreatmentInfo);
-                }
+                ApplyFilter();
+            }
                 // TODO: This line of code loads data into the 'dataSet1.Treatment' table. You can move, or remove it, as needed.
                 this.treatmentTableAdapter.Fill(this.dataSet1.Treatment);
         }

@@ -6856,11 +6856,8 @@ namespace MPM2.Database {
                 this.columntreatmentInformationID.AllowDBNull = false;
                 this.columntreatmentInformationID.ReadOnly = true;
                 this.columntreatmentInformationID.Unique = true;
-                this.columnTreatmentName.AllowDBNull = false;
                 this.columnTreatmentName.MaxLength = 50;
-                this.columnDoctorName.AllowDBNull = false;
                 this.columnDoctorName.MaxLength = 50;
-                this.columnPatientName.AllowDBNull = false;
                 this.columnPatientName.MaxLength = 50;
                 this.columnresults.AllowDBNull = false;
                 this.columnresults.MaxLength = 50;
@@ -10760,7 +10757,12 @@ namespace MPM2.Database {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string TreatmentName {
                 get {
-                    return ((string)(this[this.tablecustomTreatmentInfo.TreatmentNameColumn]));
+                    try {
+                        return ((string)(this[this.tablecustomTreatmentInfo.TreatmentNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TreatmentName\' in table \'customTreatmentInfo\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablecustomTreatmentInfo.TreatmentNameColumn] = value;
@@ -10771,7 +10773,12 @@ namespace MPM2.Database {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string DoctorName {
                 get {
-                    return ((string)(this[this.tablecustomTreatmentInfo.DoctorNameColumn]));
+                    try {
+                        return ((string)(this[this.tablecustomTreatmentInfo.DoctorNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DoctorName\' in table \'customTreatmentInfo\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablecustomTreatmentInfo.DoctorNameColumn] = value;
@@ -10782,7 +10789,12 @@ namespace MPM2.Database {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string PatientName {
                 get {
-                    return ((string)(this[this.tablecustomTreatmentInfo.PatientNameColumn]));
+                    try {
+                        return ((string)(this[this.tablecustomTreatmentInfo.PatientNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PatientName\' in table \'customTreatmentInfo\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablecustomTreatmentInfo.PatientNameColumn] = value;
@@ -10842,6 +10854,42 @@ namespace MPM2.Database {
                 set {
                     this[this.tablecustomTreatmentInfo.perfomedByColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTreatmentNameNull() {
+                return this.IsNull(this.tablecustomTreatmentInfo.TreatmentNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTreatmentNameNull() {
+                this[this.tablecustomTreatmentInfo.TreatmentNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDoctorNameNull() {
+                return this.IsNull(this.tablecustomTreatmentInfo.DoctorNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDoctorNameNull() {
+                this[this.tablecustomTreatmentInfo.DoctorNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPatientNameNull() {
+                return this.IsNull(this.tablecustomTreatmentInfo.PatientNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPatientNameNull() {
+                this[this.tablecustomTreatmentInfo.PatientNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -19605,27 +19653,29 @@ SELECT PatientID, DoctorID, NurseID, AppointmentStatus, AppointmentReason, Appoi
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ti.treatmentInformationID, t.FullName AS TreatmentName, d.FullName AS DoctorName, p.FullName AS PatientName, ti.results, ti.diagnosis, ti.notes, ti.perfomed_at, ti.perfomedBy
-FROM     TreatmentInformation AS ti INNER JOIN
-                  Treatment AS t ON ti.treatmentID = t.treatmentID INNER JOIN
-                  Appointment AS a ON ti.appointmentID = a.Appointment_ID INNER JOIN
-                  Doctor AS d ON a.Doctor_ID = d.DoctorID INNER JOIN
-                  Patient AS p ON a.Patient_ID = p.PatientID";
+            this._commandCollection[0].CommandText = @"SELECT   ti.treatmentInformationID, t.FullName AS TreatmentName, d.FullName AS DoctorName, p.FullName AS PatientName, ti.results, ti.diagnosis, ti.notes, ti.perfomed_at, ti.perfomedBy
+FROM      TreatmentInformation AS ti LEFT OUTER JOIN
+                Treatment AS t ON ti.treatmentID = t.treatmentID LEFT OUTER JOIN
+                Appointment AS a ON ti.appointmentID = a.Appointment_ID LEFT OUTER JOIN
+                Doctor AS d ON a.Doctor_ID = d.DoctorID LEFT OUTER JOIN
+                Patient AS p ON a.Patient_ID = p.PatientID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT ti.treatmentInformationID, t.FullName AS TreatmentName, d.FullName AS DoctorName, p.FullName AS PatientName, ti.results, ti.diagnosis, ti.notes, ti.perfomed_at, ti.perfomedBy
-FROM     TreatmentInformation AS ti INNER JOIN
-                  Treatment AS t ON ti.treatmentID = t.treatmentID INNER JOIN
-                  Appointment AS a ON ti.appointmentID = a.Appointment_ID INNER JOIN
-                  Doctor AS d ON a.Doctor_ID = d.DoctorID INNER JOIN
-                  Patient AS p ON a.Patient_ID = p.PatientID
-WHERE  (d.DoctorID = @DoctorID)";
+            this._commandCollection[1].CommandText = @"SELECT   ti.treatmentInformationID, t.FullName AS TreatmentName, d.FullName AS DoctorName, p.FullName AS PatientName, ti.results, ti.diagnosis, ti.notes, ti.perfomed_at, ti.perfomedBy
+FROM      TreatmentInformation AS ti INNER JOIN
+                Treatment AS t ON ti.treatmentID = t.treatmentID INNER JOIN
+                Appointment AS a ON ti.appointmentID = a.Appointment_ID INNER JOIN
+                Doctor AS d ON a.Doctor_ID = d.DoctorID INNER JOIN
+                Patient AS p ON a.Patient_ID = p.PatientID
+WHERE   (d.DoctorID = @DoctorID) OR
+                (ti.perfomedBy = @DoctorName)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DoctorID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DoctorName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "perfomedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"SELECT ti.treatmentInformationID, t.FullName AS TreatmentName, d.FullName AS DoctorName, p.FullName AS PatientName, ti.results, ti.diagnosis, ti.notes, ti.perfomed_at, ti.perfomedBy
@@ -19637,6 +19687,17 @@ FROM     TreatmentInformation AS ti INNER JOIN
 WHERE  (t.NurseID = @NurseID)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NurseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "NurseID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT   ti.treatmentInformationID, t.FullName AS TreatmentName, d.FullName AS DoctorName, p.FullName AS PatientName, ti.results, ti.diagnosis, ti.notes, ti.perfomed_at, ti.perfomedBy
+FROM      TreatmentInformation AS ti LEFT OUTER JOIN
+                Treatment AS t ON ti.treatmentID = t.treatmentID LEFT OUTER JOIN
+                Appointment AS a ON ti.appointmentID = a.Appointment_ID LEFT OUTER JOIN
+                Doctor AS d ON a.Doctor_ID = d.DoctorID LEFT OUTER JOIN
+                Patient AS p ON a.Patient_ID = p.PatientID
+WHERE   (ti.perfomedBy LIKE '%' + @performedby + '%')";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@performedby", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "perfomedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19667,9 +19728,15 @@ WHERE  (t.NurseID = @NurseID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByDoctor(DataSet1.customTreatmentInfoDataTable dataTable, int DoctorID) {
+        public virtual int FillByDoctor(DataSet1.customTreatmentInfoDataTable dataTable, int DoctorID, string DoctorName) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(DoctorID));
+            if ((DoctorName == null)) {
+                throw new global::System.ArgumentNullException("DoctorName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(DoctorName));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -19681,9 +19748,15 @@ WHERE  (t.NurseID = @NurseID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSet1.customTreatmentInfoDataTable GetDataBy(int DoctorID) {
+        public virtual DataSet1.customTreatmentInfoDataTable GetDataBy(int DoctorID, string DoctorName) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(DoctorID));
+            if ((DoctorName == null)) {
+                throw new global::System.ArgumentNullException("DoctorName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(DoctorName));
+            }
             DataSet1.customTreatmentInfoDataTable dataTable = new DataSet1.customTreatmentInfoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -19710,6 +19783,42 @@ WHERE  (t.NurseID = @NurseID)";
         public virtual DataSet1.customTreatmentInfoDataTable GetDataBy1(int NurseID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(NurseID));
+            DataSet1.customTreatmentInfoDataTable dataTable = new DataSet1.customTreatmentInfoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPerformed(DataSet1.customTreatmentInfoDataTable dataTable, string performedby) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((performedby == null)) {
+                throw new global::System.ArgumentNullException("performedby");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(performedby));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet1.customTreatmentInfoDataTable GetDataBy2(string performedby) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((performedby == null)) {
+                throw new global::System.ArgumentNullException("performedby");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(performedby));
+            }
             DataSet1.customTreatmentInfoDataTable dataTable = new DataSet1.customTreatmentInfoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
